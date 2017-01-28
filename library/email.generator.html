@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>19.1.3. email.generator: MIME 文書の生成 &#8212; Python 3.5.2 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.5.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Python 3.5.2 ドキュメント 内を検索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="19.1.4. email.policy: ポリシーオブジェクト" href="email.policy.html" />
+    <link rel="prev" title="19.1.2. email.parser: 電子メールメッセージのパース" href="email.parser.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    $(document).ready(function() {
+      var base = 'https://docs.python.org/3.5/library/email.generator.html';
+      $('a.headerlink').each(function() {
+        var html = '<a href="' + base + $(this).attr('href') +
+                   '" title="原文へのリンク"><small>(原文)</small></a>';
+        $(this).after(html);
+      })
+    });
+    </script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+    
+    
+ 
+
+  </head>
+  <body role="document">  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="email.policy.html" title="19.1.4. email.policy: ポリシーオブジェクト"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="email.parser.html" title="19.1.2. email.parser: 電子メールメッセージのパース"
+             accesskey="P">前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python 標準ライブラリ</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >19. インターネット上のデータの操作</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" accesskey="U">19.1. <code class="docutils literal"><span class="pre">email</span></code> &#8212; 電子メールと MIME 処理のためのパッケージ</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-email.generator">
+<span id="email-generator-generating-mime-documents"></span><h1>19.1.3. <a class="reference internal" href="#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal"><span class="pre">email.generator</span></code></a>: MIME 文書の生成<a class="headerlink" href="#module-email.generator" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><strong>Source code:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/email/generator.py">Lib/email/generator.py</a></p>
+<hr class="docutils" />
+<p>よくある作業のひとつは、メッセージオブジェクト構造からフラットな電子メールテキストを生成することです。この作業は <a class="reference internal" href="smtplib.html#module-smtplib" title="smtplib: SMTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">smtplib</span></code></a> や <a class="reference internal" href="nntplib.html#module-nntplib" title="nntplib: NNTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">nntplib</span></code></a> モジュールを使ってメッセージを送信したり、メッセージをコンソールに出力したりするときに必要になります。あるメッセージオブジェクト構造をとってきて、そこからフラットなテキスト文書を生成するのは <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> クラスの仕事です。</p>
+<p>繰り返しになりますが、 <a class="reference internal" href="email.parser.html#module-email.parser" title="email.parser: Parse flat text email messages to produce a message object structure."><code class="xref py py-mod docutils literal"><span class="pre">email.parser</span></code></a> モジュールと同じく、この機能はここでの定義済みジェネレータに制限されるわけではありません。これらはご自身でゼロから作りあげることもできます。しかしながら、定義済みのジェネレータはほとんどの電子メールを標準に沿ったやり方で生成する方法を知っていますし、MIME メッセージも非 MIME メッセージもとても上手く扱えます。さらにこれはフラットなテキストから <a class="reference internal" href="email.parser.html#email.parser.Parser" title="email.parser.Parser"><code class="xref py py-class docutils literal"><span class="pre">Parser</span></code></a> クラスを使ってメッセージ構造に変換し、それをまたフラットなテキストに戻しても、結果が冪等 (入力が出力と同じになる) <a class="footnote-reference" href="#id3" id="id1">[1]</a> になるよう設計されています。一方で、プログラムによって構成された <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> のジェネレータを使う場合、デフォルトの挿入によって <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> オブジェクトを変えてしまうかもしれません。</p>
+<p><a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> output can be generated using the <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> class.
+If the message object structure contains non-ASCII bytes, this generator&#8217;s
+<a class="reference internal" href="#email.generator.BytesGenerator.flatten" title="email.generator.BytesGenerator.flatten"><code class="xref py py-meth docutils literal"><span class="pre">flatten()</span></code></a> method will emit the original bytes.  Parsing a
+binary message and then flattening it with <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> should be
+idempotent for standards compliant messages.</p>
+<p><a class="reference internal" href="#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal"><span class="pre">email.generator</span></code></a> モジュールからインポートされる <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> クラスで公開されているメソッドには、以下のようなものがあります:</p>
+<dl class="class">
+<dt id="email.generator.Generator">
+<em class="property">class </em><code class="descclassname">email.generator.</code><code class="descname">Generator</code><span class="sig-paren">(</span><em>outfp</em>, <em>mangle_from_=True</em>, <em>maxheaderlen=78</em>, <em>*</em>, <em>policy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.Generator" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> クラスのコンストラクタは <em>outfp</em> と呼ばれる <a class="reference internal" href="../glossary.html#term-file-like-object"><span class="xref std std-term">file-like object</span></a> を引数にとります。 <em>outfp</em> は <a class="reference internal" href="#email.generator.Generator.write" title="email.generator.Generator.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a> メソッドをサポートし、 <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> 関数の出力ファイルとして使えるようになっている必要があります。</p>
+<p>Optional <em>mangle_from_</em> is a flag that, when <code class="docutils literal"><span class="pre">True</span></code>, puts a <code class="docutils literal"><span class="pre">&gt;</span></code> character in
+front of any line in the body that starts exactly as <code class="docutils literal"><span class="pre">From</span></code>, i.e. <code class="docutils literal"><span class="pre">From</span></code>
+followed by a space at the beginning of the line.  This is the only guaranteed
+portable way to avoid having such lines be mistaken for a Unix mailbox format
+envelope header separator (see <a class="reference external" href="https://www.jwz.org/doc/content-length.html">WHY THE CONTENT-LENGTH FORMAT IS BAD</a> for details).  <em>mangle_from_</em>
+defaults to <code class="docutils literal"><span class="pre">True</span></code>, but you might want to set this to <code class="docutils literal"><span class="pre">False</span></code> if you are not
+writing Unix mailbox format files.</p>
+<p>オプション引数 <em>maxheaderlen</em> は連続していないヘッダの最大長を指定します。ひとつのヘッダ行が <em>maxheaderlen</em> (これは文字数です、tab は空白 8文字に展開されます) よりも長い場合、ヘッダは <a class="reference internal" href="email.header.html#email.header.Header" title="email.header.Header"><code class="xref py py-class docutils literal"><span class="pre">Header</span></code></a> クラスで定義されているように途中で折り返され、間にはセミコロンが挿入されます。もしセミコロンが見つからない場合、そのヘッダは放置されます。ヘッダの折り返しを禁止するにはこの値にゼロを指定してください。デフォルトは 78 文字で、 <span class="target" id="index-9"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> で推奨されている (ですが強制ではありません) 値です。</p>
+<p>The <em>policy</em> keyword specifies a <a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal"><span class="pre">policy</span></code></a> object that controls a
+number of aspects of the generator&#8217;s operation.  If no <em>policy</em> is specified,
+then the <em>policy</em> attached to the message object passed to <a class="reference internal" href="#email.generator.Generator.flatten" title="email.generator.Generator.flatten"><code class="xref py py-attr docutils literal"><span class="pre">flatten</span></code></a>
+is used.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.3 で変更: </span>キーワード引数 <em>policy</em> が追加されました。</p>
+</div>
+<p>これ以外のパブリックな <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> メソッドは以下のとおりです:</p>
+<dl class="method">
+<dt id="email.generator.Generator.flatten">
+<code class="descname">flatten</code><span class="sig-paren">(</span><em>msg</em>, <em>unixfrom=False</em>, <em>linesep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.Generator.flatten" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p><em>msg</em> を基点とするメッセージオブジェクト構造体の文字表現を出力します。出力先のファイルにはこの <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> インスタンスが作成されたときに指定されたものが使われます。各 subpart は深さ優先順序 (depth-first) で出力され、得られるテキストは適切に MIME エンコードされたものになっています。</p>
+<p>オプション引数 <em>unixfrom</em> は、基点となるメッセージオブジェクトの最初の <span class="target" id="index-10"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダが現れる前に、エンペローブヘッダ区切り文字列を出力することを強制するフラグです。そのメッセージオブジェクトがエンペローブヘッダをもたない場合、標準的なエンペローブヘッダが自動的に作成されます。デフォルトではこの値は <code class="docutils literal"><span class="pre">False</span></code> に設定されており、エンペローブヘッダ区切り文字列は出力されません。</p>
+<p>注意: 各 subpart に関しては、エンペローブヘッダは出力されません。</p>
+<p>Optional <em>linesep</em> specifies the line separator character used to
+terminate lines in the output.  If specified it overrides the value
+specified by the <em>msg</em>&#8216;s or <code class="docutils literal"><span class="pre">Generator</span></code>&#8216;s <code class="docutils literal"><span class="pre">policy</span></code>.</p>
+<p>Because strings cannot represent non-ASCII bytes, if the policy that
+applies when <code class="docutils literal"><span class="pre">flatten</span></code> is run has <a class="reference internal" href="email.policy.html#email.policy.Policy.cte_type" title="email.policy.Policy.cte_type"><code class="xref py py-attr docutils literal"><span class="pre">cte_type</span></code></a>
+set to <code class="docutils literal"><span class="pre">8bit</span></code>, <code class="docutils literal"><span class="pre">Generator</span></code> will operate as if it were set to
+<code class="docutils literal"><span class="pre">7bit</span></code>.  This means that messages parsed with a Bytes parser that have
+a <em class="mailheader">Content-Transfer-Encoding</em> of <code class="docutils literal"><span class="pre">8bit</span></code> will be converted
+to a use a <code class="docutils literal"><span class="pre">7bit</span></code> Content-Transfer-Encoding.  Non-ASCII bytes in the
+headers will be <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2047.html"><strong>RFC 2047</strong></a> encoded with a charset of <code class="docutils literal"><span class="pre">unknown-8bit</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.2 で変更: </span>Added support for re-encoding <code class="docutils literal"><span class="pre">8bit</span></code> message bodies, and the
+<em>linesep</em> argument.</p>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="email.generator.Generator.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.Generator.clone" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>この <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> インスタンスの独立したクローンを生成し返します。オプションはすべて同一になっています。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="email.generator.Generator.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.Generator.write" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>文字列 <em>s</em> を既定のファイルに出力します。ここでいう出力先は <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> コンストラクタに渡した <em>outfp</em> のことをさします。この関数はただ単に <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> 関数で使われる <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> インスタンスに対してファイル操作風の API を提供するためだけのものです。</p>
+</dd></dl>
+
+</dd></dl>
+
+<p>As a convenience, see the <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> methods
+<a class="reference internal" href="email.message.html#email.message.Message.as_string" title="email.message.Message.as_string"><code class="xref py py-meth docutils literal"><span class="pre">as_string()</span></code></a> and <code class="docutils literal"><span class="pre">str(aMessage)</span></code>, a.k.a.
+<a class="reference internal" href="email.message.html#email.message.Message.__str__" title="email.message.Message.__str__"><code class="xref py py-meth docutils literal"><span class="pre">__str__()</span></code></a>, which simplify the generation of a
+formatted string representation of a message object.  For more detail, see
+<a class="reference internal" href="email.message.html#module-email.message" title="email.message: The base class representing email messages."><code class="xref py py-mod docutils literal"><span class="pre">email.message</span></code></a>.</p>
+<dl class="class">
+<dt id="email.generator.BytesGenerator">
+<em class="property">class </em><code class="descclassname">email.generator.</code><code class="descname">BytesGenerator</code><span class="sig-paren">(</span><em>outfp</em>, <em>mangle_from_=True</em>, <em>maxheaderlen=78</em>, <em>*</em>, <em>policy=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.BytesGenerator" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>The constructor for the <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> class takes a binary
+<a class="reference internal" href="../glossary.html#term-file-like-object"><span class="xref std std-term">file-like object</span></a> called <em>outfp</em> for an argument.  <em>outfp</em> must
+support a <a class="reference internal" href="#email.generator.BytesGenerator.write" title="email.generator.BytesGenerator.write"><code class="xref py py-meth docutils literal"><span class="pre">write()</span></code></a> method that accepts binary data.</p>
+<p>Optional <em>mangle_from_</em> is a flag that, when <code class="docutils literal"><span class="pre">True</span></code>, puts a <code class="docutils literal"><span class="pre">&gt;</span></code>
+character in front of any line in the body that starts exactly as <code class="docutils literal"><span class="pre">From</span></code>,
+i.e. <code class="docutils literal"><span class="pre">From</span></code> followed by a space at the beginning of the line.  This is the
+only guaranteed portable way to avoid having such lines be mistaken for a
+Unix mailbox format envelope header separator (see <a class="reference external" href="https://www.jwz.org/doc/content-length.html">WHY THE CONTENT-LENGTH
+FORMAT IS BAD</a> for details).
+<em>mangle_from_</em> defaults to <code class="docutils literal"><span class="pre">True</span></code>, but you might want to set this to
+<code class="docutils literal"><span class="pre">False</span></code> if you are not writing Unix mailbox format files.</p>
+<p>オプション引数 <em>maxheaderlen</em> は連続していないヘッダの最大長を指定します。ひとつのヘッダ行が <em>maxheaderlen</em> (これは文字数です、tab は空白 8文字に展開されます) よりも長い場合、ヘッダは <a class="reference internal" href="email.header.html#email.header.Header" title="email.header.Header"><code class="xref py py-class docutils literal"><span class="pre">Header</span></code></a> クラスで定義されているように途中で折り返され、間にはセミコロンが挿入されます。もしセミコロンが見つからない場合、そのヘッダは放置されます。ヘッダの折り返しを禁止するにはこの値にゼロを指定してください。デフォルトは 78 文字で、 <span class="target" id="index-11"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> で推奨されている (ですが強制ではありません) 値です。</p>
+<p>The <em>policy</em> keyword specifies a <a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal"><span class="pre">policy</span></code></a> object that controls a
+number of aspects of the generator&#8217;s operation.  If no <em>policy</em> is specified,
+then the <em>policy</em> attached to the message object passed to <a class="reference internal" href="#email.generator.BytesGenerator.flatten" title="email.generator.BytesGenerator.flatten"><code class="xref py py-attr docutils literal"><span class="pre">flatten</span></code></a>
+is used.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.3 で変更: </span>キーワード引数 <em>policy</em> が追加されました。</p>
+</div>
+<p>これ以外のパブリックな <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> メソッドは以下のとおりです:</p>
+<dl class="method">
+<dt id="email.generator.BytesGenerator.flatten">
+<code class="descname">flatten</code><span class="sig-paren">(</span><em>msg</em>, <em>unixfrom=False</em>, <em>linesep=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.BytesGenerator.flatten" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Print the textual representation of the message object structure rooted
+at <em>msg</em> to the output file specified when the <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a>
+instance was created.  Subparts are visited depth-first and the resulting
+text will be properly MIME encoded.  If the <a class="reference internal" href="email.policy.html#module-email.policy" title="email.policy: Controlling the parsing and generating of messages"><code class="xref py py-mod docutils literal"><span class="pre">policy</span></code></a> option
+<a class="reference internal" href="email.policy.html#email.policy.Policy.cte_type" title="email.policy.Policy.cte_type"><code class="xref py py-attr docutils literal"><span class="pre">cte_type</span></code></a> is <code class="docutils literal"><span class="pre">8bit</span></code> (the default),
+then any bytes with the high bit set in the original parsed message that
+have not been modified will be copied faithfully to the output.  If
+<code class="docutils literal"><span class="pre">cte_type</span></code> is <code class="docutils literal"><span class="pre">7bit</span></code>, the bytes will be converted as needed
+using an ASCII-compatible Content-Transfer-Encoding.  In particular,
+RFC-invalid non-ASCII bytes in headers will be encoded using the MIME
+<code class="docutils literal"><span class="pre">unknown-8bit</span></code> character set, thus rendering them RFC-compliant.</p>
+<p>Messages parsed with a Bytes parser that have a
+<em class="mailheader">Content-Transfer-Encoding</em> of 8bit will be reconstructed
+as 8bit if they have not been modified.</p>
+<p>オプション引数 <em>unixfrom</em> は、基点となるメッセージオブジェクトの最初の <span class="target" id="index-12"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダが現れる前に、エンペローブヘッダ区切り文字列を出力することを強制するフラグです。そのメッセージオブジェクトがエンペローブヘッダをもたない場合、標準的なエンペローブヘッダが自動的に作成されます。デフォルトではこの値は <code class="docutils literal"><span class="pre">False</span></code> に設定されており、エンペローブヘッダ区切り文字列は出力されません。</p>
+<p>注意: 各 subpart に関しては、エンペローブヘッダは出力されません。</p>
+<p>Optional <em>linesep</em> specifies the line separator character used to
+terminate lines in the output.  If specified it overrides the value
+specified by the <code class="docutils literal"><span class="pre">Generator</span></code>or <em>msg</em>&#8216;s <code class="docutils literal"><span class="pre">policy</span></code>.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="email.generator.BytesGenerator.clone">
+<code class="descname">clone</code><span class="sig-paren">(</span><em>fp</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.BytesGenerator.clone" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>この <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> インスタンスの独立したクローンを生成し返します。オプションはすべて同一になっています。</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="email.generator.BytesGenerator.write">
+<code class="descname">write</code><span class="sig-paren">(</span><em>s</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.BytesGenerator.write" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Write the string <em>s</em> to the underlying file object.  <em>s</em> is encoded using
+the <code class="docutils literal"><span class="pre">ASCII</span></code> codec and written to the <em>write</em> method of the  <em>outfp</em>
+<em>outfp</em> passed to the <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a>&#8216;s constructor.  This
+provides just enough file-like API for <a class="reference internal" href="#email.generator.BytesGenerator" title="email.generator.BytesGenerator"><code class="xref py py-class docutils literal"><span class="pre">BytesGenerator</span></code></a> instances
+to be used in the <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> function.</p>
+</dd></dl>
+
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.2 で追加.</span></p>
+</div>
+</dd></dl>
+
+<p><a class="reference internal" href="#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal"><span class="pre">email.generator</span></code></a> モジュールはひとつの派生クラスも提供しています。これは <a class="reference internal" href="#email.generator.DecodedGenerator" title="email.generator.DecodedGenerator"><code class="xref py py-class docutils literal"><span class="pre">DecodedGenerator</span></code></a> と呼ばれるもので、 <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> 基底クラスと似ていますが、非 <em class="mimetype">text</em> 型の subpart を特定の書式でフォーマットされた表現形式で置きかえるところが違っています。</p>
+<dl class="class">
+<dt id="email.generator.DecodedGenerator">
+<em class="property">class </em><code class="descclassname">email.generator.</code><code class="descname">DecodedGenerator</code><span class="sig-paren">(</span><em>outfp</em>, <em>mangle_from_=True</em>, <em>maxheaderlen=78</em>, <em>fmt=None</em><span class="sig-paren">)</span><a class="headerlink" href="#email.generator.DecodedGenerator" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>このクラスは <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> から派生したもので、メッセージの subpart をすべて渡り歩きます。subpart の主形式が <em class="mimetype">text</em> だった場合、これはその subpart のペイロードをデコードして出力します。オプション引数 <em>_mangle_from_</em> および <em>maxheaderlen</em> の意味は基底クラス <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> のそれと同じです。</p>
+<p>Subpart の主形式が <em class="mimetype">text</em> ではない場合、オプション引数 <em>fmt</em> がそのメッセージペイロードのかわりのフォーマット文字列として使われます。 <em>fmt</em> は <code class="docutils literal"><span class="pre">%(keyword)s</span></code> のような形式を展開し、以下のキーワードを認識します:</p>
+<ul class="simple">
+<li><p class="first"><code class="docutils literal"><span class="pre">type</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart の MIME 形式</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">maintype</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart の MIME 主形式 (maintype)</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">subtype</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart の MIME 副形式 (subtype)</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">filename</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart のファイル名</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">description</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart につけられた説明文字列</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">encoding</span></code> &#8211; 非 <em class="mimetype">text</em> 型 subpart の Content-transfer-encoding</p>
+</li>
+</ul>
+<p><em>fmt</em> のデフォルト値は <code class="docutils literal"><span class="pre">None</span></code> です。こうすると以下の形式で出力します</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Non</span><span class="o">-</span><span class="n">text</span> <span class="p">(</span><span class="o">%</span><span class="p">(</span><span class="nb">type</span><span class="p">)</span><span class="n">s</span><span class="p">)</span> <span class="n">part</span> <span class="n">of</span> <span class="n">message</span> <span class="n">omitted</span><span class="p">,</span> <span class="n">filename</span> <span class="o">%</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span><span class="n">s</span><span class="p">]</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<p class="rubric">脚注</p>
+<table class="docutils footnote" frame="void" id="id3" rules="none">
+<colgroup><col class="label" /><col /></colgroup>
+<tbody valign="top">
+<tr><td class="label"><a class="fn-backref" href="#id1">[1]</a></td><td><p class="first last">ここではあなたが <code class="docutils literal"><span class="pre">unixfrom</span></code> 引数に適切な設定を使い、 maxheaderlen=0 (入力行がどんな長さでも元のものを維持します) をセットしていることを前提にしています。これでもなお厳密には正しくありません。多くの場合ヘッダの連続する空白が単一の空白に置き換えられるからです。これはいずれは修正されるべきバグです。</p>
+</td></tr>
+</tbody>
+</table>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="email.parser.html"
+                        title="前の章へ">19.1.2. <code class="docutils literal"><span class="pre">email.parser</span></code>: 電子メールメッセージのパース</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="email.policy.html"
+                        title="次の章へ">19.1.4. <code class="docutils literal"><span class="pre">email.policy</span></code>: ポリシーオブジェクト</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li><a href="../_sources/library/email.generator.rst.txt"
+            rel="nofollow">ソースの表示</a></li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="email.policy.html" title="19.1.4. email.policy: ポリシーオブジェクト"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="email.parser.html" title="19.1.2. email.parser: 電子メールメッセージのパース"
+             >前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python 標準ライブラリ</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >19. インターネット上のデータの操作</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" >19.1. <code class="docutils literal"><span class="pre">email</span></code> &#8212; 電子メールと MIME 処理のためのパッケージ</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python Software Foundation は非営利団体です。
+    <a href="https://www.python.org/psf/donations/">寄付</a>
+    <br />
+    最終更新日時: 1月 28, 2017
+    <a href="../bugs.html">バグを見つけたら</a>?
+    <br />
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    </div>
+
+  </body>
+</html>

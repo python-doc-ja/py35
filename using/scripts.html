@@ -1,0 +1,294 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. その他のツールとスクリプト &#8212; Python 3.5.2 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.5.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Python 3.5.2 ドキュメント 内を検索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="Python 言語リファレンス" href="../reference/index.html" />
+    <link rel="prev" title="4. Macintosh で Python を使う" href="mac.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    $(document).ready(function() {
+      var base = 'https://docs.python.org/3.5/using/scripts.html';
+      $('a.headerlink').each(function() {
+        var html = '<a href="' + base + $(this).attr('href') +
+                   '" title="原文へのリンク"><small>(原文)</small></a>';
+        $(this).after(html);
+      })
+    });
+    </script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+    
+    
+ 
+
+  </head>
+  <body role="document">  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Python 言語リファレンス"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="mac.html" title="4. Macintosh で Python を使う"
+             accesskey="P">前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python のセットアップと利用</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="additional-tools-and-scripts">
+<span id="tools-and-scripts"></span><h1>5. その他のツールとスクリプト<a class="headerlink" href="#additional-tools-and-scripts" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="pyvenv-creating-virtual-environments">
+<span id="scripts-pyvenv"></span><h2>5.1. pyvenv - 仮想環境の作成<a class="headerlink" href="#pyvenv-creating-virtual-environments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p><code class="docutils literal"><span class="pre">pyvenv</span></code> スクリプトを実行することで <a class="reference internal" href="../library/venv.html#venv-def"><span class="std std-ref">virtual environments</span></a> を作成出来ます</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pyvenv</span> <span class="o">/</span><span class="n">path</span><span class="o">/</span><span class="n">to</span><span class="o">/</span><span class="n">new</span><span class="o">/</span><span class="n">virtual</span><span class="o">/</span><span class="n">environment</span>
+</pre></div>
+</div>
+<p>このコマンドを実行すると、対象のディレクトリ (および必要なだけの存在していない親ディレクトリ) が作成され、その中に <code class="docutils literal"><span class="pre">pyvenv.cfg</span></code> ファイルが置かれます。そのファイルの <code class="docutils literal"><span class="pre">home</span></code> キーはこのコマンドを呼び出した Python のインストール場所を指します。このコマンドはまた、<code class="docutils literal"><span class="pre">python</span></code> バイナリのコピーを含む <code class="docutils literal"><span class="pre">bin</span></code> サブディレクトリを作成します (Windows では、<code class="docutils literal"><span class="pre">python</span></code> バイナリを含む <code class="docutils literal"><span class="pre">Scripts</span></code> サブディレクトリを作成します)。さらに、<code class="docutils literal"><span class="pre">lib/pythonX.Y/site-packages</span></code> (Windows では <code class="docutils literal"><span class="pre">Lib\site-packages</span></code>) サブディレクトリも (最初は空の状態で) 作成します。</p>
+<div class="admonition seealso">
+<p class="first admonition-title">参考</p>
+<p class="last"><a class="reference external" href="https://packaging.python.org/en/latest/installing/#creating-virtual-environments">Python Packaging User Guide: Creating and using virtual environments</a></p>
+</div>
+<p>Windows では、関連する PATH および PATHEXT の設定をしていない場合、以下のように <code class="docutils literal"><span class="pre">pyvenv</span></code> スクリプトを呼び出さなければならないかもしれません:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>c:\Temp&gt;c:\Python35\python c:\Python35\Tools\Scripts\pyvenv.py myenv
+</pre></div>
+</div>
+<p>もしくは以下でも同じです:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>c:\Temp&gt;c:\Python35\python -m venv myenv
+</pre></div>
+</div>
+<p>このコマンドを <code class="docutils literal"><span class="pre">-h</span></code> をつけて実行すると利用できるオプションが表示されます:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>usage: venv [-h] [--system-site-packages] [--symlinks | --copies] [--clear]
+            [--upgrade] [--without-pip]
+            ENV_DIR [ENV_DIR ...]
+
+Creates virtual Python environments in one or more target directories.
+
+positional arguments:
+  ENV_DIR             A directory to create the environment in.
+
+optional arguments:
+  -h, --help             show this help message and exit
+  --system-site-packages Give the virtual environment access to the system
+                         site-packages dir.
+  --symlinks             Try to use symlinks rather than copies, when symlinks
+                         are not the default for the platform.
+  --copies               Try to use copies rather than symlinks, even when
+                         symlinks are the default for the platform.
+  --clear                Delete the contents of the environment directory if it
+                         already exists, before environment creation.
+  --upgrade              Upgrade the environment directory to use this version
+                         of Python, assuming Python has been upgraded in-place.
+  --without-pip          Skips installing or upgrading pip in the virtual
+                         environment (pip is bootstrapped by default)
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">venv</span></code> 機能がどのように起動されたかによって使用法のメッセージが微妙に変わるかもしれません。例えば <code class="docutils literal"><span class="pre">venv</span></code> でなく <code class="docutils literal"><span class="pre">pyvenv</span></code> について述べるかもしれません。</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.4 で変更: </span>デフォルトで pip をインストールします。<code class="docutils literal"><span class="pre">--without-pip</span></code> と <code class="docutils literal"><span class="pre">--copies</span></code> オプションを追加しました。</p>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.4 で変更: </span>以前のバージョンでは <code class="docutils literal"><span class="pre">--clear</span></code> か <code class="docutils literal"><span class="pre">--upgrade</span></code> オプションが指定されていない限り、対象のディレクトリが既に存在していた場合はエラーを送出していました。
+現在は、既存のディレクトリが指定された場合、中身が削除されディレクトリは新規作成されたように扱われます。</p>
+</div>
+<p>作成された <code class="docutils literal"><span class="pre">pyvenv.cfg</span></code> ファイルには、<code class="docutils literal"><span class="pre">include-system-site-packages</span></code> キーも含まれます。これは <code class="docutils literal"><span class="pre">venv</span></code> が <code class="docutils literal"><span class="pre">--system-site-packages</span></code> オプションをつけて実行されたなら <code class="docutils literal"><span class="pre">true</span></code> で、そうでなければ <code class="docutils literal"><span class="pre">false</span></code> です。</p>
+<p><code class="docutils literal"><span class="pre">--without-pip</span></code> オプションが与えられない限り、<code class="docutils literal"><span class="pre">pip</span></code> を仮想環境でブートするために <a class="reference internal" href="../library/ensurepip.html#module-ensurepip" title="ensurepip: Bootstrapping the &quot;pip&quot; installer into an existing Python installation or virtual environment."><code class="xref py py-mod docutils literal"><span class="pre">ensurepip</span></code></a> が呼ばれます。</p>
+<p><code class="docutils literal"><span class="pre">pyvenv</span></code> に複数のパスを与えることもできます。この場合、与えられたそれぞれのパスに、与えられたオプションに従って、同様の仮想環境が作成されます。</p>
+<p>一旦 venv が作成されれば、venv のバイナリディレクトリにあるスクリプトで &#8220;有効化&#8221; できます。スクリプトの呼び出しはプラットフォーム固有です:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="24%" />
+<col width="58%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head"><p class="first last">プラットフォーム</p>
+</th>
+<th class="head"><p class="first last">シェル</p>
+</th>
+<th class="head"><p class="first last">仮想環境を有効化するためのコマンド</p>
+</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Posix</td>
+<td>bash/zsh</td>
+<td>$ source &lt;venv&gt;/bin/activate</td>
+</tr>
+<tr class="row-odd"><td>&nbsp;</td>
+<td>fish</td>
+<td>$ . &lt;venv&gt;/bin/activate.fish</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>csh/tcsh</td>
+<td>$ source &lt;venv&gt;/bin/activate.csh</td>
+</tr>
+<tr class="row-odd"><td>Windows</td>
+<td>cmd.exe</td>
+<td>C:\&gt; &lt;venv&gt;\Scripts\activate.bat</td>
+</tr>
+<tr class="row-even"><td>&nbsp;</td>
+<td>PowerShell</td>
+<td>PS C:\&gt; &lt;venv&gt;\Scripts\Activate.ps1</td>
+</tr>
+</tbody>
+</table>
+<p>環境の有効化に特別な指定は <em>必要</em> ありません。有効化は venv のバイナリディレクトリをパスの最初に加えることで、&#8221;python&#8221; で venv の Python インタプリタが呼び出されるようにし、インストールされたスクリプトをフルパス無しで実行できるようにするだけです。しかし、インストールされたすべてのスクリプトは有効化しなくても実行可能で、venv の Python で自動的に実行されなければなりません。</p>
+<p>シェルで &#8220;deactivate&#8221; と入力することで、venv を無効化できます。正確な機構はプラットフォーム固有です。例えば、Bash の有効化スクリプトは &#8220;deactivate&#8221; 関数を定義しています。一方 Windows では、venv が作成されるときに <code class="docutils literal"><span class="pre">deactivate.bat</span></code> と <code class="docutils literal"><span class="pre">Deactivate.ps1</span></code> という別々のスクリプトがインストールされます。</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.4 で追加: </span><code class="docutils literal"><span class="pre">fish</span></code> および <code class="docutils literal"><span class="pre">csh</span></code> 有効化スクリプト。</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. その他のツールとスクリプト</a><ul>
+<li><a class="reference internal" href="#pyvenv-creating-virtual-environments">5.1. pyvenv - 仮想環境の作成</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="mac.html"
+                        title="前の章へ">4. Macintosh で Python を使う</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="../reference/index.html"
+                        title="次の章へ">Python 言語リファレンス</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li><a href="../_sources/using/scripts.rst.txt"
+            rel="nofollow">ソースの表示</a></li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="../reference/index.html" title="Python 言語リファレンス"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="mac.html" title="4. Macintosh で Python を使う"
+             >前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python のセットアップと利用</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python Software Foundation は非営利団体です。
+    <a href="https://www.python.org/psf/donations/">寄付</a>
+    <br />
+    最終更新日時: 1月 28, 2017
+    <a href="../bugs.html">バグを見つけたら</a>?
+    <br />
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    </div>
+
+  </body>
+</html>

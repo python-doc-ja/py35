@@ -1,0 +1,321 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>12. 仮想環境とパッケージ &#8212; Python 3.5.2 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.5.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Python 3.5.2 ドキュメント 内を検索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="13. さあ何を？" href="whatnow.html" />
+    <link rel="prev" title="11. 標準ライブラリミニツアー — その 2" href="stdlib2.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    $(document).ready(function() {
+      var base = 'https://docs.python.org/3.5/tutorial/venv.html';
+      $('a.headerlink').each(function() {
+        var html = '<a href="' + base + $(this).attr('href') +
+                   '" title="原文へのリンク"><small>(原文)</small></a>';
+        $(this).after(html);
+      })
+    });
+    </script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+    
+    
+ 
+
+  </head>
+  <body role="document">  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatnow.html" title="13. さあ何を？"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="stdlib2.html" title="11. 標準ライブラリミニツアー — その 2"
+             accesskey="P">前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" accesskey="U">Python チュートリアル</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="virtual-environments-and-packages">
+<span id="tut-venv"></span><h1>12. 仮想環境とパッケージ<a class="headerlink" href="#virtual-environments-and-packages" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<div class="section" id="introduction">
+<h2>12.1. はじめに<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>Python アプリケーションはよく標準ライブラリ以外のパッケージやモジュールを利用します。またアプリケーションがあるバグ修正を必要としていたり、過去のバージョンのインターフェイスに依存しているために、ライブラリの特定のバージョンを必要とすることもあります。</p>
+<p>そのため、1つのインストールされたPythonが全てのアプリケーションの要求に対応することは不可能です。もしアプリケーションAがあるモジュールのバージョン 1.0 を要求していて、別のアプリケーションBが同じモジュールのバージョン 2.0 を要求している場合、2つの要求は衝突していて、1.0 と 2.0 のどちらかのバージョンをインストールしても片方のアプリケーションが動きません。</p>
+<p>この問題の解決策は 仮想環境 (<a class="reference internal" href="../glossary.html#term-virtual-environment"><span class="xref std std-term">virtual environment</span></a>, 一般的に &#8220;virtualenv&#8221; と略す) を作ることです。仮想環境とは、特定のバージョンの Python と幾つかの追加パッケージを含んだ Python インストールを構成するディレクトリです。</p>
+<p>別のアプリケーションはそれぞれ別の仮想環境を使うことができます。先の例にあった要求の衝突を解決する場合、アプリケーションAが固有の仮想環境を持ってそこにライブラリのバージョン 1.0 をインストールし、アプリケーションBが持つ別の仮想環境にライブラリのバージョン 2.0 をインストールすることができます。そしてアプリケーションBがライブラリのバージョンを 3.0 に更新することを要求する場合も、アプリケーションAに影響しません。</p>
+</div>
+<div class="section" id="creating-virtual-environments">
+<h2>12.2. 仮想環境の作成<a class="headerlink" href="#creating-virtual-environments" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>仮想環境の作成と管理を行うためのスクリプトが <strong class="program">pyvenv</strong> です。 <strong class="program">pyvenv</strong> は通常利用可能なもっとも新しいバージョンの Python をインストールします。このスクリプトはバージョン番号のサフィックス付きでもインストールされています。なので、複数のバージョンの Python がインストールされていてそのうち特定の Python バージョンを利用したい場合は、 <code class="docutils literal"><span class="pre">pyvenv-3.4</span></code> のようなスクリプトを実行することで利用したいバージョンを指定します。</p>
+<p>仮想環境を作るには、仮想環境を置くディレクトリを決めて、 <strong class="program">pyvenv</strong> にそのディレクトリのパスを指定して実行します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">pyvenv</span> <span class="n">tutorial</span><span class="o">-</span><span class="n">env</span>
+</pre></div>
+</div>
+<p>これは <code class="docutils literal"><span class="pre">tutorial-env</span></code> ディレクトリがなければ作成して、その中に Python インタプリタ、標準ライブラリ、その他関連するファイルを含むサブディレクトリを作ります。</p>
+<p>仮想環境を作ったら、それを有効化する必要があります。</p>
+<p>Windows の場合:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="o">/</span><span class="n">Scripts</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>Unix や Mac OS の場合:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">source</span> <span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+</pre></div>
+</div>
+<p>(このスクリプトは bash shell で書かれています。 <strong class="program">csh</strong> や <strong class="program">fish</strong> を利用している場合、代わりに利用できる <code class="docutils literal"><span class="pre">activate.csh</span></code> と <code class="docutils literal"><span class="pre">activate.fish</span></code> スクリプトがあります。)</p>
+<p>仮想環境を有効化したら、シェルのプロンプトが利用中の仮想環境を示すように変更され、<code class="docutils literal"><span class="pre">python</span></code> がその仮想環境の Python を実行するように環境を修正します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">-&gt;</span> <span class="n">source</span> <span class="o">~/</span><span class="n">envs</span><span class="o">/</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">activate</span>
+<span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">python</span>
+<span class="n">Python</span> <span class="mf">3.4</span><span class="o">.</span><span class="mi">3</span><span class="o">+</span> <span class="p">(</span><span class="mf">3.4</span><span class="p">:</span><span class="n">c7b9645a6f35</span><span class="o">+</span><span class="p">,</span> <span class="n">May</span> <span class="mi">22</span> <span class="mi">2015</span><span class="p">,</span> <span class="mi">09</span><span class="p">:</span><span class="mi">31</span><span class="p">:</span><span class="mi">25</span><span class="p">)</span>
+  <span class="o">...</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="kn">import</span> <span class="nn">sys</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">sys</span><span class="o">.</span><span class="n">path</span>
+<span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="s1">&#39;/usr/local/lib/python34.zip&#39;</span><span class="p">,</span> <span class="o">...</span><span class="p">,</span>
+<span class="s1">&#39;~/envs/tutorial-env/lib/python3.4/site-packages&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="managing-packages-with-pip">
+<h2>12.3. pip を使ったパッケージ管理<a class="headerlink" href="#managing-packages-with-pip" title="このヘッドラインへのパーマリンク">¶</a></h2>
+<p>仮想環境を有効化したら、 <strong class="program">pip</strong> と呼ばれるプログラムでパッケージをインストール、アップグレード、削除することができます。デフォルトでは <code class="docutils literal"><span class="pre">pip</span></code> は Python Package Index &lt;<a class="reference external" href="https://pypi.python.org/pypi">https://pypi.python.org/pypi</a>&gt; からパッケージをインストールします。ブラウザで Python Package Index をブラウズすることもできますし、 <code class="docutils literal"><span class="pre">pip</span></code> の限定的な検索機能を使うこともできます:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">search</span> <span class="n">astronomy</span>
+<span class="n">skyfield</span>               <span class="o">-</span> <span class="n">Elegant</span> <span class="n">astronomy</span> <span class="k">for</span> <span class="n">Python</span>
+<span class="n">gary</span>                   <span class="o">-</span> <span class="n">Galactic</span> <span class="n">astronomy</span> <span class="ow">and</span> <span class="n">gravitational</span> <span class="n">dynamics</span><span class="o">.</span>
+<span class="n">novas</span>                  <span class="o">-</span> <span class="n">The</span> <span class="n">United</span> <span class="n">States</span> <span class="n">Naval</span> <span class="n">Observatory</span> <span class="n">NOVAS</span> <span class="n">astronomy</span> <span class="n">library</span>
+<span class="n">astroobs</span>               <span class="o">-</span> <span class="n">Provides</span> <span class="n">astronomy</span> <span class="n">ephemeris</span> <span class="n">to</span> <span class="n">plan</span> <span class="n">telescope</span> <span class="n">observations</span>
+<span class="n">PyAstronomy</span>            <span class="o">-</span> <span class="n">A</span> <span class="n">collection</span> <span class="n">of</span> <span class="n">astronomy</span> <span class="n">related</span> <span class="n">tools</span> <span class="k">for</span> <span class="n">Python</span><span class="o">.</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">pip</span></code> は &#8220;search&#8221;, &#8220;install&#8221;, &#8220;uninstall&#8221;, &#8220;freeze&#8221; など、いくつかのサブコマンドを持っています。 (<code class="docutils literal"><span class="pre">pip</span></code> の完全なドキュメントは <a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">Python モジュールのインストール</span></a> ガイドを参照してください。)</p>
+<p>パッケージ名を指定してそのパッケージの最新版をインストールすることができます:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">novas</span>
+<span class="n">Collecting</span> <span class="n">novas</span>
+  <span class="n">Downloading</span> <span class="n">novas</span><span class="o">-</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span><span class="o">.</span><span class="n">tar</span><span class="o">.</span><span class="n">gz</span> <span class="p">(</span><span class="mi">136</span><span class="n">kB</span><span class="p">)</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">novas</span>
+  <span class="n">Running</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">novas</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">novas</span><span class="o">-</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span>
+</pre></div>
+</div>
+<p>パッケージ名のあとに <code class="docutils literal"><span class="pre">==</span></code> とバージョン番号を付けることで、特定のバージョンのパッケージをインストールすることもできます:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="n">requests</span><span class="o">==</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">Collecting</span> <span class="n">requests</span><span class="o">==</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span>
+  <span class="n">Using</span> <span class="n">cached</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="n">py2</span><span class="o">.</span><span class="n">py3</span><span class="o">-</span><span class="n">none</span><span class="o">-</span><span class="nb">any</span><span class="o">.</span><span class="n">whl</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">requests</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p>同じコマンドを再び実行した場合、<code class="docutils literal"><span class="pre">pip</span></code> は要求されたバージョンがインストール済みだと表示して何もしません。別のバージョン番号を指定すればそのバージョンをインストールしますし、<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">--upgrade</span></code> を実行すればそのパッケージを最新版に更新します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">--</span><span class="n">upgrade</span> <span class="n">requests</span>
+<span class="n">Collecting</span> <span class="n">requests</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">requests</span>
+  <span class="n">Found</span> <span class="n">existing</span> <span class="n">installation</span><span class="p">:</span> <span class="n">requests</span> <span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span>
+    <span class="n">Uninstalling</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span><span class="p">:</span>
+      <span class="n">Successfully</span> <span class="n">uninstalled</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.6</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">uninstall</span></code> コマンドに削除するパッケージ名を1つ以上指定します。</p>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">show</span></code> は指定されたパッケージの情報を表示します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">show</span> <span class="n">requests</span>
+<span class="o">---</span>
+<span class="n">Metadata</span><span class="o">-</span><span class="n">Version</span><span class="p">:</span> <span class="mf">2.0</span>
+<span class="n">Name</span><span class="p">:</span> <span class="n">requests</span>
+<span class="n">Version</span><span class="p">:</span> <span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span>
+<span class="n">Summary</span><span class="p">:</span> <span class="n">Python</span> <span class="n">HTTP</span> <span class="k">for</span> <span class="n">Humans</span><span class="o">.</span>
+<span class="n">Home</span><span class="o">-</span><span class="n">page</span><span class="p">:</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">python</span><span class="o">-</span><span class="n">requests</span><span class="o">.</span><span class="n">org</span>
+<span class="n">Author</span><span class="p">:</span> <span class="n">Kenneth</span> <span class="n">Reitz</span>
+<span class="n">Author</span><span class="o">-</span><span class="n">email</span><span class="p">:</span> <span class="n">me</span><span class="nd">@kennethreitz</span><span class="o">.</span><span class="n">com</span>
+<span class="n">License</span><span class="p">:</span> <span class="n">Apache</span> <span class="mf">2.0</span>
+<span class="n">Location</span><span class="p">:</span> <span class="o">/</span><span class="n">Users</span><span class="o">/</span><span class="n">akuchling</span><span class="o">/</span><span class="n">envs</span><span class="o">/</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="o">/</span><span class="n">lib</span><span class="o">/</span><span class="n">python3</span><span class="o">.</span><span class="mi">4</span><span class="o">/</span><span class="n">site</span><span class="o">-</span><span class="n">packages</span>
+<span class="n">Requires</span><span class="p">:</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">list</span></code> は仮想環境にインストールされた全てのパッケージを表示します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pip</span> <span class="nb">list</span>
+<span class="n">novas</span> <span class="p">(</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span><span class="p">)</span>
+<span class="n">numpy</span> <span class="p">(</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">pip</span> <span class="p">(</span><span class="mf">7.0</span><span class="o">.</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">requests</span> <span class="p">(</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">setuptools</span> <span class="p">(</span><span class="mf">16.0</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">pip</span> <span class="pre">freeze</span></code> はインストールされたパッケージ一覧を、<code class="docutils literal"><span class="pre">pip</span> <span class="pre">install</span></code> が解釈するフォーマットで生成します。一般的な慣習として、このリストを <code class="docutils literal"><span class="pre">requirements.txt</span></code> というファイルに保存します:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">freeze</span> <span class="o">&gt;</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="p">(</span><span class="n">tutorial</span><span class="o">-</span><span class="n">env</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">cat</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">novas</span><span class="o">==</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span>
+<span class="n">numpy</span><span class="o">==</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">2</span>
+<span class="n">requests</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">requirements.txt</span></code> をバージョン管理システムにコミットして、アプリケーションの一部として配布することができます。ユーザーは必要なパッケージを <code class="docutils literal"><span class="pre">install</span> <span class="pre">-r</span></code> でインストールできます:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">-&gt;</span> <span class="n">pip</span> <span class="n">install</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span>
+<span class="n">Collecting</span> <span class="n">novas</span><span class="o">==</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span> <span class="p">(</span><span class="kn">from</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="p">(</span><span class="n">line</span> <span class="mi">1</span><span class="p">))</span>
+  <span class="o">...</span>
+<span class="n">Collecting</span> <span class="n">numpy</span><span class="o">==</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">2</span> <span class="p">(</span><span class="kn">from</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="p">(</span><span class="n">line</span> <span class="mi">2</span><span class="p">))</span>
+  <span class="o">...</span>
+<span class="n">Collecting</span> <span class="n">requests</span><span class="o">==</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span> <span class="p">(</span><span class="kn">from</span> <span class="o">-</span><span class="n">r</span> <span class="n">requirements</span><span class="o">.</span><span class="n">txt</span> <span class="p">(</span><span class="n">line</span> <span class="mi">3</span><span class="p">))</span>
+  <span class="o">...</span>
+<span class="n">Installing</span> <span class="n">collected</span> <span class="n">packages</span><span class="p">:</span> <span class="n">novas</span><span class="p">,</span> <span class="n">numpy</span><span class="p">,</span> <span class="n">requests</span>
+  <span class="n">Running</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span> <span class="k">for</span> <span class="n">novas</span>
+<span class="n">Successfully</span> <span class="n">installed</span> <span class="n">novas</span><span class="o">-</span><span class="mf">3.1</span><span class="o">.</span><span class="mf">1.3</span> <span class="n">numpy</span><span class="o">-</span><span class="mf">1.9</span><span class="o">.</span><span class="mi">2</span> <span class="n">requests</span><span class="o">-</span><span class="mf">2.7</span><span class="o">.</span><span class="mi">0</span>
+</pre></div>
+</div>
+<p><code class="docutils literal"><span class="pre">pip</span></code> にはたくさんのオプションがあります。 <code class="docutils literal"><span class="pre">pip</span></code> の完全なドキュメントは <a class="reference internal" href="../installing/index.html#installing-index"><span class="std std-ref">Python モジュールのインストール</span></a> を参照してください。パッケージを作成してそれを Python Package Index で公開したい場合、 <a class="reference internal" href="../distributing/index.html#distributing-index"><span class="std std-ref">Python モジュールの配布</span></a> ガイドを参照してください。</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../contents.html">目次</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">12. 仮想環境とパッケージ</a><ul>
+<li><a class="reference internal" href="#introduction">12.1. はじめに</a></li>
+<li><a class="reference internal" href="#creating-virtual-environments">12.2. 仮想環境の作成</a></li>
+<li><a class="reference internal" href="#managing-packages-with-pip">12.3. pip を使ったパッケージ管理</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="stdlib2.html"
+                        title="前の章へ">11. 標準ライブラリミニツアー &#8212; その 2</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="whatnow.html"
+                        title="次の章へ">13. さあ何を？</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li><a href="../_sources/tutorial/venv.rst.txt"
+            rel="nofollow">ソースの表示</a></li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="whatnow.html" title="13. さあ何を？"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="stdlib2.html" title="11. 標準ライブラリミニツアー — その 2"
+             >前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python チュートリアル</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python Software Foundation は非営利団体です。
+    <a href="https://www.python.org/psf/donations/">寄付</a>
+    <br />
+    最終更新日時: 1月 28, 2017
+    <a href="../bugs.html">バグを見つけたら</a>?
+    <br />
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    </div>
+
+  </body>
+</html>

@@ -1,0 +1,266 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="ja">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>19.1.11. email.errors: 例外及び欠陥クラス &#8212; Python 3.5.2 ドキュメント</title>
+    
+    <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '3.5.2',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true,
+        SOURCELINK_SUFFIX: '.txt'
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <script type="text/javascript" src="../_static/sidebar.js"></script>
+    <link rel="search" type="application/opensearchdescription+xml"
+          title="Python 3.5.2 ドキュメント 内を検索"
+          href="../_static/opensearch.xml"/>
+    <link rel="author" title="このドキュメントについて" href="../about.html" />
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="next" title="19.1.12. email.utils: 多方面のユーティリティ" href="email.util.html" />
+    <link rel="prev" title="19.1.10. email.encoders: エンコーダ" href="email.encoders.html" />
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    $(document).ready(function() {
+      var base = 'https://docs.python.org/3.5/library/email.errors.html';
+      $('a.headerlink').each(function() {
+        var html = '<a href="' + base + $(this).attr('href') +
+                   '" title="原文へのリンク"><small>(原文)</small></a>';
+        $(this).after(html);
+      })
+    });
+    </script>
+    <script type="text/javascript" src="../_static/copybutton.js"></script>
+    <script type="text/javascript" src="../_static/version_switch.js"></script>
+    
+    
+ 
+
+  </head>
+  <body role="document">  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             accesskey="I">索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="email.util.html" title="19.1.12. email.utils: 多方面のユーティリティ"
+             accesskey="N">次へ</a> |</li>
+        <li class="right" >
+          <a href="email.encoders.html" title="19.1.10. email.encoders: エンコーダ"
+             accesskey="P">前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python 標準ライブラリ</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >19. インターネット上のデータの操作</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" accesskey="U">19.1. <code class="docutils literal"><span class="pre">email</span></code> &#8212; 電子メールと MIME 処理のためのパッケージ</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>    
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="module-email.errors">
+<span id="email-errors-exception-and-defect-classes"></span><h1>19.1.11. <a class="reference internal" href="#module-email.errors" title="email.errors: The exception classes used by the email package."><code class="xref py py-mod docutils literal"><span class="pre">email.errors</span></code></a>: 例外及び欠陥クラス<a class="headerlink" href="#module-email.errors" title="このヘッドラインへのパーマリンク">¶</a></h1>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/email/errors.py">Lib/email/errors.py</a></p>
+<hr class="docutils" />
+<p><a class="reference internal" href="#module-email.errors" title="email.errors: The exception classes used by the email package."><code class="xref py py-mod docutils literal"><span class="pre">email.errors</span></code></a> モジュールでは、以下の例外クラスが定義されています:</p>
+<dl class="exception">
+<dt id="email.errors.MessageError">
+<em class="property">exception </em><code class="descclassname">email.errors.</code><code class="descname">MessageError</code><a class="headerlink" href="#email.errors.MessageError" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>これは <a class="reference internal" href="email.html#module-email" title="email: Package supporting the parsing, manipulating, and generating email messages, including MIME documents."><code class="xref py py-mod docutils literal"><span class="pre">email</span></code></a> パッケージが送出しうるすべての例外の基底クラスです。これは標準の <a class="reference internal" href="exceptions.html#Exception" title="Exception"><code class="xref py py-exc docutils literal"><span class="pre">Exception</span></code></a> クラスから派生しており、追加のメソッドは定義されていません。</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="email.errors.MessageParseError">
+<em class="property">exception </em><code class="descclassname">email.errors.</code><code class="descname">MessageParseError</code><a class="headerlink" href="#email.errors.MessageParseError" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>これは <a class="reference internal" href="email.parser.html#email.parser.Parser" title="email.parser.Parser"><code class="xref py py-class docutils literal"><span class="pre">Parser</span></code></a> クラスが送出しうる例外の基底クラスです。 <a class="reference internal" href="#email.errors.MessageError" title="email.errors.MessageError"><code class="xref py py-exc docutils literal"><span class="pre">MessageError</span></code></a> から派生しています。</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="email.errors.HeaderParseError">
+<em class="property">exception </em><code class="descclassname">email.errors.</code><code class="descname">HeaderParseError</code><a class="headerlink" href="#email.errors.HeaderParseError" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>メッセージの <span class="target" id="index-8"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダを解析しているときのエラー条件で送出されます。これは <a class="reference internal" href="#email.errors.MessageParseError" title="email.errors.MessageParseError"><code class="xref py py-exc docutils literal"><span class="pre">MessageParseError</span></code></a> から派生しています。<a class="reference internal" href="email.parser.html#email.parser.Parser.parse" title="email.parser.Parser.parse"><code class="xref py py-meth docutils literal"><span class="pre">Parser.parse</span></code></a> メソッドや <a class="reference internal" href="email.parser.html#email.parser.Parser.parsestr" title="email.parser.Parser.parsestr"><code class="xref py py-meth docutils literal"><span class="pre">Parser.parsestr</span></code></a> メソッドが送出しえます。</p>
+<p>この例外が送出されるのはメッセージの最初の <span class="target" id="index-9"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダの後にエンベロープヘッダが見つかった場合、最初の <span class="target" id="index-10"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダの前に継続行が見つかった場合、ヘッダ内にヘッダでも継続行でもない行が見つかった場合などです。</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="email.errors.BoundaryError">
+<em class="property">exception </em><code class="descclassname">email.errors.</code><code class="descname">BoundaryError</code><a class="headerlink" href="#email.errors.BoundaryError" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>メッセージの <span class="target" id="index-11"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2822.html"><strong>RFC 2822</strong></a> ヘッダを解析しているときのエラー条件で送出されます。これは <a class="reference internal" href="#email.errors.MessageParseError" title="email.errors.MessageParseError"><code class="xref py py-exc docutils literal"><span class="pre">MessageParseError</span></code></a> から派生しています。<a class="reference internal" href="email.parser.html#email.parser.Parser.parse" title="email.parser.Parser.parse"><code class="xref py py-meth docutils literal"><span class="pre">Parser.parse</span></code></a> メソッドや <a class="reference internal" href="email.parser.html#email.parser.Parser.parsestr" title="email.parser.Parser.parsestr"><code class="xref py py-meth docutils literal"><span class="pre">Parser.parsestr</span></code></a> メソッドが送出しえます。</p>
+<p>この例外が送出されるのは、厳格なパース時に <em class="mimetype">multipart/*</em> メッセージ内に
+開始あるいは終了境界が見付けられなかった場合も含みます。</p>
+</dd></dl>
+
+<dl class="exception">
+<dt id="email.errors.MultipartConversionError">
+<em class="property">exception </em><code class="descclassname">email.errors.</code><code class="descname">MultipartConversionError</code><a class="headerlink" href="#email.errors.MultipartConversionError" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>この例外は、 <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> オブジェクトに <code class="xref py py-meth docutils literal"><span class="pre">add_payload()</span></code> メソッドでペイロードを追加したが、そのペイロードがすでにスカラー値で、メッセージの <em class="mailheader">Content-Type</em> メインタイプが <em class="mimetype">multipart</em> でないか見付からない場合に送出されます。
+<a class="reference internal" href="#email.errors.MultipartConversionError" title="email.errors.MultipartConversionError"><code class="xref py py-exc docutils literal"><span class="pre">MultipartConversionError</span></code></a> は <a class="reference internal" href="#email.errors.MessageError" title="email.errors.MessageError"><code class="xref py py-exc docutils literal"><span class="pre">MessageError</span></code></a> と組み込みの <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> を多重継承しています。</p>
+<p><code class="xref py py-meth docutils literal"><span class="pre">Message.add_payload()</span></code> は非推奨なので、実際のところこの例外が送出されることはほとんどありません。
+しかしながら、 <a class="reference internal" href="email.message.html#email.message.Message.attach" title="email.message.Message.attach"><code class="xref py py-meth docutils literal"><span class="pre">attach()</span></code></a> メソッドを <a class="reference internal" href="email.mime.html#email.mime.nonmultipart.MIMENonMultipart" title="email.mime.nonmultipart.MIMENonMultipart"><code class="xref py py-class docutils literal"><span class="pre">MIMENonMultipart</span></code></a> から派生したインスタンス (たとえば <a class="reference internal" href="email.mime.html#email.mime.image.MIMEImage" title="email.mime.image.MIMEImage"><code class="xref py py-class docutils literal"><span class="pre">MIMEImage</span></code></a>) に対して呼んだ場合にも送出されることがあります。</p>
+</dd></dl>
+
+<p>以下は <a class="reference internal" href="email.parser.html#email.parser.FeedParser" title="email.parser.FeedParser"><code class="xref py py-class docutils literal"><span class="pre">FeedParser</span></code></a> がメッセージの解析中に検出する欠陥 (defect) の一覧です。
+問題があった場合、欠陥はメッセージに追加されることに注意してください。
+例えば <em class="mimetype">multipart/alternative</em> 内で入れ子になったメッセージに不正な形式のヘッダがあった場合、その入れ子になったメッセージオブジェクトには欠陥がありますが、親メッセージはそうではありません。</p>
+<p>すべての欠陥クラスは <code class="xref py py-class docutils literal"><span class="pre">email.errors.MessageDefect</span></code> のサブクラスですが、例外では <em>ありません</em>。</p>
+<ul>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">NoBoundaryInMultipartDefect</span></code> &#8211; メッセージが multipart だと宣言されているのに、 <em class="mimetype">boundary</em> パラメータがありません。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">StartBoundaryNotFoundDefect</span></code> &#8211; <em class="mailheader">Content-Type</em> ヘッダで宣言された開始境界がありません。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">CloseBoundaryNotFoundDefect</span></code> &#8211; 開始境界はあるが対応する終了境界がありません。</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.3 で追加.</span></p>
+</div>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">FirstHeaderLineIsContinuationDefect</span></code> &#8211; メッセージの最初のヘッダ行が継続行です。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">MisplacedEnvelopeHeaderDefect</span></code> &#8211; ヘッダブロックの途中に &#8220;Unix From&#8221; ヘッダがあります。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">MissingHeaderBodySeparatorDefect</span></code> - 先頭に空白はないが &#8216;:&#8217; がないヘッダの解析中に行が見付かりました。その行を本体の最初の行とみなして解析を続けます。</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.3 で追加.</span></p>
+</div>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">MalformedHeaderDefect</span></code> &#8211; ヘッダにコロンがありません、あるいはそれ以外の不正な形式です。</p>
+<div class="deprecated">
+<p><span class="versionmodified">バージョン 3.3 で撤廃: </span>この欠陥が使われていないPythonバージョンがいくつかあります。</p>
+</div>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">MultipartInvariantViolationDefect</span></code> &#8211; メッセージが <em class="mimetype">multipart</em> だと宣言されているのに、サブパートが存在しません。
+メッセージがこの欠陥を持つ場合、内容の型が <em class="mimetype">multipart</em> と宣言されていても <a class="reference internal" href="email.message.html#email.message.Message.is_multipart" title="email.message.Message.is_multipart"><code class="xref py py-meth docutils literal"><span class="pre">is_multipart()</span></code></a> メソッドは偽を返すことがあるので注意してください。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">InvalidBase64PaddingDefect</span></code> &#8211; 一連の base64 でエンコードされた bytes をデコードしているときにパディングが誤っていました。
+デコードするのに十分なパディングがなされますが、デコードされた bytes は不正かもしれません。</p>
+</li>
+<li><p class="first"><code class="xref py py-class docutils literal"><span class="pre">InvalidBase64CharactersDefect</span></code> &#8211; 一連の base64 でエンコードされた bytes をデコードしているときに base64 アルファベット外の文字がありました。
+その文字は無視されますが、デコードされた bytes は不正かもしれません。</p>
+</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h4>前のトピックへ</h4>
+  <p class="topless"><a href="email.encoders.html"
+                        title="前の章へ">19.1.10. <code class="docutils literal"><span class="pre">email.encoders</span></code>: エンコーダ</a></p>
+  <h4>次のトピックへ</h4>
+  <p class="topless"><a href="email.util.html"
+                        title="次の章へ">19.1.12. <code class="docutils literal"><span class="pre">email.utils</span></code>: 多方面のユーティリティ</a></p>
+  <div role="note" aria-label="source link">
+    <h3>このページ</h3>
+    <ul class="this-page-menu">
+      <li><a href="../bugs.html">バグ報告</a></li>
+      <li><a href="../_sources/library/email.errors.rst.txt"
+            rel="nofollow">ソースの表示</a></li>
+    </ul>
+  </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>  
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>ナビゲーション</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="総索引"
+             >索引</a></li>
+        <li class="right" >
+          <a href="../py-modindex.html" title="Pythonモジュール索引"
+             >モジュール</a> |</li>
+        <li class="right" >
+          <a href="email.util.html" title="19.1.12. email.utils: 多方面のユーティリティ"
+             >次へ</a> |</li>
+        <li class="right" >
+          <a href="email.encoders.html" title="19.1.10. email.encoders: エンコーダ"
+             >前へ</a> |</li>
+        <li><img src="../_static/py.png" alt=""
+                 style="vertical-align: middle; margin-top: -1px"/></li>
+        <li><a href="https://www.python.org/">Python</a> &#187;</li>
+        <li>
+          <span class="version_switcher_placeholder">3.5.2</span>
+          <a href="../index.html">ドキュメント</a> &#187;
+        </li>
+
+          <li class="nav-item nav-item-1"><a href="index.html" >Python 標準ライブラリ</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="netdata.html" >19. インターネット上のデータの操作</a> &#187;</li>
+          <li class="nav-item nav-item-3"><a href="email.html" >19.1. <code class="docutils literal"><span class="pre">email</span></code> &#8212; 電子メールと MIME 処理のためのパッケージ</a> &#187;</li>
+    <li class="right">
+        
+
+    <div class="inline-search" style="display: none" role="search">
+        <form class="inline-search" action="../search.html" method="get">
+          <input placeholder="Quick search" type="text" name="q" />
+          <input type="submit" value="Go" />
+          <input type="hidden" name="check_keywords" value="yes" />
+          <input type="hidden" name="area" value="default" />
+        </form>
+    </div>
+    <script type="text/javascript">$('.inline-search').show(0);</script>
+         |
+    </li>
+
+      </ul>
+    </div>  
+    <div class="footer">
+    &copy; <a href="../copyright.html">Copyright</a> 2001-2017, Python Software Foundation.
+    <br />
+    Python Software Foundation は非営利団体です。
+    <a href="https://www.python.org/psf/donations/">寄付</a>
+    <br />
+    最終更新日時: 1月 28, 2017
+    <a href="../bugs.html">バグを見つけたら</a>?
+    <br />
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    </div>
+
+  </body>
+</html>
