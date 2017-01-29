@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="ユーティリティ" href="utilities.html" />
     <link rel="next" title="モジュールのインポート" href="import.html" />
     <link rel="prev" title="ユーティリティ" href="utilities.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -249,7 +250,7 @@ void <code class="descname">PySys_FormatStderr</code><span class="sig-paren">(</
 <dl class="function">
 <dt id="c.PySys_AddXOption">
 void <code class="descname">PySys_AddXOption</code><span class="sig-paren">(</span>const wchar_t<em>&nbsp;*s</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_AddXOption" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><em>s</em> を <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> オプションの集合として構文解析し、 <a class="reference internal" href="#c.PySys_GetXOptions" title="PySys_GetXOptions"><code class="xref c c-func docutils literal"><span class="pre">PySys_GetXOptions()</span></code></a> が返す現在のオプションマッピングに追加します。</p>
+<dd><p><em>s</em> を <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> オプションの集合として構文解析し、 <a class="reference internal" href="#c.PySys_GetXOptions" title="PySys_GetXOptions"><code class="xref c c-func docutils literal"><span class="pre">PySys_GetXOptions()</span></code></a> が返す現在のオプションマッピングに追加します。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.2 で追加.</span></p>
 </div>
@@ -258,7 +259,7 @@ void <code class="descname">PySys_AddXOption</code><span class="sig-paren">(</sp
 <dl class="function">
 <dt id="c.PySys_GetXOptions">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a> *<code class="descname">PySys_GetXOptions</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#c.PySys_GetXOptions" title="この定義へのパーマリンク">¶</a></dt>
-<dd><em class="refcount">Return value: Borrowed reference.</em><p><a class="reference internal" href="../library/sys.html#sys._xoptions" title="sys._xoptions"><code class="xref py py-data docutils literal"><span class="pre">sys._xoptions</span></code></a> と同様、 <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> オプションの現在の辞書を返します。エラーが起きると、 <em>NULL</em> が返され、例外がセットされます。</p>
+<dd><em class="refcount">Return value: Borrowed reference.</em><p><a class="reference internal" href="../library/sys.html#sys._xoptions" title="sys._xoptions"><code class="xref py py-data docutils literal"><span class="pre">sys._xoptions</span></code></a> と同様、 <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> オプションの現在の辞書を返します。エラーが起きると、 <em>NULL</em> が返され、例外がセットされます。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.2 で追加.</span></p>
 </div>
@@ -310,7 +311,7 @@ int <code class="descname">Py_AtExit</code><span class="sig-paren">(</span>void 
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/c-api/sys.rst.txt"
+      <li><a href="../_sources/c-api/sys.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -366,10 +367,10 @@ int <code class="descname">Py_AtExit</code><span class="sig-paren">(</span>void 
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

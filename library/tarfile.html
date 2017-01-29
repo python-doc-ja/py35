@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="13. データ圧縮とアーカイブ" href="archiving.html" />
     <link rel="next" title="14. ファイルフォーマット" href="fileformats.html" />
     <link rel="prev" title="13.5. zipfile — ZIP アーカイブの処理" href="zipfile.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -700,38 +701,38 @@
 <dl class="cmdoption">
 <dt id="cmdoption-tarfile-l">
 <code class="descname">-l</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile-l" title="この定義へのパーマリンク">¶</a></dt>
-<dt id="cmdoption-tarfile-list">
-<code class="descname">--list</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile-list" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-tarfile--list">
+<code class="descname">--list</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile--list" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>tarfile 内のファイル一覧を表示します。</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-tarfile-c">
 <code class="descname">-c</code><code class="descclassname"> &lt;tarfile&gt; &lt;source1&gt; ... &lt;sourceN&gt;</code><a class="headerlink" href="#cmdoption-tarfile-c" title="この定義へのパーマリンク">¶</a></dt>
-<dt id="cmdoption-tarfile-create">
-<code class="descname">--create</code><code class="descclassname"> &lt;tarfile&gt; &lt;source1&gt; ... &lt;sourceN&gt;</code><a class="headerlink" href="#cmdoption-tarfile-create" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-tarfile--create">
+<code class="descname">--create</code><code class="descclassname"> &lt;tarfile&gt; &lt;source1&gt; ... &lt;sourceN&gt;</code><a class="headerlink" href="#cmdoption-tarfile--create" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ソースファイルから tarfile を作成します。</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-tarfile-e">
 <code class="descname">-e</code><code class="descclassname"> &lt;tarfile&gt; [&lt;output_dir&gt;]</code><a class="headerlink" href="#cmdoption-tarfile-e" title="この定義へのパーマリンク">¶</a></dt>
-<dt id="cmdoption-tarfile-extract">
-<code class="descname">--extract</code><code class="descclassname"> &lt;tarfile&gt; [&lt;output_dir&gt;]</code><a class="headerlink" href="#cmdoption-tarfile-extract" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-tarfile--extract">
+<code class="descname">--extract</code><code class="descclassname"> &lt;tarfile&gt; [&lt;output_dir&gt;]</code><a class="headerlink" href="#cmdoption-tarfile--extract" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><em>output_dir</em> が指定されていない場合、カレントディレクトリに tarfile を展開します。</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-tarfile-t">
 <code class="descname">-t</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile-t" title="この定義へのパーマリンク">¶</a></dt>
-<dt id="cmdoption-tarfile-test">
-<code class="descname">--test</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile-test" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-tarfile--test">
+<code class="descname">--test</code><code class="descclassname"> &lt;tarfile&gt;</code><a class="headerlink" href="#cmdoption-tarfile--test" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>tarfile が有効かどうか調べます。</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-tarfile-v">
-<code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-tarfile-v" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-tarfile--verbose"></span><code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-tarfile-v" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>詳細も出力します。</p>
 </dd></dl>
 
@@ -863,7 +864,7 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/tarfile.rst.txt"
+      <li><a href="../_sources/library/tarfile.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -919,10 +920,10 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

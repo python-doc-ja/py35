@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="28. ソフトウェア・パッケージと配布" href="distribution.html" />
     <link rel="next" title="29. Python ランタイムサービス" href="python.html" />
     <link rel="prev" title="28.3. venv — 仮想環境の作成" href="venv.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -134,7 +135,7 @@ $ python myapp.pyz
 <p>以下のオプションが解釈されます:</p>
 <dl class="cmdoption">
 <dt id="cmdoption-zipapp-o">
-<code class="descname">-o</code><code class="descclassname"> &lt;output&gt;</code><code class="descclassname">, </code><code class="descname">--output</code><code class="descclassname">=&lt;output&gt;</code><a class="headerlink" href="#cmdoption-zipapp-o" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-zipapp--output"></span><code class="descname">-o</code><code class="descclassname"> &lt;output&gt;</code><code class="descclassname">, </code><code class="descname">--output</code><code class="descclassname">=&lt;output&gt;</code><a class="headerlink" href="#cmdoption-zipapp-o" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>出力を <em>output</em> に指定した名前のファイルへ書込みます。このオプションが指定されていない場合、出力先ファイル名は入力元 <em>source</em> と同じになり、 <code class="docutils literal"><span class="pre">.pyz</span></code> 拡張子が付与されます。
 ファイル名が明示的に指定されている場合は、指定されたファイル名を使用します。(必要であれば <code class="docutils literal"><span class="pre">.pyz</span></code> 拡張子が含まれます。)</p>
 <p><em>source</em> がアーカイブである場合は、出力先ファイル名を必ず指定しなければなりません。
@@ -143,7 +144,7 @@ $ python myapp.pyz
 
 <dl class="cmdoption">
 <dt id="cmdoption-zipapp-p">
-<code class="descname">-p</code><code class="descclassname"> &lt;interpreter&gt;</code><code class="descclassname">, </code><code class="descname">--python</code><code class="descclassname">=&lt;interpreter&gt;</code><a class="headerlink" href="#cmdoption-zipapp-p" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-zipapp--python"></span><code class="descname">-p</code><code class="descclassname"> &lt;interpreter&gt;</code><code class="descclassname">, </code><code class="descname">--python</code><code class="descclassname">=&lt;interpreter&gt;</code><a class="headerlink" href="#cmdoption-zipapp-p" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>実行コマンドとしての <em>interpreter</em> を指定する <code class="docutils literal"><span class="pre">#!</span></code> 行を書庫に追加します。
 また、POSIX では書庫を実行可能にします。
 デフォルトでは <code class="docutils literal"><span class="pre">#!</span></code> 行を書かず、ファイルを実行可能にはしません。</p>
@@ -151,25 +152,25 @@ $ python myapp.pyz
 
 <dl class="cmdoption">
 <dt id="cmdoption-zipapp-m">
-<code class="descname">-m</code><code class="descclassname"> &lt;mainfn&gt;</code><code class="descclassname">, </code><code class="descname">--main</code><code class="descclassname">=&lt;mainfn&gt;</code><a class="headerlink" href="#cmdoption-zipapp-m" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-zipapp--main"></span><code class="descname">-m</code><code class="descclassname"> &lt;mainfn&gt;</code><code class="descclassname">, </code><code class="descname">--main</code><code class="descclassname">=&lt;mainfn&gt;</code><a class="headerlink" href="#cmdoption-zipapp-m" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><em>mainfn</em> を実行するアーカイブへ <code class="docutils literal"><span class="pre">__main__.py</span></code> ファイルを書込んでください。
 <em>mainfn</em> 引数は &#8220;pkg.mod:fn&#8221; の形式で指定します。
 &#8220;pkg.mod&#8221; の場所はアーカイブ内の package/module です。
 &#8220;fn&#8221; は指定した module から呼出すことのできる関数です。
 <code class="docutils literal"><span class="pre">__main__.py</span></code> ファイルが module から呼出すことのできる関数を実行します。</p>
-<p>書庫をコピーする際、 <a class="reference internal" href="#cmdoption-zipapp-m"><code class="xref std std-option docutils literal"><span class="pre">--main</span></code></a> を指定することは出来ません。</p>
+<p>書庫をコピーする際、 <a class="reference internal" href="#cmdoption-zipapp--main"><code class="xref std std-option docutils literal"><span class="pre">--main</span></code></a> を指定することは出来ません。</p>
 </dd></dl>
 
 <dl class="cmdoption">
-<dt id="cmdoption-zipapp-info">
-<code class="descname">--info</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-info" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-zipapp--info">
+<code class="descname">--info</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp--info" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>診断するために書庫に埋め込まれたインタープリタを表示します。
 この場合、他の全てのオプションは無視され、SOURCE はディレクトリではなく書庫でなければなりません。</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-zipapp-h">
-<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-h" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-zipapp--help"></span><code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-zipapp-h" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>簡単な使用法を表示して終了します。</p>
 </dd></dl>
 
@@ -353,7 +354,7 @@ format created by any means are acceptable to Python.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/zipapp.rst.txt"
+      <li><a href="../_sources/library/zipapp.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -409,10 +410,10 @@ format created by any means are acceptable to Python.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

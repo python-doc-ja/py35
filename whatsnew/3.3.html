@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New In Python 3.2" href="3.2.html" />
     <link rel="prev" title="What’s New In Python 3.4" href="3.4.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -659,7 +660,7 @@ implemented by Yury Selivanov.</dd>
 <h2>新たなモジュール<a class="headerlink" href="#new-modules" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <div class="section" id="faulthandler">
 <h3>faulthandler<a class="headerlink" href="#faulthandler" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>この新規モジュール <a class="reference internal" href="../library/faulthandler.html#module-faulthandler" title="faulthandler: Dump the Python traceback."><code class="xref py py-mod docutils literal"><span class="pre">faulthandler</span></code></a> には、異常 (セグメンテーション違反のようなクラッシュ) 時、タイムアウト時、ユーザシグナルの発生時などのタイミングで Python traceback を明示的にダンプするための関数が含まれています。シグナル <code class="xref py py-const docutils literal"><span class="pre">SIGSEGV</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGFPE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGABRT</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGBUS</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGILL</span></code> に対するフォールトハンドラをインストールするには、 <a class="reference internal" href="../library/faulthandler.html#faulthandler.enable" title="faulthandler.enable"><code class="xref py py-func docutils literal"><span class="pre">faulthandler.enable()</span></code></a> を呼び出してください。インタプリタ開始時点でも有効に出来ます。それには環境変数 <span class="target" id="index-82"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONFAULTHANDLER"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONFAULTHANDLER</span></code></a> をセットするか、コマンドラインオプション <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> <code class="docutils literal"><span class="pre">faulthandler</span></code> を与えます。</p>
+<p>この新規モジュール <a class="reference internal" href="../library/faulthandler.html#module-faulthandler" title="faulthandler: Dump the Python traceback."><code class="xref py py-mod docutils literal"><span class="pre">faulthandler</span></code></a> には、異常 (セグメンテーション違反のようなクラッシュ) 時、タイムアウト時、ユーザシグナルの発生時などのタイミングで Python traceback を明示的にダンプするための関数が含まれています。シグナル <code class="xref py py-const docutils literal"><span class="pre">SIGSEGV</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGFPE</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGABRT</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGBUS</span></code>, <code class="xref py py-const docutils literal"><span class="pre">SIGILL</span></code> に対するフォールトハンドラをインストールするには、 <a class="reference internal" href="../library/faulthandler.html#faulthandler.enable" title="faulthandler.enable"><code class="xref py py-func docutils literal"><span class="pre">faulthandler.enable()</span></code></a> を呼び出してください。インタプリタ開始時点でも有効に出来ます。それには環境変数 <span class="target" id="index-82"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONFAULTHANDLER"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONFAULTHANDLER</span></code></a> をセットするか、コマンドラインオプション <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> <code class="docutils literal"><span class="pre">faulthandler</span></code> を与えます。</p>
 <p>Linuxでのセグメンテーションフォールト時の例:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -q -X faulthandler
 <span class="gp">&gt;</span>&gt;&gt; import ctypes
@@ -1712,7 +1713,7 @@ Heiko Wundram)</p>
 <li><p class="first"><code class="docutils literal"><span class="pre">-Q</span></code> コマンドラインスイッチとそれに関係するものは削除されました。 <code class="docutils literal"><span class="pre">sys.flags.division_warning</span></code> をチェックしているコードは修正する必要があります。</p>
 <p>(<a class="reference external" href="https://bugs.python.org/issue10998">issue 10998</a>, contributed by Éric Araujo.)</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> スイッチ付きで <strong class="program">python</strong> を開始すると、 <code class="docutils literal"><span class="pre">import</span> <span class="pre">site</span></code> がモジュール検索パスにサイト固有のパスを追加しなくなります。以前のバージョンではそれをしていました。</p>
+<li><p class="first"><a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> スイッチ付きで <strong class="program">python</strong> を開始すると、 <code class="docutils literal"><span class="pre">import</span> <span class="pre">site</span></code> がモジュール検索パスにサイト固有のパスを追加しなくなります。以前のバージョンではそれをしていました。</p>
 <p>(<a class="reference external" href="https://bugs.python.org/issue11591">issue 11591</a>, contributed by Carl Meyer with editions by Éric Araujo.)</p>
 </li>
 </ul>
@@ -1869,7 +1870,7 @@ Heiko Wundram)</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/3.3.rst.txt"
+      <li><a href="../_sources/whatsnew/3.3.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -1924,10 +1925,10 @@ Heiko Wundram)</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="29. Python ランタイムサービス" href="python.html" />
     <link rel="next" title="29.2. sysconfig — Python の構成情報にアクセスする" href="sysconfig.html" />
     <link rel="prev" title="29. Python ランタイムサービス" href="python.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -232,7 +233,7 @@
 <code class="descclassname">sys.</code><code class="descname">dont_write_bytecode</code><a class="headerlink" href="#sys.dont_write_bytecode" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>If this is true, Python won&#8217;t try to write <code class="docutils literal"><span class="pre">.pyc</span></code> files on the
 import of source modules.  This value is initially set to <code class="docutils literal"><span class="pre">True</span></code> or
-<code class="docutils literal"><span class="pre">False</span></code> depending on the <a class="reference internal" href="../using/cmdline.html#id1"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a> command line option and the
+<code class="docutils literal"><span class="pre">False</span></code> depending on the <a class="reference internal" href="../using/cmdline.html#cmdoption-B"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a> command line option and the
 <span class="target" id="index-1"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONDONTWRITEBYTECODE"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONDONTWRITEBYTECODE</span></code></a> environment variable, but you can set it
 yourself to control bytecode file generation.</p>
 </dd></dl>
@@ -320,23 +321,23 @@ program when an error occurs.</p>
 <td><a class="reference internal" href="../using/cmdline.html#cmdoption-i"><code class="xref std std-option docutils literal"><span class="pre">-i</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">optimize</span></code></td>
-<td><p class="first last"><a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a></p>
+<td><p class="first last"><a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a></p>
 </td>
 </tr>
 <tr class="row-even"><td><a class="reference internal" href="#sys.dont_write_bytecode" title="sys.dont_write_bytecode"><code class="xref py py-const docutils literal"><span class="pre">dont_write_bytecode</span></code></a></td>
-<td><a class="reference internal" href="../using/cmdline.html#id1"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-B"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">no_user_site</span></code></td>
 <td><a class="reference internal" href="../using/cmdline.html#cmdoption-s"><code class="xref std std-option docutils literal"><span class="pre">-s</span></code></a></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">no_site</span></code></td>
-<td><a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">ignore_environment</span></code></td>
-<td><a class="reference internal" href="../using/cmdline.html#cmdoption-e"><code class="xref std std-option docutils literal"><span class="pre">-E</span></code></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-E"><code class="xref std std-option docutils literal"><span class="pre">-E</span></code></a></td>
 </tr>
 <tr class="row-even"><td><code class="xref py py-const docutils literal"><span class="pre">verbose</span></code></td>
-<td><a class="reference internal" href="../using/cmdline.html#id4"><code class="xref std std-option docutils literal"><span class="pre">-v</span></code></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-v"><code class="xref std std-option docutils literal"><span class="pre">-v</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">bytes_warning</span></code></td>
 <td><a class="reference internal" href="../using/cmdline.html#cmdoption-b"><code class="xref std std-option docutils literal"><span class="pre">-b</span></code></a></td>
@@ -345,7 +346,7 @@ program when an error occurs.</p>
 <td><a class="reference internal" href="../using/cmdline.html#cmdoption-q"><code class="xref std std-option docutils literal"><span class="pre">-q</span></code></a></td>
 </tr>
 <tr class="row-odd"><td><code class="xref py py-const docutils literal"><span class="pre">hash_randomization</span></code></td>
-<td><a class="reference internal" href="../using/cmdline.html#cmdoption-r"><code class="xref std std-option docutils literal"><span class="pre">-R</span></code></a></td>
+<td><a class="reference internal" href="../using/cmdline.html#cmdoption-R"><code class="xref std std-option docutils literal"><span class="pre">-R</span></code></a></td>
 </tr>
 </tbody>
 </table>
@@ -1259,7 +1260,7 @@ to a console and Python apps started with <strong class="program">pythonw</stron
 <dt id="sys._xoptions">
 <code class="descclassname">sys.</code><code class="descname">_xoptions</code><a class="headerlink" href="#sys._xoptions" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>A dictionary of the various implementation-specific flags passed through
-the <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> command-line option.  Option names are either mapped to
+the <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> command-line option.  Option names are either mapped to
 their values, if given explicitly, or to <a class="reference internal" href="constants.html#True" title="True"><code class="xref py py-const docutils literal"><span class="pre">True</span></code></a>.  Example:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> ./python -Xa<span class="o">=</span>b -Xc
 <span class="go">Python 3.2a3+ (py3k, Oct 16 2010, 20:14:50)</span>
@@ -1271,7 +1272,7 @@ their values, if given explicitly, or to <a class="reference internal" href="con
 </pre></div>
 </div>
 <div class="impl-detail compound">
-<p><strong>CPython 実装の詳細:</strong> この <a class="reference internal" href="../using/cmdline.html#id5"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> によって渡されたオプションにアクセスする方法は CPython 固有です。他の実装ではそれらは他の意味でエクスポートされるか、あるいは何もしません。</p>
+<p><strong>CPython 実装の詳細:</strong> この <a class="reference internal" href="../using/cmdline.html#cmdoption-X"><code class="xref std std-option docutils literal"><span class="pre">-X</span></code></a> によって渡されたオプションにアクセスする方法は CPython 固有です。他の実装ではそれらは他の意味でエクスポートされるか、あるいは何もしません。</p>
 </div>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.2 で追加.</span></p>
@@ -1304,7 +1305,7 @@ their values, if given explicitly, or to <a class="reference internal" href="con
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/sys.rst.txt"
+      <li><a href="../_sources/library/sys.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -1360,10 +1361,10 @@ their values, if given explicitly, or to <a class="reference internal" href="con
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

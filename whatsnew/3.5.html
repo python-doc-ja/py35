@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New In Python 3.4" href="3.4.html" />
     <link rel="prev" title="What’s New in Python" href="index.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -582,8 +583,8 @@ Tal Einat.</dd>
 <p><span class="target" id="index-115"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0488"><strong>PEP 488</strong></a> は <code class="docutils literal"><span class="pre">.pyo</span></code> ファイルという概念を廃止しました。
 つまり、<code class="docutils literal"><span class="pre">.pyc</span></code> ファイルは最適化されていないバイトコードと最適化されたバイトコードの両方を指すということです。
 バイトコードファイルを何度も再生成する必要がないよう、バイトコードが最適化されたときは <code class="docutils literal"><span class="pre">.pyc</span></code> ファイルは任意の <code class="docutils literal"><span class="pre">opt-</span></code> タグを名前に持つようになりました。
-この副作用で、<a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> と <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> のいずれかで実行した場合でも、バイトコードのファイル名が衝突しないようになりました。
-それにより、<a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> および <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> で生成したバイトコードは同時に存在できるようになりました。
+この副作用で、<a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> と <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> のいずれかで実行した場合でも、バイトコードのファイル名が衝突しないようになりました。
+それにより、<a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> および <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> で生成したバイトコードは同時に存在できるようになりました。
 <a class="reference internal" href="../library/importlib.html#importlib.util.cache_from_source" title="importlib.util.cache_from_source"><code class="xref py py-func docutils literal"><span class="pre">importlib.util.cache_from_source()</span></code></a> にの API は更新され、この変更に役立ちます。</p>
 <div class="admonition seealso">
 <p class="first admonition-title">参考</p>
@@ -2030,7 +2031,7 @@ for details.)</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/3.5.rst.txt"
+      <li><a href="../_sources/whatsnew/3.5.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -2085,10 +2086,10 @@ for details.)</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

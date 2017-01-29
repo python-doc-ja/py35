@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="16. 汎用オペレーティングシステムサービス" href="allos.html" />
     <link rel="next" title="17. 並行実行" href="concurrency.html" />
     <link rel="prev" title="16.15. errno — 標準の errno システムシンボル" href="errno.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -915,7 +916,7 @@
 </div>
 <div class="section" id="accessing-values-exported-from-dlls">
 <span id="ctypes-accessing-values-exported-from-dlls"></span><h3>16.16.1.18. dllからエクスポートされた値へアクセスする<a class="headerlink" href="#accessing-values-exported-from-dlls" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>共有ライブラリの一部は関数だけでなく変数もエクスポートしています。 Python ライブラリにある例としては <code class="xref c c-data docutils literal"><span class="pre">Py_OptimizeFlag</span></code> 、起動時の <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> フラグに依存して、 0 , 1 または 2 が設定される整数があります。</p>
+<p>共有ライブラリの一部は関数だけでなく変数もエクスポートしています。 Python ライブラリにある例としては <code class="xref c c-data docutils literal"><span class="pre">Py_OptimizeFlag</span></code> 、起動時の <a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> フラグに依存して、 0 , 1 または 2 が設定される整数があります。</p>
 <p><a class="reference internal" href="#module-ctypes" title="ctypes: A foreign function library for Python."><code class="xref py py-mod docutils literal"><span class="pre">ctypes</span></code></a> は型の <code class="xref py py-meth docutils literal"><span class="pre">in_dll()</span></code> クラスメソッドを使ってこのように値にアクセスできます。 <em>pythonapi</em> はPython C api へアクセスできるようにするための予め定義されたシンボルです:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">opt_flag</span> <span class="o">=</span> <span class="n">c_int</span><span class="o">.</span><span class="n">in_dll</span><span class="p">(</span><span class="n">pythonapi</span><span class="p">,</span> <span class="s2">&quot;Py_OptimizeFlag&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="nb">print</span><span class="p">(</span><span class="n">opt_flag</span><span class="p">)</span>
@@ -923,7 +924,7 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>インタープリタが <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> を指定されて動き始めた場合、サンプルは <code class="docutils literal"><span class="pre">c_long(1)</span></code> を表示するでしょうし、 <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> が指定されたならば <code class="docutils literal"><span class="pre">c_long(2)</span></code> を表示するでしょう。</p>
+<p>インタープリタが <a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> を指定されて動き始めた場合、サンプルは <code class="docutils literal"><span class="pre">c_long(1)</span></code> を表示するでしょうし、 <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> が指定されたならば <code class="docutils literal"><span class="pre">c_long(2)</span></code> を表示するでしょう。</p>
 <p>ポインタの使い方を説明する拡張例では、 Python がエクスポートする <a class="reference internal" href="../c-api/import.html#c.PyImport_FrozenModules" title="PyImport_FrozenModules"><code class="xref c c-data docutils literal"><span class="pre">PyImport_FrozenModules</span></code></a> ポインタにアクセスします。</p>
 <p>この値のドキュメントから引用すると:</p>
 <blockquote>
@@ -2008,7 +2009,7 @@ windows のヘッダファイルの C の宣言は次の通りです:</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/ctypes.rst.txt"
+      <li><a href="../_sources/library/ctypes.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -2064,10 +2065,10 @@ windows のヘッダファイルの C の宣言は次の通りです:</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

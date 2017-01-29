@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="27. デバッグとプロファイル" href="debug.html" />
     <link rel="next" title="27.6. trace — Python 文実行のトレースと追跡" href="trace.html" />
     <link rel="prev" title="27.4. Python プロファイラ" href="profile.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -232,25 +233,25 @@ $ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(map(str, range(100)
 <p>以下のオプションが使用できます:</p>
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-n">
-<code class="descname">-n</code><code class="descclassname"> N</code><code class="descclassname">, </code><code class="descname">--number</code><code class="descclassname">=N</code><a class="headerlink" href="#cmdoption-timeit-n" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--number"></span><code class="descname">-n</code><code class="descclassname"> N</code><code class="descclassname">, </code><code class="descname">--number</code><code class="descclassname">=N</code><a class="headerlink" href="#cmdoption-timeit-n" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>&#8216;statement&#8217; を実行する回数</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-r">
-<code class="descname">-r</code><code class="descclassname"> N</code><code class="descclassname">, </code><code class="descname">--repeat</code><code class="descclassname">=N</code><a class="headerlink" href="#cmdoption-timeit-r" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--repeat"></span><code class="descname">-r</code><code class="descclassname"> N</code><code class="descclassname">, </code><code class="descname">--repeat</code><code class="descclassname">=N</code><a class="headerlink" href="#cmdoption-timeit-r" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>タイマーを繰り返す回数 (デフォルトは 3)</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-s">
-<code class="descname">-s</code><code class="descclassname"> S</code><code class="descclassname">, </code><code class="descname">--setup</code><code class="descclassname">=S</code><a class="headerlink" href="#cmdoption-timeit-s" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--setup"></span><code class="descname">-s</code><code class="descclassname"> S</code><code class="descclassname">, </code><code class="descname">--setup</code><code class="descclassname">=S</code><a class="headerlink" href="#cmdoption-timeit-s" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>最初に1回だけ実行する文 (デフォルトは <code class="docutils literal"><span class="pre">pass</span></code>)</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-p">
-<code class="descname">-p</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--process</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-p" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--process"></span><code class="descname">-p</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--process</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-p" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>デフォルトの <a class="reference internal" href="time.html#time.perf_counter" title="time.perf_counter"><code class="xref py py-func docutils literal"><span class="pre">time.perf_counter()</span></code></a> の代わり <a class="reference internal" href="time.html#time.process_time" title="time.process_time"><code class="xref py py-func docutils literal"><span class="pre">time.process_time()</span></code></a> を利用して、実時間ではなくプロセス時間を計測します</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.3 で追加.</span></p>
@@ -259,13 +260,13 @@ $ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(map(str, range(100)
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-t">
-<code class="descname">-t</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--time</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-t" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--time"></span><code class="descname">-t</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--time</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-t" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><a class="reference internal" href="time.html#time.time" title="time.time"><code class="xref py py-func docutils literal"><span class="pre">time.time()</span></code></a> を使用する (廃止予定)</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-u">
-<code class="descname">-u</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--unit</code><code class="descclassname">=U</code><a class="headerlink" href="#cmdoption-timeit-u" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--unit"></span><code class="descname">-u</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--unit</code><code class="descclassname">=U</code><a class="headerlink" href="#cmdoption-timeit-u" title="この定義へのパーマリンク">¶</a></dt>
 <dd><blockquote>
 <div><p>タイマーの出力の時間単位を指定します (usec, msec, または sec)。</p>
 </div></blockquote>
@@ -276,19 +277,19 @@ $ python3 -m timeit <span class="s1">&#39;&quot;-&quot;.join(map(str, range(100)
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-c">
-<code class="descname">-c</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--clock</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-c" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--clock"></span><code class="descname">-c</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--clock</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-c" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><a class="reference internal" href="time.html#time.clock" title="time.clock"><code class="xref py py-func docutils literal"><span class="pre">time.clock()</span></code></a> を使用する (廃止予定)</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-v">
-<code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-v" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--verbose"></span><code class="descname">-v</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--verbose</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-v" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>時間計測の結果をそのまま詳細な数値でくり返し表示する</p>
 </dd></dl>
 
 <dl class="cmdoption">
 <dt id="cmdoption-timeit-h">
-<code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-h" title="この定義へのパーマリンク">¶</a></dt>
+<span id="cmdoption-timeit--help"></span><code class="descname">-h</code><code class="descclassname"></code><code class="descclassname">, </code><code class="descname">--help</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-timeit-h" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>簡単な使い方を表示して終了する</p>
 </dd></dl>
 
@@ -419,7 +420,7 @@ $ python -m timeit <span class="s1">&#39;if hasattr(int, &quot;__bool__&quot;): 
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/timeit.rst.txt"
+      <li><a href="../_sources/library/timeit.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -475,10 +476,10 @@ $ python -m timeit <span class="s1">&#39;if hasattr(int, &quot;__bool__&quot;): 
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

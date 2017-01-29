@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.4" href="2.4.html" />
     <link rel="prev" title="What’s New in Python 2.6" href="2.6.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -703,11 +704,11 @@ options.</p>
 </li>
 <li><p class="first">One error that Python programmers sometimes make is forgetting to include an
 <code class="file docutils literal"><span class="pre">__init__.py</span></code> module in a package directory. Debugging this mistake can be
-confusing, and usually requires running Python with the <a class="reference internal" href="../using/cmdline.html#id4"><code class="xref std std-option docutils literal"><span class="pre">-v</span></code></a> switch to
+confusing, and usually requires running Python with the <a class="reference internal" href="../using/cmdline.html#cmdoption-v"><code class="xref std std-option docutils literal"><span class="pre">-v</span></code></a> switch to
 log all the paths searched. In Python 2.5, a new <a class="reference internal" href="../library/exceptions.html#ImportWarning" title="ImportWarning"><code class="xref py py-exc docutils literal"><span class="pre">ImportWarning</span></code></a> warning is
 triggered when an import would have picked up a directory as a package but no
 <code class="file docutils literal"><span class="pre">__init__.py</span></code> was found.  This warning is silently ignored by default;
-provide the <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-Wd</span></code></a> option when running the Python executable to display
+provide the <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-Wd</span></code></a> option when running the Python executable to display
 the warning message. (Implemented by Thomas Wouters.)</p>
 </li>
 <li><p class="first">クラス定義において、基底クラスのリストを空リストに出来るようになっています(訳注: object を派生しないので結果として旧スタイルクラスになります)。例えば以下は今や合法です:</p>
@@ -726,8 +727,8 @@ the warning message. (Implemented by Thomas Wouters.)</p>
 </pre></div>
 </div>
 <p>Python 2.5 でも <code class="docutils literal"><span class="pre">quit</span></code> と <code class="docutils literal"><span class="pre">exit</span></code> はそれ自身そのような文字列を生成はしますが、同時に「呼び出す」ことが出来るオブジェクトになっています。初心者が思わず <code class="docutils literal"><span class="pre">quit()</span></code> や <code class="docutils literal"><span class="pre">exit()</span></code> してしまった場合、今では彼らが期待する通りにインタプリタが終了します。  (Implemented by Georg Brandl.)</p>
-<p>The Python executable now accepts the standard long options  <a class="reference internal" href="../library/json.html#cmdoption-h"><code class="xref std std-option docutils literal"><span class="pre">--help</span></code></a>
-and <a class="reference internal" href="../using/cmdline.html#cmdoption-version"><code class="xref std std-option docutils literal"><span class="pre">--version</span></code></a>; on Windows,  it also accepts the <a class="reference internal" href="../using/cmdline.html#cmdoption"><code class="xref std std-option docutils literal"><span class="pre">/?</span></code></a> option
+<p>The Python executable now accepts the standard long options  <a class="reference internal" href="../library/json.html#cmdoption--help"><code class="xref std std-option docutils literal"><span class="pre">--help</span></code></a>
+and <a class="reference internal" href="../using/cmdline.html#cmdoption--version"><code class="xref std std-option docutils literal"><span class="pre">--version</span></code></a>; on Windows,  it also accepts the <a class="reference internal" href="../using/cmdline.html#cmdoption-?"><code class="xref std std-option docutils literal"><span class="pre">/?</span></code></a> option
 for displaying a help message. (Implemented by Georg Brandl.)</p>
 </div>
 <div class="section" id="optimizations">
@@ -1496,7 +1497,7 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.5.rst.txt"
+      <li><a href="../_sources/whatsnew/2.5.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -1551,10 +1552,10 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

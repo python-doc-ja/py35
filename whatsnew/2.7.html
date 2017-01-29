@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.6" href="2.6.html" />
     <link rel="prev" title="What’s New In Python 3.0" href="3.0.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -138,7 +139,7 @@ release, compared to the more typical support period of 18&#8211;24 months).</li
 <p>Python 2.7 では開発者向けの警告をデフォルトで抑止するポリシーが取られました。 <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">DeprecationWarning</span></code></a> とそれを継承した警告は、指定されない限りは無視され、アプリケーションのユーザーがその警告を見ないですむようになりました。この変更は Python 3.2 ブランチにも適用されました。 (stdlib-sig で討議され、 <a class="reference external" href="https://bugs.python.org/issue7319">issue 7319</a> になりました)</p>
 <p>以前のリリースでは、 <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">DeprecationWarning</span></code></a> メッセージはデフォルトで有効になっており、 Python 開発者に、将来のバージョンの Python でそのコードのどこが動かなくなるかを明確に知らせていました。</p>
 <p>しかし、 Python で開発されたアプリケーションの利用者であって開発には携わっていない人がどんどん増えてきました。 <a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">DeprecationWarning</span></code></a> メッセージはそれらのユーザーには無関係で、彼らをアプリケーションが本当に正しく動いているのか不安にさせ、ユーザーの質問に応えるための開発者の負担も増やしていました。</p>
-<p><a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">DeprecationWarning</span></code></a> メッセージの表示を有効にするには、 <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-Wdefault</span></code></a> (短い形式: <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-Wd</span></code></a>) スイッチか、Python を実行する前に <span class="target" id="index-37"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONWARNINGS</span></code></a> 環境変数を <code class="docutils literal"><span class="pre">&quot;default&quot;</span></code>  (か、 <code class="docutils literal"><span class="pre">&quot;d&quot;</span></code>)に設定します。 Python コードから有効にする場合は <code class="docutils literal"><span class="pre">warnings.simplefilter('default')</span></code> とします。</p>
+<p><a class="reference internal" href="../library/exceptions.html#DeprecationWarning" title="DeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">DeprecationWarning</span></code></a> メッセージの表示を有効にするには、 <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-Wdefault</span></code></a> (短い形式: <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-Wd</span></code></a>) スイッチか、Python を実行する前に <span class="target" id="index-37"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONWARNINGS</span></code></a> 環境変数を <code class="docutils literal"><span class="pre">&quot;default&quot;</span></code>  (か、 <code class="docutils literal"><span class="pre">&quot;d&quot;</span></code>)に設定します。 Python コードから有効にする場合は <code class="docutils literal"><span class="pre">warnings.simplefilter('default')</span></code> とします。</p>
 <p><code class="docutils literal"><span class="pre">unittest</span></code> モジュールもテスト実行時に自動的に deprecation warnings を有効にします。</p>
 </div>
 <div class="section" id="python-3-1-features">
@@ -634,7 +635,7 @@ Georg Brandl.)</p>
 </ul>
 <div class="section" id="interpreter-changes">
 <span id="new-27-interpreter"></span><h3>インタプリタの変更<a class="headerlink" href="#interpreter-changes" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>新しい環境変数 <span class="target" id="index-42"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONWARNINGS</span></code></a> を使って警告を制御できるようになりました。この環境変数には、 <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-W</span></code></a> スイッチに使われる警告の設定を、カンマ区切りの文字列として指定します。 (Contributed by Brian Curtin; <a class="reference external" href="https://bugs.python.org/issue7301">issue 7301</a>.)</p>
+<p>新しい環境変数 <span class="target" id="index-42"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONWARNINGS</span></code></a> を使って警告を制御できるようになりました。この環境変数には、 <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-W</span></code></a> スイッチに使われる警告の設定を、カンマ区切りの文字列として指定します。 (Contributed by Brian Curtin; <a class="reference external" href="https://bugs.python.org/issue7301">issue 7301</a>.)</p>
 <p>例えば、以下の設定は警告が発生するたびにそれを表示しますが、 <code class="xref py py-mod docutils literal"><span class="pre">Cookie</span></code> モジュールからの警告はエラーにします。 (環境変数を設定するための文法はOSとシェルに依存します)</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">export</span> <span class="n">PYTHONWARNINGS</span><span class="o">=</span><span class="nb">all</span><span class="p">,</span><span class="n">error</span><span class="p">:::</span><span class="n">Cookie</span><span class="p">:</span><span class="mi">0</span>
 </pre></div>
@@ -1443,7 +1444,7 @@ until they fail.  (Added by Antoine Pitrou; <a class="reference external" href="
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.7.rst.txt"
+      <li><a href="../_sources/whatsnew/2.7.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -1498,10 +1499,10 @@ until they fail.  (Added by Antoine Pitrou; <a class="reference external" href="
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.2" href="2.2.html" />
     <link rel="prev" title="What’s New in Python 2.4" href="2.4.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -722,7 +723,7 @@ For example:</p>
 </div>
 <p>(Contributed by Just van Rossum.)</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../reference/simple_stmts.html#assert"><code class="xref std std-keyword docutils literal"><span class="pre">assert</span></code></a> ステートメントが <code class="docutils literal"><span class="pre">__debug__</span></code> フラグをチェックすることはもうありません。このため、 <code class="docutils literal"><span class="pre">__debug__</span></code> に代入することによってアサーションを無効にすることは出来ません。Python を <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> スイッチで起動により全てのアサーションが実行されない点は、以前と変わりません。</p>
+<li><p class="first"><a class="reference internal" href="../reference/simple_stmts.html#assert"><code class="xref std std-keyword docutils literal"><span class="pre">assert</span></code></a> ステートメントが <code class="docutils literal"><span class="pre">__debug__</span></code> フラグをチェックすることはもうありません。このため、 <code class="docutils literal"><span class="pre">__debug__</span></code> に代入することによってアサーションを無効にすることは出来ません。Python を <a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> スイッチで起動により全てのアサーションが実行されない点は、以前と変わりません。</p>
 </li>
 <li><p class="first">ほとんどの型オブジェクトが今では呼び出し可能であり、なので関数、クラス、モジュールのようなオブジェクトを新たに構築するのにそれを使えます。 (<code class="xref py py-mod docutils literal"><span class="pre">new</span></code> モジュールはこれにより将来のバージョンの Python で撤廃される可能性があります。 <a class="reference internal" href="../library/types.html#module-types" title="types: Names for built-in types."><code class="xref py py-mod docutils literal"><span class="pre">types</span></code></a> モジュール内の型オブジェクトが使えるからです。 &#8212;訳注: 2.6 で実際に撤廃されています。&#8212;) 例えば新規モジュールオブジェクトは以下コードで構築出来ます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">types</span>
@@ -737,7 +738,7 @@ For example:</p>
 <li><p class="first">A new warning, <a class="reference internal" href="../library/exceptions.html#PendingDeprecationWarning" title="PendingDeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">PendingDeprecationWarning</span></code></a> was added to indicate features
 which are in the process of being deprecated.  The warning will <em>not</em> be printed
 by default.  To check for use of features that will be deprecated in the future,
-supply <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-Walways::PendingDeprecationWarning::</span></code></a> on the command line or
+supply <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-Walways::PendingDeprecationWarning::</span></code></a> on the command line or
 use <a class="reference internal" href="../library/warnings.html#warnings.filterwarnings" title="warnings.filterwarnings"><code class="xref py py-func docutils literal"><span class="pre">warnings.filterwarnings()</span></code></a>.</p>
 </li>
 <li><p class="first">文字列ベースの例外、例えば <code class="docutils literal"><span class="pre">raise</span> <span class="pre">&quot;Error</span> <span class="pre">occurred&quot;</span></code> のようなもの、これは廃止のための過程を開始しています。文字列を例外として投げると <a class="reference internal" href="../library/exceptions.html#PendingDeprecationWarning" title="PendingDeprecationWarning"><code class="xref py py-exc docutils literal"><span class="pre">PendingDeprecationWarning</span></code></a> が発行されます。</p>
@@ -1317,7 +1318,7 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
 <li><p class="first">ドキュメントのビルドに使われるツールは今では Unix 同様に Cygwin でも動作します。</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">SET_LINENO</span></code> 命令コード (opcode) は削除されました。彼方の昔に戻れば、この命令コードはトレースバック内で行番号を生成し、トレース関数をサポートするのに必要でした (例えば <a class="reference internal" href="../library/pdb.html#module-pdb" title="pdb: The Python debugger for interactive interpreters."><code class="xref py py-mod docutils literal"><span class="pre">pdb</span></code></a> のために)。Python 1.5 より、トレースバック内の行番号は &#8220;python -O&#8221; で働くための異なったメカニズムを用いて計算で求められてきました。2.3 のためには Michael Hudson がトレース関数を呼ぶのに決定する似た方法を実装しましたので、 <code class="docutils literal"><span class="pre">SET_LINENO</span></code> の必要性は完全になくなりました。</p>
-<p>Python コードから何か異なる結果を見つけるのは、 <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> なしで Python を実行する際のわずかなスピードアップを別とすれば、困難かもしれません。</p>
+<p>Python コードから何か異なる結果を見つけるのは、 <a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> なしで Python を実行する際のわずかなスピードアップを別とすれば、困難かもしれません。</p>
 <p>フレームオブジェクトの <code class="xref py py-attr docutils literal"><span class="pre">f_lineno</span></code> フィールドにアクセスしている C 拡張は、代わりに <code class="docutils literal"><span class="pre">PyCode_Addr2Line(f-&gt;f_code,</span> <span class="pre">f-&gt;f_lasti)</span></code> を呼び出すべきです。これは以前の Python バージョンでも &#8220;python -O&#8221; のもとでコードが動作するのにも望ましい効果を持つでしょう。</p>
 <p>気の利いた新機能としては、トレース関数は、今ではフレームオブジェクトの <code class="xref py py-attr docutils literal"><span class="pre">f_lineno</span></code> 属性を、次に実行される行に変更してセットします。 <a class="reference internal" href="../library/pdb.html#module-pdb" title="pdb: The Python debugger for interactive interpreters."><code class="xref py py-mod docutils literal"><span class="pre">pdb</span></code></a> デバッガにはこの新機能の恩恵を受けて <code class="docutils literal"><span class="pre">jump</span></code> コマンドが追加されています。 (Implemented by Richie Hindle.)</p>
 </li>
@@ -1420,7 +1421,7 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.3.rst.txt"
+      <li><a href="../_sources/whatsnew/2.3.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -1475,10 +1476,10 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

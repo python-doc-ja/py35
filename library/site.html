@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="29. Python ランタイムサービス" href="python.html" />
     <link rel="next" title="29.14. fpectl — 浮動小数点例外の制御" href="fpectl.html" />
     <link rel="prev" title="29.12. inspect — 活動中のオブジェクトの情報を取得する" href="inspect.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -105,15 +106,15 @@
 <span id="site-site-specific-configuration-hook"></span><h1>29.13. <a class="reference internal" href="#module-site" title="site: Module responsible for site-specific configuration."><code class="xref py py-mod docutils literal"><span class="pre">site</span></code></a> &#8212; サイト固有の設定フック<a class="headerlink" href="#module-site" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/site.py">Lib/site.py</a></p>
 <hr class="docutils" />
-<p><strong>このモジュールは初期化中に自動的にインポートされます。</strong> 自動インポートはインタプリタの <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> オプションで禁止できます。</p>
+<p><strong>このモジュールは初期化中に自動的にインポートされます。</strong> 自動インポートはインタプリタの <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> オプションで禁止できます。</p>
 <p id="index-0">Importing this module will append site-specific paths to the module search path
-and add a few builtins, unless <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> was used.  In that case, this module
+and add a few builtins, unless <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> was used.  In that case, this module
 can be safely imported with no automatic modifications to the module search path
 or additions to the builtins.  To explicitly trigger the usual site-specific
 additions, call the <a class="reference internal" href="#site.main" title="site.main"><code class="xref py py-func docutils literal"><span class="pre">site.main()</span></code></a> function.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.3 で変更: </span>Importing the module used to trigger paths manipulation even when using
-<a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a>.</p>
+<a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a>.</p>
 </div>
 <p id="index-1">It starts by constructing up to four directories from a head and a tail part.
 For the head part, it uses <code class="docutils literal"><span class="pre">sys.prefix</span></code> and <code class="docutils literal"><span class="pre">sys.exec_prefix</span></code>; empty heads
@@ -165,7 +166,7 @@ bar
 <p>いくつかの非Unixシステムでは、 <code class="docutils literal"><span class="pre">sys.prefix</span></code> と <code class="docutils literal"><span class="pre">sys.exec_prefix</span></code> は空で、パス操作は省略されます。しかし、 <code class="xref py py-mod docutils literal"><span class="pre">sitecustomize</span></code> と <code class="xref py py-mod docutils literal"><span class="pre">usercustomize</span></code> のインポートはそのときでも試みられます。</p>
 <div class="section" id="readline-configuration">
 <span id="rlcompleter-config"></span><h2>29.13.1. readline の設定<a class="headerlink" href="#readline-configuration" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">readline</span></code></a> をサポートするシステムではこのモジュールは、Python を <a class="reference internal" href="../tutorial/interpreter.html#tut-interactive"><span class="std std-ref">対話モード</span></a> で <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> オプションなしで開始した場合に <a class="reference internal" href="rlcompleter.html#module-rlcompleter" title="rlcompleter: Python identifier completion, suitable for the GNU readline library."><code class="xref py py-mod docutils literal"><span class="pre">rlcompleter</span></code></a> モジュールをインポートして設定します。デフォルトの振る舞いでは、タブ補完を有効にし、履歴保存ファイルに <code class="file docutils literal"><span class="pre">~/.python_history</span></code> を使います。これを無効にするには、あなたの <code class="xref py py-mod docutils literal"><span class="pre">sitecustomize</span></code> または <code class="xref py py-mod docutils literal"><span class="pre">usercustomize</span></code> あるいは <span class="target" id="index-18"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSTARTUP"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONSTARTUP</span></code></a> ファイル内で <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">sys.__interactivehook__</span></code></a> 属性を削除 (または上書き) してください。 (&#8212;訳注: site モジュールは <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">__interactivehook__</span></code></a> に readline 設定関数を設定後に <code class="xref py py-mod docutils literal"><span class="pre">sitecustomize</span></code> 等のユーザ設定を実行します。 <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">__interactivehook__</span></code></a> のチェックが行われるのは site モジュール実行の後です。 &#8212;)</p>
+<p><a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">readline</span></code></a> をサポートするシステムではこのモジュールは、Python を <a class="reference internal" href="../tutorial/interpreter.html#tut-interactive"><span class="std std-ref">対話モード</span></a> で <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> オプションなしで開始した場合に <a class="reference internal" href="rlcompleter.html#module-rlcompleter" title="rlcompleter: Python identifier completion, suitable for the GNU readline library."><code class="xref py py-mod docutils literal"><span class="pre">rlcompleter</span></code></a> モジュールをインポートして設定します。デフォルトの振る舞いでは、タブ補完を有効にし、履歴保存ファイルに <code class="file docutils literal"><span class="pre">~/.python_history</span></code> を使います。これを無効にするには、あなたの <code class="xref py py-mod docutils literal"><span class="pre">sitecustomize</span></code> または <code class="xref py py-mod docutils literal"><span class="pre">usercustomize</span></code> あるいは <span class="target" id="index-18"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONSTARTUP"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONSTARTUP</span></code></a> ファイル内で <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">sys.__interactivehook__</span></code></a> 属性を削除 (または上書き) してください。 (&#8212;訳注: site モジュールは <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">__interactivehook__</span></code></a> に readline 設定関数を設定後に <code class="xref py py-mod docutils literal"><span class="pre">sitecustomize</span></code> 等のユーザ設定を実行します。 <a class="reference internal" href="sys.html#sys.__interactivehook__" title="sys.__interactivehook__"><code class="xref py py-data docutils literal"><span class="pre">__interactivehook__</span></code></a> のチェックが行われるのは site モジュール実行の後です。 &#8212;)</p>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.4 で変更: </span>rlcompleter とhistory のアクティベーションが自動で行われるようになりました。</p>
 </div>
@@ -199,7 +200,7 @@ bar
 <dl class="function">
 <dt id="site.main">
 <code class="descclassname">site.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#site.main" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>モジュール検索パスに標準のサイト固有ディレクトリを追加します。この関数は、Python インタプリタが <a class="reference internal" href="../using/cmdline.html#id3"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> で開始されていない限り、このモジュールインポート時に自動的に呼び出されます。</p>
+<dd><p>モジュール検索パスに標準のサイト固有ディレクトリを追加します。この関数は、Python インタプリタが <a class="reference internal" href="../using/cmdline.html#cmdoption-S"><code class="xref std std-option docutils literal"><span class="pre">-S</span></code></a> で開始されていない限り、このモジュールインポート時に自動的に呼び出されます。</p>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.3 で変更: </span>この関数は以前は無条件に呼び出されていました。</p>
 </div>
@@ -245,14 +246,14 @@ bar
 </div>
 <p>引数なしで呼び出された場合、<a class="reference internal" href="sys.html#sys.path" title="sys.path"><code class="xref py py-data docutils literal"><span class="pre">sys.path</span></code></a> の中身を表示し、続けて <a class="reference internal" href="#site.USER_BASE" title="site.USER_BASE"><code class="xref py py-data docutils literal"><span class="pre">USER_BASE</span></code></a> とそのディレクトリが存在するかどうか、 <a class="reference internal" href="#site.USER_SITE" title="site.USER_SITE"><code class="xref py py-data docutils literal"><span class="pre">USER_SITE</span></code></a> とそのディレクトリが存在するかどうか、最後に <a class="reference internal" href="#site.ENABLE_USER_SITE" title="site.ENABLE_USER_SITE"><code class="xref py py-data docutils literal"><span class="pre">ENABLE_USER_SITE</span></code></a> の値を、標準出力に出力します。</p>
 <dl class="cmdoption">
-<dt id="cmdoption-site-user-base">
-<code class="descname">--user-base</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-site-user-base" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-site--user-base">
+<code class="descname">--user-base</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-site--user-base" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ユーザのベースディレクトリを表示します。</p>
 </dd></dl>
 
 <dl class="cmdoption">
-<dt id="cmdoption-site-user-site">
-<code class="descname">--user-site</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-site-user-site" title="この定義へのパーマリンク">¶</a></dt>
+<dt id="cmdoption-site--user-site">
+<code class="descname">--user-site</code><code class="descclassname"></code><a class="headerlink" href="#cmdoption-site--user-site" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>ユーザの site-packages ディレクトリを表示します。</p>
 </dd></dl>
 
@@ -290,7 +291,7 @@ bar
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/site.rst.txt"
+      <li><a href="../_sources/library/site.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -346,10 +347,10 @@ bar
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

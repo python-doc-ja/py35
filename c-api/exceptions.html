@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="Python/C API リファレンスマニュアル" href="index.html" />
     <link rel="next" title="ユーティリティ" href="utilities.html" />
     <link rel="prev" title="参照カウント" href="refcounting.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -316,7 +317,7 @@ Python の <a class="reference internal" href="../library/warnings.html#module-w
 int <code class="descname">PyErr_WarnEx</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*category</em>, const char<em>&nbsp;*message</em>, Py_ssize_t<em>&nbsp;stack_level</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyErr_WarnEx" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>警告メッセージを発行します。 <em>category</em> 引数は警告カテゴリ(以下を参照) かまたは <em>NULL</em> で、 <em>message</em> 引数は UTF-8 エンコードされた文字列です。 <em>stacklevel</em> はスタックフレームの数を示す正の整数です; 警告はそのスタックフレームの中の実行している行から発行されます。 <em>stacklevel</em> が 1 だと <a class="reference internal" href="#c.PyErr_WarnEx" title="PyErr_WarnEx"><code class="xref c c-func docutils literal"><span class="pre">PyErr_WarnEx()</span></code></a> を呼び出している関数が、2 だとその上の関数が Warning の発行元になります。</p>
 <p>警告カテゴリは <code class="xref c c-data docutils literal"><span class="pre">Warning</span></code> のサブクラスでなければならない。デフォルト警告カテゴリは <code class="xref c c-data docutils literal"><span class="pre">RuntimeWarning</span></code> です。標準Python警告カテゴリは <code class="docutils literal"><span class="pre">PyExc_</span></code> にPython例外名が続く名前のグローバル変数を用いて変更できます。これらは型 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject"><code class="xref c c-type docutils literal"><span class="pre">PyObject*</span></code></a> を持ち、すべてクラスオブジェクトです。それらの名前は <code class="xref c c-data docutils literal"><span class="pre">PyExc_Warning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_UserWarning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_UnicodeWarning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_DeprecationWarning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_SyntaxWarning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_RuntimeWarning</span></code>, <code class="xref c c-data docutils literal"><span class="pre">PyExc_FutureWarning</span></code> です。 <code class="xref c c-data docutils literal"><span class="pre">PyExc_Warning</span></code> は <code class="xref c c-data docutils literal"><span class="pre">PyExc_Exception</span></code> のサブクラスです。その他の警告カテゴリは <code class="xref c c-data docutils literal"><span class="pre">PyExc_Warning</span></code> のサブクラスです。</p>
-<p>警告をコントロールするための情報については、 <a class="reference internal" href="../library/warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal"><span class="pre">warnings</span></code></a> モジュールのドキュメンテーションとコマンドライン・ドキュメンテーションの <a class="reference internal" href="../using/cmdline.html#cmdoption-w"><code class="xref std std-option docutils literal"><span class="pre">-W</span></code></a> オプションを参照してください。警告コントロールのためのC APIはありません。</p>
+<p>警告をコントロールするための情報については、 <a class="reference internal" href="../library/warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal"><span class="pre">warnings</span></code></a> モジュールのドキュメンテーションとコマンドライン・ドキュメンテーションの <a class="reference internal" href="../using/cmdline.html#cmdoption-W"><code class="xref std std-option docutils literal"><span class="pre">-W</span></code></a> オプションを参照してください。警告コントロールのためのC APIはありません。</p>
 </dd></dl>
 
 <dl class="function">
@@ -944,7 +945,7 @@ void <code class="descname">Py_ReprLeave</code><span class="sig-paren">(</span><
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/c-api/exceptions.rst.txt"
+      <li><a href="../_sources/c-api/exceptions.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -999,10 +1000,10 @@ void <code class="descname">Py_ReprLeave</code><span class="sig-paren">(</span><
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>

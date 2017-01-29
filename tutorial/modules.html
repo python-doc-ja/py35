@@ -17,8 +17,7 @@
         VERSION:     '3.5.2',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true,
-        SOURCELINK_SUFFIX: '.txt'
+        HAS_SOURCE:  true
       };
     </script>
     <script type="text/javascript" src="../_static/jquery.js"></script>
@@ -33,6 +32,8 @@
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
+    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="up" title="Python チュートリアル" href="index.html" />
     <link rel="next" title="7. 入力と出力" href="inputoutput.html" />
     <link rel="prev" title="5. データ構造" href="datastructures.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
@@ -214,7 +215,7 @@
 <p>Python は2つの場合にキャッシュのチェックを行いません。ひとつは、コマンドラインから直接モジュールが読み込まれた場合で、常に再コンパイルされ、結果を保存することはありません。2つめは、ソース・モジュールのない場合で、キャッシュの確認を行いません。ソースのない (コンパイル済みのもののみの) 配布をサポートするには、コンパイル済みモジュールはソース・ディレクトリになくてはならず、ソース・ディレクトリにソース・モジュールがあってはいけません。</p>
 <p>エキスパート向けのTips:</p>
 <ul class="simple">
-<li><p class="first">コンパイル済みモジュールのサイズを小さくするために、Python コマンドに <a class="reference internal" href="../using/cmdline.html#cmdoption-o"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-oo"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> スイッチを使うことができます。<code class="docutils literal"><span class="pre">-O</span></code> スイッチは assert ステートメントを除去し、<code class="docutils literal"><span class="pre">-OO</span></code> スイッチは assert ステートメントと __doc__ 文字列を除去します。いくつかのプログラムはこれらの除去されるものに依存している可能性があるため、自分が何をしているかを理解しているときに限ってこれらのオプションを使うべきです。&#8221;最適化&#8221; されたモジュールは <code class="docutils literal"><span class="pre">opt-</span></code> タグを持ち、通常のコンパイル済みモジュールよりサイズが小さくなります。将来のリリースでは最適化の影響が変わる可能性があります。</p>
+<li><p class="first">コンパイル済みモジュールのサイズを小さくするために、Python コマンドに <a class="reference internal" href="../using/cmdline.html#cmdoption-O"><code class="xref std std-option docutils literal"><span class="pre">-O</span></code></a> または <a class="reference internal" href="../using/cmdline.html#cmdoption-OO"><code class="xref std std-option docutils literal"><span class="pre">-OO</span></code></a> スイッチを使うことができます。<code class="docutils literal"><span class="pre">-O</span></code> スイッチは assert ステートメントを除去し、<code class="docutils literal"><span class="pre">-OO</span></code> スイッチは assert ステートメントと __doc__ 文字列を除去します。いくつかのプログラムはこれらの除去されるものに依存している可能性があるため、自分が何をしているかを理解しているときに限ってこれらのオプションを使うべきです。&#8221;最適化&#8221; されたモジュールは <code class="docutils literal"><span class="pre">opt-</span></code> タグを持ち、通常のコンパイル済みモジュールよりサイズが小さくなります。将来のリリースでは最適化の影響が変わる可能性があります。</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">.pyc</span></code> ファイルや <code class="docutils literal"><span class="pre">.pyo</span></code> ファイルから読み出されたとしても、プログラムは <code class="docutils literal"><span class="pre">.py</span></code> ファイルから読み出されたときより何ら高速に動作するわけではありません。<code class="docutils literal"><span class="pre">.pyc</span></code> ファイルで高速化されるのは、読み込みにかかる時間だけです。</p>
 </li>
@@ -455,7 +456,7 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/tutorial/modules.rst.txt"
+      <li><a href="../_sources/tutorial/modules.txt"
             rel="nofollow">ソースの表示</a></li>
     </ul>
   </div>
@@ -510,10 +511,10 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 28, 2017
+    最終更新日時: 1月 29, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
-    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.5.2 を使って作成されました。
+    このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
     </div>
 
   </body>
