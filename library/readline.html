@@ -124,15 +124,13 @@ GNU Readline マニュアルの  <a class="reference external" href="https://cns
 <dl class="function">
 <dt id="readline.parse_and_bind">
 <code class="descclassname">readline.</code><code class="descname">parse_and_bind</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.parse_and_bind" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Execute the init line provided in the <em>string</em> argument. This calls
-<code class="xref c c-func docutils literal"><span class="pre">rl_parse_and_bind()</span></code> in the underlying library.</p>
+<dd><p><em>string</em> 引数で渡された最初の行を実行します。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">rl_parse_and_bind()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.read_init_file">
 <code class="descclassname">readline.</code><code class="descname">read_init_file</code><span class="sig-paren">(</span><span class="optional">[</span><em>filename</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.read_init_file" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Execute a readline initialization file. The default filename is the last filename
-used. This calls <code class="xref c c-func docutils literal"><span class="pre">rl_read_init_file()</span></code> in the underlying library.</p>
+<dd><p>readline 初期化ファイルを実行します。デフォルトのファイル名は最後に使用されたファイル名です。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">rl_read_init_file()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 </div>
@@ -142,23 +140,19 @@ used. This calls <code class="xref c c-func docutils literal"><span class="pre">
 <dl class="function">
 <dt id="readline.get_line_buffer">
 <code class="descclassname">readline.</code><code class="descname">get_line_buffer</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.get_line_buffer" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the current contents of the line buffer (<code class="xref c c-data docutils literal"><span class="pre">rl_line_buffer</span></code>
-in the underlying library).</p>
+<dd><p>行バッファ  (下層のライブラリーの <code class="xref c c-data docutils literal"><span class="pre">rl_line_buffer</span></code>) の現在の内容を返します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.insert_text">
 <code class="descclassname">readline.</code><code class="descname">insert_text</code><span class="sig-paren">(</span><em>string</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.insert_text" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Insert text into the line buffer at the cursor position.  This calls
-<code class="xref c c-func docutils literal"><span class="pre">rl_insert_text()</span></code> in the underlying library, but ignores
-the return value.</p>
+<dd><p>テキストをカーサー位置の行バッファに挿入します。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">rl_insert_text()</span></code> が呼ばれますが、戻り値は無視されます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.redisplay">
 <code class="descclassname">readline.</code><code class="descname">redisplay</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.redisplay" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Change what&#8217;s displayed on the screen to reflect the current contents of the
-line buffer.  This calls <code class="xref c c-func docutils literal"><span class="pre">rl_redisplay()</span></code> in the underlying library.</p>
+<dd><p>スクリーンの表示を変更して行バッファの現在の内容を反映させます。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">rl_redisplay()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 </div>
@@ -168,27 +162,19 @@ line buffer.  This calls <code class="xref c c-func docutils literal"><span clas
 <dl class="function">
 <dt id="readline.read_history_file">
 <code class="descclassname">readline.</code><code class="descname">read_history_file</code><span class="sig-paren">(</span><span class="optional">[</span><em>filename</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.read_history_file" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Load a readline history file, and append it to the history list.
-The default filename is <code class="file docutils literal"><span class="pre">~/.history</span></code>.  This calls
-<code class="xref c c-func docutils literal"><span class="pre">read_history()</span></code> in the underlying library.</p>
+<dd><p>readline 履歴ファイルを読み込み、履歴リストに追加します。デフォルトのファイル名は <code class="file docutils literal"><span class="pre">~/.history</span></code> です。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">read_history()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.write_history_file">
 <code class="descclassname">readline.</code><code class="descname">write_history_file</code><span class="sig-paren">(</span><span class="optional">[</span><em>filename</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.write_history_file" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Save the history list to a readline history file, overwriting any
-existing file.  The default filename is <code class="file docutils literal"><span class="pre">~/.history</span></code>.  This calls
-<code class="xref c c-func docutils literal"><span class="pre">write_history()</span></code> in the underlying library.</p>
+<dd><p>履歴リストを readline 履歴ファイルに保存します。既存のファイルは上書きされます。デフォルトのファイル名は <code class="file docutils literal"><span class="pre">~/.history</span></code> です。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">write_history()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.append_history_file">
 <code class="descclassname">readline.</code><code class="descname">append_history_file</code><span class="sig-paren">(</span><em>nelements</em><span class="optional">[</span>, <em>filename</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.append_history_file" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Append the last <em>nelements</em> items of history to a file.  The default filename is
-<code class="file docutils literal"><span class="pre">~/.history</span></code>.  The file must already exist.  This calls
-<code class="xref c c-func docutils literal"><span class="pre">append_history()</span></code> in the underlying library.  This function
-only exists if Python was compiled for a version of the library
-that supports it.</p>
+<dd><p>履歴の最後の <em>nelements</em> 項目をファイルに追加します。でふぉるのファイル名は <code class="file docutils literal"><span class="pre">~/.history</span></code> です。ファイルは存在していなくてはなりません。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">append_history()</span></code> が呼ばれます。Python がこの機能をサポートするライブラリーのバージョンでコンパイルされたときのみ、この関数は存在します。</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
 </div>
@@ -213,47 +199,37 @@ unlimited history file size.</p>
 <dl class="function">
 <dt id="readline.clear_history">
 <code class="descclassname">readline.</code><code class="descname">clear_history</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.clear_history" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Clear the current history.  This calls <code class="xref c c-func docutils literal"><span class="pre">clear_history()</span></code> in the
-underlying library.  The Python function only exists if Python was
-compiled for a version of the library that supports it.</p>
+<dd><p>現在の履歴をクリアします。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">clear_history()</span></code> が呼ばれます。Python がこの機能をサポートするライブラリーのバージョンでコンパイルされたときのみ、この関数は存在します。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.get_current_history_length">
 <code class="descclassname">readline.</code><code class="descname">get_current_history_length</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#readline.get_current_history_length" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the number of items currently in the history.  (This is different from
-<a class="reference internal" href="#readline.get_history_length" title="readline.get_history_length"><code class="xref py py-func docutils literal"><span class="pre">get_history_length()</span></code></a>, which returns the maximum number of lines that will
-be written to a history file.)</p>
+<dd><p>履歴に現在ある項目の数を返します。 (<a class="reference internal" href="#readline.get_history_length" title="readline.get_history_length"><code class="xref py py-func docutils literal"><span class="pre">get_history_length()</span></code></a> は履歴ファイルに書かれる最大行数を返します。)</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.get_history_item">
 <code class="descclassname">readline.</code><code class="descname">get_history_item</code><span class="sig-paren">(</span><em>index</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.get_history_item" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return the current contents of history item at <em>index</em>.  The item index
-is one-based.  This calls <code class="xref c c-func docutils literal"><span class="pre">history_get()</span></code> in the underlying library.</p>
+<dd><p>現在の履歴の <em>index</em> 番目の項目を返します。添字は1から始まります。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">history_get()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.remove_history_item">
 <code class="descclassname">readline.</code><code class="descname">remove_history_item</code><span class="sig-paren">(</span><em>pos</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.remove_history_item" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Remove history item specified by its position from the history.
-The position is zero-based.  This calls <code class="xref c c-func docutils literal"><span class="pre">remove_history()</span></code> in
-the underlying library.</p>
+<dd><p>履歴から指定された位置の項目を削除します。添字は0から始まります。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">remove_history()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.replace_history_item">
 <code class="descclassname">readline.</code><code class="descname">replace_history_item</code><span class="sig-paren">(</span><em>pos</em>, <em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.replace_history_item" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Replace history item specified by its position with <em>line</em>.
-The position is zero-based.  This calls <code class="xref c c-func docutils literal"><span class="pre">replace_history_entry()</span></code>
-in the underlying library.</p>
+<dd><p>指定された位置の項目を <em>line</em> で置き換えます。添字は0から始まります。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">replace_history_entry()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 <dl class="function">
 <dt id="readline.add_history">
 <code class="descclassname">readline.</code><code class="descname">add_history</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#readline.add_history" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Append <em>line</em> to the history buffer, as if it was the last line typed.
-This calls <code class="xref c c-func docutils literal"><span class="pre">add_history()</span></code> in the underlying library.</p>
+<dd><p>最後に入力したかのように、 <em>line</em> を履歴バッファに追加します。これにより下層のライブラリーの <code class="xref c c-func docutils literal"><span class="pre">add_history()</span></code> が呼ばれます。</p>
 </dd></dl>
 
 </div>
@@ -505,7 +481,7 @@ each time matches need to be displayed.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 29, 2017
+    最終更新日時: 1月 31, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

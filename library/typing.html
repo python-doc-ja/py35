@@ -109,7 +109,7 @@
 </div>
 <p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/typing.py">Lib/typing.py</a></p>
 <hr class="docutils" />
-<p>このモジュールは <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> によって規定された型ヒントをサポートします。最も基本的なサポートとして <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>、: data:<cite>Union</cite>、: data:<cite>Tuple</cite>、: data:<cite>Callable</cite>、<a class="reference internal" href="#typing.TypeVar" title="typing.TypeVar"><code class="xref py py-class docutils literal"><span class="pre">TypeVar</span></code></a> および、 <a class="reference internal" href="#typing.Generic" title="typing.Generic"><code class="xref py py-class docutils literal"><span class="pre">Generic</span></code></a> 型を含みます。完全な仕様は <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> を参照してください。型ヒントの簡単な導入は <span class="target" id="index-19"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0483"><strong>PEP 483</strong></a> を参照してください。</p>
+<p>このモジュールは <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> によって規定された型ヒントをサポートします。最も基本的なサポートとして <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>、 <a class="reference internal" href="#typing.Union" title="typing.Union"><code class="xref py py-data docutils literal"><span class="pre">Union</span></code></a>、 <a class="reference internal" href="#typing.Tuple" title="typing.Tuple"><code class="xref py py-data docutils literal"><span class="pre">Tuple</span></code></a>、 <a class="reference internal" href="#typing.Callable" title="typing.Callable"><code class="xref py py-data docutils literal"><span class="pre">Callable</span></code></a>、 <a class="reference internal" href="#typing.TypeVar" title="typing.TypeVar"><code class="xref py py-class docutils literal"><span class="pre">TypeVar</span></code></a> および <a class="reference internal" href="#typing.Generic" title="typing.Generic"><code class="xref py py-class docutils literal"><span class="pre">Generic</span></code></a> 型を含みます。完全な仕様は <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> を参照してください。型ヒントの簡単な導入は <span class="target" id="index-19"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0483"><strong>PEP 483</strong></a> を参照してください。</p>
 <p>以下の関数は文字列を取り文字列を返す関数で、次のようにアノテーションがつけられます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">greeting</span><span class="p">(</span><span class="n">name</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
     <span class="k">return</span> <span class="s1">&#39;Hello &#39;</span> <span class="o">+</span> <span class="n">name</span>
@@ -209,7 +209,7 @@
     <span class="c1"># Body</span>
 </pre></div>
 </div>
-<p>callable の返り値の型を型ヒントの実引数のリストを ellipsis で置換することでシグネチャを指定することなく宣言することが出来ます: <code class="docutils literal"><span class="pre">Callable[...,</span> <span class="pre">ReturnType]</span></code>。</p>
+<p>型ヒントの実引数の型を ellipsis で置き換えることで呼び出しシグニチャを指定せずに callable の戻り値の型を宣言することができます: <code class="docutils literal"><span class="pre">Callable[...,</span> <span class="pre">ReturnType]</span></code>。</p>
 </div>
 <div class="section" id="generics">
 <h2>26.1.4. ジェネリクス<a class="headerlink" href="#generics" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -313,7 +313,7 @@ not generic but implicitly inherits from <code class="docutils literal"><span cl
 <span class="k">class</span> <span class="nc">MyIterable</span><span class="p">(</span><span class="n">Iterable</span><span class="p">):</span> <span class="c1"># Same as Iterable[Any]</span>
 </pre></div>
 </div>
-<p>User defined generic type aliases are also supported. Examples:</p>
+<p>ユーザ定義のジェネリック型エイリアスもサポートされています。例:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">TypeVar</span><span class="p">,</span> <span class="n">Iterable</span><span class="p">,</span> <span class="n">Tuple</span><span class="p">,</span> <span class="n">Union</span>
 <span class="n">S</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
 <span class="n">Response</span> <span class="o">=</span> <span class="n">Union</span><span class="p">[</span><span class="n">Iterable</span><span class="p">[</span><span class="n">S</span><span class="p">],</span> <span class="nb">int</span><span class="p">]</span>
@@ -338,11 +338,8 @@ comparable for equality.</p>
 </div>
 <div class="section" id="the-any-type">
 <h2>26.1.6. <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> 型<a class="headerlink" href="#the-any-type" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>A special kind of type is <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>. A static type checker will treat
-every type as being compatible with <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> and <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> as being
-compatible with every type.</p>
-<p>This means that it is possible to perform any operation or method call on a
-value of type on <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> and assign it to any variable:</p>
+<p><a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> は特別な種類の型です。静的型検査器はすべての型を <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-class docutils literal"><span class="pre">Any</span></code></a> と互換として扱い、 <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-class docutils literal"><span class="pre">Any</span></code></a> をすべての型と互換として扱います。</p>
+<p>つまり、 <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> 型の値に対し任意の演算やメソッド呼び出しができ、任意の変数に代入できということです。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">typing</span> <span class="k">import</span> <span class="n">Any</span>
 
 <span class="n">a</span> <span class="o">=</span> <span class="kc">None</span>    <span class="c1"># type: Any</span>
@@ -359,13 +356,8 @@ value of type on <a class="reference internal" href="#typing.Any" title="typing.
     <span class="o">...</span>
 </pre></div>
 </div>
-<p>Notice that no typechecking is performed when assigning a value of type
-<a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> to a more precise type. For example, the static type checker did
-not report an error when assigning <code class="docutils literal"><span class="pre">a</span></code> to <code class="docutils literal"><span class="pre">s</span></code> even though <code class="docutils literal"><span class="pre">s</span></code> was
-declared to be of type <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> and receives an <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> value at
-runtime!</p>
-<p>Furthermore, all functions without a return type or parameter types will
-implicitly default to using <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>:</p>
+<p><a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> 型の値をより詳細な型に代入する時に型検査が行われないことに注意してください。例えば、静的型検査器は <code class="docutils literal"><span class="pre">a</span></code> を <code class="docutils literal"><span class="pre">s</span></code> に代入する時、<code class="docutils literal"><span class="pre">s</span></code> が <a class="reference internal" href="stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> 型として宣言されていて実行時に <a class="reference internal" href="functions.html#int" title="int"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> の値を受け取るとしても、エラーを報告しません。</p>
+<p>さらに、返り値や引数の型のないすべての関数は暗黙的に <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> を使用します。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">legacy_parser</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="o">...</span>
     <span class="k">return</span> <span class="n">data</span>
@@ -377,12 +369,8 @@ implicitly default to using <a class="reference internal" href="#typing.Any" tit
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 </div>
-<p>This behavior allows <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> to be used as an <em>escape hatch</em> when you
-need to mix dynamically and statically typed code.</p>
-<p>Contrast the behavior of <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> with the behavior of <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a>.
-Similar to <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>, every type is a subtype of <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a>. However,
-unlike <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>, the reverse is not true: <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> is <em>not</em> a
-subtype of every other type.</p>
+<p>この挙動により、動的型付けと静的型付けが混在したコードを書かなければならない時に :dataAny` を <em>非常口</em> として使用することができます。</p>
+<p><a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> の挙動と <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> の挙動を対比しましょう。 <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> と同様に、すべての型は <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> のサブタイプです。しかしながら、 <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> と異なり、逆は成り立ちません: <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> はすべての他の型のサブタイプでは <em>ありません</em>。</p>
 <p>これは、ある値の型が <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> のとき、型検査器はこれについてのほとんどすべての操作を拒否し、これをより特殊化された変数に代入する (または返り値として利用する) ことは型エラーになることを意味します。例えば:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">hash_a</span><span class="p">(</span><span class="n">item</span><span class="p">:</span> <span class="nb">object</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
     <span class="c1"># Fails; an object does not have a &#39;magic&#39; method.</span>
@@ -403,8 +391,7 @@ subtype of every other type.</p>
 <span class="n">hash_b</span><span class="p">(</span><span class="s2">&quot;foo&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Use <a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> to indicate that a value could be any type in a typesafe
-manner. Use <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> to indicate that a value is dynamically typed.</p>
+<p><a class="reference internal" href="functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> は、ある値が型安全な方法で任意の型として使えることを示すために使用します。 <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> はある値が動的に型付けられることを示すために使用します。</p>
 </div>
 <div class="section" id="classes-functions-and-decorators">
 <h2>26.1.7. クラス、関数、およびデコレータ<a class="headerlink" href="#classes-functions-and-decorators" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -412,13 +399,13 @@ manner. Use <a class="reference internal" href="#typing.Any" title="typing.Any">
 <dl class="class">
 <dt id="typing.TypeVar">
 <em class="property">class </em><code class="descclassname">typing.</code><code class="descname">TypeVar</code><a class="headerlink" href="#typing.TypeVar" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>型変数。</p>
+<dd><p>型変数です。</p>
 <p>使い方:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">T</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;T&#39;</span><span class="p">)</span>  <span class="c1"># Can be anything</span>
 <span class="n">A</span> <span class="o">=</span> <span class="n">TypeVar</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="nb">str</span><span class="p">,</span> <span class="nb">bytes</span><span class="p">)</span>  <span class="c1"># Must be str or bytes</span>
 </pre></div>
 </div>
-<p>型変数は主として静的型検査器の利益のために存在します。型変数はジェネリック型やジェネリック関数の定義の引数として役に立ちます。ジェネリック型についての詳細は Generic クラスを参照してください。ジェネリック関数は以下のように動作します:</p>
+<p>型変数は主として静的型検査器のために存在します。型変数はジェネリック型やジェネリック関数の定義の引数として役に立ちます。ジェネリック型についての詳細は Generic クラスを参照してください。ジェネリック関数は以下のように動作します:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">repeat</span><span class="p">(</span><span class="n">x</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Sequence</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
     <span class="sd">&quot;&quot;&quot;Return a list containing n references to x.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span><span class="o">*</span><span class="n">n</span>
@@ -1072,7 +1059,7 @@ code might flagged as an error by those:</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 29, 2017
+    最終更新日時: 1月 31, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

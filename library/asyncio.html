@@ -35,7 +35,7 @@
     <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
     <link rel="up" title="18. プロセス間通信とネットワーク" href="ipc.html" />
     <link rel="next" title="18.5.1. 基底イベントループ" href="asyncio-eventloop.html" />
-    <link rel="prev" title="18.4. selectors — High-level I/O multiplexing" href="selectors.html" />
+    <link rel="prev" title="18.4. selectors — 高水準の I/O 多重化" href="selectors.html" />
     <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/asyncio.html';
@@ -67,7 +67,7 @@
           <a href="asyncio-eventloop.html" title="18.5.1. 基底イベントループ"
              accesskey="N">次へ</a> |</li>
         <li class="right" >
-          <a href="selectors.html" title="18.4. selectors — High-level I/O multiplexing"
+          <a href="selectors.html" title="18.4. selectors — 高水準の I/O 多重化"
              accesskey="P">前へ</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
@@ -113,7 +113,7 @@
 <p class="last">asyncio パッケージは、<a class="reference internal" href="../glossary.html#term-provisional-package"><span class="xref std std-term">暫定パッケージ</span></a> として標準ライブラリに含まれています。コア開発者が必要と判断したときは、(モジュールの削除も含めた) 後方互換性が破壊される可能性があります。</p>
 </div>
 <hr class="docutils" />
-<p>このモジュールは、コルーチン、ソケットあるいはその他リソースを使用した多重 I/O、ネットワーククライアントあるいはサーバーの実行、およびその他関連するプリミティブを使用した、シングルスレッド処理を並列で実行するコードを作成するためのインフラストラクチャを提供します。ここではパッケージ内容の詳細ページの一覧を示しています:</p>
+<p>このモジュールは、コルーチン、ソケットあるいはその他リソースを使用した多重 I/O、ネットワーククライアントあるいはサーバーの実行、およびその他関連するプリミティブを使用した、シングルスレッド処理を並行で実行するコードを作成するためのインフラストラクチャを提供します。ここではパッケージ内容の詳細ページの一覧を示しています:</p>
 <ul class="simple">
 <li><p class="first">さまざまなシステム固有の実装とプラグ可能な <a class="reference internal" href="asyncio-eventloop.html#asyncio-event-loop"><span class="std std-ref">イベントループ</span></a>;</p>
 </li>
@@ -123,7 +123,7 @@
 </li>
 <li><p class="first"><a class="reference internal" href="concurrent.futures.html#module-concurrent.futures" title="concurrent.futures: Execute computations concurrently using threads or processes."><code class="xref py py-mod docutils literal"><span class="pre">concurrent.futures</span></code></a> モジュールの一つに類似するが、イベントループでの使用に適応した <a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal"><span class="pre">Future</span></code></a> クラス;</p>
 </li>
-<li><p class="first">逐次処理の並列コードの作成を支援する、<code class="docutils literal"><span class="pre">yield</span> <span class="pre">from</span></code> (<span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0380"><strong>PEP 380</strong></a>) に基づいたコルーチンおよびタスク;</p>
+<li><p class="first">逐次処理の並行コードの作成を支援する、<code class="docutils literal"><span class="pre">yield</span> <span class="pre">from</span></code> (<span class="target" id="index-6"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0380"><strong>PEP 380</strong></a>) に基づいたコルーチンおよびタスク;</p>
 </li>
 <li><p class="first"><a class="reference internal" href="asyncio-task.html#asyncio.Future" title="asyncio.Future"><code class="xref py py-class docutils literal"><span class="pre">Future</span></code></a> およびコルーチンのキャンセルのサポート;</p>
 </li>
@@ -307,7 +307,7 @@
         <div class="sphinxsidebarwrapper">
   <h4>前のトピックへ</h4>
   <p class="topless"><a href="selectors.html"
-                        title="前の章へ">18.4. <code class="docutils literal"><span class="pre">selectors</span></code> &#8212; High-level I/O multiplexing</a></p>
+                        title="前の章へ">18.4. <code class="docutils literal"><span class="pre">selectors</span></code> &#8212; 高水準の I/O 多重化</a></p>
   <h4>次のトピックへ</h4>
   <p class="topless"><a href="asyncio-eventloop.html"
                         title="次の章へ">18.5.1. 基底イベントループ</a></p>
@@ -336,7 +336,7 @@
           <a href="asyncio-eventloop.html" title="18.5.1. 基底イベントループ"
              >次へ</a> |</li>
         <li class="right" >
-          <a href="selectors.html" title="18.4. selectors — High-level I/O multiplexing"
+          <a href="selectors.html" title="18.4. selectors — 高水準の I/O 多重化"
              >前へ</a> |</li>
         <li><img src="../_static/py.png" alt=""
                  style="vertical-align: middle; margin-top: -1px"/></li>
@@ -371,7 +371,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 29, 2017
+    最終更新日時: 1月 31, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

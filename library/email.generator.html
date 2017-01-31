@@ -105,7 +105,7 @@
             
   <div class="section" id="module-email.generator">
 <span id="email-generator-generating-mime-documents"></span><h1>19.1.3. <a class="reference internal" href="#module-email.generator" title="email.generator: Generate flat text email messages from a message structure."><code class="xref py py-mod docutils literal"><span class="pre">email.generator</span></code></a>: MIME 文書の生成<a class="headerlink" href="#module-email.generator" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>Source code:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/email/generator.py">Lib/email/generator.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/email/generator.py">Lib/email/generator.py</a></p>
 <hr class="docutils" />
 <p>よくある作業のひとつは、メッセージオブジェクト構造からフラットな電子メールテキストを生成することです。この作業は <a class="reference internal" href="smtplib.html#module-smtplib" title="smtplib: SMTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">smtplib</span></code></a> や <a class="reference internal" href="nntplib.html#module-nntplib" title="nntplib: NNTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">nntplib</span></code></a> モジュールを使ってメッセージを送信したり、メッセージをコンソールに出力したりするときに必要になります。あるメッセージオブジェクト構造をとってきて、そこからフラットなテキスト文書を生成するのは <a class="reference internal" href="#email.generator.Generator" title="email.generator.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a> クラスの仕事です。</p>
 <p>繰り返しになりますが、 <a class="reference internal" href="email.parser.html#module-email.parser" title="email.parser: Parse flat text email messages to produce a message object structure."><code class="xref py py-mod docutils literal"><span class="pre">email.parser</span></code></a> モジュールと同じく、この機能はここでの定義済みジェネレータに制限されるわけではありません。これらはご自身でゼロから作りあげることもできます。しかしながら、定義済みのジェネレータはほとんどの電子メールを標準に沿ったやり方で生成する方法を知っていますし、MIME メッセージも非 MIME メッセージもとても上手く扱えます。さらにこれはフラットなテキストから <a class="reference internal" href="email.parser.html#email.parser.Parser" title="email.parser.Parser"><code class="xref py py-class docutils literal"><span class="pre">Parser</span></code></a> クラスを使ってメッセージ構造に変換し、それをまたフラットなテキストに戻しても、結果が冪等 (入力が出力と同じになる) <a class="footnote-reference" href="#id3" id="id1">[1]</a> になるよう設計されています。一方で、プログラムによって構成された <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> のジェネレータを使う場合、デフォルトの挿入によって <a class="reference internal" href="email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> オブジェクトを変えてしまうかもしれません。</p>
@@ -152,8 +152,7 @@ a <em class="mailheader">Content-Transfer-Encoding</em> of <code class="docutils
 to a use a <code class="docutils literal"><span class="pre">7bit</span></code> Content-Transfer-Encoding.  Non-ASCII bytes in the
 headers will be <span class="target" id="index-2"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2047.html"><strong>RFC 2047</strong></a> encoded with a charset of <code class="docutils literal"><span class="pre">unknown-8bit</span></code>.</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.2 で変更: </span>Added support for re-encoding <code class="docutils literal"><span class="pre">8bit</span></code> message bodies, and the
-<em>linesep</em> argument.</p>
+<p><span class="versionmodified">バージョン 3.2 で変更: </span><code class="docutils literal"><span class="pre">8bit</span></code> メッセージ本体の再エンコードがサポートされました。<em>linesep</em> 引数が追加されました。</p>
 </div>
 </dd></dl>
 
@@ -353,7 +352,7 @@ to be used in the <a class="reference internal" href="functions.html#print" titl
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 29, 2017
+    最終更新日時: 1月 31, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
