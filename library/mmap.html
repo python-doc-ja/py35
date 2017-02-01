@@ -106,13 +106,7 @@
 <span id="mmap-memory-mapped-file-support"></span><h1>18.9. <a class="reference internal" href="#module-mmap" title="mmap: Interface to memory-mapped files for Unix and Windows."><code class="xref py py-mod docutils literal"><span class="pre">mmap</span></code></a> &#8212; メモリマップファイル<a class="headerlink" href="#module-mmap" title="このヘッドラインへのパーマリンク">¶</a></h1>
 <hr class="docutils" />
 <p>メモリにマップされたファイルオブジェクトは、 <a class="reference internal" href="functions.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> と <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">ファイルオブジェクト</span></a> の両方のように振舞います。しかし通常の文字列オブジェクトとは異なり、これらは可変です。 <a class="reference internal" href="functions.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> が期待されるほとんどの場所で mmap オブジェクトを利用できます。例えば、メモリマップファイルを探索するために <a class="reference internal" href="re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a> モジュールを使うことができます。それらは可変なので、 <code class="docutils literal"><span class="pre">obj[index]</span> <span class="pre">=</span> <span class="pre">97</span></code> のように文字を変換できますし、スライスを使うことで  <code class="docutils literal"><span class="pre">obj[i1:i2]</span> <span class="pre">=</span> <span class="pre">b'...'</span></code> のように部分文字列を変換することができます。現在のファイル位置をデータの始めとする読込みや書込み、ファイルの異なる位置へ <code class="xref py py-meth docutils literal"><span class="pre">seek()</span></code> することもできます。</p>
-<p>A memory-mapped file is created by the <a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> constructor, which is
-different on Unix and on Windows.  In either case you must provide a file
-descriptor for a file opened for update. If you wish to map an existing Python
-file object, use its <code class="xref py py-meth docutils literal"><span class="pre">fileno()</span></code> method to obtain the correct value for the
-<em>fileno</em> parameter.  Otherwise, you can open the file using the
-<a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal"><span class="pre">os.open()</span></code></a> function, which returns a file descriptor directly (the file
-still needs to be closed when done).</p>
+<p>メモリマップドファイルは Unix と Windows で異なる <a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> コンストラクタで生成されます。どちらの場合も、更新用に開かれたファイルディスクリプタを渡さなければなりません。既存の Python ファイルオブジェクトをマップしたければ、 <code class="xref py py-meth docutils literal"><span class="pre">fileno()</span></code> メソッドを使って <em>fileno</em> パラメータの正しい値を取得してください。そうでなければ、 <a class="reference internal" href="os.html#os.open" title="os.open"><code class="xref py py-func docutils literal"><span class="pre">os.open()</span></code></a> 関数を使ってファイルを開けます。この関数はファイルディスクリプタを直接返します(処理が終わったら、やはりファイルを閉じる必要があります)。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">書き込み可能でバッファされたファイルへのメモリマップファイルを作りたいのであれば、まず最初にファイルの <a class="reference internal" href="io.html#io.IOBase.flush" title="io.IOBase.flush"><code class="xref py py-func docutils literal"><span class="pre">flush()</span></code></a> を呼び出すべきです。これはバッファへのローカルな修正がマッピングで実際に利用可能になることを保障するために必要です。</p>
@@ -130,16 +124,13 @@ still needs to be closed when done).</p>
 <dl class="class">
 <dt>
 <em class="property">class </em><code class="descclassname">mmap.</code><code class="descname">mmap</code><span class="sig-paren">(</span><em>fileno</em>, <em>length</em>, <em>flags=MAP_SHARED</em>, <em>prot=PROT_WRITE|PROT_READ</em>, <em>access=ACCESS_DEFAULT</em><span class="optional">[</span>, <em>offset</em><span class="optional">]</span><span class="sig-paren">)</span></dt>
-<dd><p><strong>(Unix version)</strong> Maps <em>length</em> bytes from the file specified by the file
-descriptor <em>fileno</em>, and returns a mmap object.  If <em>length</em> is <code class="docutils literal"><span class="pre">0</span></code>, the
-maximum length of the map will be the current size of the file when
-<a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> is called.</p>
+<dd><p><strong>(Unix バージョン)</strong> ファイルディスクリプタ <em>fileno</em> で指定されたファイルから <em>length</em> バイトをマップし、mmap オブジェクトを返します。<em>length</em> が <code class="docutils literal"><span class="pre">0</span></code> の場合、マップの最大の長さは <a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> が呼ばれた時点でのファイルサイズになります。</p>
 <p><em>flags</em> はマップの種類を指定します。 <code class="xref py py-const docutils literal"><span class="pre">MAP_PRIVATE</span></code> はプライベートな copy-on-write(書込み時コピー)のマップを作成します。従って、mmap オブジェクトの内容への変更はこのプロセス内にのみ有効です。 <code class="xref py py-const docutils literal"><span class="pre">MAP_SHARED</span></code> はファイルの同じ領域をマップする他のすべてのプロセスと共有されたマップを作成します。デフォルトは <code class="xref py py-const docutils literal"><span class="pre">MAP_SHARED</span></code> です。</p>
 <p><em>prot</em> が指定された場合、希望のメモリ保護を与えます。 2つの最も有用な値は、 <code class="xref py py-const docutils literal"><span class="pre">PROT_READ</span></code> と <code class="xref py py-const docutils literal"><span class="pre">PROT_WRITE</span></code> です。これは、読込み可能または書込み可能を指定するものです。 <em>prot</em> のデフォルトは <code class="xref py py-const docutils literal"><span class="pre">PROT_READ</span> <span class="pre">|</span> <span class="pre">PROT_WRITE</span></code> です。</p>
 <p><em>access</em> はオプションのキーワード・パラメータとして、<em>flags</em> と <em>prot</em> の代わりに指定してもかまいません。<em>flags</em>, <em>prot</em> と <em>access</em> の両方を指定することは間違っています。このパラメーターを使用法についての情報は、先に述べた <em>access</em> の記述を参照してください。</p>
 <p><em>offset</em> は非負整数のオフセットとして指定できます。mmap の参照はファイルの先頭からのオフセットに相対的になります。<em>offset</em> のデフォルトは 0 です。<em>offset</em> は PAGESIZE または ALLOCATIONGRANULARITY の倍数でなければなりません。</p>
 <p>Mac OS X と OpenVMS において、作成された memory mapping の正当性を確実にするために <em>fileno</em> で指定されたファイルディスクリプタは内部で自動的に物理的なストレージ (physical backing store) と同期されます。</p>
-<p>This example shows a simple way of using <a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a>:</p>
+<p>この例は <a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> の簡潔な使い方を示すものです:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mmap</span>
 
 <span class="c1"># write a simple example file</span>
@@ -163,8 +154,7 @@ maximum length of the map will be the current size of the file when
     <span class="n">mm</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> can also be used as a context manager in a <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal"><span class="pre">with</span></code></a>
-statement.:</p>
+<p><a class="reference internal" href="#mmap.mmap" title="mmap.mmap"><code class="xref py py-class docutils literal"><span class="pre">mmap</span></code></a> は <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal"><span class="pre">with</span></code></a> 文の中でコンテキストマネージャとしても使えます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mmap</span>
 
 <span class="k">with</span> <span class="n">mmap</span><span class="o">.</span><span class="n">mmap</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">13</span><span class="p">)</span> <span class="k">as</span> <span class="n">mm</span><span class="p">:</span>
@@ -172,7 +162,7 @@ statement.:</p>
 </pre></div>
 </div>
 <div class="versionadded">
-<p><span class="versionmodified">バージョン 3.2 で追加: </span>Context manager support.</p>
+<p><span class="versionmodified">バージョン 3.2 で追加: </span>コンテキストマネージャのサポート。</p>
 </div>
 <p>次の例では無名マップを作り親プロセスと子プロセスの間でデータのやりとりをしてみせます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">mmap</span>
@@ -232,21 +222,16 @@ statement.:</p>
 <dl class="method">
 <dt id="mmap.mmap.read">
 <code class="descname">read</code><span class="sig-paren">(</span><span class="optional">[</span><em>n</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.read" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> containing up to <em>n</em> bytes starting from the
-current file position. If the argument is omitted, <code class="docutils literal"><span class="pre">None</span></code> or negative,
-return all bytes from the current file position to the end of the
-mapping. The file position is updated to point after the bytes that were
-returned.</p>
+<dd><p>現在のファイル位置からの最大 <em>n</em> バイトを含む <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> を返します。引数が省略されるか、 <code class="docutils literal"><span class="pre">None</span></code> もしくは負の値が指定された場合、現在のファイル位置からマップ終端までの全てのバイト列を返します。ファイル位置は返されたバイト列の直後を指すように更新されます。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.3 で変更: </span>Argument can be omitted or <code class="docutils literal"><span class="pre">None</span></code>.</p>
+<p><span class="versionmodified">バージョン 3.3 で変更: </span>引数が省略可能になり、 <code class="docutils literal"><span class="pre">None</span></code> も受け付けるようになりました。</p>
 </div>
 </dd></dl>
 
 <dl class="method">
 <dt id="mmap.mmap.read_byte">
 <code class="descname">read_byte</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#mmap.mmap.read_byte" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Returns a byte at the current file position as an integer, and advances
-the file position by 1.</p>
+<dd><p>現在のファイル位置のバイトを整数値として返し、ファイル位置を 1 進めます。</p>
 </dd></dl>
 
 <dl class="method">
@@ -379,7 +364,7 @@ the file position by 1.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 1月 31, 2017
+    最終更新日時: 2月 01, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
