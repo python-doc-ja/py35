@@ -1944,15 +1944,12 @@ bytearray オブジェクトはいつでも <code class="docutils literal"><span
 </pre></div>
 </div>
 </div>
-<p>Some bytes and bytearray operations assume the use of ASCII compatible
-binary formats, and hence should be avoided when working with arbitrary
-binary data. These restrictions are covered below.</p>
+<p>いくつかの bytes と bytearray の操作は ASCII と互換性のあるバイナリフォーマットが使われていると仮定していますので、フォーマットの不明なバイナリデータに対して使うことは避けるべきです。こうした制約については以下で説明します。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">これらの ASCII ベースの演算を使って ASCII ベースではないバイナリデータを操作すると、データを破壊する恐れがあります。</p>
 </div>
-<p>The following methods on bytes and bytearray objects can be used with
-arbitrary binary data.</p>
+<p>以下の bytes および bytearray オブジェクトのメソッドは、任意のバイナリデータに対して使用できます。</p>
 <dl class="method">
 <dt id="bytes.count">
 <code class="descclassname">bytes.</code><code class="descname">count</code><span class="sig-paren">(</span><em>sub</em><span class="optional">[</span>, <em>start</em><span class="optional">[</span>, <em>end</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.count" title="この定義へのパーマリンク">¶</a></dt>
@@ -1973,9 +1970,7 @@ arbitrary binary data.</p>
 <dd><p>与えられたバイト列からデコードされた文字列を返します。デフォルトのエンコーディングは <code class="docutils literal"><span class="pre">'utf-8'</span></code> です。 <em>errors</em> を与えて異なるエラー処理法を設定できます。 <em>errors</em> のデフォルトは <code class="docutils literal"><span class="pre">'strict'</span></code> で、エンコーディングエラーが <a class="reference internal" href="exceptions.html#UnicodeError" title="UnicodeError"><code class="xref py py-exc docutils literal"><span class="pre">UnicodeError</span></code></a> を送出します。設定できる他の値は、 <code class="docutils literal"><span class="pre">'ignore'</span></code> 、 <code class="docutils literal"><span class="pre">'replace'</span></code> 、その他の <a class="reference internal" href="codecs.html#codecs.register_error" title="codecs.register_error"><code class="xref py py-func docutils literal"><span class="pre">codecs.register_error()</span></code></a> を通して登録された名前で、節 <a class="reference internal" href="codecs.html#error-handlers"><span class="std std-ref">エラーハンドラ</span></a> を参照してください。可能なエンコーディングのリストは、 <a class="reference internal" href="codecs.html#standard-encodings"><span class="std std-ref">標準エンコーディング</span></a> を参照してください。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">Passing the <em>encoding</em> argument to <a class="reference internal" href="#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> allows decoding any
-<a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> directly, without needing to make a temporary
-bytes or bytearray object.</p>
+<p class="last">引数 <em>encoding</em> を <a class="reference internal" href="#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> に渡すと <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> を直接デコードすることができます。つまり、一時的な bytes や bytearray オブジェクトを作成する必要はありません。</p>
 </div>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.1 で変更: </span>キーワード引数のサポートが追加されました。</p>
@@ -2028,12 +2023,7 @@ bytes or bytearray object.</p>
 <code class="descclassname">bytes.</code><code class="descname">join</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#bytes.join" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.join">
 <code class="descclassname">bytearray.</code><code class="descname">join</code><span class="sig-paren">(</span><em>iterable</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.join" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a bytes or bytearray object which is the concatenation of the
-binary data sequences in the <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a> <em>iterable</em>.  A
-<a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> will be raised if there are any values in <em>iterable</em>
-that are not <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like objects</span></a>, including
-<a class="reference internal" href="#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> objects.  The separator between elements is the contents
-of the bytes or bytearray object providing this method.</p>
+<dd><p><a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">イテラブル</span></a> <em>iterable</em> 中のバイナリデータを結合した bytes または bytearray オブジェクトを返します。 <em>iterable</em> に <a class="reference internal" href="#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> オブジェクトなど <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like objects</span></a> ではない値が含まれている場合、 <a class="reference internal" href="exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a> が送出されます。なお要素間のセパレータは、このメソッドを提供する bytes または bytearray オブジェクトとなります。</p>
 </dd></dl>
 
 <dl class="staticmethod">
@@ -4072,7 +4062,7 @@ or generator instance.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 05, 2017
+    最終更新日時: 2月 06, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
