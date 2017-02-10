@@ -1789,11 +1789,9 @@ If <em>k</em> is <code class="docutils literal"><span class="pre">None</span></c
 </table>
 <p>注釈:</p>
 <ol class="arabic">
-<li><p class="first">The alternate form causes a leading octal specifier (<code class="docutils literal"><span class="pre">'0o'</span></code>) to be
-inserted before the first digit.</p>
+<li><p class="first">別の形式を指定（訳注: 変換フラグ <code class="docutils literal"><span class="pre">#</span></code> を使用）すると 8 進数を表す接頭辞 (<code class="docutils literal"><span class="pre">'0o'</span></code>) が最初の数字の前に挿入されます。</p>
 </li>
-<li><p class="first">The alternate form causes a leading <code class="docutils literal"><span class="pre">'0x'</span></code> or <code class="docutils literal"><span class="pre">'0X'</span></code> (depending on whether
-the <code class="docutils literal"><span class="pre">'x'</span></code> or <code class="docutils literal"><span class="pre">'X'</span></code> format was used) to be inserted before the first digit.</p>
+<li><p class="first">別の形式を指定（訳注: 変換フラグ <code class="docutils literal"><span class="pre">#</span></code> を使用）すると 16 進数を表す接頭辞 <code class="docutils literal"><span class="pre">'0x'</span></code> または <code class="docutils literal"><span class="pre">'0X'</span></code> (使用するフォーマット文字が <code class="docutils literal"><span class="pre">'x'</span></code> か <code class="docutils literal"><span class="pre">'X'</span></code> に依存します) が最初の数字の前に挿入されます。</p>
 </li>
 <li><p class="first">この形式にした場合、変換結果には常に小数点が含まれ、それはその後ろに数字が続かない場合にも適用されます。</p>
 <p>指定精度は小数点の後の桁数を決定し、そのデフォルトは 6 です。</p>
@@ -2110,10 +2108,7 @@ bytearray オブジェクトはいつでも <code class="docutils literal"><span
 <code class="descclassname">bytes.</code><code class="descname">center</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.center" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.center">
 <code class="descclassname">bytearray.</code><code class="descname">center</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.center" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the object centered in a sequence of length <em>width</em>.
-Padding is done using the specified <em>fillbyte</em> (default is an ASCII
-space). For <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> objects, the original sequence is returned if
-<em>width</em> is less than or equal to <code class="docutils literal"><span class="pre">len(s)</span></code>.</p>
+<dd><p>長さ <em>width</em> の中央寄せされたシーケンスのコピーを返します。パディングには <em>fillbyte</em> で指定された値 (デフォルトでは ASCII スペース) が使われます。 <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> オブジェクトの場合、 <em>width</em> が <code class="docutils literal"><span class="pre">len(s)</span></code> 以下なら元のシーケンスが返されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2125,10 +2120,7 @@ space). For <a class="reference internal" href="functions.html#bytes" title="byt
 <code class="descclassname">bytes.</code><code class="descname">ljust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.ljust" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.ljust">
 <code class="descclassname">bytearray.</code><code class="descname">ljust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.ljust" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the object left justified in a sequence of length <em>width</em>.
-Padding is done using the specified <em>fillbyte</em> (default is an ASCII
-space). For <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> objects, the original sequence is returned if
-<em>width</em> is less than or equal to <code class="docutils literal"><span class="pre">len(s)</span></code>.</p>
+<dd><p>長さ <em>width</em> の左寄せされたシーケンスのコピーを返します。パディングには <em>fillbyte</em> で指定された値 (デフォルトでは ASCII スペース) が使われます。 <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> オブジェクトの場合、 <em>width</em> が <code class="docutils literal"><span class="pre">len(s)</span></code> 以下なら元のシーケンスが返されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2140,20 +2132,14 @@ space). For <a class="reference internal" href="functions.html#bytes" title="byt
 <code class="descclassname">bytes.</code><code class="descname">lstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.lstrip" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.lstrip">
 <code class="descclassname">bytearray.</code><code class="descname">lstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.lstrip" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the sequence with specified leading bytes removed.  The
-<em>chars</em> argument is a binary sequence specifying the set of byte values to
-be removed - the name refers to the fact this method is usually used with
-ASCII characters.  If omitted or <code class="docutils literal"><span class="pre">None</span></code>, the <em>chars</em> argument defaults
-to removing ASCII whitespace.  The <em>chars</em> argument is not a prefix;
-rather, all combinations of its values are stripped:</p>
+<dd><p>先頭から特定のバイト値を除去したコピーを返します。引数 <em>chars</em> は除去されるバイト値の集合を指定するバイナリシーケンスです － この名前は、このメソッドが通常は ASCII 文字列に対して使われることに由来しています。 <em>chars</em> が省略されるか <code class="docutils literal"><span class="pre">None</span></code> の場合、 ASCII の空白文字（訳注: 半角スペース）が除去されます。なお <em>chars</em> 引数と一致する接頭辞が除去されるのではなく、それに含まれるバイトの組み合わせ全てが除去されます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;   spacious   &#39;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">()</span>
 <span class="go">b&#39;spacious   &#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;www.example.com&#39;</span><span class="o">.</span><span class="n">lstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;cmowz.&#39;</span><span class="p">)</span>
 <span class="go">b&#39;example.com&#39;</span>
 </pre></div>
 </div>
-<p>The binary sequence of byte values to remove may be any
-<a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
+<p>除去対象のバイト値を含むバイナリシーケンスには、任意の <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> を指定できます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2165,10 +2151,7 @@ rather, all combinations of its values are stripped:</p>
 <code class="descclassname">bytes.</code><code class="descname">rjust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.rjust" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.rjust">
 <code class="descclassname">bytearray.</code><code class="descname">rjust</code><span class="sig-paren">(</span><em>width</em><span class="optional">[</span>, <em>fillbyte</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.rjust" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the object right justified in a sequence of length <em>width</em>.
-Padding is done using the specified <em>fillbyte</em> (default is an ASCII
-space). For <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> objects, the original sequence is returned if
-<em>width</em> is less than or equal to <code class="docutils literal"><span class="pre">len(s)</span></code>.</p>
+<dd><p>長さ <em>width</em> の右寄せされたシーケンスのコピーを返します。パディングには <em>fillbyte</em> で指定された値 (デフォルトでは ASCII スペース) が使われます。 <a class="reference internal" href="functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> オブジェクトの場合、 <em>width</em> が <code class="docutils literal"><span class="pre">len(s)</span></code> 以下なら元のシーケンスが返されます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2193,20 +2176,14 @@ Except for splitting from the right, <a class="reference internal" href="#bytear
 <code class="descclassname">bytes.</code><code class="descname">rstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.rstrip" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.rstrip">
 <code class="descclassname">bytearray.</code><code class="descname">rstrip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.rstrip" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the sequence with specified trailing bytes removed.  The
-<em>chars</em> argument is a binary sequence specifying the set of byte values to
-be removed - the name refers to the fact this method is usually used with
-ASCII characters.  If omitted or <code class="docutils literal"><span class="pre">None</span></code>, the <em>chars</em> argument defaults to
-removing ASCII whitespace.  The <em>chars</em> argument is not a suffix; rather,
-all combinations of its values are stripped:</p>
+<dd><p>末尾から特定のバイト値を除去したコピーを返します。引数 <em>chars</em> は除去されるバイト値の集合を指定するバイナリシーケンスです － この名前は、このメソッドが通常は ASCII 文字列に対して使われることに由来しています。 <em>chars</em> が省略されるか <code class="docutils literal"><span class="pre">None</span></code> の場合、 ASCII の空白文字（訳注: 半角スペース）が除去されます。なお <em>chars</em> 引数と一致する接尾辞が除去されるのではなく、それに含まれるバイトの組み合わせ全てが除去されます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;   spacious   &#39;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">()</span>
 <span class="go">b&#39;   spacious&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;mississippi&#39;</span><span class="o">.</span><span class="n">rstrip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;ipz&#39;</span><span class="p">)</span>
 <span class="go">b&#39;mississ&#39;</span>
 </pre></div>
 </div>
-<p>The binary sequence of byte values to remove may be any
-<a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
+<p>除去対象のバイト値を含むバイナリシーケンスには、任意の <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> を指定できます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2262,21 +2239,14 @@ whitespace without a specified separator returns <code class="docutils literal">
 <code class="descclassname">bytes.</code><code class="descname">strip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.strip" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.strip">
 <code class="descclassname">bytearray.</code><code class="descname">strip</code><span class="sig-paren">(</span><span class="optional">[</span><em>chars</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.strip" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the sequence with specified leading and trailing bytes
-removed. The <em>chars</em> argument is a binary sequence specifying the set of
-byte values to be removed - the name refers to the fact this method is
-usually used with ASCII characters.  If omitted or <code class="docutils literal"><span class="pre">None</span></code>, the <em>chars</em>
-argument defaults to removing ASCII whitespace. The <em>chars</em> argument is
-not a prefix or suffix; rather, all combinations of its values are
-stripped:</p>
+<dd><p>先頭および末尾から特定のバイト値を除去したコピーを返します。引数 <em>chars</em> は除去されるバイト値の集合を指定するバイナリシーケンスです － この名前は、このメソッドが通常は ASCII 文字列に対して使われることに由来しています。 <em>chars</em> が省略されるか <code class="docutils literal"><span class="pre">None</span></code> の場合、 ASCII の空白文字（訳注: 半角スペース）が除去されます。なお <em>chars</em> 引数と一致する接頭辞および接尾辞が除去されるのではなく、それに含まれるバイトの組み合わせ全てが除去されます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;   spacious   &#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
 <span class="go">b&#39;spacious&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;www.example.com&#39;</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;cmowz.&#39;</span><span class="p">)</span>
 <span class="go">b&#39;example&#39;</span>
 </pre></div>
 </div>
-<p>The binary sequence of byte values to remove may be any
-<a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
+<p>除去対象のバイト値を含むバイナリシーケンスには、任意の <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> を指定できます。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2804,11 +2774,9 @@ be used for Python2/3 code bases.</td>
 </table>
 <p>注釈:</p>
 <ol class="arabic">
-<li><p class="first">The alternate form causes a leading octal specifier (<code class="docutils literal"><span class="pre">'0o'</span></code>) to be
-inserted before the first digit.</p>
+<li><p class="first">別の形式を指定（訳注: 変換フラグ <code class="docutils literal"><span class="pre">#</span></code> を使用）すると 8 進数を表す接頭辞 (<code class="docutils literal"><span class="pre">'0o'</span></code>) が最初の数字の前に挿入されます。</p>
 </li>
-<li><p class="first">The alternate form causes a leading <code class="docutils literal"><span class="pre">'0x'</span></code> or <code class="docutils literal"><span class="pre">'0X'</span></code> (depending on whether
-the <code class="docutils literal"><span class="pre">'x'</span></code> or <code class="docutils literal"><span class="pre">'X'</span></code> format was used) to be inserted before the first digit.</p>
+<li><p class="first">別の形式を指定（訳注: 変換フラグ <code class="docutils literal"><span class="pre">#</span></code> を使用）すると 16 進数を表す接頭辞 <code class="docutils literal"><span class="pre">'0x'</span></code> または <code class="docutils literal"><span class="pre">'0X'</span></code> (使用するフォーマット文字が <code class="docutils literal"><span class="pre">'x'</span></code> か <code class="docutils literal"><span class="pre">'X'</span></code> に依存します) が最初の数字の前に挿入されます。</p>
 </li>
 <li><p class="first">この形式にした場合、変換結果には常に小数点が含まれ、それはその後ろに数字が続かない場合にも適用されます。</p>
 <p>指定精度は小数点の後の桁数を決定し、そのデフォルトは 6 です。</p>
@@ -4008,7 +3976,7 @@ or generator instance.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 08, 2017
+    最終更新日時: 2月 10, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
