@@ -2163,12 +2163,7 @@ bytearray オブジェクトはいつでも <code class="docutils literal"><span
 <code class="descclassname">bytes.</code><code class="descname">rsplit</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bytes.rsplit" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.rsplit">
 <code class="descclassname">bytearray.</code><code class="descname">rsplit</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.rsplit" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Split the binary sequence into subsequences of the same type, using <em>sep</em>
-as the delimiter string. If <em>maxsplit</em> is given, at most <em>maxsplit</em> splits
-are done, the <em>rightmost</em> ones.  If <em>sep</em> is not specified or <code class="docutils literal"><span class="pre">None</span></code>,
-any subsequence consisting solely of ASCII whitespace is a separator.
-Except for splitting from the right, <a class="reference internal" href="#bytearray.rsplit" title="bytearray.rsplit"><code class="xref py py-meth docutils literal"><span class="pre">rsplit()</span></code></a> behaves like
-<a class="reference internal" href="#bytearray.split" title="bytearray.split"><code class="xref py py-meth docutils literal"><span class="pre">split()</span></code></a> which is described in detail below.</p>
+<dd><p><em>sep</em> を区切りとして、同じ型の部分シーケンスに分割します。 <em>maxsplit</em> が与えられた場合、シーケンスの <em>右端</em> から最大 <em>maxsplit</em> 回だけ分割を行います。 <em>sep</em> が指定されていないか <code class="docutils literal"><span class="pre">None</span></code> のとき、 ASCII 空白文字の組み合わせで作られる部分シーケンスすべてが区切りとなります。右から分割していくことを除けば、 <a class="reference internal" href="#bytearray.rsplit" title="bytearray.rsplit"><code class="xref py py-meth docutils literal"><span class="pre">rsplit()</span></code></a> は後ほど詳しく述べる <a class="reference internal" href="#bytearray.split" title="bytearray.split"><code class="xref py py-meth docutils literal"><span class="pre">split()</span></code></a> と同様に振る舞います。</p>
 </dd></dl>
 
 <dl class="method">
@@ -2195,19 +2190,8 @@ Except for splitting from the right, <a class="reference internal" href="#bytear
 <code class="descclassname">bytes.</code><code class="descname">split</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bytes.split" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.split">
 <code class="descclassname">bytearray.</code><code class="descname">split</code><span class="sig-paren">(</span><em>sep=None</em>, <em>maxsplit=-1</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.split" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Split the binary sequence into subsequences of the same type, using <em>sep</em>
-as the delimiter string. If <em>maxsplit</em> is given and non-negative, at most
-<em>maxsplit</em> splits are done (thus, the list will have at most <code class="docutils literal"><span class="pre">maxsplit+1</span></code>
-elements).  If <em>maxsplit</em> is not specified or is <code class="docutils literal"><span class="pre">-1</span></code>, then there is no
-limit on the number of splits (all possible splits are made).</p>
-<p>If <em>sep</em> is given, consecutive delimiters are not grouped together and are
-deemed to delimit empty subsequences (for example, <code class="docutils literal"><span class="pre">b'1,,2'.split(b',')</span></code>
-returns <code class="docutils literal"><span class="pre">[b'1',</span> <span class="pre">b'',</span> <span class="pre">b'2']</span></code>).  The <em>sep</em> argument may consist of a
-multibyte sequence (for example, <code class="docutils literal"><span class="pre">b'1&lt;&gt;2&lt;&gt;3'.split(b'&lt;&gt;')</span></code> returns
-<code class="docutils literal"><span class="pre">[b'1',</span> <span class="pre">b'2',</span> <span class="pre">b'3']</span></code>). Splitting an empty sequence with a specified
-separator returns <code class="docutils literal"><span class="pre">[b'']</span></code> or <code class="docutils literal"><span class="pre">[bytearray(b'')]</span></code> depending on the type
-of object being split.  The <em>sep</em> argument may be any
-<a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a>.</p>
+<dd><p><em>sep</em> を区切りとして、同じ型の部分シーケンスに分割します。 <em>maxsplit</em> が与えられ、かつ負の数でない場合、シーケンスの <em>左端</em> から最大 <em>maxsplit</em> 回だけ分割を行います (したがって結果のリストの要素数は最大で <code class="docutils literal"><span class="pre">maxsplit+1</span></code> になります)。 <em>maxsplit</em> が指定されていないか <code class="docutils literal"><span class="pre">-1</span></code> のとき、分割の回数に制限はありません (可能なだけ分割されます)。</p>
+<p><em>sep</em> が与えられた場合、連続した区切り用バイト値はまとめられず、空の部分シーケンスを区切っていると判断されます(例えば <code class="docutils literal"><span class="pre">b'1,,2'.split(b',')</span></code> は <code class="docutils literal"><span class="pre">[b'1',</span> <span class="pre">b'',</span> <span class="pre">b'2']</span></code> を返します)。引数 <em>sep</em> は複数バイトのシーケンスにもできます (例えば <code class="docutils literal"><span class="pre">b'1&lt;&gt;2&lt;&gt;3'.split(b'&lt;&gt;')</span></code> は <code class="docutils literal"><span class="pre">[b'1',</span> <span class="pre">b'2',</span> <span class="pre">b'3']</span></code> を返します)。空のシーケンスを分割すると、分割するオブジェクトの型によって <code class="docutils literal"><span class="pre">[b'']</span></code> または <code class="docutils literal"><span class="pre">[bytearray(b'')]</span></code> が返ります。引数 <em>sep</em> には、あらゆる <a class="reference internal" href="../glossary.html#term-bytes-like-object"><span class="xref std std-term">bytes-like object</span></a> を指定できます。</p>
 <p>例えば、次のようになります:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1,2,3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="go">[b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;]</span>
@@ -2217,12 +2201,7 @@ of object being split.  The <em>sep</em> argument may be any
 <span class="go">[b&#39;1&#39;, b&#39;2&#39;, b&#39;&#39;, b&#39;3&#39;, b&#39;&#39;]</span>
 </pre></div>
 </div>
-<p>If <em>sep</em> is not specified or is <code class="docutils literal"><span class="pre">None</span></code>, a different splitting algorithm
-is applied: runs of consecutive ASCII whitespace are regarded as a single
-separator, and the result will contain no empty strings at the start or
-end if the sequence has leading or trailing whitespace.  Consequently,
-splitting an empty sequence or a sequence consisting solely of ASCII
-whitespace without a specified separator returns <code class="docutils literal"><span class="pre">[]</span></code>.</p>
+<p><em>sep</em> が指定されていないか <code class="docutils literal"><span class="pre">None</span></code> の場合、異なる分割アルゴリズムが適用されます。連続する ASCII 空白文字はひとつの区切りとみなされ、またシーケンスの先頭や末尾に空白があっても、結果の最初や最後に空のシーケンスは含まれません。したがって区切りを指定せずに空のシーケンスや ASCII 空白文字だけのシーケンスを分割すると、 <code class="docutils literal"><span class="pre">[]</span></code> が返されます。</p>
 <p>例えば、次のようになります:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;1 2 3&#39;</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
 <span class="go">[b&#39;1&#39;, b&#39;2&#39;, b&#39;3&#39;]</span>
@@ -2253,10 +2232,7 @@ whitespace without a specified separator returns <code class="docutils literal">
 </div>
 </dd></dl>
 
-<p>The following methods on bytes and bytearray objects assume the use of ASCII
-compatible binary formats and should not be applied to arbitrary binary data.
-Note that all of the bytearray methods in this section do <em>not</em> operate in
-place, and instead produce new objects.</p>
+<p>以下の bytes および bytearray オブジェクトのメソッドは、 ASCII と互換性のあるバイナリフォーマットが使われていると仮定しており、任意のバイナリデータに対して使用すべきではありません。なお、このセクションで紹介する bytearray のメソッドはすべてインプレースで動作 <em>せず</em> 、新しいオブジェクトを生成します。</p>
 <dl class="method">
 <dt id="bytes.capitalize">
 <code class="descclassname">bytes.</code><code class="descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.capitalize" title="この定義へのパーマリンク">¶</a></dt>
