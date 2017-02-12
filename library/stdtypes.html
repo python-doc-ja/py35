@@ -2238,9 +2238,7 @@ bytearray オブジェクトはいつでも <code class="docutils literal"><span
 <code class="descclassname">bytes.</code><code class="descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytes.capitalize" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.capitalize">
 <code class="descclassname">bytearray.</code><code class="descname">capitalize</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.capitalize" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the sequence with each byte interpreted as an ASCII
-character, and the first byte capitalized and the rest lowercased.
-Non-ASCII byte values are passed through unchanged.</p>
+<dd><p>各バイトを ASCII 文字と解釈して、最初のバイトを大文字にし、残りを小文字にしたシーケンスのコピーを返します。 ASCII 文字と解釈できないバイト値は、変更されません。</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">bytearray のこのメソッドはインプレースでは動作 <em>しません</em> &#8211; 一切変化が無い場合でも、常に新しいオブジェクトを生成します。</p>
@@ -2252,19 +2250,7 @@ Non-ASCII byte values are passed through unchanged.</p>
 <code class="descclassname">bytes.</code><code class="descname">expandtabs</code><span class="sig-paren">(</span><em>tabsize=8</em><span class="sig-paren">)</span><a class="headerlink" href="#bytes.expandtabs" title="この定義へのパーマリンク">¶</a></dt>
 <dt id="bytearray.expandtabs">
 <code class="descclassname">bytearray.</code><code class="descname">expandtabs</code><span class="sig-paren">(</span><em>tabsize=8</em><span class="sig-paren">)</span><a class="headerlink" href="#bytearray.expandtabs" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a copy of the sequence where all ASCII tab characters are replaced
-by one or more ASCII spaces, depending on the current column and the given
-tab size.  Tab positions occur every <em>tabsize</em> bytes (default is 8,
-giving tab positions at columns 0, 8, 16 and so on).  To expand the
-sequence, the current column is set to zero and the sequence is examined
-byte by byte.  If the byte is an ASCII tab character (<code class="docutils literal"><span class="pre">b'\t'</span></code>), one or
-more space characters are inserted in the result until the current column
-is equal to the next tab position. (The tab character itself is not
-copied.)  If the current byte is an ASCII newline (<code class="docutils literal"><span class="pre">b'\n'</span></code>) or
-carriage return (<code class="docutils literal"><span class="pre">b'\r'</span></code>), it is copied and the current column is reset
-to zero.  Any other byte value is copied unchanged and the current column
-is incremented by one regardless of how the byte value is represented when
-printed:</p>
+<dd><p>桁 (column) 位置と指定されたタブ幅 (tab size) に応じて、全ての ASCII タブ文字を 1 つ以上の ASCII スペース文字に置換したシーケンスのコピーを返します。ここで <em>tabsize</em> バイトごとの桁位置をタブ位置とします (デフォルト値である 8 の場合、タブ位置は 0 桁目、 8 桁目、 16 桁目、と続いていきます)。シーケンスを展開するにあたって、まず現桁位置をゼロに設定し、シーケンスを 1 バイトずつ調べていきます。もしバイト値が ASCII タブ文字 (<code class="docutils literal"><span class="pre">b'\t'</span></code>) であれば、現桁位置が次のタブ位置と一致するまで 1 つ以上の ASCII スペース文字を結果のシーケンスに挿入していきます（ASCII タブ文字自体はコピーしません）。もしバイト値が ASCII 改行文字 (<code class="docutils literal"><span class="pre">b'\n'</span></code> もしくは <code class="docutils literal"><span class="pre">b'\r'</span></code>) であれば、そのままコピーした上で現桁位置を 0 にリセットします。その他のバイト値については変更せずにコピーし、そのバイト値の表示のされ方（訳注: 全角、半角など）に関わらず現桁位置を 1 つ増加させます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;01</span><span class="se">\t</span><span class="s1">012</span><span class="se">\t</span><span class="s1">0123</span><span class="se">\t</span><span class="s1">01234&#39;</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">()</span>
 <span class="go">b&#39;01      012     0123    01234&#39;</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="sa">b</span><span class="s1">&#39;01</span><span class="se">\t</span><span class="s1">012</span><span class="se">\t</span><span class="s1">0123</span><span class="se">\t</span><span class="s1">01234&#39;</span><span class="o">.</span><span class="n">expandtabs</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
@@ -3952,7 +3938,7 @@ or generator instance.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 10, 2017
+    最終更新日時: 2月 12, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
