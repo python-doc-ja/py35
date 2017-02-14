@@ -777,8 +777,7 @@ correspond to those of <a class="reference internal" href="#typing.Generator" ti
 <dl class="function">
 <dt id="typing.get_type_hints">
 <code class="descclassname">typing.</code><code class="descname">get_type_hints</code><span class="sig-paren">(</span><em>obj</em><span class="optional">[</span>, <em>globals</em><span class="optional">[</span>, <em>locals</em><span class="optional">]</span><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#typing.get_type_hints" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a dictionary containing type hints for a function, method, module
-or class object.</p>
+<dd><p>関数、メソッド、モジュールまたはクラスのオブジェクトの型ヒントを含む辞書を返します。</p>
 <p>This is often the same as <code class="docutils literal"><span class="pre">obj.__annotations__</span></code>. In addition,
 forward references encoded as string literals are handled by evaluating
 them in <code class="docutils literal"><span class="pre">globals</span></code> and <code class="docutils literal"><span class="pre">locals</span></code> namespaces. If necessary,
@@ -834,8 +833,10 @@ a dictionary constructed by merging all the <code class="docutils literal"><span
 <code class="descclassname">typing.</code><code class="descname">Any</code><a class="headerlink" href="#typing.Any" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>制約のない型であることを示す特別な型。</p>
 <ul class="simple">
-<li>Every type is compatible with <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>.</li>
-<li><a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> is compatible with every type.</li>
+<li><p class="first">任意の型は <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> と互換です。</p>
+</li>
+<li><p class="first"><a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a> は任意の型と互換です。</p>
+</li>
 </ul>
 </dd></dl>
 
@@ -867,7 +868,7 @@ a dictionary constructed by merging all the <code class="docutils literal"><span
 </pre></div>
 </div>
 </li>
-<li><p class="first">When a class and its subclass are present, the former is skipped, e.g.:</p>
+<li><p class="first">あるクラスとそのサブクラスが存在するとき、前者は飛ばされます、例えば:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="n">Union</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">object</span><span class="p">]</span> <span class="o">==</span> <span class="nb">object</span>
 </pre></div>
 </div>
@@ -926,7 +927,7 @@ type hint a callable taking any number of arguments and returning
     <span class="n">damage</span> <span class="o">=</span> <span class="mi">10</span> <span class="c1"># type: int                      # instance variable</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="#typing.ClassVar" title="typing.ClassVar"><code class="xref py py-data docutils literal"><span class="pre">ClassVar</span></code></a> accepts only types and cannot be further subscribed.</p>
+<p><a class="reference internal" href="#typing.ClassVar" title="typing.ClassVar"><code class="xref py py-data docutils literal"><span class="pre">ClassVar</span></code></a> は型のみを受け入れ、それ以外は受け付けられません。</p>
 <p><a class="reference internal" href="#typing.ClassVar" title="typing.ClassVar"><code class="xref py py-data docutils literal"><span class="pre">ClassVar</span></code></a> is not a class itself, and should not
 be used with <a class="reference internal" href="functions.html#isinstance" title="isinstance"><code class="xref py py-func docutils literal"><span class="pre">isinstance()</span></code></a> or <a class="reference internal" href="functions.html#issubclass" title="issubclass"><code class="xref py py-func docutils literal"><span class="pre">issubclass()</span></code></a>.
 Note that <a class="reference internal" href="#typing.ClassVar" title="typing.ClassVar"><code class="xref py py-data docutils literal"><span class="pre">ClassVar</span></code></a> does not change Python runtime behavior;
@@ -1059,7 +1060,7 @@ code might flagged as an error by those:</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 12, 2017
+    最終更新日時: 2月 14, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
