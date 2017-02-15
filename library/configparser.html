@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>14.2. configparser — 設定ファイルのパーサー &#8212; Python 3.5.2 ドキュメント</title>
+    <title>14.2. configparser — 設定ファイルのパーサー &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="14. ファイルフォーマット" href="fileformats.html" />
     <link rel="next" title="14.3. netrc — netrc ファイルの処理" href="netrc.html" />
     <link rel="prev" title="14.1. csv — CSV ファイルの読み書き" href="csv.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/configparser.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/configparser.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-configparser">
 <span id="configparser-configuration-file-parser"></span><h1>14.2. <a class="reference internal" href="#module-configparser" title="configparser: Configuration file parser."><code class="xref py py-mod docutils literal"><span class="pre">configparser</span></code></a> &#8212; 設定ファイルのパーサー<a class="headerlink" href="#module-configparser" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/configparser.py">Lib/configparser.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/configparser.py">Lib/configparser.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>このモジュールは、 Microsoft Windows の INI ファイルに似た構造を持ったベーシックな設定用言語を実装した <a class="reference internal" href="#configparser.ConfigParser" title="configparser.ConfigParser"><code class="xref py py-class docutils literal"><span class="pre">ConfigParser</span></code></a> クラスを提供します。このクラスを使ってユーザーが簡単にカスタマイズできる Python プログラムを作ることができます。</p>
 <div class="admonition note">
@@ -915,17 +916,18 @@
 <p><span class="versionmodified">バージョン 3.2 で撤廃: </span>代わりに <a class="reference internal" href="#configparser.ConfigParser.read_file" title="configparser.ConfigParser.read_file"><code class="xref py py-meth docutils literal"><span class="pre">read_file()</span></code></a> を使ってください。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.2 で変更: </span><a class="reference internal" href="#configparser.ConfigParser.readfp" title="configparser.ConfigParser.readfp"><code class="xref py py-meth docutils literal"><span class="pre">readfp()</span></code></a> は <code class="docutils literal"><span class="pre">f.readline()</span></code> を呼び出す代わりに <em>f</em> をイテレートするようになりました。</p>
+<p><span class="versionmodified">バージョン 3.2 で変更: </span><a class="reference internal" href="#configparser.ConfigParser.readfp" title="configparser.ConfigParser.readfp"><code class="xref py py-meth docutils literal"><span class="pre">readfp()</span></code></a> now iterates on <em>fp</em> instead of calling <code class="docutils literal"><span class="pre">fp.readline()</span></code>.</p>
 </div>
 <p><a class="reference internal" href="#configparser.ConfigParser.readfp" title="configparser.ConfigParser.readfp"><code class="xref py py-meth docutils literal"><span class="pre">readfp()</span></code></a> をイテレーションをサポートしない引数で呼び出す既存のコードには、ファイル的なオブジェクトまわりのラッパーとして以下のジェネレーターが使えます:</p>
-<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">readline_generator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
-    <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">readline_generator</span><span class="p">(</span><span class="n">fp</span><span class="p">):</span>
+    <span class="n">line</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
     <span class="k">while</span> <span class="n">line</span><span class="p">:</span>
         <span class="k">yield</span> <span class="n">line</span>
-        <span class="n">line</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+        <span class="n">line</span> <span class="o">=</span> <span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
 </pre></div>
 </div>
-<p><code class="docutils literal"><span class="pre">parser.readfp(f)</span></code> の代わりに <code class="docutils literal"><span class="pre">parser.read_file(readline_generator(f))</span></code> を使ってください。</p>
+<p>Instead of <code class="docutils literal"><span class="pre">parser.readfp(fp)</span></code> use
+<code class="docutils literal"><span class="pre">parser.read_file(readline_generator(fp))</span></code>.</p>
 </dd></dl>
 
 </dd></dl>
@@ -1083,8 +1085,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/configparser.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/configparser.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1110,7 +1115,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1139,7 +1144,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

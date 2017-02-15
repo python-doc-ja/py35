@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s New in Python 2.2 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>What’s New in Python 2.2 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.1" href="2.1.html" />
     <link rel="prev" title="What’s New in Python 2.3" href="2.3.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.2.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/whatsnew/2.2.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -597,7 +598,12 @@ support.)</p>
 </li>
 <li><p class="first">新しい <a class="reference internal" href="../library/hmac.html#module-hmac" title="hmac: Keyed-Hashing for Message Authentication (HMAC) implementation"><code class="xref py py-mod docutils literal"><span class="pre">hmac</span></code></a> モジュールは、 <span class="target" id="index-63"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc2104.html"><strong>RFC 2104</strong></a> で記述される HMAC アルゴリズムを実装します 。 (Contributed by Gerhard Häring.)</p>
 </li>
-<li><p class="first">元々が長ったらしいタプルを返していたいくつもの関数が、擬似シーケンスを返すように変更されています。変更後もそれはタプルとして振舞いますが、例えば memberst_mtime や <code class="xref py py-attr docutils literal"><span class="pre">tm_year</span></code> といった記憶しやすい属性も持ちます。この変更が行われたものには <a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal"><span class="pre">os</span></code></a> モジュールの <a class="reference internal" href="../library/stat.html#module-stat" title="stat: Utilities for interpreting the results of os.stat(), os.lstat() and os.fstat()."><code class="xref py py-func docutils literal"><span class="pre">stat()</span></code></a>, <code class="xref py py-func docutils literal"><span class="pre">fstat()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">statvfs()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">fstatvfs()</span></code> や <a class="reference internal" href="../library/time.html#module-time" title="time: Time access and conversions."><code class="xref py py-mod docutils literal"><span class="pre">time</span></code></a> モジュールの <code class="xref py py-func docutils literal"><span class="pre">localtime()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">gmtime()</span></code>, and <code class="xref py py-func docutils literal"><span class="pre">strptime()</span></code> が含まれます。</p>
+<li><p class="first">Several functions that originally returned lengthy tuples now return
+pseudo-sequences that still behave like tuples but also have mnemonic attributes such
+as memberst_mtime or <code class="xref py py-attr docutils literal"><span class="pre">tm_year</span></code>. The enhanced functions include
+<a class="reference internal" href="../library/stat.html#module-stat" title="stat: Utilities for interpreting the results of os.stat(), os.lstat() and os.fstat()."><code class="xref py py-func docutils literal"><span class="pre">stat()</span></code></a>, <code class="xref py py-func docutils literal"><span class="pre">fstat()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">statvfs()</span></code>, and <code class="xref py py-func docutils literal"><span class="pre">fstatvfs()</span></code> in the
+<a class="reference internal" href="../library/os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal"><span class="pre">os</span></code></a> module, and <code class="xref py py-func docutils literal"><span class="pre">localtime()</span></code>, <code class="xref py py-func docutils literal"><span class="pre">gmtime()</span></code>, and <code class="xref py py-func docutils literal"><span class="pre">strptime()</span></code> in
+the <a class="reference internal" href="../library/time.html#module-time" title="time: Time access and conversions."><code class="xref py py-mod docutils literal"><span class="pre">time</span></code></a> module.</p>
 <p>例えば旧式のタプルでファイルサイズを得るには <code class="docutils literal"><span class="pre">file_size</span> <span class="pre">=</span> <span class="pre">os.stat(filename)[stat.ST_SIZE]</span></code> のように書くしかありませんでしたが、今ではもっとわかりやすい <code class="docutils literal"><span class="pre">file_size</span> <span class="pre">=</span> <span class="pre">os.stat(filename).st_size</span></code> のように書くことが出来ます。</p>
 <p>この機能のオリジナルのパッチは Nick Mathewson により寄稿されました。</p>
 </li>
@@ -679,8 +685,8 @@ Jun-ichiro &#8220;itojun&#8221; Hagino.)</p>
 in the main Python CVS tree, and many changes have been made to support MacOS X.</p>
 <p>The most significant change is the ability to build Python as a framework,
 enabled by supplying the <code class="xref std std-option docutils literal"><span class="pre">--enable-framework</span></code> option to the configure
-script when compiling Python.  According to Jack Jansen, &#8220;This installs a self-
-contained Python installation plus the OS X framework &#8220;glue&#8221; into
+script when compiling Python.  According to Jack Jansen, &#8220;This installs a
+self-contained Python installation plus the OS X framework &#8220;glue&#8221; into
 <code class="file docutils literal"><span class="pre">/Library/Frameworks/Python.framework</span></code> (or another location of choice).
 For now there is little immediate added benefit to this (actually, there is the
 disadvantage that you have to change your PATH to be able to find Python), but
@@ -776,8 +782,11 @@ Wise 5.0a, which was beginning to show its age.  (Packaged up by Tim Peters.)</p
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.2.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/whatsnew/2.2.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -803,7 +812,7 @@ Wise 5.0a, which was beginning to show its age.  (Packaged up by Tim Peters.)</p
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -831,7 +840,7 @@ Wise 5.0a, which was beginning to show its age.  (Packaged up by Tim Peters.)</p
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

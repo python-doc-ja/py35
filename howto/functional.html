@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>関数型プログラミング HOWTO &#8212; Python 3.5.2 ドキュメント</title>
+    <title>関数型プログラミング HOWTO &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="Python HOWTO" href="index.html" />
     <link rel="next" title="Logging HOWTO" href="logging.html" />
     <link rel="prev" title="デスクリプタ HowTo ガイド" href="descriptor.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/howto/functional.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/howto/functional.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -363,7 +364,7 @@
 <p>同じく <code class="docutils literal"><span class="pre">for</span> <span class="pre">i</span> <span class="pre">in</span> <span class="pre">generate_ints(5)</span></code> や <code class="docutils literal"><span class="pre">a,b,c</span> <span class="pre">=</span> <span class="pre">generate_ints(3)</span></code> といった書き方もできます。</p>
 <p>ジェネレータ関数の中では、<code class="docutils literal"><span class="pre">return</span> <span class="pre">value</span></code> は <a class="reference internal" href="../reference/expressions.html#generator.__next__" title="generator.__next__"><code class="xref py py-meth docutils literal"><span class="pre">__next__()</span></code></a> メソッドから送出された <code class="docutils literal"><span class="pre">StopIteration(value)</span></code> を引き起こします。これが発生した場合や、関数の終わりに到達した場合は、値の生成が終了してジェネレーターがそれ以上の値を返さない。</p>
 <p>自分でクラスを書いて、ジェネレータで言うところのローカル変数をインスタンス変数として全部保管しておけば、同じ効果を得ることは可能です。たとえば整数のリストを返すのは、 <code class="docutils literal"><span class="pre">self.count</span></code> を 0 にして、 <a class="reference internal" href="../library/stdtypes.html#iterator.__next__" title="iterator.__next__"><code class="xref py py-meth docutils literal"><span class="pre">__next__()</span></code></a> メソッドが <code class="docutils literal"><span class="pre">self.count</span></code> をインクリメントして返すようにすればできます。しかしながら、ある程度複雑なジェネレータになってくると、同じことをするクラスを書くのは格段にややこしいことになります。</p>
-<p>Python のライブラリに含まれているテストスイート <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/test/test_generators.py">Lib/test/test_generators.py</a> には、ほかにも興味深い例が数多く入っています。これは二分木の通りがけ順 (in-order) 探索を再帰で実装したジェネレータです。</p>
+<p>Python のライブラリに含まれているテストスイート <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/test/test_generators.py">Lib/test/test_generators.py</a> には、ほかにも興味深い例が数多く入っています。これは二分木の通りがけ順 (in-order) 探索を再帰で実装したジェネレータです。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># A recursive generator that generates Tree leaves in in-order.</span>
 <span class="k">def</span> <span class="nf">inorder</span><span class="p">(</span><span class="n">t</span><span class="p">):</span>
     <span class="k">if</span> <span class="n">t</span><span class="p">:</span>
@@ -940,8 +941,11 @@ features in Python 2.5.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/howto/functional.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/howto/functional.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -967,7 +971,7 @@ features in Python 2.5.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -995,7 +999,7 @@ features in Python 2.5.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

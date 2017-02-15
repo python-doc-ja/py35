@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>デスクリプタ HowTo ガイド &#8212; Python 3.5.2 ドキュメント</title>
+    <title>デスクリプタ HowTo ガイド &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="Python HOWTO" href="index.html" />
     <link rel="next" title="関数型プログラミング HOWTO" href="functional.html" />
     <link rel="prev" title="Python で Curses プログラミング" href="curses.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/howto/descriptor.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/howto/descriptor.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -155,7 +156,7 @@
 <p>デスクリプタは、メソッド名で直接呼ぶことも出来ます。例えば、<code class="docutils literal"><span class="pre">d.__get__(obj)</span></code> です。</p>
 <p>または、一般的に、デスクリプタは属性アクセスから自動的に呼び出されます。例えば、 <code class="docutils literal"><span class="pre">obj.d</span></code> は <code class="docutils literal"><span class="pre">obj</span></code> の辞書から <code class="docutils literal"><span class="pre">d</span></code> を探索します。 <code class="docutils literal"><span class="pre">d</span></code> がメソッド <a class="reference internal" href="../reference/datamodel.html#object.__get__" title="object.__get__"><code class="xref py py-meth docutils literal"><span class="pre">__get__()</span></code></a> を定義していたら、以下に列挙する優先順位に従って、 <code class="docutils literal"><span class="pre">d.__get__(obj)</span></code> が呼び出されます。</p>
 <p>呼び出しの詳細は、<code class="docutils literal"><span class="pre">obj</span></code> がオブジェクトかクラスかに依ります。</p>
-<p>オブジェクトでは、その機構は <code class="docutils literal"><span class="pre">b.x</span></code> を <code class="docutils literal"><span class="pre">type(b).__dict__['x'].__get__(b,</span> <span class="pre">type(b))</span></code> に変換する <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">object.__getattribute__()</span></code></a> にあります。データデスクリプタの優先度はインスタンス変数より高く、インスタンス変数の優先度は非データデスクリプタより高く、(提供されていれば) <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal"><span class="pre">__getattr__()</span></code></a> の優先度が最も低いように実装されています。完全な C 実装は、 <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Objects/object.c">Objects/object.c</a> の <a class="reference internal" href="../c-api/object.html#c.PyObject_GenericGetAttr" title="PyObject_GenericGetAttr"><code class="xref c c-func docutils literal"><span class="pre">PyObject_GenericGetAttr()</span></code></a> で見つかります。</p>
+<p>オブジェクトでは、その機構は <code class="docutils literal"><span class="pre">b.x</span></code> を <code class="docutils literal"><span class="pre">type(b).__dict__['x'].__get__(b,</span> <span class="pre">type(b))</span></code> に変換する <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">object.__getattribute__()</span></code></a> にあります。データデスクリプタの優先度はインスタンス変数より高く、インスタンス変数の優先度は非データデスクリプタより高く、(提供されていれば) <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal"><span class="pre">__getattr__()</span></code></a> の優先度が最も低いように実装されています。完全な C 実装は、 <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Objects/object.c">Objects/object.c</a> の <a class="reference internal" href="../c-api/object.html#c.PyObject_GenericGetAttr" title="PyObject_GenericGetAttr"><code class="xref c c-func docutils literal"><span class="pre">PyObject_GenericGetAttr()</span></code></a> で見つかります。</p>
 <p>クラスでは、その機構は <code class="docutils literal"><span class="pre">B.x</span></code> を <code class="docutils literal"><span class="pre">B.__dict__['x'].__get__(None,</span> <span class="pre">B)</span></code> に変換する <code class="xref py py-meth docutils literal"><span class="pre">type.__getattribute__()</span></code> にあります。 pure Python では、このようになります:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">__getattribute__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">key</span><span class="p">):</span>
     <span class="s2">&quot;Emulate type_getattro() in Objects/typeobject.c&quot;</span>
@@ -179,7 +180,7 @@
 </li>
 </ul>
 <p><code class="docutils literal"><span class="pre">super()</span></code> が返したオブジェクトにはさらにデスクリプタを起動するカスタム <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">__getattribute__()</span></code></a> メソッドがあります。 <code class="docutils literal"><span class="pre">super(B,</span> <span class="pre">obj).m()</span></code> の呼び出しは、 <code class="docutils literal"><span class="pre">B</span></code> に続き基底クラス <code class="docutils literal"><span class="pre">A</span></code> を見つけるために <code class="docutils literal"><span class="pre">obj.__class__.__mro__</span></code> を探索し、 <code class="docutils literal"><span class="pre">A.__dict__['m'].__get__(obj,</span> <span class="pre">B)</span></code> を返します。デスクリプタではない場合、 <code class="docutils literal"><span class="pre">m</span></code> が変更されずに返されます。辞書になければ、  <code class="docutils literal"><span class="pre">m</span></code> は <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">object.__getattribute__()</span></code></a> を使用した探索に戻ります。</p>
-<p>実装の詳細は、 <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Objects/typeobject.c">Objects/typeobject.c</a> の <code class="xref c c-func docutils literal"><span class="pre">super_getattro()</span></code> と、 <a class="reference external" href="https://www.python.org/download/releases/2.2.3/descrintro/#cooperation">Guido&#8217;s Tutorial</a> にある等価な pure Python 版を参照してください。</p>
+<p>実装の詳細は、 <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Objects/typeobject.c">Objects/typeobject.c</a> の <code class="xref c c-func docutils literal"><span class="pre">super_getattro()</span></code> と、 <a class="reference external" href="https://www.python.org/download/releases/2.2.3/descrintro/#cooperation">Guido&#8217;s Tutorial</a> にある等価な pure Python 版を参照してください。</p>
 <p>上述の詳細は、デスクリプタの機構が、 <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">__getattribute__()</span></code></a> メソッドに埋めこまれ、 <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a>, <a class="reference internal" href="../library/functions.html#type" title="type"><code class="xref py py-class docutils literal"><span class="pre">type</span></code></a>, そして <a class="reference internal" href="../library/functions.html#super" title="super"><code class="xref py py-func docutils literal"><span class="pre">super()</span></code></a> に使われているということを表しています。クラスは、 <a class="reference internal" href="../library/functions.html#object" title="object"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a> から導出されたとき、または、同じような機能を提供するメタクラスをもつとき、この機構を継承します。同様に、 <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">__getattribute__()</span></code></a> をオーバーライドすることで、デスクリプタの呼び出しを無効にできます。</p>
 </div>
 <div class="section" id="descriptor-example">
@@ -313,7 +314,7 @@
 </pre></div>
 </div>
 <p>この出力は、束縛メソッドと非束縛メソッドは 2 つの異なる型であることを示しています。
-これらは、異なる型として実装することも出来ますが、 <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Objects/classobject.c">Objects/classobject.c</a> における <a class="reference internal" href="../c-api/method.html#c.PyMethod_Type" title="PyMethod_Type"><code class="xref c c-type docutils literal"><span class="pre">PyMethod_Type</span></code></a> の実際の C 実装は 1 つのオブジェクトで、 <code class="xref py py-attr docutils literal"><span class="pre">im_self</span></code> が <em>NULL</em> (C での <code class="docutils literal"><span class="pre">None</span></code> と同等のもの) に設定されているかどうかで決まる 2 つの異なる表現を持ってるのです。</p>
+これらは、異なる型として実装することも出来ますが、 <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Objects/classobject.c">Objects/classobject.c</a> における <a class="reference internal" href="../c-api/method.html#c.PyMethod_Type" title="PyMethod_Type"><code class="xref c c-type docutils literal"><span class="pre">PyMethod_Type</span></code></a> の実際の C 実装は 1 つのオブジェクトで、 <code class="xref py py-attr docutils literal"><span class="pre">im_self</span></code> が <em>NULL</em> (C での <code class="docutils literal"><span class="pre">None</span></code> と同等のもの) に設定されているかどうかで決まる 2 つの異なる表現を持ってるのです。</p>
 <p>同様に、メソッドオブジェクトを呼び出すことの効果も、 <code class="xref py py-attr docutils literal"><span class="pre">im_self</span></code> フィールドに依ります。設定されていれば (束縛を意味し)、期待通り (<code class="xref py py-attr docutils literal"><span class="pre">im_func</span></code> フィールドに保存されている) 元の関数が、第一引数をインスタンスとして、呼び出されます。非束縛なら、すべての引数がそのまま元の関数に渡されます。 <code class="xref py py-func docutils literal"><span class="pre">instancemethod_call()</span></code> の実際の C 実装は、型チェックがあるため、もう少しだけ複雑です。</p>
 </div>
 <div class="section" id="static-methods-and-class-methods">
@@ -460,8 +461,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/howto/descriptor.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/howto/descriptor.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -487,7 +491,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -515,7 +519,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

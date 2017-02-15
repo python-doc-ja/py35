@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>26.1. typing — 型ヒントのサポート &#8212; Python 3.5.2 ドキュメント</title>
+    <title>26.1. typing — 型ヒントのサポート &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="26. 開発ツール" href="development.html" />
     <link rel="next" title="26.2. pydoc — ドキュメント生成とオンラインヘルプシステム" href="pydoc.html" />
     <link rel="prev" title="26. 開発ツール" href="development.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/typing.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/typing.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -107,7 +108,7 @@
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
 </div>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/typing.py">Lib/typing.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/typing.py">Lib/typing.py</a></p>
 <hr class="docutils" />
 <p>このモジュールは <span class="target" id="index-17"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> によって規定された型ヒントをサポートします。最も基本的なサポートとして <a class="reference internal" href="#typing.Any" title="typing.Any"><code class="xref py py-data docutils literal"><span class="pre">Any</span></code></a>、 <a class="reference internal" href="#typing.Union" title="typing.Union"><code class="xref py py-data docutils literal"><span class="pre">Union</span></code></a>、 <a class="reference internal" href="#typing.Tuple" title="typing.Tuple"><code class="xref py py-data docutils literal"><span class="pre">Tuple</span></code></a>、 <a class="reference internal" href="#typing.Callable" title="typing.Callable"><code class="xref py py-data docutils literal"><span class="pre">Callable</span></code></a>、 <a class="reference internal" href="#typing.TypeVar" title="typing.TypeVar"><code class="xref py py-class docutils literal"><span class="pre">TypeVar</span></code></a> および <a class="reference internal" href="#typing.Generic" title="typing.Generic"><code class="xref py py-class docutils literal"><span class="pre">Generic</span></code></a> 型を含みます。完全な仕様は <span class="target" id="index-18"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0484"><strong>PEP 484</strong></a> を参照してください。型ヒントの簡単な導入は <span class="target" id="index-19"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0483"><strong>PEP 483</strong></a> を参照してください。</p>
 <p>以下の関数は文字列を取り文字列を返す関数で、次のようにアノテーションがつけられます:</p>
@@ -585,6 +586,12 @@ required to handle this particular case may change in future revisions of
 </dd></dl>
 
 <dl class="class">
+<dt id="typing.Deque">
+<em class="property">class </em><code class="descclassname">typing.</code><code class="descname">Deque</code><span class="sig-paren">(</span><em>deque, MutableSequence[T]</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.Deque" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>A generic version of <a class="reference internal" href="collections.html#collections.deque" title="collections.deque"><code class="xref py py-class docutils literal"><span class="pre">collections.deque</span></code></a>.</p>
+</dd></dl>
+
+<dl class="class">
 <dt id="typing.List">
 <em class="property">class </em><code class="descclassname">typing.</code><code class="descname">List</code><span class="sig-paren">(</span><em>list, MutableSequence[T]</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.List" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><a class="reference internal" href="stdtypes.html#list" title="list"><code class="xref py py-class docutils literal"><span class="pre">list</span></code></a> のジェネリック版です。返り値の型のアノテーションをつけることに便利です。引数にアノテーションをつけるためには、<a class="reference internal" href="#typing.Mapping" title="typing.Mapping"><code class="xref py py-class docutils literal"><span class="pre">Mapping</span></code></a> や <a class="reference internal" href="#typing.Sequence" title="typing.Sequence"><code class="xref py py-class docutils literal"><span class="pre">Sequence</span></code></a> 、 <a class="reference internal" href="#typing.AbstractSet" title="typing.AbstractSet"><code class="xref py py-class docutils literal"><span class="pre">AbstractSet</span></code></a> のような抽象コレクション型を使うことが好ましいです。</p>
@@ -711,6 +718,42 @@ correspond to those of <a class="reference internal" href="#typing.Generator" ti
         <span class="k">yield</span> <span class="n">start</span>
         <span class="n">start</span> <span class="o">+=</span> <span class="mi">1</span>
 </pre></div>
+</div>
+</dd></dl>
+
+<dl class="class">
+<dt id="typing.AsyncGenerator">
+<em class="property">class </em><code class="descclassname">typing.</code><code class="descname">AsyncGenerator</code><span class="sig-paren">(</span><em>AsyncIterator[T_co], Generic[T_co, T_contra]</em><span class="sig-paren">)</span><a class="headerlink" href="#typing.AsyncGenerator" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>An async generator can be annotated by the generic type
+<code class="docutils literal"><span class="pre">AsyncGenerator[YieldType,</span> <span class="pre">SendType]</span></code>. For example:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">echo_round</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="nb">float</span><span class="p">]:</span>
+    <span class="n">sent</span> <span class="o">=</span> <span class="k">yield</span> <span class="mi">0</span>
+    <span class="k">while</span> <span class="n">sent</span> <span class="o">&gt;=</span> <span class="mf">0.0</span><span class="p">:</span>
+        <span class="n">rounded</span> <span class="o">=</span> <span class="k">await</span> <span class="nb">round</span><span class="p">(</span><span class="n">sent</span><span class="p">)</span>
+        <span class="n">sent</span> <span class="o">=</span> <span class="k">yield</span> <span class="n">rounded</span>
+</pre></div>
+</div>
+<p>Unlike normal generators, async generators cannot return a value, so there
+is no <code class="docutils literal"><span class="pre">ReturnType</span></code> type parameter. As with <a class="reference internal" href="#typing.Generator" title="typing.Generator"><code class="xref py py-class docutils literal"><span class="pre">Generator</span></code></a>, the
+<code class="docutils literal"><span class="pre">SendType</span></code> behaves contravariantly.</p>
+<p>If your generator will only yield values, set the <code class="docutils literal"><span class="pre">SendType</span></code> to
+<code class="docutils literal"><span class="pre">None</span></code>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">infinite_stream</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncGenerator</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span> <span class="kc">None</span><span class="p">]:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">start</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">await</span> <span class="n">increment</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, annotate your generator as having a return type of
+either <code class="docutils literal"><span class="pre">AsyncIterable[YieldType]</span></code> or <code class="docutils literal"><span class="pre">AsyncIterator[YieldType]</span></code>:</p>
+<div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">async</span> <span class="k">def</span> <span class="nf">infinite_stream</span><span class="p">(</span><span class="n">start</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">AsyncIterator</span><span class="p">[</span><span class="nb">int</span><span class="p">]:</span>
+    <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">start</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="k">await</span> <span class="n">increment</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5.4 で追加.</span></p>
 </div>
 </dd></dl>
 
@@ -1004,8 +1047,11 @@ code might flagged as an error by those:</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/typing.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/typing.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1031,7 +1077,7 @@ code might flagged as an error by those:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1060,7 +1106,7 @@ code might flagged as an error by those:</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

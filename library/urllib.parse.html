@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>21.8. urllib.parse — URL を解析して構成要素にする &#8212; Python 3.5.2 ドキュメント</title>
+    <title>21.8. urllib.parse — URL を解析して構成要素にする &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="21. インターネットプロトコルとサポート" href="internet.html" />
     <link rel="next" title="21.9. urllib.error — urllib.request が投げる例外" href="urllib.error.html" />
     <link rel="prev" title="21.6. urllib.request — URL を開くための拡張可能なライブラリ" href="urllib.request.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/urllib.parse.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/urllib.parse.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-urllib.parse">
 <span id="urllib-parse-parse-urls-into-components"></span><h1>21.8. <a class="reference internal" href="#module-urllib.parse" title="urllib.parse: Parse URLs into or assemble them from components."><code class="xref py py-mod docutils literal"><span class="pre">urllib.parse</span></code></a> &#8212; URL を解析して構成要素にする<a class="headerlink" href="#module-urllib.parse" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/urllib/parse.py">Lib/urllib/parse.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/urllib/parse.py">Lib/urllib/parse.py</a></p>
 <hr class="docutils" id="index-0" />
 <p>このモジュールでは URL (Uniform Resource Locator) 文字列をその構成要素 (アドレススキーム、ネットワーク上の位置、パスその他) に分解したり、構成要素を URL に組みなおしたり、 &#8220;相対 URL (relative URL)&#8221; を指定した &#8220;基底 URL (base URL)&#8221; に基づいて絶対 URL に変換するための標準的なインタフェースを定義しています。</p>
 <p>このモジュールは Relative Uniform Resource Locators (相対 URL) に関するインターネット RFC に適合するよう設計されており、次の URL スキームをサポートしています: <code class="docutils literal"><span class="pre">file</span></code>, <code class="docutils literal"><span class="pre">ftp</span></code>, <code class="docutils literal"><span class="pre">gopher</span></code>, <code class="docutils literal"><span class="pre">hdl</span></code>, <code class="docutils literal"><span class="pre">http</span></code>, <code class="docutils literal"><span class="pre">https</span></code>, <code class="docutils literal"><span class="pre">imap</span></code>, <code class="docutils literal"><span class="pre">mailto</span></code>, <code class="docutils literal"><span class="pre">mms</span></code>, <code class="docutils literal"><span class="pre">news</span></code>, <code class="docutils literal"><span class="pre">nntp</span></code>, <code class="docutils literal"><span class="pre">prospero</span></code>, <code class="docutils literal"><span class="pre">rsync</span></code>, <code class="docutils literal"><span class="pre">rtsp</span></code>, <code class="docutils literal"><span class="pre">rtspu</span></code>, <code class="docutils literal"><span class="pre">sftp</span></code>, <code class="docutils literal"><span class="pre">shttp</span></code>, <code class="docutils literal"><span class="pre">sip</span></code>, <code class="docutils literal"><span class="pre">sips</span></code>, <code class="docutils literal"><span class="pre">snews</span></code>, <code class="docutils literal"><span class="pre">svn</span></code>, <code class="docutils literal"><span class="pre">svn+ssh</span></code>, <code class="docutils literal"><span class="pre">telnet</span></code>, <code class="docutils literal"><span class="pre">wais</span></code>, <code class="docutils literal"><span class="pre">ws</span></code>, <code class="docutils literal"><span class="pre">wss</span></code></p>
@@ -648,8 +649,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/urllib.parse.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/urllib.parse.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -675,7 +679,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -704,7 +708,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

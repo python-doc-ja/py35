@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>11.2. os.path — 共通のパス名操作 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>11.2. os.path — 共通のパス名操作 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="11. ファイルとディレクトリへのアクセス" href="filesys.html" />
     <link rel="next" title="11.3. fileinput — 複数の入力ストリームをまたいだ行の繰り返し処理をサポートする" href="fileinput.html" />
     <link rel="prev" title="11.1. pathlib — オブジェクト指向のファイルシステムパス" href="pathlib.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/os.path.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/os.path.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-os.path">
 <span id="os-path-common-pathname-manipulations"></span><h1>11.2. <a class="reference internal" href="#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal"><span class="pre">os.path</span></code></a> &#8212; 共通のパス名操作<a class="headerlink" href="#module-os.path" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/posixpath.py">Lib/posixpath.py</a> (POSIX), <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/ntpath.py">Lib/ntpath.py</a> (Windows NT), <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/macpath.py">Lib/macpath.py</a> (Mac)</p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/posixpath.py">Lib/posixpath.py</a> (POSIX), <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/ntpath.py">Lib/ntpath.py</a> (Windows NT), <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/macpath.py">Lib/macpath.py</a> (Mac)</p>
 <hr class="docutils" id="index-0" />
 <p>このモジュールには、パス名を操作する便利な関数が実装されています。ファイルの読み書きに関しては <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal"><span class="pre">open()</span></code></a> を、ファイルシステムへのアクセスに関しては <a class="reference internal" href="os.html#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal"><span class="pre">os</span></code></a> モジュールを参照してください。パスパラメータは文字列またはバイト列で渡すことができます。アプリケーションは、ファイル名を Unicode 文字列で表すことが推奨されています。残念ながら、Unix では文字列で表すことのできないファイル名があるため、Unix 上で任意のファイル名をサポートする必要のあるアプリケーションは、そのパス名にバイト列を使用すべきです。逆に、バイト列オブジェクトを使用すると Windows (標準の <code class="docutils literal"><span class="pre">mbcs</span></code> エンコーディング) 上ではすべてのファイル名を表すことができないため、Windows アプリケーションはファイルアクセスのために文字列オブジェクトを使用するべきです。</p>
 <p>Unix シェルとは異なり、Python はあらゆるパス展開を <em>自動的には</em> 行いません。アプリケーションがシェルのようなパス展開を必要とした場合は、 <a class="reference internal" href="#os.path.expanduser" title="os.path.expanduser"><code class="xref py py-func docutils literal"><span class="pre">expanduser()</span></code></a> や <a class="reference internal" href="#os.path.expandvars" title="os.path.expandvars"><code class="xref py py-func docutils literal"><span class="pre">expandvars()</span></code></a> といった関数を明示的に呼び出すことで行えます。(<a class="reference internal" href="glob.html#module-glob" title="glob: Unix shell style pathname pattern expansion."><code class="xref py py-mod docutils literal"><span class="pre">glob</span></code></a> モジュールも参照してください)</p>
@@ -384,8 +385,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/os.path.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/os.path.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -411,7 +415,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -440,7 +444,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

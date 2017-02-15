@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s New in Python 2.3 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>What’s New in Python 2.3 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.2" href="2.2.html" />
     <link rel="prev" title="What’s New in Python 2.4" href="2.4.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.3.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/whatsnew/2.3.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -151,7 +152,11 @@
 <span class="go">&gt;&gt;&gt;</span>
 </pre></div>
 </div>
-<p>2 つの集合の対称差 (symmetric difference) を取ることも出来ます。これは、union から intersection を除いた全要素を取ります。別の言い方をすれば、対称差とは、正確に一つの集合だけに含まれる全要素、ということです。ほかと同じくビット演算子の記法 (<code class="docutils literal"><span class="pre">^</span></code>) が使え、インプレイス版は見苦しい名前の <code class="xref py py-meth docutils literal"><span class="pre">symmetric_difference_update()</span></code> です:</p>
+<p>It&#8217;s also possible to take the symmetric difference of two sets.  This is the
+set of all elements in the union that aren&#8217;t in the intersection.  Another way
+of putting it is that the symmetric difference contains all elements that are in
+exactly one set.  Again, there&#8217;s an alternative notation (<code class="docutils literal"><span class="pre">^</span></code>), and an
+in-place version with the ungainly name <code class="xref py py-meth docutils literal"><span class="pre">symmetric_difference_update()</span></code>.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">S1</span> <span class="o">=</span> <span class="n">sets</span><span class="o">.</span><span class="n">Set</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S2</span> <span class="o">=</span> <span class="n">sets</span><span class="o">.</span><span class="n">Set</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">])</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">S1</span><span class="o">.</span><span class="n">symmetric_difference</span><span class="p">(</span><span class="n">S2</span><span class="p">)</span>
@@ -261,8 +266,8 @@
 </div>
 <div class="section" id="pep-273-importing-modules-from-zip-archives">
 <h2>PEP 273: Zip アーカイブからモジュールをインポートする<a class="headerlink" href="#pep-273-importing-modules-from-zip-archives" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>The new <a class="reference internal" href="../library/zipimport.html#module-zipimport" title="zipimport: support for importing Python modules from ZIP archives."><code class="xref py py-mod docutils literal"><span class="pre">zipimport</span></code></a> module adds support for importing modules from a ZIP-
-format archive.  You don&#8217;t need to import the module explicitly; it will be
+<p>The new <a class="reference internal" href="../library/zipimport.html#module-zipimport" title="zipimport: support for importing Python modules from ZIP archives."><code class="xref py py-mod docutils literal"><span class="pre">zipimport</span></code></a> module adds support for importing modules from a
+ZIP-format archive.  You don&#8217;t need to import the module explicitly; it will be
 automatically imported if a ZIP archive&#8217;s filename is added to <code class="docutils literal"><span class="pre">sys.path</span></code>.
 For example:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">amk@nyman:~/src/python$</span> unzip -l /tmp/example.zip
@@ -311,7 +316,12 @@ For example:</p>
 </div>
 <div class="section" id="pep-278-universal-newline-support">
 <span id="index-8"></span><h2>PEP 278: Universal Newline サポート<a class="headerlink" href="#pep-278-universal-newline-support" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>今日では 3 つの主要なオペレーティングシステムが使われています。 Microsoft Windows, Apple の Macintosh OS, さまざまな Unix 派生系です。テキストファイルの行終端マークに使う文字がこれら 3 つ全てでそれぞれ違っていることが、クロスプラットフォームのための仕事における小さな苛立ちです。  Unix が使うのはラインフィード (ASCII 文字 10), MacOS が使うのはキャリッジリターン (ASCII 文字 13),  Windows に至ってはキャリッジリターンとラインフィード 2 文字のシーケンスを使います。</p>
+<p>The three major operating systems used today are Microsoft Windows, Apple&#8217;s
+Macintosh OS, and the various Unix derivatives.  A minor irritation of
+cross-platform work  is that these three platforms all use different characters to
+mark the ends of lines in text files.  Unix uses the linefeed (ASCII character
+10), MacOS uses the carriage return (ASCII character 13), and Windows uses a
+two-character sequence of a carriage return plus a newline.</p>
 <p>Python のファイルオブジェクトが、動作しているプラットフォームに従わない行終端変換をサポートするようになりました。ファイルのオープンにモード <code class="docutils literal"><span class="pre">'U'</span></code> や <code class="docutils literal"><span class="pre">'rU'</span></code> を使うと、 <a class="reference internal" href="../glossary.html#term-universal-newlines"><span class="xref std std-term">universal newlines</span></a> モードを使った読み込みとしてファイルを開きます。これで <code class="xref py py-meth docutils literal"><span class="pre">read()</span></code>, <a class="reference internal" href="../library/readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-meth docutils literal"><span class="pre">readline()</span></code></a> などのファイルメソッドが、 3 つどの行終端でも <code class="docutils literal"><span class="pre">'\n'</span></code> に翻訳して返すようになります。</p>
 <p>universal newline サポートはモジュールのインポートと <code class="xref py py-func docutils literal"><span class="pre">execfile()</span></code> 関数でのファイル実行にも使われます。これで 3 つ全てのオペレーティングシステム間で行終端変換の必要なく Python モジュールを共有出来ます。</p>
 <p>This feature can be disabled when compiling Python by specifying the
@@ -1421,8 +1431,11 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.3.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/whatsnew/2.3.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1448,7 +1461,7 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1476,7 +1489,7 @@ except <code class="docutils literal"><span class="pre">bsddb</span></code>.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

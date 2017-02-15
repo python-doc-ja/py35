@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>21.6. urllib.request — URL を開くための拡張可能なライブラリ &#8212; Python 3.5.2 ドキュメント</title>
+    <title>21.6. urllib.request — URL を開くための拡張可能なライブラリ &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="21. インターネットプロトコルとサポート" href="internet.html" />
     <link rel="next" title="21.8. urllib.parse — URL を解析して構成要素にする" href="urllib.parse.html" />
     <link rel="prev" title="21.5. urllib — URL を扱うモジュール群" href="urllib.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/urllib.request.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/urllib.request.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-urllib.request">
 <span id="urllib-request-extensible-library-for-opening-urls"></span><h1>21.6. <a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal"><span class="pre">urllib.request</span></code></a> &#8212; URL を開くための拡張可能なライブラリ<a class="headerlink" href="#module-urllib.request" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/urllib/request.py">Lib/urllib/request.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal"><span class="pre">urllib.request</span></code></a> モジュールは基本的な認証、暗号化認証、リダイレクション、Cookie、その他の介在する複雑なアクセス環境において (大抵は HTTP で) URL を開くための関数とクラスを定義します。</p>
 <div class="admonition seealso">
@@ -186,12 +187,10 @@
 <dt id="urllib.request.getproxies">
 <code class="descclassname">urllib.request.</code><code class="descname">getproxies</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.getproxies" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>このヘルパー関数はスキーマからプロキシサーバーのURLへのマッピングを行う辞書を返します。この関数はまず、どのOSでも最初に <code class="docutils literal"><span class="pre">&lt;scheme&gt;_proxy</span></code> という名前の環境変数を大文字小文字を区別せずにスキャンします。そこで見つからなかった場合、 Max OS X の場合は Mac OSX システム環境設定を、 Windows の場合はシステムレジストリを参照します。もし小文字と大文字の環境変数が両方存在する (そして値が一致しない) なら、小文字の環境変数が優先されます。</p>
-<blockquote>
-<div><div class="admonition note">
+<div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">もし環境変数 <code class="docutils literal"><span class="pre">REQUEST_METHOD</span></code> が設定されていたら (これは通常スクリプトが CGI 環境で動いていることを示しています)、環境変数 <code class="docutils literal"><span class="pre">HTTP_PROXY</span></code> (大文字の <code class="docutils literal"><span class="pre">_PROXY</span></code>) は無視されます。その理由は、クライアントが &#8220;Proxy:&#8221; HTTP ヘッダーを使ってこの環境変数を注入できるからです。もし CGI 環境で HTTP プロキシを使う必要があれば、 <code class="docutils literal"><span class="pre">ProxyHandler</span></code> を明示的に使用するか、環境変数名を小文字にしてください (あるいは、少なくともサフィックスを <code class="docutils literal"><span class="pre">_proxy</span></code> にしてください) 。</p>
 </div>
-</div></blockquote>
 </dd></dl>
 
 <p>以下のクラスが提供されています:</p>
@@ -1075,8 +1074,7 @@ implementation will raise an <a class="reference internal" href="exceptions.html
 <p>オプションのパラメーター <em>proxies</em> はスキーム名をプロキシの URL にマップする辞書でなければなりません。空の辞書はプロキシ機能を完全にオフにします。デフォルトの値は <code class="docutils literal"><span class="pre">None</span></code> で、この場合、 <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal"><span class="pre">urlopen()</span></code></a> の定義で述べたように、プロキシを設定する環境変数が存在するならそれを使います。</p>
 <p>追加のキーワードパラメーターは <em>x509</em> に集められますが、これは <code class="file docutils literal"><span class="pre">https:</span></code> スキームを使った際のクライアント認証に使われることがあります。キーワード引数 <em>key_file</em> および <em>cert_file</em> が SSL 鍵と証明書を設定するためにサポートされています; クライアント認証をするには両方が必要です。</p>
 <p><a class="reference internal" href="#urllib.request.URLopener" title="urllib.request.URLopener"><code class="xref py py-class docutils literal"><span class="pre">URLopener</span></code></a> オブジェクトはサーバーがエラーコードを返した場合に <a class="reference internal" href="exceptions.html#OSError" title="OSError"><code class="xref py py-exc docutils literal"><span class="pre">OSError</span></code></a> 例外を送出します。</p>
-<blockquote>
-<div><dl class="method">
+<dl class="method">
 <dt id="urllib.request.URLopener.open">
 <code class="descname">open</code><span class="sig-paren">(</span><em>fullurl</em>, <em>data=None</em><span class="sig-paren">)</span><a class="headerlink" href="#urllib.request.URLopener.open" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>適切なプロトコルを使って <em>fullurl</em> を開きます。このメソッドはキャッシュとプロキシ情報を設定し、その後適切な open メソッドを入力引数つきで呼び出します。認識できないスキームが与えられた場合、 <a class="reference internal" href="#urllib.request.URLopener.open_unknown" title="urllib.request.URLopener.open_unknown"><code class="xref py py-meth docutils literal"><span class="pre">open_unknown()</span></code></a> が呼び出されます。 <em>data</em> 引数は <a class="reference internal" href="#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal"><span class="pre">urlopen()</span></code></a> の引数 <em>data</em> と同じ意味を持っています。</p>
@@ -1101,7 +1099,6 @@ implementation will raise an <a class="reference internal" href="exceptions.html
 <dd><p>URL をオープンするオブジェクトのユーザエージェントを指定する変数です。 <a class="reference internal" href="urllib.html#module-urllib" title="urllib"><code class="xref py py-mod docutils literal"><span class="pre">urllib</span></code></a> を特定のユーザエージェントであるとサーバに通知するには、サブクラスの中でこの値をクラス変数として値を設定するか、コンストラクタの中でベースクラスを呼び出す前に値を設定してください。</p>
 </dd></dl>
 
-</div></blockquote>
 </dd></dl>
 
 <dl class="class">
@@ -1211,8 +1208,11 @@ implementation will raise an <a class="reference internal" href="exceptions.html
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/urllib.request.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/urllib.request.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1238,7 +1238,7 @@ implementation will raise an <a class="reference internal" href="exceptions.html
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1267,7 +1267,7 @@ implementation will raise an <a class="reference internal" href="exceptions.html
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

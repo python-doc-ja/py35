@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>16.7. logging.config — ロギングの環境設定 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>16.7. logging.config — ロギングの環境設定 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="16. 汎用オペレーティングシステムサービス" href="allos.html" />
     <link rel="next" title="16.8. logging.handlers — ロギングハンドラ" href="logging.handlers.html" />
     <link rel="prev" title="16.6. logging — Python 用ロギング機能" href="logging.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/logging.config.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/logging.config.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-logging.config">
 <span id="logging-config-logging-configuration"></span><h1>16.7. <a class="reference internal" href="#module-logging.config" title="logging.config: Configuration of the logging module."><code class="xref py py-mod docutils literal"><span class="pre">logging.config</span></code></a> &#8212; ロギングの環境設定<a class="headerlink" href="#module-logging.config" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/logging/config.py">Lib/logging/config.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/logging/config.py">Lib/logging/config.py</a></p>
 <div class="sidebar">
 <p class="first sidebar-title">重要</p>
 <p>このページには、リファレンス情報だけが含まれています。チュートリアルは、以下のページを参照してください</p>
@@ -166,7 +167,14 @@
 <tr class="field-odd field"><th class="field-name">パラメータ:</th><td class="field-body"><ul class="first last simple">
 <li><strong>fname</strong> &#8211; ファイル名、あるいはファイルのようなオブジェクト、または <a class="reference internal" href="configparser.html#configparser.RawConfigParser" title="configparser.RawConfigParser"><code class="xref py py-class docutils literal"><span class="pre">RawConfigParser</span></code></a> 派生のインスタンス。 <a class="reference internal" href="configparser.html#configparser.RawConfigParser" title="configparser.RawConfigParser"><code class="xref py py-class docutils literal"><span class="pre">RawConfigParser</span></code></a> 派生のインスタンスが与えられれば、それはそのまま使われます。そうでない場合 <code class="xref py py-class docutils literal"><span class="pre">Configparser</span></code> がインスタンス化され、設定はそれを使って <code class="docutils literal"><span class="pre">fname</span></code> が指すオブジェクトから読み込まれます。それが <a class="reference internal" href="readline.html#module-readline" title="readline: GNU readline support for Python. (Unix)"><code class="xref py py-meth docutils literal"><span class="pre">readline()</span></code></a> メソッドを持っていればそれはファイルのようなオブジェクトと仮定され、 <a class="reference internal" href="configparser.html#configparser.ConfigParser.read_file" title="configparser.ConfigParser.read_file"><code class="xref py py-meth docutils literal"><span class="pre">read_file()</span></code></a> で読み込まれます; そうでない場合、それはファイル名と仮定されて、 <a class="reference internal" href="configparser.html#configparser.ConfigParser.read" title="configparser.ConfigParser.read"><code class="xref py py-meth docutils literal"><span class="pre">read()</span></code></a> に渡されます。</li>
 <li><strong>defaults</strong> &#8211; ConfigParser に渡されるデフォルト値をこの引数で指定することができます。</li>
-<li><strong>disable_existing_loggers</strong> &#8211; <code class="docutils literal"><span class="pre">False</span></code> が指定された場合は、この呼び出しが行われたときに存在するロガーは有効のまま残されます。後方互換性のあるやり方で古い振る舞いを保つので、デフォルト値は <code class="docutils literal"><span class="pre">True</span></code> になっています。そのような振る舞いでは、既存のロガーまたはそれらのロガーの先祖がロギング設定の中で明示的に名付けられていない限り、既存のロガーを無効にします。</li>
+<li><strong>disable_existing_loggers</strong> &#8211; If specified as <code class="docutils literal"><span class="pre">False</span></code>, loggers which
+exist when this call is made are left
+enabled. The default is <code class="docutils literal"><span class="pre">True</span></code> because this
+enables old behaviour in a
+backward-compatible way. This behaviour is to
+disable any existing loggers unless they or
+their ancestors are explicitly named in the
+logging configuration.</li>
 </ul>
 </td>
 </tr>
@@ -599,8 +607,11 @@ below, to see how typical entries are constructed.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/logging.config.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/logging.config.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -626,7 +637,7 @@ below, to see how typical entries are constructed.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -655,7 +666,7 @@ below, to see how typical entries are constructed.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

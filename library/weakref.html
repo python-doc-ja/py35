@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>8.8. weakref — 弱参照 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>8.8. weakref — 弱参照 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="8. データ型" href="datatypes.html" />
     <link rel="next" title="8.9. types — 動的な型生成と組み込み型に対する名前" href="types.html" />
     <link rel="prev" title="8.7. array — 効率のよい数値アレイ" href="array.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/weakref.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/weakref.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-weakref">
 <span id="weakref-weak-references"></span><h1>8.8. <a class="reference internal" href="#module-weakref" title="weakref: Support for weak references and weak dictionaries."><code class="xref py py-mod docutils literal"><span class="pre">weakref</span></code></a> &#8212; 弱参照<a class="headerlink" href="#module-weakref" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/weakref.py">Lib/weakref.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/weakref.py">Lib/weakref.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-weakref" title="weakref: Support for weak references and weak dictionaries."><code class="xref py py-mod docutils literal"><span class="pre">weakref</span></code></a> モジュールは、Pythonプログラマがオブジェクトへの弱参照 (<em class="dfn">weak refarence</em>)を作成できるようにします。</p>
 <p>以下では、用語リファレント(<em class="dfn">referent</em>) は弱参照が参照するオブジェクトを意味します。</p>
@@ -175,7 +176,12 @@
 </div>
 </dd></dl>
 
-<p><a class="reference internal" href="#weakref.WeakKeyDictionary" title="weakref.WeakKeyDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakKeyDictionary</span></code></a> オブジェクトは、以下の追加のメソッドを持ちます。これらのメソッドは、内部の参照を直接公開します。その参照は、利用される時に生存しているとは限りません。なので、参照を利用する前に、その参照をチェックする必要があります。これにより、必要なくなったキーの参照が残っているために、ガベージコレクタがそのキーを削除できなくなる事態を避ける事ができます。</p>
+<p><a class="reference internal" href="#weakref.WeakKeyDictionary" title="weakref.WeakKeyDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakKeyDictionary</span></code></a> objects have an additional method that
+exposes the internal references directly.  The references are not guaranteed to
+be &#8220;live&#8221; at the time they are used, so the result of calling the references
+needs to be checked before being used.  This can be used to avoid creating
+references that will cause the garbage collector to keep the keys around longer
+than needed.</p>
 <dl class="method">
 <dt id="weakref.WeakKeyDictionary.keyrefs">
 <code class="descclassname">WeakKeyDictionary.</code><code class="descname">keyrefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weakref.WeakKeyDictionary.keyrefs" title="この定義へのパーマリンク">¶</a></dt>
@@ -192,7 +198,9 @@
 </div>
 </dd></dl>
 
-<p><a class="reference internal" href="#weakref.WeakValueDictionary" title="weakref.WeakValueDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakValueDictionary</span></code></a> オブジェクトは、以下の追加のメソッドを持ちます。これらのメソッドは、 <a class="reference internal" href="#weakref.WeakKeyDictionary" title="weakref.WeakKeyDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakKeyDictionary</span></code></a> クラスの <code class="xref py py-meth docutils literal"><span class="pre">keyrefs()</span></code> メソッドと同じ目的を持っています。</p>
+<p><a class="reference internal" href="#weakref.WeakValueDictionary" title="weakref.WeakValueDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakValueDictionary</span></code></a> objects have an additional method that has the
+same issues as the <code class="xref py py-meth docutils literal"><span class="pre">keyrefs()</span></code> method of <a class="reference internal" href="#weakref.WeakKeyDictionary" title="weakref.WeakKeyDictionary"><code class="xref py py-class docutils literal"><span class="pre">WeakKeyDictionary</span></code></a>
+objects.</p>
 <dl class="method">
 <dt id="weakref.WeakValueDictionary.valuerefs">
 <code class="descclassname">WeakValueDictionary.</code><code class="descname">valuerefs</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#weakref.WeakValueDictionary.valuerefs" title="この定義へのパーマリンク">¶</a></dt>
@@ -570,8 +578,11 @@ do not guarantee that cleanup occurs either.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/weakref.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/weakref.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -597,7 +608,7 @@ do not guarantee that cleanup occurs either.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -626,7 +637,7 @@ do not guarantee that cleanup occurs either.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

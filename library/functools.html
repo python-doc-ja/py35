@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>10.2. functools — 高階関数と呼び出し可能オブジェクトの操作 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>10.2. functools — 高階関数と呼び出し可能オブジェクトの操作 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="10. 関数型プログラミング用モジュール" href="functional.html" />
     <link rel="next" title="10.3. operator — 関数形式の標準演算子" href="operator.html" />
     <link rel="prev" title="10.1. itertools — 効率的なループ実行のためのイテレータ生成関数" href="itertools.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/functools.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/functools.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-functools">
 <span id="functools-higher-order-functions-and-operations-on-callable-objects"></span><h1>10.2. <a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> &#8212; 高階関数と呼び出し可能オブジェクトの操作<a class="headerlink" href="#module-functools" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/functools.py">Lib/functools.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/functools.py">Lib/functools.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> モジュールは高階関数、つまり関数に影響を及ぼしたり他の関数を返したりする関数のためのものです。一般に、どんな呼び出し可能オブジェクトでもこのモジュールの目的には関数として扱えます。</p>
 <p>モジュール <a class="reference internal" href="#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> は以下の関数を定義します:</p>
@@ -395,7 +396,7 @@ each variant independently:</p>
 <p><span class="versionmodified">バージョン 3.2 で変更: </span>存在しない属性によって <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal"><span class="pre">AttributeError</span></code></a> を発生しなくなりました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.4 で変更: </span>ラップされた関数が <code class="docutils literal"><span class="pre">__wrapped__</span></code> を定義していない場合でも、 <code class="docutils literal"><span class="pre">__wrapped__</span></code> が常にラップされた関数を参照するようになりました。(<a class="reference external" href="https://bugs.python.org/issue17482">issue 17482</a> を参照)</p>
+<p><span class="versionmodified">バージョン 3.4 で変更: </span>ラップされた関数が <code class="docutils literal"><span class="pre">__wrapped__</span></code> を定義していない場合でも、 <code class="docutils literal"><span class="pre">__wrapped__</span></code> が常にラップされた関数を参照するようになりました。(<a class="reference external" href="https://bugs.python.org/issue17482">bpo-17482</a> を参照)</p>
 </div>
 </dd></dl>
 
@@ -477,8 +478,11 @@ each variant independently:</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/functools.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/functools.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -504,7 +508,7 @@ each variant independently:</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -533,7 +537,7 @@ each variant independently:</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

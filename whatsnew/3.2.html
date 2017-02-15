@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s New In Python 3.2 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>What’s New In Python 3.2 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New In Python 3.1" href="3.1.html" />
     <link rel="prev" title="What’s New In Python 3.3" href="3.3.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/3.2.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/whatsnew/3.2.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -377,7 +378,7 @@
 <span class="go">&#39;  12.&#39;</span>
 </pre></div>
 </div>
-<p>(Suggested by Mark Dickinson and implemented by Eric Smith in <a class="reference external" href="https://bugs.python.org/issue7094">issue 7094</a>.)</p>
+<p>(Suggested by Mark Dickinson and implemented by Eric Smith in <a class="reference external" href="https://bugs.python.org/issue7094">bpo-7094</a>.)</p>
 </li>
 <li><p class="first">新たに追加された <a class="reference internal" href="../library/stdtypes.html#str.format_map" title="str.format_map"><code class="xref py py-meth docutils literal"><span class="pre">str.format_map()</span></code></a> メソッドも既存の <a class="reference internal" href="../library/stdtypes.html#str.format" title="str.format"><code class="xref py py-meth docutils literal"><span class="pre">str.format()</span></code></a> メソッドの能力を拡大します。これは任意の <a class="reference internal" href="../glossary.html#term-mapping"><span class="xref std std-term">mapping</span></a> を受け付けます。この新規メソッドは Python の数多くの「辞書的な」オブジェクトとともに文字列書式化を使うことを可能にします。たとえば <a class="reference internal" href="../library/collections.html#collections.defaultdict" title="collections.defaultdict"><code class="xref py py-class docutils literal"><span class="pre">defaultdict</span></code></a>, <a class="reference internal" href="../library/shelve.html#shelve.Shelf" title="shelve.Shelf"><code class="xref py py-class docutils literal"><span class="pre">Shelf</span></code></a>, <a class="reference internal" href="../library/configparser.html#configparser.ConfigParser" title="configparser.ConfigParser"><code class="xref py py-class docutils literal"><span class="pre">ConfigParser</span></code></a>, あるいは <a class="reference internal" href="../library/dbm.html#module-dbm" title="dbm: Interfaces to various Unix &quot;database&quot; formats."><code class="xref py py-mod docutils literal"><span class="pre">dbm</span></code></a> などで使えるということです。カスタムな <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> のサブクラスと一緒に使うのも便利で、例えばルックアップの前にキーを正規化してみたり、未知のキーを <a class="reference internal" href="../reference/datamodel.html#object.__missing__" title="object.__missing__"><code class="xref py py-meth docutils literal"><span class="pre">__missing__()</span></code></a> メソッドで補ってみたりなど出来ます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">shelve</span>
@@ -403,7 +404,7 @@
 </ul>
 <blockquote>
 <div>(Suggested by Raymond Hettinger and implemented by Eric Smith in
-<a class="reference external" href="https://bugs.python.org/issue6081">issue 6081</a>.)</div></blockquote>
+<a class="reference external" href="https://bugs.python.org/issue6081">bpo-6081</a>.)</div></blockquote>
 <ul>
 <li><p class="first">The interpreter can now be started with a quiet option, <code class="docutils literal"><span class="pre">-q</span></code>, to prevent
 the copyright and version information from being displayed in the interactive
@@ -415,7 +416,7 @@ mode.  The option can be introspected using the <a class="reference internal" hr
 <span class="go">ignore_environment=0, verbose=0, bytes_warning=0, quiet=1)</span>
 </pre></div>
 </div>
-<p>(Contributed by Marcin Wojdyr in <a class="reference external" href="https://bugs.python.org/issue1772833">issue 1772833</a>).</p>
+<p>(Contributed by Marcin Wojdyr in <a class="reference external" href="https://bugs.python.org/issue1772833">bpo-1772833</a>).</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal"><span class="pre">hasattr()</span></code></a> 関数は <a class="reference internal" href="../library/functions.html#getattr" title="getattr"><code class="xref py py-func docutils literal"><span class="pre">getattr()</span></code></a> を呼び出して例外が起こるかどうかをみることで実現しています。このテクニックは、クラス辞書にない何かを <a class="reference internal" href="../reference/datamodel.html#object.__getattr__" title="object.__getattr__"><code class="xref py py-meth docutils literal"><span class="pre">__getattr__()</span></code></a> あるいは <a class="reference internal" href="../reference/datamodel.html#object.__getattribute__" title="object.__getattribute__"><code class="xref py py-meth docutils literal"><span class="pre">__getattribute__()</span></code></a> で動的に作るようなメソッドを検出するのに必要なものです。ですが以前は <em>hasattr</em> はあらゆる例外を捕捉してしまっていて、本物の誤りを隠してしまう可能性がありました。 <em>hasattr</em> は <a class="reference internal" href="../library/exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal"><span class="pre">AttributeError</span></code></a> だけを捕捉するように改められ、ほかの例外はそのままにするようにしました:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
@@ -430,7 +431,7 @@ mode.  The option can be introspected using the <a class="reference internal" hr
 <span class="gr">ZeroDivisionError</span>: <span class="n">integer division or modulo by zero</span>
 </pre></div>
 </div>
-<p>(Discovered by Yury Selivanov and fixed by Benjamin Peterson; <a class="reference external" href="https://bugs.python.org/issue9666">issue 9666</a>.)</p>
+<p>(Discovered by Yury Selivanov and fixed by Benjamin Peterson; <a class="reference external" href="https://bugs.python.org/issue9666">bpo-9666</a>.)</p>
 </li>
 <li><p class="first">浮動小数点数または複素数に対する <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal"><span class="pre">str()</span></code></a> は <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal"><span class="pre">repr()</span></code></a> 表現と同じになりました。以前は <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal"><span class="pre">str()</span></code></a> 形式のほうが短い表現になっていましたがこれは単に困惑させるものでした。 <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal"><span class="pre">repr()</span></code></a> がデフォルトで可能ななかでの一番短い表現をするようになったので、 <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-func docutils literal"><span class="pre">str()</span></code></a> があえて短い表現を取ろうとする必要性がなくなりました。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">math</span>
@@ -440,7 +441,7 @@ mode.  The option can be introspected using the <a class="reference internal" hr
 <span class="go">&#39;3.141592653589793&#39;</span>
 </pre></div>
 </div>
-<p>(Proposed and implemented by Mark Dickinson; <a class="reference external" href="https://bugs.python.org/issue9337">issue 9337</a>.)</p>
+<p>(Proposed and implemented by Mark Dickinson; <a class="reference external" href="https://bugs.python.org/issue9337">bpo-9337</a>.)</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal"><span class="pre">memoryview</span></code></a> オブジェクトに <a class="reference internal" href="../library/stdtypes.html#memoryview.release" title="memoryview.release"><code class="xref py py-meth docutils literal"><span class="pre">release()</span></code></a> メソッドが追加され、また、これは今ではコンテクストマネージャプロトコルをサポートします。このことにより、オリジナルのオブジェクトからバッファを要求した際に獲得した任意のリソースを、適切な時点で解放できます。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">with</span> <span class="nb">memoryview</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;abcdefgh&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">v</span><span class="p">:</span>
@@ -448,7 +449,7 @@ mode.  The option can be introspected using the <a class="reference internal" hr
 <span class="go">[97, 98, 99, 100, 101, 102, 103, 104]</span>
 </pre></div>
 </div>
-<p>(Added by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue9757">issue 9757</a>.)</p>
+<p>(Added by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue9757">bpo-9757</a>.)</p>
 </li>
 <li><p class="first">以前は、入れ子になったブロック内である名前が自由変数として現れる場合、局所名前空間からその名前を削除することは不正でした。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">outer</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
@@ -471,7 +472,7 @@ Python 2.6 では動き、Python 3.1 では <a class="reference internal" href="
         <span class="c1"># implicit &quot;del e&quot; here</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="https://bugs.python.org/issue4617">issue 4617</a> を参照してください。)</p>
+<p>(<a class="reference external" href="https://bugs.python.org/issue4617">bpo-4617</a> を参照してください。)</p>
 </li>
 <li><p class="first">内部実装に使っている <code class="xref c c-type docutils literal"><span class="pre">structsequence</span></code> がタプルのサブタイプを作るようになっています。これが何を意味するかと言えば、 <a class="reference internal" href="../library/os.html#os.stat" title="os.stat"><code class="xref py py-func docutils literal"><span class="pre">os.stat()</span></code></a>, <a class="reference internal" href="../library/time.html#time.gmtime" title="time.gmtime"><code class="xref py py-func docutils literal"><span class="pre">time.gmtime()</span></code></a>, <a class="reference internal" href="../library/sys.html#sys.version_info" title="sys.version_info"><code class="xref py py-attr docutils literal"><span class="pre">sys.version_info</span></code></a> が返すような C 構造体が <a class="reference internal" href="../glossary.html#term-named-tuple"><span class="xref std std-term">named tuple</span></a> のように働き、またこれはタプルを期待する関数やメソッドに渡せる、ということです。これは C 構造体に、対応するピュア Python に等しい柔軟性をもたらす大きな前進です:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">sys</span>
@@ -482,14 +483,14 @@ Python 2.6 では動き、Python 3.1 では <a class="reference internal" href="
 </pre></div>
 </div>
 <p>(Suggested by Arfrever Frehtes Taifersar Arahesis and implemented
-by Benjamin Peterson in <a class="reference external" href="https://bugs.python.org/issue8413">issue 8413</a>.)</p>
+by Benjamin Peterson in <a class="reference external" href="https://bugs.python.org/issue8413">bpo-8413</a>.)</p>
 </li>
 <li><p class="first">Warnings are now easier to control using the <span class="target" id="index-10"></span><a class="reference internal" href="../using/cmdline.html#envvar-PYTHONWARNINGS"><code class="xref std std-envvar docutils literal"><span class="pre">PYTHONWARNINGS</span></code></a>
 environment variable as an alternative to using <code class="docutils literal"><span class="pre">-W</span></code> at the command line:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> <span class="nb">export</span> <span class="nv">PYTHONWARNINGS</span><span class="o">=</span><span class="s1">&#39;ignore::RuntimeWarning::,once::UnicodeWarning::&#39;</span>
 </pre></div>
 </div>
-<p>(Suggested by Barry Warsaw and implemented by Philip Jenvey in <a class="reference external" href="https://bugs.python.org/issue7301">issue 7301</a>.)</p>
+<p>(Suggested by Barry Warsaw and implemented by Philip Jenvey in <a class="reference external" href="https://bugs.python.org/issue7301">bpo-7301</a>.)</p>
 </li>
 <li><p class="first">新たな警告カテゴリ <a class="reference internal" href="../library/exceptions.html#ResourceWarning" title="ResourceWarning"><code class="xref py py-exc docutils literal"><span class="pre">ResourceWarning</span></code></a> が追加されました。これはリソース消費やクリーンアップについての潜在的な問題が検出されると発行されます。これは通常のリリースビルドではデフォルトでは黙殺しますが、 <a class="reference internal" href="../library/warnings.html#module-warnings" title="warnings: Issue warning messages and control their disposition."><code class="xref py py-mod docutils literal"><span class="pre">warnings</span></code></a> モジュールで意味付けを変更 (訳注: <a class="reference internal" href="../library/warnings.html#warning-filter"><span class="std std-ref">警告フィルタ</span></a> 参照) するかコマンドラインオプションで有効に出来ます。</p>
 <p><a class="reference internal" href="../library/exceptions.html#ResourceWarning" title="ResourceWarning"><code class="xref py py-exc docutils literal"><span class="pre">ResourceWarning</span></code></a> はインタプリタがシャットダウンする時点で <a class="reference internal" href="../library/gc.html#gc.garbage" title="gc.garbage"><code class="xref py py-data docutils literal"><span class="pre">gc.garbage</span></code></a> リストが空でない場合に発行されます。その際に <a class="reference internal" href="../library/gc.html#gc.DEBUG_UNCOLLECTABLE" title="gc.DEBUG_UNCOLLECTABLE"><code class="xref py py-attr docutils literal"><span class="pre">gc.DEBUG_UNCOLLECTABLE</span></code></a> がセットされていれば、全ての回収不能オブジェクトが印字されます。このことによりプログラマは、自身のコードがオブジェクトのファイナライズに問題を抱えていることに気付くことが出来ます。</p>
@@ -505,7 +506,7 @@ of enabling the warning from the command line:</p>
 <span class="go">__main__:1: ResourceWarning: unclosed file &lt;_io.BufferedWriter name=&#39;foo&#39;&gt;</span>
 </pre></div>
 </div>
-<p>(Added by Antoine Pitrou and Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue10093">issue 10093</a> and <a class="reference external" href="https://bugs.python.org/issue477863">issue 477863</a>.)</p>
+<p>(Added by Antoine Pitrou and Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue10093">bpo-10093</a> and <a class="reference external" href="https://bugs.python.org/issue477863">bpo-477863</a>.)</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-class docutils literal"><span class="pre">range</span></code></a> オブジェクトが <em>index</em> メソッド、 <em>count</em> メソッドをサポートするようになりました。これは、もっと多くのオブジェクトに <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">抽象基底クラス</span></a> <code class="xref py py-class docutils literal"><span class="pre">collections.Sequence</span></code> を完全に実装しようとする取り組みの一環です。結果として言語はより統一的な API を持つようになりました。加えて <a class="reference internal" href="../library/stdtypes.html#range" title="range"><code class="xref py py-class docutils literal"><span class="pre">range</span></code></a> オブジェクトは今やスライシングをサポートし、負のインデクス、 <a class="reference internal" href="../library/sys.html#sys.maxsize" title="sys.maxsize"><code class="xref py py-attr docutils literal"><span class="pre">sys.maxsize</span></code></a> を超えるインデクスもサポートします。このことは <em>range</em> とリストの相互運用性を高めます。</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -518,8 +519,8 @@ of enabling the warning from the command line:</p>
 <span class="go">range(0, 10, 2)</span>
 </pre></div>
 </div>
-<p>(Contributed by Daniel Stutzbach in <a class="reference external" href="https://bugs.python.org/issue9213">issue 9213</a>, by Alexander Belopolsky
-in <a class="reference external" href="https://bugs.python.org/issue2690">issue 2690</a>, and by Nick Coghlan in <a class="reference external" href="https://bugs.python.org/issue10889">issue 10889</a>.)</p>
+<p>(Contributed by Daniel Stutzbach in <a class="reference external" href="https://bugs.python.org/issue9213">bpo-9213</a>, by Alexander Belopolsky
+in <a class="reference external" href="https://bugs.python.org/issue2690">bpo-2690</a>, and by Nick Coghlan in <a class="reference external" href="https://bugs.python.org/issue10889">bpo-10889</a>.)</p>
 </li>
 <li><p class="first">Py2.x から <a class="reference internal" href="../library/functions.html#callable" title="callable"><code class="xref py py-func docutils literal"><span class="pre">callable()</span></code></a> 組み込み関数が復活しました。
 この関数は <code class="docutils literal"><span class="pre">isinstance(x,</span> <span class="pre">collections.Callable)</span></code> のように式内で <a class="reference internal" href="../glossary.html#term-abstract-base-class"><span class="xref std std-term">抽象基底クラス</span></a> を使用するよりも、簡潔で可読性の高い手段を提供します:</p>
@@ -529,13 +530,13 @@ in <a class="reference external" href="https://bugs.python.org/issue2690">issue 
 <span class="go">False</span>
 </pre></div>
 </div>
-<p>(<a class="reference external" href="https://bugs.python.org/issue10518">issue 10518</a> を参照してください。)</p>
+<p>(<a class="reference external" href="https://bugs.python.org/issue10518">bpo-10518</a> を参照してください。)</p>
 </li>
 <li><p class="first">Python のインポート機構が、パス名に非 ASCII 文字を含むディレクトリにインストールされたモジュールをロードできるようになりました。これはユーザ名に非 ASCII 文字を含むユーザにとっての、ホームディレクトリにまつわる腹立たしい問題を解決しました。</p>
 </li>
 </ul>
 <blockquote>
-<div>(Required extensive work by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue9425">issue 9425</a>.)</div></blockquote>
+<div>(Required extensive work by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue9425">bpo-9425</a>.)</div></blockquote>
 </div>
 <div class="section" id="new-improved-and-deprecated-modules">
 <h2>新たなモジュール、改良されたモジュール、非推奨のモジュール<a class="headerlink" href="#new-improved-and-deprecated-modules" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -560,7 +561,7 @@ in <a class="reference external" href="https://bugs.python.org/issue2690">issue 
 <li><p class="first"><a class="reference internal" href="../library/smtplib.html#module-smtplib" title="smtplib: SMTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">smtplib</span></code></a> モジュールの <a class="reference internal" href="../library/smtplib.html#smtplib.SMTP" title="smtplib.SMTP"><code class="xref py py-class docutils literal"><span class="pre">SMTP</span></code></a> クラスが <a class="reference internal" href="../library/smtplib.html#smtplib.SMTP.sendmail" title="smtplib.SMTP.sendmail"><code class="xref py py-meth docutils literal"><span class="pre">sendmail()</span></code></a> メソッドの <em>msg</em> 引数としてバイト列文字列を受け付けるようになりました。新しく追加されたメソッド <a class="reference internal" href="../library/smtplib.html#smtplib.SMTP.send_message" title="smtplib.SMTP.send_message"><code class="xref py py-meth docutils literal"><span class="pre">send_message()</span></code></a> は <em>msg</em> 引数に <a class="reference internal" href="../library/email.message.html#email.message.Message" title="email.message.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> オブジェクトを受け付けます。このメソッドは <em>msg</em> にあたえたオブジェクトから <em>from_addr</em> アドレスと <em>to_addrs</em> アドレスを直接取ることが出来ます。</p>
 </li>
 </ul>
-<p>(Proposed and implemented by R. David Murray, <a class="reference external" href="https://bugs.python.org/issue4661">issue 4661</a> and <a class="reference external" href="https://bugs.python.org/issue10321">issue 10321</a>.)</p>
+<p>(Proposed and implemented by R. David Murray, <a class="reference external" href="https://bugs.python.org/issue4661">bpo-4661</a> and <a class="reference external" href="https://bugs.python.org/issue10321">bpo-10321</a>.)</p>
 </div>
 <div class="section" id="elementtree">
 <h3>elementtree<a class="headerlink" href="#elementtree" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -592,7 +593,7 @@ in <a class="reference external" href="https://bugs.python.org/issue2690">issue 
 </li>
 </ul>
 <p>アップデートの詳細については Fredrik Lundh のウェブサイト にある <a class="reference external" href="http://effbot.org/zone/elementtree-13-intro.htm">Introducing ElementTree</a> を参照してください。</p>
-<p>(Contributed by Florent Xicluna and Fredrik Lundh, <a class="reference external" href="https://bugs.python.org/issue6472">issue 6472</a>.)</p>
+<p>(Contributed by Florent Xicluna and Fredrik Lundh, <a class="reference external" href="https://bugs.python.org/issue6472">bpo-6472</a>.)</p>
 </div>
 <div class="section" id="functools">
 <h3>functools<a class="headerlink" href="#functools" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -621,16 +622,16 @@ in <a class="reference external" href="https://bugs.python.org/issue2690">issue 
 </pre></div>
 </div>
 <p>(Contributed by Raymond Hettinger and incorporating design ideas from Jim
-Baker, Miki Tebeka, and Nick Coghlan; see <a class="reference external" href="https://code.activestate.com/recipes/498245">recipe 498245</a>, <a class="reference external" href="https://code.activestate.com/recipes/577479">recipe 577479</a>, <a class="reference external" href="https://bugs.python.org/issue10586">issue 10586</a>, and
-<a class="reference external" href="https://bugs.python.org/issue10593">issue 10593</a>.)</p>
+Baker, Miki Tebeka, and Nick Coghlan; see <a class="reference external" href="https://code.activestate.com/recipes/498245">recipe 498245</a>, <a class="reference external" href="https://code.activestate.com/recipes/577479">recipe 577479</a>, <a class="reference external" href="https://bugs.python.org/issue10586">bpo-10586</a>, and
+<a class="reference external" href="https://bugs.python.org/issue10593">bpo-10593</a>.)</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/functools.html#functools.wraps" title="functools.wraps"><code class="xref py py-func docutils literal"><span class="pre">functools.wraps()</span></code></a> デコレータが元の callable 関数を指し示す <code class="xref py py-attr docutils literal"><span class="pre">__wrapped__</span></code> 属性を追加するようになりました。これにより包まれた関数を調べることができます。定義されていれば <code class="xref py py-attr docutils literal"><span class="pre">__annotations__</span></code> もコピーされます。また、元の callable に定義されていないかもしれない <code class="xref py py-attr docutils literal"><span class="pre">__doc__</span></code> のような欠けた属性を潔くスキップするようにしました。</p>
 <p>上の例の場合、キャッシュは元の関数を復元することで削除できます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">get_phone_number</span> <span class="o">=</span> <span class="n">get_phone_number</span><span class="o">.</span><span class="n">__wrapped__</span>    <span class="c1"># uncached function</span>
 </pre></div>
 </div>
-<p>(By Nick Coghlan and Terrence Cole; <a class="reference external" href="https://bugs.python.org/issue9567">issue 9567</a>, <a class="reference external" href="https://bugs.python.org/issue3445">issue 3445</a>, and
-<a class="reference external" href="https://bugs.python.org/issue8814">issue 8814</a>.)</p>
+<p>(By Nick Coghlan and Terrence Cole; <a class="reference external" href="https://bugs.python.org/issue9567">bpo-9567</a>, <a class="reference external" href="https://bugs.python.org/issue3445">bpo-3445</a>, and
+<a class="reference external" href="https://bugs.python.org/issue8814">bpo-8814</a>.)</p>
 </li>
 <li><p class="first">拡張比較 (rich comparison) メソッドを持つクラスを書く助けとなるよう、新たなデコレータ <a class="reference internal" href="../library/functools.html#functools.total_ordering" title="functools.total_ordering"><code class="xref py py-func docutils literal"><span class="pre">functools.total_ordering()</span></code></a> が追加されました。これは既存の等式と不等式メソッドを使って残りのメソッドを埋めます。</p>
 <p>例えば <em>__eq__</em> と <em>__lt__</em> を与えると、 <a class="reference internal" href="../library/functools.html#functools.total_ordering" title="functools.total_ordering"><code class="xref py py-func docutils literal"><span class="pre">total_ordering()</span></code></a> は <em>__le__</em>, <em>__gt__</em>, <em>__ge__</em> を補います:</p>
@@ -763,7 +764,7 @@ from Mark Dickinson.)</p>
 more examples of how barriers can be used in parallel computing.  Also, there is
 a simple but thorough explanation of barriers in <a class="reference external" href="http://greenteapress.com/semaphores/downey08semaphores.pdf">The Little Book of Semaphores</a>, <em>section 3.6</em>.</p>
 <p>(Contributed by Kristján Valur Jónsson with an API review by Jeffrey Yasskin in
-<a class="reference external" href="https://bugs.python.org/issue8777">issue 8777</a>.)</p>
+<a class="reference external" href="https://bugs.python.org/issue8777">bpo-8777</a>.)</p>
 </div>
 <div class="section" id="datetime-and-time">
 <h3>datetime と time<a class="headerlink" href="#datetime-and-time" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -809,9 +810,9 @@ can be used without guesswork:</p>
 <p>いくつもの関数が今では日付範囲を大きく拡張しています。 <code class="xref py py-attr docutils literal"><span class="pre">time.accept2dyear</span></code> が偽である場合、 <a class="reference internal" href="../library/time.html#time.asctime" title="time.asctime"><code class="xref py py-func docutils literal"><span class="pre">time.asctime()</span></code></a> 関数は C int の任意の整数を年として受け付け、 <a class="reference internal" href="../library/time.html#time.mktime" title="time.mktime"><code class="xref py py-func docutils literal"><span class="pre">time.mktime()</span></code></a> と <a class="reference internal" href="../library/time.html#time.strftime" title="time.strftime"><code class="xref py py-func docutils literal"><span class="pre">time.strftime()</span></code></a> は対応する OS 関数でサポートされる完全な範囲を受け付けます。(&#8212;訳注: 「全ての」と言っていない通りです。たとえば  <code class="docutils literal"><span class="pre">time.asctime(time.localtime(32535304320))</span></code> がたとえ使えなくても <code class="docutils literal"><span class="pre">time.asctime((3002,</span> <span class="pre">1,</span> <span class="pre">1,</span> <span class="pre">9,</span> <span class="pre">32,</span> <span class="pre">0,</span> <span class="pre">3,</span> <span class="pre">1,</span> <span class="pre">0))</span></code> は許されます。&#8212;)</p>
 </li>
 </ul>
-<p>(Contributed by Alexander Belopolsky and Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue1289118">issue 1289118</a>,
-<a class="reference external" href="https://bugs.python.org/issue5094">issue 5094</a>, <a class="reference external" href="https://bugs.python.org/issue6641">issue 6641</a>, <a class="reference external" href="https://bugs.python.org/issue2706">issue 2706</a>, <a class="reference external" href="https://bugs.python.org/issue1777412">issue 1777412</a>, <a class="reference external" href="https://bugs.python.org/issue8013">issue 8013</a>,
-and <a class="reference external" href="https://bugs.python.org/issue10827">issue 10827</a>.)</p>
+<p>(Contributed by Alexander Belopolsky and Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue1289118">bpo-1289118</a>,
+<a class="reference external" href="https://bugs.python.org/issue5094">bpo-5094</a>, <a class="reference external" href="https://bugs.python.org/issue6641">bpo-6641</a>, <a class="reference external" href="https://bugs.python.org/issue2706">bpo-2706</a>, <a class="reference external" href="https://bugs.python.org/issue1777412">bpo-1777412</a>, <a class="reference external" href="https://bugs.python.org/issue8013">bpo-8013</a>,
+and <a class="reference external" href="https://bugs.python.org/issue10827">bpo-10827</a>.)</p>
 </div>
 <div class="section" id="math">
 <h3>math<a class="headerlink" href="#math" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -864,7 +865,7 @@ special values.  It returns <code class="docutils literal"><span class="pre">Tru
         <span class="o">...</span>
 </pre></div>
 </div>
-<p>(Patch submitted by Daniel Urban; <a class="reference external" href="https://bugs.python.org/issue5867">issue 5867</a>.)</p>
+<p>(Patch submitted by Daniel Urban; <a class="reference external" href="https://bugs.python.org/issue5867">bpo-5867</a>.)</p>
 </div>
 <div class="section" id="io">
 <h3>io<a class="headerlink" href="#io" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -893,7 +894,7 @@ special values.  It returns <code class="docutils literal"><span class="pre">Tru
 <span class="go">b&#39;L6988  receiving  Primary sprocket&#39;</span>
 </pre></div>
 </div>
-<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue5506">issue 5506</a>.)</p>
+<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue5506">bpo-5506</a>.)</p>
 </div>
 <div class="section" id="reprlib">
 <h3>reprlib<a class="headerlink" href="#reprlib" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -911,7 +912,7 @@ special values.  It returns <code class="docutils literal"><span class="pre">Tru
 <span class="go">&lt;&#39;a&#39;|&#39;b&#39;|&#39;c&#39;|...|&#39;x&#39;&gt;</span>
 </pre></div>
 </div>
-<p>(Contributed by Raymond Hettinger in <a class="reference external" href="https://bugs.python.org/issue9826">issue 9826</a> and <a class="reference external" href="https://bugs.python.org/issue9840">issue 9840</a>.)</p>
+<p>(Contributed by Raymond Hettinger in <a class="reference external" href="https://bugs.python.org/issue9826">bpo-9826</a> and <a class="reference external" href="https://bugs.python.org/issue9840">bpo-9840</a>.)</p>
 </div>
 <div class="section" id="logging">
 <h3>logging<a class="headerlink" href="#logging" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -948,8 +949,8 @@ returns <code class="docutils literal"><span class="pre">True</span></code> or <
 <span class="go">&quot;susan&quot;,&quot;sales&quot;</span>
 </pre></div>
 </div>
-<p>(New dialect suggested by Jay Talbot in <a class="reference external" href="https://bugs.python.org/issue5975">issue 5975</a>, and the new method
-suggested by Ed Abraham in <a class="reference external" href="https://bugs.python.org/issue1537721">issue 1537721</a>.)</p>
+<p>(New dialect suggested by Jay Talbot in <a class="reference external" href="https://bugs.python.org/issue5975">bpo-5975</a>, and the new method
+suggested by Ed Abraham in <a class="reference external" href="https://bugs.python.org/issue1537721">bpo-1537721</a>.)</p>
 </div>
 <div class="section" id="contextlib">
 <h3>contextlib<a class="headerlink" href="#contextlib" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -984,11 +985,11 @@ suggested by Ed Abraham in <a class="reference external" href="https://bugs.pyth
 </div>
 <p>一つの場所に二重の責務を持たせることには普通ある種の制約を持ち込みます。コンテクストマネージャには普通は <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal"><span class="pre">with</span></code></a> 文で使える値を返せる柔軟性を持ちますが、関数デコレータにはそれに匹敵するものはありません。</p>
 <p>上の例の場合は、<em>track_entry_and_exit</em> コンテクストマネージャが、取り囲まれたステートメント本体で使えるロギングのインスタンスを返す綺麗な方法はありません。</p>
-<p>(Contributed by Michael Foord in <a class="reference external" href="https://bugs.python.org/issue9110">issue 9110</a>.)</p>
+<p>(Contributed by Michael Foord in <a class="reference external" href="https://bugs.python.org/issue9110">bpo-9110</a>.)</p>
 </div>
 <div class="section" id="decimal-and-fractions">
 <h3>decimal と fractions<a class="headerlink" href="#decimal-and-fractions" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Mark Dickinson は、異なる数値データの型が実際の値が等しい場合は常に同じハッシュ値を持つことを保証する、エレガントで効率的なスキームを作り上げました (<a class="reference external" href="https://bugs.python.org/issue8188">issue 8188</a>):</p>
+<p>Mark Dickinson は、異なる数値データの型が実際の値が等しい場合は常に同じハッシュ値を持つことを保証する、エレガントで効率的なスキームを作り上げました (<a class="reference external" href="https://bugs.python.org/issue8188">bpo-8188</a>):</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">assert</span> <span class="nb">hash</span><span class="p">(</span><span class="n">Fraction</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="mf">1.5</span><span class="p">)</span> <span class="o">==</span> \
        <span class="nb">hash</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;1.5&quot;</span><span class="p">))</span> <span class="o">==</span> <span class="nb">hash</span><span class="p">(</span><span class="nb">complex</span><span class="p">(</span><span class="mf">1.5</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
 </pre></div>
@@ -1000,12 +1001,12 @@ suggested by Ed Abraham in <a class="reference external" href="https://bugs.pyth
 </div>
 <p>種々の数値型の相互操作性についての制限の初期の決断は緩和されました。　<code class="docutils literal"><span class="pre">Decimal('1.1')</span> <span class="pre">+</span> <span class="pre">float('1.1')</span></code> のように、算術式内で暗黙に混合することは、今でもサポートされません (そして賢明でもありません)。これは後者 (<code class="docutils literal"><span class="pre">float('1.1')</span></code>) は二進浮動小数点数を構築する過程で情報を損失するからです。しかしながら既存の浮動小数点数値は損失なく十進もしくは有理数表現のどちらかに変換出来るので、それらのコンストラクタに浮動小数点数を渡せるようにして型違いの比較をサポートすることは理に適います。</p>
 <ul class="simple">
-<li><p class="first"><a class="reference internal" href="../library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal"><span class="pre">decimal.Decimal</span></code></a> コンストラクタに <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> オブジェクトを直接渡せるようになりました。これにより <a class="reference internal" href="../library/decimal.html#decimal.Decimal.from_float" title="decimal.Decimal.from_float"><code class="xref py py-meth docutils literal"><span class="pre">from_float()</span></code></a> メソッドを使う必要はなくなりました (<a class="reference external" href="https://bugs.python.org/issue8257">issue 8257</a>)。</p>
+<li><p class="first"><a class="reference internal" href="../library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal"><span class="pre">decimal.Decimal</span></code></a> コンストラクタに <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> オブジェクトを直接渡せるようになりました。これにより <a class="reference internal" href="../library/decimal.html#decimal.Decimal.from_float" title="decimal.Decimal.from_float"><code class="xref py py-meth docutils literal"><span class="pre">from_float()</span></code></a> メソッドを使う必要はなくなりました (<a class="reference external" href="https://bugs.python.org/issue8257">bpo-8257</a>)。</p>
 </li>
-<li><p class="first">型違いの比較はいまでは完全にサポートされたので、 <a class="reference internal" href="../library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal"><span class="pre">Decimal</span></code></a> オブジェクトを直接 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> や <a class="reference internal" href="../library/fractions.html#fractions.Fraction" title="fractions.Fraction"><code class="xref py py-class docutils literal"><span class="pre">fractions.Fraction</span></code></a> と比較出来ます (<a class="reference external" href="https://bugs.python.org/issue2531">issue 2531</a> and <a class="reference external" href="https://bugs.python.org/issue8188">issue 8188</a>)。</p>
+<li><p class="first">型違いの比較はいまでは完全にサポートされたので、 <a class="reference internal" href="../library/decimal.html#decimal.Decimal" title="decimal.Decimal"><code class="xref py py-class docutils literal"><span class="pre">Decimal</span></code></a> オブジェクトを直接 <a class="reference internal" href="../library/functions.html#float" title="float"><code class="xref py py-class docutils literal"><span class="pre">float</span></code></a> や <a class="reference internal" href="../library/fractions.html#fractions.Fraction" title="fractions.Fraction"><code class="xref py py-class docutils literal"><span class="pre">fractions.Fraction</span></code></a> と比較出来ます (<a class="reference external" href="https://bugs.python.org/issue2531">bpo-2531</a> and <a class="reference external" href="https://bugs.python.org/issue8188">bpo-8188</a>)。</p>
 </li>
 </ul>
-<p>同じ変更が <a class="reference internal" href="../library/fractions.html#fractions.Fraction" title="fractions.Fraction"><code class="xref py py-class docutils literal"><span class="pre">fractions.Fraction</span></code></a> にもなされたので、 <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_float" title="fractions.Fraction.from_float"><code class="xref py py-meth docutils literal"><span class="pre">from_float()</span></code></a> も <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_decimal" title="fractions.Fraction.from_decimal"><code class="xref py py-meth docutils literal"><span class="pre">from_decimal()</span></code></a> も、もはや必要ありません (<a class="reference external" href="https://bugs.python.org/issue8294">issue 8294</a>):</p>
+<p>同じ変更が <a class="reference internal" href="../library/fractions.html#fractions.Fraction" title="fractions.Fraction"><code class="xref py py-class docutils literal"><span class="pre">fractions.Fraction</span></code></a> にもなされたので、 <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_float" title="fractions.Fraction.from_float"><code class="xref py py-meth docutils literal"><span class="pre">from_float()</span></code></a> も <a class="reference internal" href="../library/fractions.html#fractions.Fraction.from_decimal" title="fractions.Fraction.from_decimal"><code class="xref py py-meth docutils literal"><span class="pre">from_decimal()</span></code></a> も、もはや必要ありません (<a class="reference external" href="https://bugs.python.org/issue8294">bpo-8294</a>):</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">decimal</span> <span class="k">import</span> <span class="n">Decimal</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">fractions</span> <span class="k">import</span> <span class="n">Fraction</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">Decimal</span><span class="p">(</span><span class="mf">1.1</span><span class="p">)</span>
@@ -1014,7 +1015,7 @@ suggested by Ed Abraham in <a class="reference external" href="https://bugs.pyth
 <span class="go">Fraction(2476979795053773, 2251799813685248)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../library/decimal.html#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal"><span class="pre">decimal</span></code></a> モジュールへのもう一つの有用な変更は <code class="xref py py-attr docutils literal"><span class="pre">Context.clamp</span></code> 属性がいまではパブリックになったことです。これは IEEE 754 で規定された固定幅十進交換形式に対応するコンテキストを作成するのに有用です。 (see <a class="reference external" href="https://bugs.python.org/issue8540">issue 8540</a>).</p>
+<p><a class="reference internal" href="../library/decimal.html#module-decimal" title="decimal: Implementation of the General Decimal Arithmetic  Specification."><code class="xref py py-mod docutils literal"><span class="pre">decimal</span></code></a> モジュールへのもう一つの有用な変更は <code class="xref py py-attr docutils literal"><span class="pre">Context.clamp</span></code> 属性がいまではパブリックになったことです。これは IEEE 754 で規定された固定幅十進交換形式に対応するコンテキストを作成するのに有用です。 (see <a class="reference external" href="https://bugs.python.org/issue8540">bpo-8540</a>).</p>
 <p>(Contributed by Mark Dickinson and Raymond Hettinger.)</p>
 </div>
 <div class="section" id="ftp">
@@ -1038,16 +1039,16 @@ suggested by Ed Abraham in <a class="reference external" href="https://bugs.pyth
         <span class="n">process</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(Contributed by Tarek Ziadé and Giampaolo Rodolà in <a class="reference external" href="https://bugs.python.org/issue4972">issue 4972</a>, and
-by Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue8046">issue 8046</a> and <a class="reference external" href="https://bugs.python.org/issue1286">issue 1286</a>.)</p>
+<p>(Contributed by Tarek Ziadé and Giampaolo Rodolà in <a class="reference external" href="https://bugs.python.org/issue4972">bpo-4972</a>, and
+by Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue8046">bpo-8046</a> and <a class="reference external" href="https://bugs.python.org/issue1286">bpo-1286</a>.)</p>
 <p><a class="reference internal" href="../library/ftplib.html#ftplib.FTP_TLS" title="ftplib.FTP_TLS"><code class="xref py py-class docutils literal"><span class="pre">FTP_TLS</span></code></a> クラスが <em>context</em> パラメータを受け取れるようになりました。これには <a class="reference internal" href="../library/ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal"><span class="pre">ssl.SSLContext</span></code></a> オブジェクトを渡します。これは SSL コンフィグレーションオプション、証明書、秘密鍵を単一の (たぶん長生きの) 構造にまとめあげてくれるものです。</p>
-<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue8806">issue 8806</a>.)</p>
+<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue8806">bpo-8806</a>.)</p>
 </div>
 <div class="section" id="popen">
 <h3>popen<a class="headerlink" href="#popen" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/os.html#os.popen" title="os.popen"><code class="xref py py-func docutils literal"><span class="pre">os.popen()</span></code></a> ならびに <a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-func docutils literal"><span class="pre">subprocess.Popen()</span></code></a> 関数が自動的にファイル記述子を閉じる <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal"><span class="pre">with</span></code></a> 文をサポートしました。</p>
-<p>(Contributed by Antoine Pitrou and Brian Curtin in <a class="reference external" href="https://bugs.python.org/issue7461">issue 7461</a> and
-<a class="reference external" href="https://bugs.python.org/issue10554">issue 10554</a>.)</p>
+<p>(Contributed by Antoine Pitrou and Brian Curtin in <a class="reference external" href="https://bugs.python.org/issue7461">bpo-7461</a> and
+<a class="reference external" href="https://bugs.python.org/issue10554">bpo-10554</a>.)</p>
 </div>
 <div class="section" id="select">
 <h3>select<a class="headerlink" href="#select" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1057,7 +1058,7 @@ by Georg Brandl in <a class="reference external" href="https://bugs.python.org/i
 <span class="go">512</span>
 </pre></div>
 </div>
-<p>(Available on Unix systems. Patch by Sébastien Sablé in <a class="reference external" href="https://bugs.python.org/issue9862">issue 9862</a>)</p>
+<p>(Available on Unix systems. Patch by Sébastien Sablé in <a class="reference external" href="https://bugs.python.org/issue9862">bpo-9862</a>)</p>
 </div>
 <div class="section" id="gzip-and-zipfile">
 <h3>gzip と zipfile<a class="headerlink" href="#gzip-and-zipfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1078,11 +1079,11 @@ by Georg Brandl in <a class="reference external" href="https://bugs.python.org/i
 <span class="go">&#39;Three shall be the number thou shalt count&#39;</span>
 </pre></div>
 </div>
-<p>(Contributed by Anand B. Pillai in <a class="reference external" href="https://bugs.python.org/issue3488">issue 3488</a>; and by Antoine Pitrou, Nir
-Aides and Brian Curtin in <a class="reference external" href="https://bugs.python.org/issue9962">issue 9962</a>, <a class="reference external" href="https://bugs.python.org/issue1675951">issue 1675951</a>, <a class="reference external" href="https://bugs.python.org/issue7471">issue 7471</a> and
-<a class="reference external" href="https://bugs.python.org/issue2846">issue 2846</a>.)</p>
+<p>(Contributed by Anand B. Pillai in <a class="reference external" href="https://bugs.python.org/issue3488">bpo-3488</a>; and by Antoine Pitrou, Nir
+Aides and Brian Curtin in <a class="reference external" href="https://bugs.python.org/issue9962">bpo-9962</a>, <a class="reference external" href="https://bugs.python.org/issue1675951">bpo-1675951</a>, <a class="reference external" href="https://bugs.python.org/issue7471">bpo-7471</a> and
+<a class="reference external" href="https://bugs.python.org/issue2846">bpo-2846</a>.)</p>
 <p>さらに <code class="xref py py-class docutils literal"><span class="pre">zipfile.ZipExtFile</span></code> はアーカイブ内に格納されるファイルを表現するように内部的に書き換えられました。その新しい実装は顕著に高速となり、また <a class="reference internal" href="../library/io.html#io.BufferedReader" title="io.BufferedReader"><code class="xref py py-class docutils literal"><span class="pre">io.BufferedReader</span></code></a> 内に包めばさらにスピードアップ出来ます。またこれは、 <em>read</em> や <em>readline</em> 呼び出しを挟み込むと誤った結果となっていた問題も解決します。</p>
-<p>(Patch submitted by Nir Aides in <a class="reference external" href="https://bugs.python.org/issue7610">issue 7610</a>.)</p>
+<p>(Patch submitted by Nir Aides in <a class="reference external" href="https://bugs.python.org/issue7610">bpo-7610</a>.)</p>
 </div>
 <div class="section" id="tarfile">
 <h3>tarfile<a class="headerlink" href="#tarfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1111,7 +1112,7 @@ function can return <code class="docutils literal"><span class="pre">None</span>
 <span class="go">-rw-r--r-- monty/501       1399 2011-01-26 17:59:11 semaphore_notes.txt</span>
 </pre></div>
 </div>
-<p>(Proposed by Tarek Ziadé and implemented by Lars Gustäbel in <a class="reference external" href="https://bugs.python.org/issue6856">issue 6856</a>.)</p>
+<p>(Proposed by Tarek Ziadé and implemented by Lars Gustäbel in <a class="reference external" href="https://bugs.python.org/issue6856">bpo-6856</a>.)</p>
 </div>
 <div class="section" id="hashlib">
 <h3>hashlib<a class="headerlink" href="#hashlib" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1128,7 +1129,7 @@ function can return <code class="docutils literal"><span class="pre">None</span>
 <span class="go">&#39;dsaEncryption&#39;, &#39;DSA&#39;, &#39;RIPEMD160&#39;, &#39;sha&#39;, &#39;MD5&#39;, &#39;sha384&#39;}</span>
 </pre></div>
 </div>
-<p>(Suggested by Carl Chenet in <a class="reference external" href="https://bugs.python.org/issue7418">issue 7418</a>.)</p>
+<p>(Suggested by Carl Chenet in <a class="reference external" href="https://bugs.python.org/issue7418">bpo-7418</a>.)</p>
 </div>
 <div class="section" id="ast">
 <h3>ast<a class="headerlink" href="#ast" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1213,7 +1214,7 @@ strings, bytes, numbers, tuples, lists, dicts, sets, booleans, and <code class="
 <li><p class="first"><a class="reference internal" href="../library/sqlite3.html#sqlite3.Connection.enable_load_extension" title="sqlite3.Connection.enable_load_extension"><code class="xref py py-meth docutils literal"><span class="pre">sqlite3.Connection.enable_load_extension()</span></code></a> メソッドと <a class="reference internal" href="../library/sqlite3.html#sqlite3.Connection.load_extension" title="sqlite3.Connection.load_extension"><code class="xref py py-meth docutils literal"><span class="pre">sqlite3.Connection.load_extension()</span></code></a> メソッドにより &#8221;.so&#8221; ファイルから SQLite 拡張をロードできます。良く知られた拡張の一つとして、SQLite と一緒に配布されている全文検索拡張があります。</p>
 </li>
 </ul>
-<p>(Contributed by R. David Murray and Shashwat Anand; <a class="reference external" href="https://bugs.python.org/issue8845">issue 8845</a>.)</p>
+<p>(Contributed by R. David Murray and Shashwat Anand; <a class="reference external" href="https://bugs.python.org/issue8845">bpo-8845</a>.)</p>
 </div>
 <div class="section" id="html">
 <h3>html<a class="headerlink" href="#html" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1228,9 +1229,9 @@ strings, bytes, numbers, tuples, lists, dicts, sets, booleans, and <code class="
 <h3>socket<a class="headerlink" href="#socket" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/socket.html#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal"><span class="pre">socket</span></code></a> モジュールに新たに二つの改善がありました。</p>
 <ul class="simple">
-<li><p class="first">ソケットオブジェクトに <a class="reference internal" href="../library/socket.html#socket.socket.detach" title="socket.socket.detach"><code class="xref py py-meth docutils literal"><span class="pre">detach()</span></code></a> メソッドが追加されました。これは背後のファイル記述子を閉じることなくソケットをクローズ状態にします。これによりファイル記述子は他の目的に再利用出来ます。 (Added by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue8524">issue 8524</a>.)</p>
+<li><p class="first">ソケットオブジェクトに <a class="reference internal" href="../library/socket.html#socket.socket.detach" title="socket.socket.detach"><code class="xref py py-meth docutils literal"><span class="pre">detach()</span></code></a> メソッドが追加されました。これは背後のファイル記述子を閉じることなくソケットをクローズ状態にします。これによりファイル記述子は他の目的に再利用出来ます。 (Added by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue8524">bpo-8524</a>.)</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../library/socket.html#socket.create_connection" title="socket.create_connection"><code class="xref py py-func docutils literal"><span class="pre">socket.create_connection()</span></code></a> がコンテキスト管理プロトコルをサポートするようになりました。with ブロックを抜ける際に無条件にソケットをクローズします (クローズ処理で発生する <a class="reference internal" href="../library/socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal"><span class="pre">socket.error</span></code></a> は無視されます)。 (Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue9794">issue 9794</a>.) (&#8212;訳注: リファレンスもそうなのですが、「 <a class="reference internal" href="../library/socket.html#socket.create_connection" title="socket.create_connection"><code class="xref py py-func docutils literal"><span class="pre">socket.create_connection()</span></code></a> が with をサポート」というのは実態とは違うんじゃないかと思います(この関数のユーザからは同じにみえたとしても)。実際には <a class="reference internal" href="../library/socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal"><span class="pre">socket.socket</span></code></a> がコンテキストマネージャをサポートしています。 <a class="reference external" href="https://hg.python.org/cpython/file/3.2/Lib/socket.py">socket.py</a> 参照。&#8211;)</p>
+<li><p class="first"><a class="reference internal" href="../library/socket.html#socket.create_connection" title="socket.create_connection"><code class="xref py py-func docutils literal"><span class="pre">socket.create_connection()</span></code></a> がコンテキスト管理プロトコルをサポートするようになりました。with ブロックを抜ける際に無条件にソケットをクローズします (クローズ処理で発生する <a class="reference internal" href="../library/socket.html#socket.error" title="socket.error"><code class="xref py py-exc docutils literal"><span class="pre">socket.error</span></code></a> は無視されます)。 (Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue9794">bpo-9794</a>.) (&#8212;訳注: リファレンスもそうなのですが、「 <a class="reference internal" href="../library/socket.html#socket.create_connection" title="socket.create_connection"><code class="xref py py-func docutils literal"><span class="pre">socket.create_connection()</span></code></a> が with をサポート」というのは実態とは違うんじゃないかと思います(この関数のユーザからは同じにみえたとしても)。実際には <a class="reference internal" href="../library/socket.html#socket.socket" title="socket.socket"><code class="xref py py-class docutils literal"><span class="pre">socket.socket</span></code></a> がコンテキストマネージャをサポートしています。 <a class="reference external" href="https://hg.python.org/cpython/file/3.2/Lib/socket.py">socket.py</a> 参照。&#8211;)</p>
 </li>
 </ul>
 </div>
@@ -1254,24 +1255,24 @@ the format described in the <a class="reference external" href="https://www.open
 <li><p class="first">使われている OpenSSL のバージョンを、モジュール属性 <a class="reference internal" href="../library/ssl.html#ssl.OPENSSL_VERSION" title="ssl.OPENSSL_VERSION"><code class="xref py py-data docutils literal"><span class="pre">ssl.OPENSSL_VERSION</span></code></a> (文字列)、 <a class="reference internal" href="../library/ssl.html#ssl.OPENSSL_VERSION_INFO" title="ssl.OPENSSL_VERSION_INFO"><code class="xref py py-data docutils literal"><span class="pre">ssl.OPENSSL_VERSION_INFO</span></code></a> (5-タプル)、および <a class="reference internal" href="../library/ssl.html#ssl.OPENSSL_VERSION_NUMBER" title="ssl.OPENSSL_VERSION_NUMBER"><code class="xref py py-data docutils literal"><span class="pre">ssl.OPENSSL_VERSION_NUMBER</span></code></a> (整数) から取れるようになりました。</p>
 </li>
 </ul>
-<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue8850">issue 8850</a>, <a class="reference external" href="https://bugs.python.org/issue1589">issue 1589</a>, <a class="reference external" href="https://bugs.python.org/issue8322">issue 8322</a>,
-<a class="reference external" href="https://bugs.python.org/issue5639">issue 5639</a>, <a class="reference external" href="https://bugs.python.org/issue4870">issue 4870</a>, <a class="reference external" href="https://bugs.python.org/issue8484">issue 8484</a>, and <a class="reference external" href="https://bugs.python.org/issue8321">issue 8321</a>.)</p>
+<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue8850">bpo-8850</a>, <a class="reference external" href="https://bugs.python.org/issue1589">bpo-1589</a>, <a class="reference external" href="https://bugs.python.org/issue8322">bpo-8322</a>,
+<a class="reference external" href="https://bugs.python.org/issue5639">bpo-5639</a>, <a class="reference external" href="https://bugs.python.org/issue4870">bpo-4870</a>, <a class="reference external" href="https://bugs.python.org/issue8484">bpo-8484</a>, and <a class="reference external" href="https://bugs.python.org/issue8321">bpo-8321</a>.)</p>
 </div>
 <div class="section" id="nntp">
 <h3>nntp<a class="headerlink" href="#nntp" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/nntplib.html#module-nntplib" title="nntplib: NNTP protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">nntplib</span></code></a> モジュールが改造されて、より良い bytes とテキストについての意味付けを行うようになり、またより実用的な API になりました。これら実装は nntplib の Python 3.1 版との互換性を破壊しますが、もともとそれら自身にいくぶん機能不全がありました。</p>
 <p>セキュアな接続のサポートも追加されています。(<a class="reference internal" href="../library/nntplib.html#nntplib.NNTP_SSL" title="nntplib.NNTP_SSL"><code class="xref py py-class docutils literal"><span class="pre">nntplib.NNTP_SSL</span></code></a> を使う) 暗黙の TLS、(<a class="reference internal" href="../library/nntplib.html#nntplib.NNTP.starttls" title="nntplib.NNTP.starttls"><code class="xref py py-meth docutils literal"><span class="pre">nntplib.NNTP.starttls()</span></code></a> を使う) 明示的な TLS ともにサポートされます。</p>
-<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue9360">issue 9360</a> and Andrew Vant in <a class="reference external" href="https://bugs.python.org/issue1926">issue 1926</a>.)</p>
+<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue9360">bpo-9360</a> and Andrew Vant in <a class="reference external" href="https://bugs.python.org/issue1926">bpo-1926</a>.)</p>
 </div>
 <div class="section" id="certificates">
 <h3>certificates<a class="headerlink" href="#certificates" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/http.client.html#http.client.HTTPSConnection" title="http.client.HTTPSConnection"><code class="xref py py-class docutils literal"><span class="pre">http.client.HTTPSConnection</span></code></a>, <a class="reference internal" href="../library/urllib.request.html#urllib.request.HTTPSHandler" title="urllib.request.HTTPSHandler"><code class="xref py py-class docutils literal"><span class="pre">urllib.request.HTTPSHandler</span></code></a> <a class="reference internal" href="../library/urllib.request.html#urllib.request.urlopen" title="urllib.request.urlopen"><code class="xref py py-func docutils literal"><span class="pre">urllib.request.urlopen()</span></code></a> はサーバ証明書を証明書認証局 (Certification Authority (CA)) セットと照合するためのオプショナル引数を取るようになりました。これは HTTPS の公共利用で推奨されるものです。(&#8212;訳注: これは <em>check_hostname</em> パラメータのことを指していますが、3.4.3 でこれの扱いが変わっているのでリファレンスを注意深く読んで下さい。&#8211;)</p>
-<p>(Added by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue9003">issue 9003</a>.)</p>
+<p>(Added by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue9003">bpo-9003</a>.)</p>
 </div>
 <div class="section" id="imaplib">
 <h3>imaplib<a class="headerlink" href="#imaplib" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>標準 IMAP4 接続での明示的な TLS 使用を新規メソッド <a class="reference internal" href="../library/imaplib.html#imaplib.IMAP4.starttls" title="imaplib.IMAP4.starttls"><code class="xref py py-mod docutils literal"><span class="pre">imaplib.IMAP4.starttls</span></code></a> で出来るようになりました。</p>
-<p>(Contributed by Lorenzo M. Catucci and Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue4471">issue 4471</a>.)</p>
+<p>(Contributed by Lorenzo M. Catucci and Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue4471">bpo-4471</a>.)</p>
 </div>
 <div class="section" id="http-client">
 <h3>http.client<a class="headerlink" href="#http-client" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1280,14 +1281,14 @@ the format described in the <a class="reference external" href="https://www.open
 <p><a class="reference internal" href="../library/http.client.html#http.client.HTTPSConnection" title="http.client.HTTPSConnection"><code class="xref py py-class docutils literal"><span class="pre">HTTPSConnection</span></code></a> に、証明書検証と HTTPS バーチャルホストのサポートが追加されました。</p>
 <p>接続オブジェクトの <a class="reference internal" href="../library/http.client.html#http.client.HTTPConnection.request" title="http.client.HTTPConnection.request"><code class="xref py py-meth docutils literal"><span class="pre">request()</span></code></a> メソッドのオプショナルな <em>body</em> 引数には、リクエストのコンテンツを与えるために <a class="reference internal" href="../glossary.html#term-file-object"><span class="xref std std-term">file object</span></a> を渡すことが出来ました。便利のためにこれに <a class="reference internal" href="../glossary.html#term-iterable"><span class="xref std std-term">iterable</span></a> も渡すことが出来るようになりました。ただしこの場合は明示的に <code class="docutils literal"><span class="pre">Content-Length</span></code> ヘッダを加えなければなりません。この拡張されたインターフェイスは以前よりも遥かに柔軟です。</p>
 <p>プロキシサーバ経由で HTTPS 接続を確立するために、新規メソッド <a class="reference internal" href="../library/http.client.html#http.client.HTTPConnection.set_tunnel" title="http.client.HTTPConnection.set_tunnel"><code class="xref py py-meth docutils literal"><span class="pre">set_tunnel()</span></code></a> が追加されています。これにより HTTP 接続トンネリングのためのホストとポートをセットします。</p>
-<p><a class="reference internal" href="../library/http.server.html#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal"><span class="pre">http.server</span></code></a> の振る舞いと合わせ、HTTP クライアントライブラリもヘッダを ISO-8859-1 (Latin-1) エンコーディングでエンコードするようになりました。これは既に incoming (外から来る方) ヘッダに対して行われていますが、今ではこの振る舞いは incoming、outgoing (外へ向かう方) トラフィックの両方で一貫しています (<a class="reference external" href="https://bugs.python.org/issue10980">issue 10980</a> 内の Armin Ronacher による仕事を参照)。</p>
+<p><a class="reference internal" href="../library/http.server.html#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal"><span class="pre">http.server</span></code></a> の振る舞いと合わせ、HTTP クライアントライブラリもヘッダを ISO-8859-1 (Latin-1) エンコーディングでエンコードするようになりました。これは既に incoming (外から来る方) ヘッダに対して行われていますが、今ではこの振る舞いは incoming、outgoing (外へ向かう方) トラフィックの両方で一貫しています (<a class="reference external" href="https://bugs.python.org/issue10980">bpo-10980</a> 内の Armin Ronacher による仕事を参照)。</p>
 </div>
 <div class="section" id="unittest">
 <h3>unittest<a class="headerlink" href="#unittest" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>unittest モジュールに数多くの改善がありました。パッケージに対する test discovery のサポートが追加され、対話プロンプトから実験しやすくなり、新しいメソッドが追加され、テスト失敗時の診断メッセージが改善され、そしてメソッド名がより良いものになりました。</p>
 <ul>
 <li><p class="first">The command-line call <code class="docutils literal"><span class="pre">python</span> <span class="pre">-m</span> <span class="pre">unittest</span></code> can now accept file paths
-instead of module names for running specific tests (<a class="reference external" href="https://bugs.python.org/issue10620">issue 10620</a>).  The new
+instead of module names for running specific tests (<a class="reference external" href="https://bugs.python.org/issue10620">bpo-10620</a>).  The new
 test discovery can find tests within packages, locating any test importable
 from the top-level directory.  The top-level directory can be specified with
 the <cite>-t</cite> option, a pattern for matching files with <code class="docutils literal"><span class="pre">-p</span></code>, and a directory to
@@ -1309,7 +1310,7 @@ start discovery with <code class="docutils literal"><span class="pre">-s</span><
     <span class="n">legacy_function</span><span class="p">(</span><span class="s1">&#39;XYZ&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue9754">issue 9754</a>.)</p>
+<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue9754">bpo-9754</a>.)</p>
 <p>もう一つの新メソッド <a class="reference internal" href="../library/unittest.html#unittest.TestCase.assertCountEqual" title="unittest.TestCase.assertCountEqual"><code class="xref py py-meth docutils literal"><span class="pre">assertCountEqual()</span></code></a> は 2 つのイテラブルを比較して、要素の出現回数が同じか (順序に関わらず同じ要素が同じ数だけ出現するかどうか) をテストします:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">test_anagram</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">assertCountEqual</span><span class="p">(</span><span class="s1">&#39;algorithm&#39;</span><span class="p">,</span> <span class="s1">&#39;logarithm&#39;</span><span class="p">)</span>
@@ -1357,7 +1358,7 @@ start discovery with <code class="docutils literal"><span class="pre">-s</span><
 </table>
 </div></blockquote>
 <p>同様に、Python 3.1 で非推奨になった <code class="docutils literal"><span class="pre">TestCase.fail*</span></code> メソッドは Python 3.3 で削除されるはずです。 <a class="reference internal" href="../library/unittest.html#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal"><span class="pre">unittest</span></code></a> ドキュメント <a class="reference internal" href="../library/unittest.html#deprecated-aliases"><span class="std std-ref">非推奨のエイリアス</span></a> を参照してください。</p>
-<p>(Contributed by Ezio Melotti; <a class="reference external" href="https://bugs.python.org/issue9424">issue 9424</a>.)</p>
+<p>(Contributed by Ezio Melotti; <a class="reference external" href="https://bugs.python.org/issue9424">bpo-9424</a>.)</p>
 </li>
 <li><p class="first"><code class="xref py py-meth docutils literal"><span class="pre">assertDictContainsSubset()</span></code> メソッドは非推奨となりました。というのもこれは引数順を誤って実装されていたからです。これは <code class="docutils literal"><span class="pre">TestCase().assertDictContainsSubset({'a':1,</span> <span class="pre">'b':2},</span> <span class="pre">{'a':1})</span></code> のようなテストが失敗した場合に、デバッグを困難にする見間違いを起こしやすいものでした。</p>
 <p>(Contributed by Raymond Hettinger.)</p>
@@ -1371,17 +1372,17 @@ start discovery with <code class="docutils literal"><span class="pre">-s</span><
 この方法では <em>n</em> が2の冪乗でない限り僅かにバイアスがあります。
 現在の方法では次の2の冪乗の範囲まで複数の選択肢を作成し、<code class="docutils literal"><span class="pre">0</span> <span class="pre">&lt;=</span> <span class="pre">x</span> <span class="pre">&lt;</span> <span class="pre">n</span></code> の範囲に入ったもののみを保持します。
 影響を受ける関数やメソッドは <a class="reference internal" href="../library/random.html#random.randrange" title="random.randrange"><code class="xref py py-func docutils literal"><span class="pre">randrange()</span></code></a>、<a class="reference internal" href="../library/random.html#random.randint" title="random.randint"><code class="xref py py-func docutils literal"><span class="pre">randint()</span></code></a>、<a class="reference internal" href="../library/random.html#random.choice" title="random.choice"><code class="xref py py-func docutils literal"><span class="pre">choice()</span></code></a>、<a class="reference internal" href="../library/random.html#random.shuffle" title="random.shuffle"><code class="xref py py-func docutils literal"><span class="pre">shuffle()</span></code></a> ならびに <a class="reference internal" href="../library/random.html#random.sample" title="random.sample"><code class="xref py py-func docutils literal"><span class="pre">sample()</span></code></a> です。</p>
-<p>(Contributed by Raymond Hettinger; <a class="reference external" href="https://bugs.python.org/issue9025">issue 9025</a>.)</p>
+<p>(Contributed by Raymond Hettinger; <a class="reference external" href="https://bugs.python.org/issue9025">bpo-9025</a>.)</p>
 </div>
 <div class="section" id="poplib">
 <h3>poplib<a class="headerlink" href="#poplib" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/poplib.html#poplib.POP3_SSL" title="poplib.POP3_SSL"><code class="xref py py-class docutils literal"><span class="pre">POP3_SSL</span></code></a> クラスが <em>context</em> パラメータを受け取れるようになりました。これには <a class="reference internal" href="../library/ssl.html#ssl.SSLContext" title="ssl.SSLContext"><code class="xref py py-class docutils literal"><span class="pre">ssl.SSLContext</span></code></a> オブジェクトを渡します。これは SSL コンフィグレーションオプション、証明書、秘密鍵を単一の (たぶん長生きの) 構造にまとめあげてくれるものです。</p>
-<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue8807">issue 8807</a>.)</p>
+<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue8807">bpo-8807</a>.)</p>
 </div>
 <div class="section" id="asyncore">
 <h3>asyncore<a class="headerlink" href="#asyncore" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p><a class="reference internal" href="../library/asyncore.html#asyncore.dispatcher" title="asyncore.dispatcher"><code class="xref py py-class docutils literal"><span class="pre">asyncore.dispatcher</span></code></a> に <a class="reference internal" href="../library/asyncore.html#asyncore.dispatcher.handle_accepted" title="asyncore.dispatcher.handle_accepted"><code class="xref py py-meth docutils literal"><span class="pre">handle_accepted()</span></code></a> が追加されています。これは新しくリモート側の端点との接続が実際に確立した際に  <cite>(sock, addr)</cite> ペアを伴って呼び出されます。これは古い <a class="reference internal" href="../library/asyncore.html#asyncore.dispatcher.handle_accept" title="asyncore.dispatcher.handle_accept"><code class="xref py py-meth docutils literal"><span class="pre">handle_accept()</span></code></a> を置き換えるものとして使われるでしょう。またユーザが直接 <a class="reference internal" href="../library/asyncore.html#asyncore.dispatcher.accept" title="asyncore.dispatcher.accept"><code class="xref py py-meth docutils literal"><span class="pre">accept()</span></code></a> を呼び出す必要もなくなります。</p>
-<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue6706">issue 6706</a>.)</p>
+<p>(Contributed by Giampaolo Rodolà; <a class="reference external" href="https://bugs.python.org/issue6706">bpo-6706</a>.)</p>
 </div>
 <div class="section" id="tempfile">
 <h3>tempfile<a class="headerlink" href="#tempfile" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1390,7 +1391,7 @@ start discovery with <code class="docutils literal"><span class="pre">-s</span><
     <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;created temporary dir:&#39;</span><span class="p">,</span> <span class="n">tmpdirname</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(Contributed by Neil Schemenauer and Nick Coghlan; <a class="reference external" href="https://bugs.python.org/issue5178">issue 5178</a>.)</p>
+<p>(Contributed by Neil Schemenauer and Nick Coghlan; <a class="reference external" href="https://bugs.python.org/issue5178">bpo-5178</a>.)</p>
 </div>
 <div class="section" id="inspect">
 <h3>inspect<a class="headerlink" href="#inspect" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1411,7 +1412,7 @@ start discovery with <code class="docutils literal"><span class="pre">-s</span><
 <span class="go">&#39;GEN_CLOSED&#39;</span>
 </pre></div>
 </div>
-<p>(Contributed by Rodolpho Eckhardt and Nick Coghlan, <a class="reference external" href="https://bugs.python.org/issue10220">issue 10220</a>.)</p>
+<p>(Contributed by Rodolpho Eckhardt and Nick Coghlan, <a class="reference external" href="https://bugs.python.org/issue10220">bpo-10220</a>.)</p>
 </li>
 <li><p class="first">動的な属性を活性化することなく検索するのをサポートするために、 <a class="reference internal" href="../library/inspect.html#module-inspect" title="inspect: Extract information and source code from live objects."><code class="xref py py-mod docutils literal"><span class="pre">inspect</span></code></a> モジュールに <a class="reference internal" href="../library/inspect.html#inspect.getattr_static" title="inspect.getattr_static"><code class="xref py py-func docutils literal"><span class="pre">getattr_static()</span></code></a> 関数が追加されました。 <a class="reference internal" href="../library/functions.html#hasattr" title="hasattr"><code class="xref py py-func docutils literal"><span class="pre">hasattr()</span></code></a> とは違ってこれは本当に読み取りのみの検索であり、検索中に状態変更しないことが保障されています:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="k">class</span> <span class="nc">A</span><span class="p">:</span>
@@ -1441,7 +1442,7 @@ to display that server:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> pydoc3.2 -b
 </pre></div>
 </div>
-<p>(Contributed by Ron Adam; <a class="reference external" href="https://bugs.python.org/issue2001">issue 2001</a>.)</p>
+<p>(Contributed by Ron Adam; <a class="reference external" href="https://bugs.python.org/issue2001">bpo-2001</a>.)</p>
 </div>
 <div class="section" id="dis">
 <h3>dis<a class="headerlink" href="#dis" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1490,12 +1491,12 @@ to display that server:</p>
 </pre></div>
 </div>
 <p>要はこれらによって、CPython がどう実装されているか探索してみたり、言語構文が裏方で何をするのか見てみたりすることがより簡単になったということです。</p>
-<p>(Contributed by Nick Coghlan in <a class="reference external" href="https://bugs.python.org/issue9147">issue 9147</a>.)</p>
+<p>(Contributed by Nick Coghlan in <a class="reference external" href="https://bugs.python.org/issue9147">bpo-9147</a>.)</p>
 </div>
 <div class="section" id="dbm">
 <h3>dbm<a class="headerlink" href="#dbm" title="このヘッドラインへのパーマリンク">¶</a></h3>
 <p>全データベースモジュールが <code class="xref py py-meth docutils literal"><span class="pre">get()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">setdefault()</span></code> メソッドをサポートしました。</p>
-<p>(Suggested by Ray Allen in <a class="reference external" href="https://bugs.python.org/issue9523">issue 9523</a>.)</p>
+<p>(Suggested by Ray Allen in <a class="reference external" href="https://bugs.python.org/issue9523">bpo-9523</a>.)</p>
 </div>
 <div class="section" id="ctypes">
 <h3>ctypes<a class="headerlink" href="#ctypes" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1531,7 +1532,7 @@ command-line:</p>
 <span class="go">/Users/raymondhettinger/.local/lib/python3.2/site-packages</span>
 </pre></div>
 </div>
-<p>(Contributed by Tarek Ziadé in <a class="reference external" href="https://bugs.python.org/issue6693">issue 6693</a>.)</p>
+<p>(Contributed by Tarek Ziadé in <a class="reference external" href="https://bugs.python.org/issue6693">bpo-6693</a>.)</p>
 </div>
 <div class="section" id="sysconfig">
 <h3>sysconfig<a class="headerlink" href="#sysconfig" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1716,8 +1717,8 @@ command-line:</p>
 <span class="go">                 path=b&#39;/about/&#39;, params=b&#39;&#39;, query=b&#39;&#39;, fragment=b&#39;&#39;)</span>
 </pre></div>
 </div>
-<p>(Work by Nick Coghlan, Dan Mahn, and Senthil Kumaran in <a class="reference external" href="https://bugs.python.org/issue2987">issue 2987</a>,
-<a class="reference external" href="https://bugs.python.org/issue5468">issue 5468</a>, and <a class="reference external" href="https://bugs.python.org/issue9873">issue 9873</a>.)</p>
+<p>(Work by Nick Coghlan, Dan Mahn, and Senthil Kumaran in <a class="reference external" href="https://bugs.python.org/issue2987">bpo-2987</a>,
+<a class="reference external" href="https://bugs.python.org/issue5468">bpo-5468</a>, and <a class="reference external" href="https://bugs.python.org/issue9873">bpo-9873</a>.)</p>
 </div>
 <div class="section" id="mailbox">
 <h3>mailbox<a class="headerlink" href="#mailbox" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1728,7 +1729,7 @@ command-line:</p>
 <p>バイナリ出力のサポートもあります。 <a class="reference internal" href="../library/mailbox.html#mailbox.Mailbox.get_file" title="mailbox.Mailbox.get_file"><code class="xref py py-meth docutils literal"><span class="pre">get_file()</span></code></a> メソッドは今ではバイナリモードのファイルを返します (これまでは不適切にテキストモードが使われていました)。また、新しい <a class="reference internal" href="../library/mailbox.html#mailbox.Mailbox.get_bytes" title="mailbox.Mailbox.get_bytes"><code class="xref py py-meth docutils literal"><span class="pre">get_bytes()</span></code></a> メソッドは、指定した <em>key</em> に対応するメッセージの <a class="reference internal" href="../library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> 表現を返します。</p>
 <p>今でも古い API の <a class="reference internal" href="../library/mailbox.html#mailbox.Mailbox.get_string" title="mailbox.Mailbox.get_string"><code class="xref py py-meth docutils literal"><span class="pre">get_string()</span></code></a> を使って非バイナリ出力は可能ですが、そのアプローチはあまり役に立ちません。そうではなく <a class="reference internal" href="../library/mailbox.html#mailbox.Message" title="mailbox.Message"><code class="xref py py-class docutils literal"><span class="pre">Message</span></code></a> オブジェクトからメッセージを抽出するか、それらをバイナリ入力からロードするのが最善です。</p>
 <p>(Contributed by R. David Murray, with efforts from Steffen Daode Nurpmeso and an
-initial patch by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue9124">issue 9124</a>.)</p>
+initial patch by Victor Stinner in <a class="reference external" href="https://bugs.python.org/issue9124">bpo-9124</a>.)</p>
 </div>
 <div class="section" id="turtledemo">
 <h3>turtledemo<a class="headerlink" href="#turtledemo" title="このヘッドラインへのパーマリンク">¶</a></h3>
@@ -1739,7 +1740,7 @@ from the command-line:</p>
 <div class="highlight-shell-session"><div class="highlight"><pre><span></span><span class="gp">$</span> python -m turtledemo
 </pre></div>
 </div>
-<p>(Moved from the Demo directory by Alexander Belopolsky in <a class="reference external" href="https://bugs.python.org/issue10199">issue 10199</a>.)</p>
+<p>(Moved from the Demo directory by Alexander Belopolsky in <a class="reference external" href="https://bugs.python.org/issue10199">bpo-10199</a>.)</p>
 </div>
 </div>
 <div class="section" id="multi-threading">
@@ -1750,12 +1751,12 @@ from the command-line:</p>
 <p>(Contributed by Antoine Pitrou.)</p>
 </li>
 <li><p class="first">通常のロックと再帰的なロックが、<a class="reference internal" href="../library/threading.html#threading.Lock.acquire" title="threading.Lock.acquire"><code class="xref py py-meth docutils literal"><span class="pre">acquire()</span></code></a> メソッドでオプションで <em>timeout</em> 引数を受け取るようになりました。
-(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue7316">issue 7316</a>.)</p>
+(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue7316">bpo-7316</a>.)</p>
 </li>
 <li><p class="first">同様に、<a class="reference internal" href="../library/threading.html#threading.Semaphore.acquire" title="threading.Semaphore.acquire"><code class="xref py py-meth docutils literal"><span class="pre">threading.Semaphore.acquire()</span></code></a> にも <em>timeout</em> 引数が追加されました。
-(Contributed by Torsten Landschoff; <a class="reference external" href="https://bugs.python.org/issue850728">issue 850728</a>.)</p>
+(Contributed by Torsten Landschoff; <a class="reference external" href="https://bugs.python.org/issue850728">bpo-850728</a>.)</p>
 </li>
-<li><p class="first">通常のロックと再帰的なロックの獲得に、 Pthreads を使用するプラットフォームでシグナルが割り込めるようになりました。これでロック獲得時にデッドロックしていた Python プログラムは、プロセスに SIGINT (ほとんどのシェルでは <code class="kbd docutils literal"><span class="pre">Ctrl+C</span></code> で) を繰り返し送ることで殺せます。(Contributed by Reid Kleckner; <a class="reference external" href="https://bugs.python.org/issue8844">issue 8844</a>.)</p>
+<li><p class="first">通常のロックと再帰的なロックの獲得に、 Pthreads を使用するプラットフォームでシグナルが割り込めるようになりました。これでロック獲得時にデッドロックしていた Python プログラムは、プロセスに SIGINT (ほとんどのシェルでは <code class="kbd docutils literal"><span class="pre">Ctrl+C</span></code> で) を繰り返し送ることで殺せます。(Contributed by Reid Kleckner; <a class="reference external" href="https://bugs.python.org/issue8844">bpo-8844</a>.)</p>
 </li>
 </ul>
 </div>
@@ -1774,11 +1775,11 @@ and operationally fast:</p>
     <span class="n">handle</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>(Patch and additional tests contributed by Dave Malcolm; <a class="reference external" href="https://bugs.python.org/issue6690">issue 6690</a>).</p>
+<p>(Patch and additional tests contributed by Dave Malcolm; <a class="reference external" href="https://bugs.python.org/issue6690">bpo-6690</a>).</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal"><span class="pre">pickle</span></code></a> モジュールを用いたデータのシリアライズ・デシリアライズが数倍速くなりました。</p>
 <p>(Contributed by Alexandre Vassalotti, Antoine Pitrou
-and the Unladen Swallow team in <a class="reference external" href="https://bugs.python.org/issue9410">issue 9410</a> and <a class="reference external" href="https://bugs.python.org/issue3873">issue 3873</a>.)</p>
+and the Unladen Swallow team in <a class="reference external" href="https://bugs.python.org/issue9410">bpo-9410</a> and <a class="reference external" href="https://bugs.python.org/issue3873">bpo-3873</a>.)</p>
 </li>
 <li><p class="first">The <a class="reference external" href="https://en.wikipedia.org/wiki/Timsort">Timsort algorithm</a> used in
 <a class="reference internal" href="../library/stdtypes.html#list.sort" title="list.sort"><code class="xref py py-meth docutils literal"><span class="pre">list.sort()</span></code></a> and <a class="reference internal" href="../library/functions.html#sorted" title="sorted"><code class="xref py py-func docutils literal"><span class="pre">sorted()</span></code></a> now runs faster and uses less memory
@@ -1787,37 +1788,37 @@ a list was wrapped with a temporary object that remembered the key value
 associated with each element.  Now, two arrays of keys and values are
 sorted in parallel.  This saves the memory consumed by the sort wrappers,
 and it saves time lost to delegating comparisons.</p>
-<p>(Patch by Daniel Stutzbach in <a class="reference external" href="https://bugs.python.org/issue9915">issue 9915</a>.)</p>
+<p>(Patch by Daniel Stutzbach in <a class="reference external" href="https://bugs.python.org/issue9915">bpo-9915</a>.)</p>
 </li>
 <li><p class="first">JSON decoding performance is improved and memory consumption is reduced
 whenever the same string is repeated for multiple keys.  Also, JSON encoding
 now uses the C speedups when the <code class="docutils literal"><span class="pre">sort_keys</span></code> argument is true.</p>
-<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue7451">issue 7451</a> and by Raymond Hettinger and
-Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue10314">issue 10314</a>.)</p>
+<p>(Contributed by Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue7451">bpo-7451</a> and by Raymond Hettinger and
+Antoine Pitrou in <a class="reference external" href="https://bugs.python.org/issue10314">bpo-10314</a>.)</p>
 </li>
 <li><p class="first">再帰的ロック (<a class="reference internal" href="../library/threading.html#threading.RLock" title="threading.RLock"><code class="xref py py-func docutils literal"><span class="pre">threading.RLock()</span></code></a> API により生成) は C で実装されたことにより、以前の純粋な Python 実装より10から15倍速くなり、通常のロックと同じくらいになりました。</p>
-<p>(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue3001">issue 3001</a>.)</p>
+<p>(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue3001">bpo-3001</a>.)</p>
 </li>
 <li><p class="first">The fast-search algorithm in stringlib is now used by the <code class="xref py py-meth docutils literal"><span class="pre">split()</span></code>,
 <code class="xref py py-meth docutils literal"><span class="pre">rsplit()</span></code>, <code class="xref py py-meth docutils literal"><span class="pre">splitlines()</span></code> and <code class="xref py py-meth docutils literal"><span class="pre">replace()</span></code> methods on
 <a class="reference internal" href="../library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a>, <a class="reference internal" href="../library/functions.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> and <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> objects. Likewise, the
 algorithm is also used by <code class="xref py py-meth docutils literal"><span class="pre">rfind()</span></code>, <code class="xref py py-meth docutils literal"><span class="pre">rindex()</span></code>, <code class="xref py py-meth docutils literal"><span class="pre">rsplit()</span></code> and
 <code class="xref py py-meth docutils literal"><span class="pre">rpartition()</span></code>.</p>
-<p>(Patch by Florent Xicluna in <a class="reference external" href="https://bugs.python.org/issue7622">issue 7622</a> and <a class="reference external" href="https://bugs.python.org/issue7462">issue 7462</a>.)</p>
+<p>(Patch by Florent Xicluna in <a class="reference external" href="https://bugs.python.org/issue7622">bpo-7622</a> and <a class="reference external" href="https://bugs.python.org/issue7462">bpo-7462</a>.)</p>
 </li>
 <li><p class="first">Integer to string conversions now work two &#8220;digits&#8221; at a time, reducing the
 number of division and modulo operations.</p>
-<p>(<a class="reference external" href="https://bugs.python.org/issue6713">issue 6713</a> by Gawain Bolton, Mark Dickinson, and Victor Stinner.)</p>
+<p>(<a class="reference external" href="https://bugs.python.org/issue6713">bpo-6713</a> by Gawain Bolton, Mark Dickinson, and Victor Stinner.)</p>
 </li>
 </ul>
 <p>There were several other minor optimizations. Set differencing now runs faster
 when one operand is much larger than the other (patch by Andress Bennetts in
-<a class="reference external" href="https://bugs.python.org/issue8685">issue 8685</a>).  The <code class="xref py py-meth docutils literal"><span class="pre">array.repeat()</span></code> method has a faster implementation
-(<a class="reference external" href="https://bugs.python.org/issue1569291">issue 1569291</a> by Alexander Belopolsky). The <code class="xref py py-class docutils literal"><span class="pre">BaseHTTPRequestHandler</span></code>
-has more efficient buffering (<a class="reference external" href="https://bugs.python.org/issue3709">issue 3709</a> by Andrew Schaaf).  The
-<a class="reference internal" href="../library/operator.html#operator.attrgetter" title="operator.attrgetter"><code class="xref py py-func docutils literal"><span class="pre">operator.attrgetter()</span></code></a> function has been sped-up (<a class="reference external" href="https://bugs.python.org/issue10160">issue 10160</a> by
+<a class="reference external" href="https://bugs.python.org/issue8685">bpo-8685</a>).  The <code class="xref py py-meth docutils literal"><span class="pre">array.repeat()</span></code> method has a faster implementation
+(<a class="reference external" href="https://bugs.python.org/issue1569291">bpo-1569291</a> by Alexander Belopolsky). The <code class="xref py py-class docutils literal"><span class="pre">BaseHTTPRequestHandler</span></code>
+has more efficient buffering (<a class="reference external" href="https://bugs.python.org/issue3709">bpo-3709</a> by Andrew Schaaf).  The
+<a class="reference internal" href="../library/operator.html#operator.attrgetter" title="operator.attrgetter"><code class="xref py py-func docutils literal"><span class="pre">operator.attrgetter()</span></code></a> function has been sped-up (<a class="reference external" href="https://bugs.python.org/issue10160">bpo-10160</a> by
 Christos Georgiou).  And <code class="xref py py-class docutils literal"><span class="pre">ConfigParser</span></code> loads multi-line arguments a bit
-faster (<a class="reference external" href="https://bugs.python.org/issue7113">issue 7113</a> by Łukasz Langa).</p>
+faster (<a class="reference external" href="https://bugs.python.org/issue7113">bpo-7113</a> by Łukasz Langa).</p>
 </div>
 <div class="section" id="unicode">
 <h2>Unicode 文字列型<a class="headerlink" href="#unicode" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -1826,7 +1827,7 @@ faster (<a class="reference external" href="https://bugs.python.org/issue7113">i
 </div>
 <div class="section" id="codecs">
 <h2>Codecs<a class="headerlink" href="#codecs" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><em>cp720</em> アラビア DOS エンコードがサポートされました (<a class="reference external" href="https://bugs.python.org/issue1616979">issue 1616979</a>)。</p>
+<p><em>cp720</em> アラビア DOS エンコードがサポートされました (<a class="reference external" href="https://bugs.python.org/issue1616979">bpo-1616979</a>)。</p>
 <p>MBCS エンコーディングはもうエラーハンドラ引数を無視することはありません。デフォルトの strict モードでは、デコード出来ないバイト列に対して <a class="reference internal" href="../library/exceptions.html#UnicodeDecodeError" title="UnicodeDecodeError"><code class="xref py py-exc docutils literal"><span class="pre">UnicodeDecodeError</span></code></a> を、エンコードできない文字に対して <a class="reference internal" href="../library/exceptions.html#UnicodeEncodeError" title="UnicodeEncodeError"><code class="xref py py-exc docutils literal"><span class="pre">UnicodeEncodeError</span></code></a> を投げます。</p>
 <p>MBCS コーデックはエラーハンドラとして、デコードでの <code class="docutils literal"><span class="pre">'strict'</span></code> と <code class="docutils literal"><span class="pre">'ignore'</span></code> 、エンコードでの <code class="docutils literal"><span class="pre">'strict'</span></code> と <code class="docutils literal"><span class="pre">'replace'</span></code> をサポートします。</p>
 <p>Python 3.1 での MBCS エンコーディングを模擬したければデコードでは <code class="docutils literal"><span class="pre">'ignore'</span></code> ハンドラを、エンコードでは <code class="docutils literal"><span class="pre">'replace'</span></code> ハンドラを選んでください。</p>
@@ -1841,7 +1842,7 @@ faster (<a class="reference external" href="https://bugs.python.org/issue7113">i
 </li>
 <li><p class="first">ある種のケースではピュア Python のソースコードが文書化の助手として便利に働いてくれますので、今では多くのモジュールがソースコードの最新バージョンへのクイックリンクを客演させています。例えば <a class="reference internal" href="../library/functools.html#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> モジュールのドキュメントは先頭にこのようにクイックリンクを置いています:</p>
 <blockquote>
-<div><p><strong>ソースコード</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/functools.py">Lib/functools.py</a>.</p>
+<div><p><strong>ソースコード</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/functools.py">Lib/functools.py</a>.</p>
 </div></blockquote>
 <p>(Contributed by Raymond Hettinger; see
 <a class="reference external" href="https://rhettinger.wordpress.com/2011/01/28/open-your-source-more/">rationale</a>.)</p>
@@ -1849,10 +1850,10 @@ faster (<a class="reference external" href="https://bugs.python.org/issue7113">i
 <li><p class="first">ドキュメントには今ではもっと実例とレシピが含まれています。特に <a class="reference internal" href="../library/re.html#module-re" title="re: Regular expression operations."><code class="xref py py-mod docutils literal"><span class="pre">re</span></code></a> モジュールのものには大掛かりなセクション <a class="reference internal" href="../library/re.html#re-examples"><span class="std std-ref">正規表現の例</span></a> があります。同じように <a class="reference internal" href="../library/itertools.html#module-itertools" title="itertools: Functions creating iterators for efficient looping."><code class="xref py py-mod docutils literal"><span class="pre">itertools</span></code></a> では新しい <a class="reference internal" href="../library/itertools.html#itertools-recipes"><span class="std std-ref">Itertools レシピ</span></a> で更新され続けます。</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/datetime.html#module-datetime" title="datetime: Basic date and time types."><code class="xref py py-mod docutils literal"><span class="pre">datetime</span></code></a> モジュールは今ではピュア Python による補助実装を持っています。機能に違いはありません。これは読みやすい代替の実装を提供するだけのものです。</p>
-<p>(Contributed by Alexander Belopolsky in <a class="reference external" href="https://bugs.python.org/issue9528">issue 9528</a>.)</p>
+<p>(Contributed by Alexander Belopolsky in <a class="reference external" href="https://bugs.python.org/issue9528">bpo-9528</a>.)</p>
 </li>
 <li><p class="first">保守されていなかった <code class="file docutils literal"><span class="pre">Demo</span></code> ディレクトリは削除されました。いくつかのデモはドキュメントに統合され、いくつかは <code class="file docutils literal"><span class="pre">Tools/demo</span></code> ディレクトリに移動し、ほかのものは一緒に削除されました。</p>
-<p>(Contributed by Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue7962">issue 7962</a>.)</p>
+<p>(Contributed by Georg Brandl in <a class="reference external" href="https://bugs.python.org/issue7962">bpo-7962</a>.)</p>
 </li>
 </ul>
 </div>
@@ -1860,10 +1861,10 @@ faster (<a class="reference external" href="https://bugs.python.org/issue7113">i
 <h2>IDLE<a class="headerlink" href="#idle" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <ul>
 <li><p class="first">IDLE のフォーマットメニューに、ソースコードから末尾の空白を取り除くことが出来るオプションが追加されました。</p>
-<p>(Contributed by Raymond Hettinger; <a class="reference external" href="https://bugs.python.org/issue5150">issue 5150</a>.)</p>
+<p>(Contributed by Raymond Hettinger; <a class="reference external" href="https://bugs.python.org/issue5150">bpo-5150</a>.)</p>
 </li>
 <li><p class="first">Mac OS X 上の IDLE が Carbon AquaTk と Cocoa AquaTk の両方で動くようになりました。</p>
-<p>(Contributed by Kevin Walzer, Ned Deily, and Ronald Oussoren; <a class="reference external" href="https://bugs.python.org/issue6075">issue 6075</a>.)</p>
+<p>(Contributed by Kevin Walzer, Ned Deily, and Ronald Oussoren; <a class="reference external" href="https://bugs.python.org/issue6075">bpo-6075</a>.)</p>
 </li>
 </ul>
 </div>
@@ -1879,43 +1880,43 @@ faster (<a class="reference external" href="https://bugs.python.org/issue7113">i
 <h2>ビルドならびに C API の変更<a class="headerlink" href="#build-and-c-api-changes" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p>Python のビルド過程と C API の変更は以下の通りです:</p>
 <ul>
-<li><p class="first">スクリプト <em>idle</em>, <em>pydoc</em>, <em>2to3</em> が <code class="docutils literal"><span class="pre">make</span> <span class="pre">altinstall</span></code> 時にバージョン固有のサフィックスを付けてインストールされるようになりました (<a class="reference external" href="https://bugs.python.org/issue10679">issue 10679</a>)。</p>
+<li><p class="first">スクリプト <em>idle</em>, <em>pydoc</em>, <em>2to3</em> が <code class="docutils literal"><span class="pre">make</span> <span class="pre">altinstall</span></code> 時にバージョン固有のサフィックスを付けてインストールされるようになりました (<a class="reference external" href="https://bugs.python.org/issue10679">bpo-10679</a>)。</p>
 </li>
 <li><p class="first">Unicode データベースにアクセスする関数 (Py_UNICODE_TOLOWER, Py_UNICODE_ISDECIMAL, ほか) が、たとえ narrow Unicode ビルドであっても full Unicode 範囲を受け付け、返すようになりました。Python から目に見える違いとしては、大きなコードポイントについて <a class="reference internal" href="../library/unicodedata.html#unicodedata.numeric" title="unicodedata.numeric"><code class="xref py py-func docutils literal"><span class="pre">unicodedata.numeric()</span></code></a> が正しい値を返し、 <a class="reference internal" href="../library/functions.html#repr" title="repr"><code class="xref py py-func docutils literal"><span class="pre">repr()</span></code></a> はより多くの文字を表示可能と考えるようになりました。</p>
-<p>(Reported by Bupjoe Lee and fixed by Amaury Forgeot D&#8217;Arc; <a class="reference external" href="https://bugs.python.org/issue5127">issue 5127</a>.)</p>
+<p>(Reported by Bupjoe Lee and fixed by Amaury Forgeot D&#8217;Arc; <a class="reference external" href="https://bugs.python.org/issue5127">bpo-5127</a>.)</p>
 </li>
 <li><p class="first">Computed gotos are now enabled by default on supported compilers (which are
 detected by the configure script).  They can still be disabled selectively by
 specifying <code class="docutils literal"><span class="pre">--without-computed-gotos</span></code>.</p>
-<p>(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue9203">issue 9203</a>.)</p>
+<p>(Contributed by Antoine Pitrou; <a class="reference external" href="https://bugs.python.org/issue9203">bpo-9203</a>.)</p>
 </li>
 <li><p class="first">オプション <code class="docutils literal"><span class="pre">--with-wctype-functions</span></code> は削除されました。今では組み込みの Unicode データベースが全ての関数のために使われます。</p>
-<p>(Contributed by Amaury Forgeot D&#8217;Arc; <a class="reference external" href="https://bugs.python.org/issue9210">issue 9210</a>.)</p>
+<p>(Contributed by Amaury Forgeot D&#8217;Arc; <a class="reference external" href="https://bugs.python.org/issue9210">bpo-9210</a>.)</p>
 </li>
 <li><p class="first">ハッシュ値として新しい型 <code class="xref c c-type docutils literal"><span class="pre">Py_hash_t</span></code> を使うようになりました。これはポインタと同じサイズになるように定義されています。以前は long 型を使っていましたが、これはいくつかの 64 ビット OS でも 32 ビット長のままでした。この修正の結果、64 ビットポインタでビルドすれば <a class="reference internal" href="../library/stdtypes.html#set" title="set"><code class="xref py py-class docutils literal"><span class="pre">set</span></code></a> と <a class="reference internal" href="../library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> が <code class="docutils literal"><span class="pre">2**32</span></code> 以上のエントリを持てるようになりました (以前もそのサイズを入れることは出来ましたが、悲劇的なパフォーマンス低下を起こしていました)。</p>
 <p>(Suggested by Raymond Hettinger and implemented by Benjamin Peterson;
-<a class="reference external" href="https://bugs.python.org/issue9778">issue 9778</a>.)</p>
+<a class="reference external" href="https://bugs.python.org/issue9778">bpo-9778</a>.)</p>
 </li>
-<li><p class="first">新規マクロ <code class="xref c c-macro docutils literal"><span class="pre">Py_VA_COPY</span></code> は可変引数リストの状態をコピーします。これは C99 の <em>va_copy</em> と等価ですが、全ての Python プラットフォームで利用出来ます (<a class="reference external" href="https://bugs.python.org/issue2443">issue 2443</a>)。(&#8212;訳注: 全ての Python プラットフォーム、というよりは、プラットフォームの C コンパイラに関係なく、ということ。&#8212;)</p>
+<li><p class="first">新規マクロ <code class="xref c c-macro docutils literal"><span class="pre">Py_VA_COPY</span></code> は可変引数リストの状態をコピーします。これは C99 の <em>va_copy</em> と等価ですが、全ての Python プラットフォームで利用出来ます (<a class="reference external" href="https://bugs.python.org/issue2443">bpo-2443</a>)。(&#8212;訳注: 全ての Python プラットフォーム、というよりは、プラットフォームの C コンパイラに関係なく、ということ。&#8212;)</p>
 </li>
-<li><p class="first">新規 C API 関数 <a class="reference internal" href="../c-api/init.html#c.PySys_SetArgvEx" title="PySys_SetArgvEx"><code class="xref c c-func docutils literal"><span class="pre">PySys_SetArgvEx()</span></code></a> を使うと埋め込みインタプリタの <a class="reference internal" href="../library/sys.html#sys.argv" title="sys.argv"><code class="xref py py-attr docutils literal"><span class="pre">sys.argv</span></code></a> をセット出来ますが、既存の <a class="reference internal" href="../c-api/init.html#c.PySys_SetArgv" title="PySys_SetArgv"><code class="xref c c-func docutils literal"><span class="pre">PySys_SetArgv()</span></code></a> と違って <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-attr docutils literal"><span class="pre">sys.path</span></code></a> を更新しないことも出来ます (<a class="reference external" href="https://bugs.python.org/issue5753">issue 5753</a>)。</p>
+<li><p class="first">新規 C API 関数 <a class="reference internal" href="../c-api/init.html#c.PySys_SetArgvEx" title="PySys_SetArgvEx"><code class="xref c c-func docutils literal"><span class="pre">PySys_SetArgvEx()</span></code></a> を使うと埋め込みインタプリタの <a class="reference internal" href="../library/sys.html#sys.argv" title="sys.argv"><code class="xref py py-attr docutils literal"><span class="pre">sys.argv</span></code></a> をセット出来ますが、既存の <a class="reference internal" href="../c-api/init.html#c.PySys_SetArgv" title="PySys_SetArgv"><code class="xref c c-func docutils literal"><span class="pre">PySys_SetArgv()</span></code></a> と違って <a class="reference internal" href="../library/sys.html#sys.path" title="sys.path"><code class="xref py py-attr docutils literal"><span class="pre">sys.path</span></code></a> を更新しないことも出来ます (<a class="reference external" href="https://bugs.python.org/issue5753">bpo-5753</a>)。</p>
 </li>
-<li><p class="first"><code class="xref c c-macro docutils literal"><span class="pre">PyEval_CallObject</span></code> はマクロ形式でのみ利用可能となりました。関数宣言は後方互換のために残されていましたが削除されました。 &#8211; マクロは 1997 年に導入されています (<a class="reference external" href="https://bugs.python.org/issue8276">issue 8276</a>)。</p>
+<li><p class="first"><code class="xref c c-macro docutils literal"><span class="pre">PyEval_CallObject</span></code> はマクロ形式でのみ利用可能となりました。関数宣言は後方互換のために残されていましたが削除されました。 &#8211; マクロは 1997 年に導入されています (<a class="reference external" href="https://bugs.python.org/issue8276">bpo-8276</a>)。</p>
 </li>
-<li><p class="first"><a class="reference internal" href="../c-api/long.html#c.PyLong_AsLongAndOverflow" title="PyLong_AsLongAndOverflow"><code class="xref c c-func docutils literal"><span class="pre">PyLong_AsLongAndOverflow()</span></code></a> の姉妹品の <a class="reference internal" href="../c-api/long.html#c.PyLong_AsLongLongAndOverflow" title="PyLong_AsLongLongAndOverflow"><code class="xref c c-func docutils literal"><span class="pre">PyLong_AsLongLongAndOverflow()</span></code></a> 関数が追加されました。両方とも Python <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> を C ネイティブの固定幅型に変換しますが、変換が幅に合わないことを検出します (<a class="reference external" href="https://bugs.python.org/issue7767">issue 7767</a>)。</p>
+<li><p class="first"><a class="reference internal" href="../c-api/long.html#c.PyLong_AsLongAndOverflow" title="PyLong_AsLongAndOverflow"><code class="xref c c-func docutils literal"><span class="pre">PyLong_AsLongAndOverflow()</span></code></a> の姉妹品の <a class="reference internal" href="../c-api/long.html#c.PyLong_AsLongLongAndOverflow" title="PyLong_AsLongLongAndOverflow"><code class="xref c c-func docutils literal"><span class="pre">PyLong_AsLongLongAndOverflow()</span></code></a> 関数が追加されました。両方とも Python <a class="reference internal" href="../library/functions.html#int" title="int"><code class="xref py py-class docutils literal"><span class="pre">int</span></code></a> を C ネイティブの固定幅型に変換しますが、変換が幅に合わないことを検出します (<a class="reference external" href="https://bugs.python.org/issue7767">bpo-7767</a>)。</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../c-api/unicode.html#c.PyUnicode_CompareWithASCIIString" title="PyUnicode_CompareWithASCIIString"><code class="xref c c-func docutils literal"><span class="pre">PyUnicode_CompareWithASCIIString()</span></code></a> 関数が、Python 文字列が <em>NUL</em> 終端である場合に「 <em>等しくない</em> 」を返すようになりました。</p>
 </li>
-<li><p class="first">新しい関数 <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_NewExceptionWithDoc" title="PyErr_NewExceptionWithDoc"><code class="xref c c-func docutils literal"><span class="pre">PyErr_NewExceptionWithDoc()</span></code></a> は <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_NewException" title="PyErr_NewException"><code class="xref c c-func docutils literal"><span class="pre">PyErr_NewException()</span></code></a> と似ていますが、ドキュメンテーション文字列を受け付けます。これは C 拡張に、対応するピュア Python と同じ自己文書化 (self-documenting) 能力を与えます (<a class="reference external" href="https://bugs.python.org/issue7033">issue 7033</a>)。</p>
+<li><p class="first">新しい関数 <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_NewExceptionWithDoc" title="PyErr_NewExceptionWithDoc"><code class="xref c c-func docutils literal"><span class="pre">PyErr_NewExceptionWithDoc()</span></code></a> は <a class="reference internal" href="../c-api/exceptions.html#c.PyErr_NewException" title="PyErr_NewException"><code class="xref c c-func docutils literal"><span class="pre">PyErr_NewException()</span></code></a> と似ていますが、ドキュメンテーション文字列を受け付けます。これは C 拡張に、対応するピュア Python と同じ自己文書化 (self-documenting) 能力を与えます (<a class="reference external" href="https://bugs.python.org/issue7033">bpo-7033</a>)。</p>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">--with-valgrind</span></code> オプションとともにコンパイル時、 Valgrind のもとでの実行時に自動的に pymalloc アロケータが無効になるようになりました。ほかの状況では pymalloc は有利ですが、Valgrind 配下での実行時のメモリリーク検出では無効化したほうが良い結果が得られます (<a class="reference external" href="https://bugs.python.org/issue2422">issue 2422</a>)。</p>
+<li><p class="first"><code class="docutils literal"><span class="pre">--with-valgrind</span></code> オプションとともにコンパイル時、 Valgrind のもとでの実行時に自動的に pymalloc アロケータが無効になるようになりました。ほかの状況では pymalloc は有利ですが、Valgrind 配下での実行時のメモリリーク検出では無効化したほうが良い結果が得られます (<a class="reference external" href="https://bugs.python.org/issue2422">bpo-2422</a>)。</p>
 </li>
-<li><p class="first"><em>PyArg_Parse</em> 関数から書式文字列 <code class="docutils literal"><span class="pre">O?</span></code> が削除されました。これはもう使われていませんし、今まで一度も文書化されたことはありません (<a class="reference external" href="https://bugs.python.org/issue8837">issue 8837</a>)。</p>
+<li><p class="first"><em>PyArg_Parse</em> 関数から書式文字列 <code class="docutils literal"><span class="pre">O?</span></code> が削除されました。これはもう使われていませんし、今まで一度も文書化されたことはありません (<a class="reference external" href="https://bugs.python.org/issue8837">bpo-8837</a>)。</p>
 </li>
 </ul>
-<p>ほかにも C API に対する小さな変更が多数行われました。完全なリストは <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Misc/NEWS">Misc/NEWS</a> ファイルにあります。</p>
+<p>ほかにも C API に対する小さな変更が多数行われました。完全なリストは <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Misc/NEWS">Misc/NEWS</a> ファイルにあります。</p>
 <p>Also, there were a number of updates to the Mac OS X build, see
-<a class="reference external" href="https://hg.python.org/cpython/file/3.5/Mac/BuildScript/README.txt">Mac/BuildScript/README.txt</a> for details.  For users running a 32/64-bit
+<a class="reference external" href="https://github.com/python/cpython/tree/3.5/Mac/BuildScript/README.txt">Mac/BuildScript/README.txt</a> for details.  For users running a 32/64-bit
 build, there is a known problem with the default Tcl/Tk on Mac OS X 10.6.
 Accordingly, we recommend installing an updated alternative such as
 <a class="reference external" href="https://www.activestate.com/activetcl/downloads">ActiveState Tcl/Tk 8.5.9</a>.
@@ -1945,7 +1946,7 @@ See <a class="reference external" href="https://www.python.org/download/mac/tclt
 </li>
 <li><p class="first"><a class="reference internal" href="../library/functions.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> オブジェクトはもうファイル名には使えません。代わりに <a class="reference internal" href="../library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> に変換しなければいけません。</p>
 </li>
-<li><p class="first"><code class="xref py py-meth docutils literal"><span class="pre">array.tostring()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">array.fromstring()</span></code> がそれぞれ <code class="xref py py-meth docutils literal"><span class="pre">array.tobytes()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">array.frombytes()</span></code> に名称変更されました。言ってることとやってることを合わせるためです。古い名前は非推奨となりました。 (<a class="reference external" href="https://bugs.python.org/issue8990">issue 8990</a> 参照。)</p>
+<li><p class="first"><code class="xref py py-meth docutils literal"><span class="pre">array.tostring()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">array.fromstring()</span></code> がそれぞれ <code class="xref py py-meth docutils literal"><span class="pre">array.tobytes()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">array.frombytes()</span></code> に名称変更されました。言ってることとやってることを合わせるためです。古い名前は非推奨となりました。 (<a class="reference external" href="https://bugs.python.org/issue8990">bpo-8990</a> 参照。)</p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">PyArg_Parse*()</span></code> 系関数:</p>
 <ul class="simple">
@@ -1962,7 +1963,7 @@ See <a class="reference external" href="https://www.python.org/download/mac/tclt
 <li><p class="first"><a class="reference internal" href="../library/random.html#random.seed" title="random.seed"><code class="xref py py-func docutils literal"><span class="pre">random.seed()</span></code></a> 関数とメソッドが、salt に文字列やバイト列を与えた場合に内部で sha512 ハッシュ関数を使うようになりました。Python 3.1 シーケンスを再現するのに以前のバージョンの <em>seed</em> が必要であれば、 <em>version</em> 引数を <em>1</em> にしてください。 <code class="docutils literal"><span class="pre">random.seed(s,</span> <span class="pre">version=1)</span></code> のように。</p>
 </li>
 <li><p class="first">以前にそれぞれの静的メソッド <a class="reference internal" href="../library/stdtypes.html#bytes.maketrans" title="bytes.maketrans"><code class="xref py py-meth docutils literal"><span class="pre">bytes.maketrans()</span></code></a> と <a class="reference internal" href="../library/stdtypes.html#bytearray.maketrans" title="bytearray.maketrans"><code class="xref py py-meth docutils literal"><span class="pre">bytearray.maketrans()</span></code></a> に置き換えられたために非推奨となった <code class="xref py py-func docutils literal"><span class="pre">string.maketrans()</span></code> 関数が削除されました。この変更は、 <a class="reference internal" href="../library/string.html#module-string" title="string: Common string operations."><code class="xref py py-mod docutils literal"><span class="pre">string</span></code></a> によってサポートされるのがどちらの型なのかにまつわる混乱を解決します。今や <a class="reference internal" href="../library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a>, <a class="reference internal" href="../library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a>, <a class="reference internal" href="../library/functions.html#bytearray" title="bytearray"><code class="xref py py-class docutils literal"><span class="pre">bytearray</span></code></a> は、その適切な型の中間変換テーブルを持つそれぞれの <strong>maketrans</strong> 、 <strong>translate</strong> メソッドを持っています。</p>
-<p>(Contributed by Georg Brandl; <a class="reference external" href="https://bugs.python.org/issue5675">issue 5675</a>.)</p>
+<p>(Contributed by Georg Brandl; <a class="reference external" href="https://bugs.python.org/issue5675">bpo-5675</a>.)</p>
 </li>
 <li><p class="first">以前に非推奨となった <code class="xref py py-func docutils literal"><span class="pre">contextlib.nested()</span></code> が削除されました。普通の <a class="reference internal" href="../reference/compound_stmts.html#with"><code class="xref std std-keyword docutils literal"><span class="pre">with</span></code></a> が複数のコンテクストマネージャを許容するように強化されたからです。これは (組み込みなので) 高速であり、複数コンテクストマネージャのうち一つが例外を送出した際にそれらのファイナライズをとても上手く処理します:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;mylog.txt&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">infile</span><span class="p">,</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;a.out&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">outfile</span><span class="p">:</span>
@@ -1975,7 +1976,7 @@ See <a class="reference external" href="https://www.python.org/download/mac/tclt
 </li>
 <li><p class="first"><a class="reference internal" href="../library/struct.html#struct.pack" title="struct.pack"><code class="xref py py-func docutils literal"><span class="pre">struct.pack()</span></code></a> は、文字列パックコード <code class="docutils literal"><span class="pre">s</span></code> で bytes のみを許容するようになりました。以前はテキスト引数を受け取って暗黙に UTF-8 でエンコードして bytes に変換していました。特定のエンコーディングを前提にするのは間違っていますし、可変長のエンコーディングは構造体の固定長セグメントへの書き込みで失敗しうるので、これは問題でした。</p>
 <p>例えば <code class="docutils literal"><span class="pre">struct.pack('&lt;6sHHBBB',</span> <span class="pre">'GIF87a',</span> <span class="pre">x,</span> <span class="pre">y)</span></code> としているならば、テキストではなく bytes を使うように <code class="docutils literal"><span class="pre">struct.pack('&lt;6sHHBBB',</span> <span class="pre">b'GIF87a',</span> <span class="pre">x,</span> <span class="pre">y)</span></code> と書き換えなければなりません。</p>
-<p>(Discovered by David Beazley and fixed by Victor Stinner; <a class="reference external" href="https://bugs.python.org/issue10783">issue 10783</a>.)</p>
+<p>(Discovered by David Beazley and fixed by Victor Stinner; <a class="reference external" href="https://bugs.python.org/issue10783">bpo-10783</a>.)</p>
 </li>
 <li><p class="first">The <a class="reference internal" href="../library/xml.etree.elementtree.html#module-xml.etree.ElementTree" title="xml.etree.ElementTree: Implementation of the ElementTree API."><code class="xref py py-class docutils literal"><span class="pre">xml.etree.ElementTree</span></code></a> class now raises an
 <a class="reference internal" href="../library/xml.etree.elementtree.html#xml.etree.ElementTree.ParseError" title="xml.etree.ElementTree.ParseError"><code class="xref py py-exc docutils literal"><span class="pre">xml.etree.ElementTree.ParseError</span></code></a> when a parse fails. Previously it
@@ -1986,15 +1987,15 @@ raised an <a class="reference internal" href="../library/pyexpat.html#xml.parser
 <li><p class="first"><a class="reference internal" href="../library/subprocess.html#subprocess.Popen" title="subprocess.Popen"><code class="xref py py-class docutils literal"><span class="pre">subprocess.Popen</span></code></a> の <em>close_fds</em> のデフォルトが、Unix では <code class="docutils literal"><span class="pre">True</span></code> になりました。Windows では 3 つの標準ストリームに <code class="docutils literal"><span class="pre">None</span></code> がセットされている場合には <code class="docutils literal"><span class="pre">True</span></code> 、以外の場合は <code class="docutils literal"><span class="pre">False</span></code> になりました。以前は <em>close_fds</em> のデフォルトはいつでも <code class="docutils literal"><span class="pre">False</span></code> でした。これは開いているファイル記述子が子プロセスに漏れた場合に解決が難しいバグや競合状態を生み出していました。</p>
 </li>
 <li><p class="first">レガシーな HTTP 0.9 のサポートが <a class="reference internal" href="../library/urllib.request.html#module-urllib.request" title="urllib.request: Extensible library for opening URLs."><code class="xref py py-mod docutils literal"><span class="pre">urllib.request</span></code></a> と <a class="reference internal" href="../library/http.client.html#module-http.client" title="http.client: HTTP and HTTPS protocol client (requires sockets)."><code class="xref py py-mod docutils literal"><span class="pre">http.client</span></code></a> から削除されました。このサポートはサーバサイドではまだ健在です (<a class="reference internal" href="../library/http.server.html#module-http.server" title="http.server: HTTP server and request handlers."><code class="xref py py-mod docutils literal"><span class="pre">http.server</span></code></a> 内)。</p>
-<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue10711">issue 10711</a>.)</p>
+<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue10711">bpo-10711</a>.)</p>
 </li>
 <li><p class="first">タイムアウトモード時の SSL ソケットでタイムアウトした場合に、汎用の <a class="reference internal" href="../library/ssl.html#ssl.SSLError" title="ssl.SSLError"><code class="xref py py-exc docutils literal"><span class="pre">SSLError</span></code></a> ではなく <a class="reference internal" href="../library/socket.html#socket.timeout" title="socket.timeout"><code class="xref py py-exc docutils literal"><span class="pre">socket.timeout</span></code></a> を投げるようになりました。</p>
-<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue10272">issue 10272</a>.)</p>
+<p>(Contributed by Antoine Pitrou, <a class="reference external" href="https://bugs.python.org/issue10272">bpo-10272</a>.)</p>
 </li>
 <li><p class="first">紛らわしい関数 <a class="reference internal" href="../c-api/init.html#c.PyEval_AcquireLock" title="PyEval_AcquireLock"><code class="xref c c-func docutils literal"><span class="pre">PyEval_AcquireLock()</span></code></a> と <a class="reference internal" href="../c-api/init.html#c.PyEval_ReleaseLock" title="PyEval_ReleaseLock"><code class="xref c c-func docutils literal"><span class="pre">PyEval_ReleaseLock()</span></code></a> が公式に非推奨となりました。スレッド状態に関知する API (例えば <a class="reference internal" href="../c-api/init.html#c.PyEval_SaveThread" title="PyEval_SaveThread"><code class="xref c c-func docutils literal"><span class="pre">PyEval_SaveThread()</span></code></a> と <a class="reference internal" href="../c-api/init.html#c.PyEval_RestoreThread" title="PyEval_RestoreThread"><code class="xref c c-func docutils literal"><span class="pre">PyEval_RestoreThread()</span></code></a>) を代わりに使うべきです。</p>
 </li>
 <li><p class="first">セキュリティリスクがあるので <code class="xref py py-func docutils literal"><span class="pre">asyncore.handle_accept()</span></code> は非推奨となり、それを置き換える新しい関数 <code class="xref py py-func docutils literal"><span class="pre">asyncore.handle_accepted()</span></code> が追加されました。</p>
-<p>(Contributed by Giampaolo Rodola in <a class="reference external" href="https://bugs.python.org/issue6706">issue 6706</a>.)</p>
+<p>(Contributed by Giampaolo Rodola in <a class="reference external" href="https://bugs.python.org/issue6706">bpo-6706</a>.)</p>
 </li>
 <li><p class="first">新しい <a class="reference internal" href="../glossary.html#term-gil"><span class="xref std std-term">GIL</span></a> 実装によって、 <a class="reference internal" href="../c-api/init.html#c.Py_Initialize" title="Py_Initialize"><code class="xref c c-func docutils literal"><span class="pre">Py_Initialize()</span></code></a> の前に <a class="reference internal" href="../c-api/init.html#c.PyEval_InitThreads" title="PyEval_InitThreads"><code class="xref c c-func docutils literal"><span class="pre">PyEval_InitThreads()</span></code></a> を呼び出すことはもう出来なくなりました。</p>
 </li>
@@ -2094,8 +2095,11 @@ raised an <a class="reference internal" href="../library/pyexpat.html#xml.parser
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/3.2.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/whatsnew/3.2.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -2121,7 +2125,7 @@ raised an <a class="reference internal" href="../library/pyexpat.html#xml.parser
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -2149,7 +2153,7 @@ raised an <a class="reference internal" href="../library/pyexpat.html#xml.parser
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

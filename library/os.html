@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>16.1. os — 雑多なオペレーティングシステムインタフェース &#8212; Python 3.5.2 ドキュメント</title>
+    <title>16.1. os — 雑多なオペレーティングシステムインタフェース &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="16. 汎用オペレーティングシステムサービス" href="allos.html" />
     <link rel="next" title="16.2. io — ストリームを扱うコアツール" href="io.html" />
     <link rel="prev" title="16. 汎用オペレーティングシステムサービス" href="allos.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/os.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/os.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-os">
 <span id="os-miscellaneous-operating-system-interfaces"></span><h1>16.1. <a class="reference internal" href="#module-os" title="os: Miscellaneous operating system interfaces."><code class="xref py py-mod docutils literal"><span class="pre">os</span></code></a> &#8212; 雑多なオペレーティングシステムインタフェース<a class="headerlink" href="#module-os" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/os.py">Lib/os.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/os.py">Lib/os.py</a></p>
 <hr class="docutils" />
 <p>このモジュールは、 OS 依存の機能を利用するポータブルな方法を提供します。単純なファイルの読み書きについては、 <a class="reference internal" href="functions.html#open" title="open"><code class="xref py py-func docutils literal"><span class="pre">open()</span></code></a> を参照してください。パス操作については、 <a class="reference internal" href="os.path.html#module-os.path" title="os.path: Operations on pathnames."><code class="xref py py-mod docutils literal"><span class="pre">os.path</span></code></a> モジュールを参照してください。コマンドラインに与えられたすべてのファイルから行を読み込んでいくには、 <a class="reference internal" href="fileinput.html#module-fileinput" title="fileinput: Loop over standard input or a list of files."><code class="xref py py-mod docutils literal"><span class="pre">fileinput</span></code></a> モジュールを参照してください。一時ファイルや一時ディレクトリの作成については、 <a class="reference internal" href="tempfile.html#module-tempfile" title="tempfile: Generate temporary files and directories."><code class="xref py py-mod docutils literal"><span class="pre">tempfile</span></code></a> モジュールを参照してください。高水準のファイルとディレクトリの操作については、 <a class="reference internal" href="shutil.html#module-shutil" title="shutil: High-level file operations, including copying."><code class="xref py py-mod docutils literal"><span class="pre">shutil</span></code></a> モジュールを参照してください。</p>
 <p>利用可能性に関する注意 :</p>
@@ -1427,7 +1428,7 @@ EOF に達した場合は 0 を返します。</p>
 <p><span class="versionmodified">バージョン 3.2 で追加: </span>引数 <em>exist_ok</em> が追加されました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.4.1 で変更: </span>Python 3.4.1 より前、 <em>exist_ok</em> が <code class="docutils literal"><span class="pre">True</span></code> でそのディレクトリが既存の場合でも、 <a class="reference internal" href="#os.makedirs" title="os.makedirs"><code class="xref py py-func docutils literal"><span class="pre">makedirs()</span></code></a> は <em>mode</em> が既存ディレクトリのモードと合わない場合にはエラーにしようとしていました。このモードチェックの振る舞いを安全に実装することが出来なかったため、 Python 3.4.1 でこのチェックは削除されました。 <a class="reference external" href="https://bugs.python.org/issue21082">issue 21082</a> を参照してください。</p>
+<p><span class="versionmodified">バージョン 3.4.1 で変更: </span>Python 3.4.1 より前、 <em>exist_ok</em> が <code class="docutils literal"><span class="pre">True</span></code> でそのディレクトリが既存の場合でも、 <a class="reference internal" href="#os.makedirs" title="os.makedirs"><code class="xref py py-func docutils literal"><span class="pre">makedirs()</span></code></a> は <em>mode</em> が既存ディレクトリのモードと合わない場合にはエラーにしようとしていました。このモードチェックの振る舞いを安全に実装することが出来なかったため、 Python 3.4.1 でこのチェックは削除されました。 <a class="reference external" href="https://bugs.python.org/issue21082">bpo-21082</a> を参照してください。</p>
 </div>
 </dd></dl>
 
@@ -1667,7 +1668,10 @@ functions.</p>
 <dl class="function">
 <dt id="os.stat">
 <code class="descclassname">os.</code><code class="descname">stat</code><span class="sig-paren">(</span><em>path</em>, <em>*</em>, <em>dir_fd=None</em>, <em>follow_symlinks=True</em><span class="sig-paren">)</span><a class="headerlink" href="#os.stat" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>ファイルまたはファイル記述子についての状態を取得します。与えられた <em>path</em> に対して <code class="xref c c-func docutils literal"><span class="pre">stat()</span></code> システムコール相当の処理を実行します。 <em>path</em> は文字列または、開かれたファイルのファイル記述子です。 <a class="reference internal" href="#os.stat_result" title="os.stat_result"><code class="xref py py-class docutils literal"><span class="pre">stat_result</span></code></a> を返します。</p>
+<dd><p>Get the status of a file or a file descriptor. Perform the equivalent of a
+<code class="xref c c-func docutils literal"><span class="pre">stat()</span></code> system call on the given path. <em>path</em> may be specified as
+either a string, a bytes or as an open file descriptor. Return a <a class="reference internal" href="#os.stat_result" title="os.stat_result"><code class="xref py py-class docutils literal"><span class="pre">stat_result</span></code></a>
+object.</p>
 <p>この関数は通常はシンボリックリンクをたどります。シンボリックリンクに対して stat したい場合は <code class="docutils literal"><span class="pre">follow_symlinks=False</span></code> とするか、 <a class="reference internal" href="#os.lstat" title="os.lstat"><code class="xref py py-func docutils literal"><span class="pre">lstat()</span></code></a> を利用してください。</p>
 <p>この関数は <a class="reference internal" href="#path-fd"><span class="std std-ref">ファイル記述子の指定</span></a> および <a class="reference internal" href="#follow-symlinks"><span class="std std-ref">シンボリックリンクをたどらない</span></a> をサポートしています。</p>
 <p id="index-21">例</p>
@@ -2982,8 +2986,11 @@ functions.</p>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/os.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/os.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -3009,7 +3016,7 @@ functions.</p>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -3038,7 +3045,7 @@ functions.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

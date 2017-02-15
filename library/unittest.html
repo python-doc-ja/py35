@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>26.4. unittest — ユニットテストフレームワーク &#8212; Python 3.5.2 ドキュメント</title>
+    <title>26.4. unittest — ユニットテストフレームワーク &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="26. 開発ツール" href="development.html" />
     <link rel="next" title="26.5. unittest.mock — モックオブジェクトライブラリ" href="unittest.mock.html" />
     <link rel="prev" title="26.3. doctest — 対話的な実行例をテストする" href="doctest.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/unittest.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/unittest.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-unittest">
 <span id="unittest-unit-testing-framework"></span><h1>26.4. <a class="reference internal" href="#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal"><span class="pre">unittest</span></code></a> &#8212; ユニットテストフレームワーク<a class="headerlink" href="#module-unittest" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/unittest/__init__.py">Lib/unittest/__init__.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/unittest/__init__.py">Lib/unittest/__init__.py</a></p>
 <hr class="docutils" />
 <p>(すでにテストの基本概念について詳しいようでしたら、この部分をとばして <a class="reference internal" href="#assert-methods"><span class="std std-ref">アサートメソッド一覧</span></a> に進むと良いでしょう。)</p>
 <p><a class="reference internal" href="#module-unittest" title="unittest: Unit testing framework for Python."><code class="xref py py-mod docutils literal"><span class="pre">unittest</span></code></a> ユニットテストフレームワークは元々 JUnit に触発されたもので、
@@ -1403,7 +1404,10 @@
 <dl class="class">
 <dt id="unittest.TestSuite">
 <em class="property">class </em><code class="descclassname">unittest.</code><code class="descname">TestSuite</code><span class="sig-paren">(</span><em>tests=()</em><span class="sig-paren">)</span><a class="headerlink" href="#unittest.TestSuite" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>このクラスは、個々のテストケースやテストスイートの集約を示します。通常のテストケースと同じようにテストランナーで実行するためのインタフェースを備えています。 <a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> インスタンスを実行することはスイートの繰り返しを使って個々のテストを実行することと同じです。</p>
+<dd><p>This class represents an aggregation of individual test cases and test suites.
+The class presents the interface needed by the test runner to allow it to be run
+as any other test case.  Running a <a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> instance is the same as
+iterating over the suite, running each test individually.</p>
 <p>引数 <em>tests</em> が指定された場合、それはテストケースに亘る繰り返し可能オブジェクトまたは内部でスイートを組み立てるための他のテストスイートでなければなりません。後からテストケースやスイートをコレクションに付け加えるためのメソッドも提供されています。</p>
 <p><a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> は <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> オブジェクトのように振る舞います。違いは、スイートにはテストを実装しない点にあります。代わりに、テストをまとめてグループ化して、同時に実行します。 <a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> のインスタンスにテスト追加するためのメソッドが用意されています:</p>
 <dl class="method">
@@ -1482,7 +1486,8 @@
 <dl class="method">
 <dt id="unittest.TestLoader.loadTestsFromTestCase">
 <code class="descname">loadTestsFromTestCase</code><span class="sig-paren">(</span><em>testCaseClass</em><span class="sig-paren">)</span><a class="headerlink" href="#unittest.TestLoader.loadTestsFromTestCase" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> の派生クラス <code class="xref py py-class docutils literal"><span class="pre">testCaseClass</span></code> に含まれる全テストケースのスイートを返します。</p>
+<dd><p>Return a suite of all test cases contained in the <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a>-derived
+<code class="xref py py-class docutils literal"><span class="pre">testCaseClass</span></code>.</p>
 <p><a class="reference internal" href="#unittest.TestLoader.getTestCaseNames" title="unittest.TestLoader.getTestCaseNames"><code class="xref py py-meth docutils literal"><span class="pre">getTestCaseNames()</span></code></a> で指定されたメソッドに対し、テストケースインスタンスが作成されます。
 デフォルトでは <code class="docutils literal"><span class="pre">test</span></code> で始まる名前のメソッド群です。
 <a class="reference internal" href="#unittest.TestLoader.getTestCaseNames" title="unittest.TestLoader.getTestCaseNames"><code class="xref py py-meth docutils literal"><span class="pre">getTestCaseNames()</span></code></a> がメソッド名を返さなかったが、 <code class="xref py py-meth docutils literal"><span class="pre">runTest()</span></code> メソッドが実装されている場合は、そのメソッドに対するテストケースが代わりに作成されます。</p>
@@ -1491,7 +1496,10 @@
 <dl class="method">
 <dt id="unittest.TestLoader.loadTestsFromModule">
 <code class="descname">loadTestsFromModule</code><span class="sig-paren">(</span><em>module</em>, <em>pattern=None</em><span class="sig-paren">)</span><a class="headerlink" href="#unittest.TestLoader.loadTestsFromModule" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>指定したモジュールに含まれる全テストケースのスイートを返します。このメソッドは <em>module</em> 内の <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> 派生クラスを検索し、見つかったクラスのテストメソッドごとにクラスのインスタンスを作成します。</p>
+<dd><p>Return a suite of all test cases contained in the given module. This
+method searches <em>module</em> for classes derived from <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> and
+creates an instance of the class for each test method defined for the
+class.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last"><a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> クラスを基底クラスとしてクラス階層を構築するとテストフィクスチャや補助的な関数をうまく共用することができますが、基底クラスに直接インスタンス化できないテストメソッドがあると、この <code class="xref py py-meth docutils literal"><span class="pre">loadTestsFromModule()</span></code> を使うことができません。この場合でも、 fixture が全て別々で定義がサブクラスにある場合は使用することができます。</p>
@@ -1512,15 +1520,15 @@
 <dl class="method">
 <dt id="unittest.TestLoader.loadTestsFromName">
 <code class="descname">loadTestsFromName</code><span class="sig-paren">(</span><em>name</em>, <em>module=None</em><span class="sig-paren">)</span><a class="headerlink" href="#unittest.TestLoader.loadTestsFromName" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>文字列で指定される全テストケースを含むスイートを返します。</p>
+<dd><p>Return a suite of all test cases given a string specifier.</p>
 <p><em>name</em> には &#8220;ドット修飾名&#8221; でモジュールかテストケースクラス、テストケースクラス内のメソッド、 <a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> インスタンスまたは <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> か <a class="reference internal" href="#unittest.TestSuite" title="unittest.TestSuite"><code class="xref py py-class docutils literal"><span class="pre">TestSuite</span></code></a> のインスタンスを返す呼び出し可能オブジェクトを指定します。このチェックはここで挙げた順番に行なわれます。すなわち、候補テストケースクラス内のメソッドは「呼び出し可能オブジェクト」としてではなく「テストケースクラス内のメソッド」として拾い出されます。</p>
 <p>例えば <code class="xref py py-mod docutils literal"><span class="pre">SampleTests</span></code> モジュールに <a class="reference internal" href="#unittest.TestCase" title="unittest.TestCase"><code class="xref py py-class docutils literal"><span class="pre">TestCase</span></code></a> から派生した <code class="xref py py-class docutils literal"><span class="pre">SampleTestCase</span></code> クラスがあり、 <code class="xref py py-class docutils literal"><span class="pre">SampleTestCase</span></code> にはテストメソッド <code class="xref py py-meth docutils literal"><span class="pre">test_one()</span></code> ・ <code class="xref py py-meth docutils literal"><span class="pre">test_two()</span></code> ・ <code class="xref py py-meth docutils literal"><span class="pre">test_three()</span></code> があるとします。この場合、 <em>name</em> に <code class="docutils literal"><span class="pre">'SampleTests.SampleTestCase'</span></code> と指定すると、 <code class="xref py py-class docutils literal"><span class="pre">SampleTestCase</span></code> の三つのテストメソッドを実行するテストスイートが作成されます。 <code class="docutils literal"><span class="pre">'SampleTests.SampleTestCase.test_two'</span></code> と指定すれば、 <code class="xref py py-meth docutils literal"><span class="pre">test_two()</span></code> だけを実行するテストスイートが作成されます。インポートされていないモジュールやパッケージ名を含んだ名前を指定した場合は自動的にインポートされます。</p>
 <p>また、<em>module</em> を指定した場合、<em>module</em> 内の <em>name</em> を取得します。</p>
-</dd></dl>
-
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.5 で変更: </span><em>name</em> を巡回している間に <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal"><span class="pre">ImportError</span></code></a> か <a class="reference internal" href="exceptions.html#AttributeError" title="AttributeError"><code class="xref py py-exc docutils literal"><span class="pre">AttributeError</span></code></a> が発生した場合、実行するとその例外を発生させるようなテストを合成して返します。それらのエラーは self.errors に集められます。</p>
 </div>
+</dd></dl>
+
 <dl class="method">
 <dt id="unittest.TestLoader.loadTestsFromNames">
 <code class="descname">loadTestsFromNames</code><span class="sig-paren">(</span><em>names</em>, <em>module=None</em><span class="sig-paren">)</span><a class="headerlink" href="#unittest.TestLoader.loadTestsFromNames" title="この定義へのパーマリンク">¶</a></dt>
@@ -2040,8 +2048,11 @@ Python の <code class="xref std std-option docutils literal"><span class="pre">
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/unittest.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/unittest.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -2067,7 +2078,7 @@ Python の <code class="xref std std-option docutils literal"><span class="pre">
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -2096,7 +2107,7 @@ Python の <code class="xref std std-option docutils literal"><span class="pre">
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

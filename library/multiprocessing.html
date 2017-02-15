@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>17.2. multiprocessing — プロセスベースの並列処理 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>17.2. multiprocessing — プロセスベースの並列処理 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="17. 並行実行" href="concurrency.html" />
     <link rel="next" title="17.3. concurrent パッケージ" href="concurrent.html" />
     <link rel="prev" title="17.1. threading — スレッドベースの並列処理" href="threading.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/multiprocessing.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/multiprocessing.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-multiprocessing">
 <span id="multiprocessing-process-based-parallelism"></span><h1>17.2. <a class="reference internal" href="#module-multiprocessing" title="multiprocessing: Process-based parallelism."><code class="xref py py-mod docutils literal"><span class="pre">multiprocessing</span></code></a> &#8212; プロセスベースの並列処理<a class="headerlink" href="#module-multiprocessing" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/multiprocessing/">Lib/multiprocessing/</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/multiprocessing/">Lib/multiprocessing/</a></p>
 <hr class="docutils" />
 <div class="section" id="introduction">
 <h2>17.2.1. はじめに<a class="headerlink" href="#introduction" title="このヘッドラインへのパーマリンク">¶</a></h2>
@@ -680,7 +681,7 @@
 
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">このクラスに含まれる機能には、ホストとなるオペレーティングシステム上で動作している共有セマフォ (shared semaphore) を使用しているものがあります。これが使用できない場合には、このクラスが無効になり、 <a class="reference internal" href="#multiprocessing.Queue" title="multiprocessing.Queue"><code class="xref py py-class docutils literal"><span class="pre">Queue</span></code></a> をインスタンス化する時に <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal"><span class="pre">ImportError</span></code></a> が発生します。詳細は <a class="reference external" href="https://bugs.python.org/issue3770">issue 3770</a> を参照してください。同様のことが、以下に列挙されている特殊なキューでも成り立ちます。</p>
+<p class="last">このクラスに含まれる機能には、ホストとなるオペレーティングシステム上で動作している共有セマフォ (shared semaphore) を使用しているものがあります。これが使用できない場合には、このクラスが無効になり、 <a class="reference internal" href="#multiprocessing.Queue" title="multiprocessing.Queue"><code class="xref py py-class docutils literal"><span class="pre">Queue</span></code></a> をインスタンス化する時に <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal"><span class="pre">ImportError</span></code></a> が発生します。詳細は <a class="reference external" href="https://bugs.python.org/issue3770">bpo-3770</a> を参照してください。同様のことが、以下に列挙されている特殊なキューでも成り立ちます。</p>
 </div>
 </dd></dl>
 
@@ -1042,7 +1043,7 @@
 </div>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
-<p class="last">このパッケージに含まれる機能には、ホストとなるオペレーティングシステム上で動作している共有セマフォを使用しているものがあります。これが使用できない場合には、<code class="xref py py-mod docutils literal"><span class="pre">multiprocessing.synchronize</span></code> モジュールが無効になり、このモジュールのインポート時に <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal"><span class="pre">ImportError</span></code></a> が発生します。詳細は <a class="reference external" href="https://bugs.python.org/issue3770">issue 3770</a> を参照してください。</p>
+<p class="last">このパッケージに含まれる機能には、ホストとなるオペレーティングシステム上で動作している共有セマフォを使用しているものがあります。これが使用できない場合には、<code class="xref py py-mod docutils literal"><span class="pre">multiprocessing.synchronize</span></code> モジュールが無効になり、このモジュールのインポート時に <a class="reference internal" href="exceptions.html#ImportError" title="ImportError"><code class="xref py py-exc docutils literal"><span class="pre">ImportError</span></code></a> が発生します。詳細は <a class="reference external" href="https://bugs.python.org/issue3770">bpo-3770</a> を参照してください。</p>
 </div>
 </div>
 <div class="section" id="shared-ctypes-objects">
@@ -2090,7 +2091,7 @@ HELLO WORLD
     <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_cache</span>
 </pre></div>
 </div>
-<p>より詳しい情報は <a class="reference external" href="https://bugs.python.org/issue5155">issue 5155</a> 、 <a class="reference external" href="https://bugs.python.org/issue5313">issue 5313</a> 、 <a class="reference external" href="https://bugs.python.org/issue5331">issue 5331</a> を見てください</p>
+<p>より詳しい情報は <a class="reference external" href="https://bugs.python.org/issue5155">bpo-5155</a> 、 <a class="reference external" href="https://bugs.python.org/issue5313">bpo-5313</a> 、 <a class="reference external" href="https://bugs.python.org/issue5331">bpo-5331</a> を見てください</p>
 </div></blockquote>
 </div>
 <div class="section" id="the-spawn-and-forkserver-start-methods">
@@ -2537,8 +2538,11 @@ HELLO WORLD
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/multiprocessing.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/multiprocessing.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -2564,7 +2568,7 @@ HELLO WORLD
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -2593,7 +2597,7 @@ HELLO WORLD
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

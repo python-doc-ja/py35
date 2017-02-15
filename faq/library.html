@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>ライブラリと拡張 FAQ &#8212; Python 3.5.2 ドキュメント</title>
+    <title>ライブラリと拡張 FAQ &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="Python よくある質問" href="index.html" />
     <link rel="next" title="拡張と埋め込み FAQ" href="extending.html" />
     <link rel="prev" title="デザインと歴史 FAQ" href="design.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/faq/library.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/faq/library.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -212,7 +213,7 @@
 </div>
 <div class="section" id="is-there-a-curses-termcap-package-for-python">
 <h3><a class="toc-backref" href="#id6">Python には curses/termcap パッケージはありますか？</a><a class="headerlink" href="#is-there-a-curses-termcap-package-for-python" title="このヘッドラインへのパーマリンク">¶</a></h3>
-<p>Unix 系 OS において: 標準の Python ソースディストリビューションには <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Modules">Modules</a> サブディレクトリに curses モジュールが付いてきますが、デフォルトではコンパイルされていません。 (これは Windows 用ディストリビューションでは利用できないことに注意してください &#8211; Windows には curses モジュールはありません。)</p>
+<p>Unix 系 OS において: 標準の Python ソースディストリビューションには <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Modules">Modules</a> サブディレクトリに curses モジュールが付いてきますが、デフォルトではコンパイルされていません。 (これは Windows 用ディストリビューションでは利用できないことに注意してください &#8211; Windows には curses モジュールはありません。)</p>
 <p><a class="reference internal" href="../library/curses.html#module-curses" title="curses: An interface to the curses library, providing portable terminal handling. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">curses</span></code></a> モジュールは基本的な curses の機能や、色付きの表示、別の文字集合サポート、パッド、マウスサポートなどの ncurses や SYSV curses の多くの機能をサポートしています。このことは、モジュールが BSD curses だけしか持っていない OS とは互換性が無いことを意味しますが、現在メンテナンスされている OS でそういう類のものは無さそうです。</p>
 <p>Windows では: <a class="reference external" href="http://effbot.org/zone/console-index.htm">the consolelib module</a> を使ってください。</p>
 </div>
@@ -624,8 +625,11 @@ Worker &lt;Thread(worker 1, started 130283832797456)&gt; running with argument 5
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/faq/library.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/faq/library.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -651,7 +655,7 @@ Worker &lt;Thread(worker 1, started 130283832797456)&gt; running with argument 5
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -679,7 +683,7 @@ Worker &lt;Thread(worker 1, started 130283832797456)&gt; running with argument 5
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

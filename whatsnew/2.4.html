@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s New in Python 2.4 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>What’s New in Python 2.4 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.3" href="2.3.html" />
     <link rel="prev" title="What’s New in Python 2.5" href="2.5.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.4.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/whatsnew/2.4.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -426,7 +427,10 @@
 <span class="go">1.1000000000000001</span>
 </pre></div>
 </div>
-<p>この不正確さは数値を表示する際にいつでも目に見えるわけではありません。浮動小数点数から文字列への変換が C ライブラリによって提供されていて、C ライブラリのほとんどが賢明な出力を生成しようと頑張っているからです。それが表示されないにしても、不正確さはそれでも存在していて、後続の計算への誤差が大きくなりえます。</p>
+<p>The inaccuracy isn&#8217;t always visible when you print the number because the
+FP-to-decimal-string conversion is provided by the C library, and most C libraries try
+to produce sensible output.  Even if it&#8217;s not displayed, however, the inaccuracy
+is still there and subsequent operations can magnify the error.</p>
 <p>多くのアプリケーションではこれは重要ではありません。モニタにプロットして表示するのに 1.1 と 1.1000000000000001 の差は小さすぎて見えません。大抵は出力を一定の桁位置までに制限して出力するものですし、2 やら 3 やら 8 桁などの位置で丸めたりすれば誤差は決して露わにはなりません。ですがそれが重要なアプリケーションにとっては、あなた自身のカスタム数学ルーチンのための実装作業は膨大になります。</p>
 <p>こうして <code class="xref py py-class docutils literal"><span class="pre">Decimal</span></code> 型が作られました。</p>
 </div>
@@ -474,7 +478,8 @@
 <span class="gr">decimal.InvalidOperation</span>: <span class="n">x ** (non-integer)</span>
 </pre></div>
 </div>
-<p><code class="xref py py-class docutils literal"><span class="pre">Decimal</span></code> インスタンスと整数は混ぜて使えますが、浮動小数点数とは出来ません:</p>
+<p>You can combine <code class="xref py py-class docutils literal"><span class="pre">Decimal</span></code> instances with integers, but not with
+floating-point numbers:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mi">4</span>
 <span class="go">Decimal(&quot;39.72&quot;)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">+</span> <span class="mf">4.5</span>
@@ -540,8 +545,8 @@
 <dd><p class="first last">Facundo Batista によって著され、Facundo Batista, Eric Price, Raymond Hettinger, Aahz,  Tim Peters らによって実装されました。</p>
 </dd>
 <dt><a class="reference external" href="http://www.lahey.com/float.htm">http://www.lahey.com/float.htm</a></dt>
-<dd><p class="first last">この記事は浮動小数点数の不正確さが起こりうるたくさんの問題について、Fortran コードを使って解説しています。</p>
-</dd>
+<dd>The article uses Fortran code to illustrate many of the problems that
+floating-point inaccuracy can cause.</dd>
 <dt><a class="reference external" href="http://speleotrove.com/decimal/">http://speleotrove.com/decimal/</a></dt>
 <dd><p class="first last">10 進数ベースの表現についての記述です(訳注: decimal-based は小数ベースとも 10 進数ベースとも取れるのですが、後者にしておきました)。この表現方法は標準として提案されていて、この Python の decimal 型の基礎になっています。この題材の多くが Rexx 言語設計者である Mike Cowlishaw によって著されました。</p>
 </dd>
@@ -578,7 +583,10 @@
 <div class="section" id="pep-331-locale-independent-float-string-conversions">
 <h2>PEP 331: Locale に依存しない Float/String 変換<a class="headerlink" href="#pep-331-locale-independent-float-string-conversions" title="このヘッドラインへのパーマリンク">¶</a></h2>
 <p><a class="reference internal" href="../library/locale.html#module-locale" title="locale: Internationalization services."><code class="xref py py-mod docutils literal"><span class="pre">locale</span></code></a> モジュールにより、Python ソフトウェアは特定の国や言語の地域化をする色々な変換や表示の変換を選択出来ます。ところがこのモジュールは、数値ロケールを変更しないように気を配らなければなりませんでした。というのも Python 内の色んな関数実装が、数値ロケールが <code class="docutils literal"><span class="pre">'C'</span></code> ロケールにセットされたままであることを必要としていたからです。しばしばこれは、コードが C ライブラリの <code class="xref c c-func docutils literal"><span class="pre">atof()</span></code> 関数を使っていることに原因がありました。</p>
-<p>ところが、数値ロケールをセットしないことはサードパーティの C ライブラリを使う拡張で問題を起こしました。それらが正しいロケールをセットしようとしないからです。動機となった例が GTK+ でした。そのユーザインターフェイスウィジットが、数値を現在のロケールに従って表示していませんでした。</p>
+<p>Not setting the numeric locale caused trouble for extensions that used third-party
+C libraries, however, because they wouldn&#8217;t have the correct locale set.
+The motivating example was GTK+, whose user interface widgets weren&#8217;t displaying
+numbers in the current locale.</p>
 <p>この PEP に記述された解法は、ロケール設定を無視して ASCII のみの変換を実施する 3 つの新しい Python API 関数を追加することです:</p>
 <ul class="simple">
 <li><p class="first"><code class="docutils literal"><span class="pre">PyOS_ascii_strtod(str,</span> <span class="pre">ptr)</span></code>  と <code class="docutils literal"><span class="pre">PyOS_ascii_atof(str,</span> <span class="pre">ptr)</span></code> はともに、文字列を C の <code class="xref c c-type docutils literal"><span class="pre">double</span></code> に変換します。</p>
@@ -701,7 +709,10 @@ letting extensions such as GTK+  produce the correct results.</p>
 </div>
 <p>(Contributed by Raymond Hettinger.)</p>
 </li>
-<li><p class="first">モジュールインポートが失敗した場合に <code class="docutils literal"><span class="pre">sys.modules</span></code> に部分的に初期化されてしまったモジュールオブジェクトを残さないように修正されました。その残ってしまった不完全モジュールは後続での同じモジュールのインポートを成功していると騙し、ややこしいエラーを引き起こしていました。 (Fixed by Tim Peters.)</p>
+<li><p class="first">Encountering a failure while importing a module no longer leaves a partially-initialized
+module object in <code class="docutils literal"><span class="pre">sys.modules</span></code>.  The incomplete module object left
+behind would fool further imports of the same module into succeeding, leading to
+confusing errors.   (Fixed by Tim Peters.)</p>
 </li>
 <li><p class="first"><a class="reference internal" href="../library/constants.html#None" title="None"><code class="xref py py-const docutils literal"><span class="pre">None</span></code></a> が定数になっています。 <code class="docutils literal"><span class="pre">None</span></code> という名前に新しい値を割り当てようとするコードは、今では構文エラーになります。 (Contributed by Raymond Hettinger.)</p>
 </li>
@@ -778,7 +789,10 @@ shift-jis, shift-jisx0213, shift-jis-2004</p>
 </li>
 <li><p class="first">UTF-8, UTF-16 コーデックが部分的な入力を受け取った場合により上手に処理するようになりました。以前は <code class="xref py py-class docutils literal"><span class="pre">StreamReader</span></code> クラスは不足データを読み出そうと試みるために、それがストリームからデコード処理を再開することを不可能にしていました。 <code class="xref py py-meth docutils literal"><span class="pre">read()</span></code> メソッドは今ではそのとき読めているデータを返し、次の呼び出しで以前の読み残しのデコード処理から再開します。(Implemented by Walter Dörwald.)</p>
 </li>
-<li><p class="first">色々な特殊化されたコレクション型のために、モジュール <a class="reference internal" href="../library/collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal"><span class="pre">collections</span></code></a> が追加されました。現在のところこれには唯一つ、 <code class="xref py py-class docutils literal"><span class="pre">deque</span></code> 型のみが含まれています。これは両端キュー (double- ended queue) で、両端への要素の追加、両端からの要素の削除を効率的にサポートします:</p>
+<li><p class="first">There is a new <a class="reference internal" href="../library/collections.html#module-collections" title="collections: Container datatypes"><code class="xref py py-mod docutils literal"><span class="pre">collections</span></code></a> module for  various specialized collection
+datatypes.  Currently it contains just one type, <code class="xref py py-class docutils literal"><span class="pre">deque</span></code>, a double-ended
+queue that supports efficiently adding and removing elements from either
+end:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">deque</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span> <span class="o">=</span> <span class="n">deque</span><span class="p">(</span><span class="s1">&#39;ghi&#39;</span><span class="p">)</span>        <span class="c1"># make a new deque with three items</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">d</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">&#39;j&#39;</span><span class="p">)</span>           <span class="c1"># add a new entry to the right side</span>
@@ -1049,8 +1063,8 @@ Differences (unified diff with -expected +actual):
 intended as an aid to people developing the Python core.  Providing
 <code class="xref std std-option docutils literal"><span class="pre">--enable-profiling</span></code> to the <strong class="program">configure</strong> script will let you
 profile the interpreter with <strong class="program">gprof</strong>, and providing the
-<code class="xref std std-option docutils literal"><span class="pre">--with-tsc</span></code> switch enables profiling using the Pentium&#8217;s Time-Stamp-
-Counter register.  Note that the <code class="xref std std-option docutils literal"><span class="pre">--with-tsc</span></code> switch is slightly
+<code class="xref std std-option docutils literal"><span class="pre">--with-tsc</span></code> switch enables profiling using the Pentium&#8217;s
+Time-Stamp-Counter register.  Note that the <code class="xref std std-option docutils literal"><span class="pre">--with-tsc</span></code> switch is slightly
 misnamed, because the profiling feature also works on the PowerPC platform,
 though that processor architecture doesn&#8217;t call that register &#8220;the TSC
 register&#8221;.  (Contributed by Jeremy Hylton.)</li>
@@ -1087,8 +1101,8 @@ a <a class="reference internal" href="../library/exceptions.html#TypeError" titl
 </li>
 <li><p class="first"><a class="reference internal" href="../library/tarfile.html#module-tarfile" title="tarfile: Read and write tar-format archive files."><code class="xref py py-mod docutils literal"><span class="pre">tarfile</span></code></a> モジュールがデフォルトで GNU フォーマットを生成するようになっています。</p>
 </li>
-<li><p class="first">モジュールインポートが失敗した場合に <code class="docutils literal"><span class="pre">sys.modules</span></code> に部分的に初期化されてしまったモジュールオブジェクトを残さないように修正されました。</p>
-</li>
+<li>Encountering a failure while importing a module no longer leaves a
+partially-initialized module object in <code class="docutils literal"><span class="pre">sys.modules</span></code>.</li>
 <li><p class="first"><a class="reference internal" href="../library/constants.html#None" title="None"><code class="xref py py-const docutils literal"><span class="pre">None</span></code></a> が定数になっています。 <code class="docutils literal"><span class="pre">None</span></code> という名前に新しい値を割り当てようとするコードは、今では構文エラーになります。</p>
 </li>
 <li><p class="first"><code class="xref py py-func docutils literal"><span class="pre">signals.signal()</span></code> 関数は、ある種の不正な値では <a class="reference internal" href="../library/exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></code></a> を投げるようになっています。以前はこれらエラーは黙って通していました。例えばもう <code class="xref py py-const docutils literal"><span class="pre">SIGKILL</span></code> へはハンドラは渡せません。</p>
@@ -1154,8 +1168,11 @@ a <a class="reference internal" href="../library/exceptions.html#TypeError" titl
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.4.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/whatsnew/2.4.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1181,7 +1198,7 @@ a <a class="reference internal" href="../library/exceptions.html#TypeError" titl
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1209,7 +1226,7 @@ a <a class="reference internal" href="../library/exceptions.html#TypeError" titl
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

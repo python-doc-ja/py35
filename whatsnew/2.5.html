@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>What’s New in Python 2.5 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>What’s New in Python 2.5 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="What’s New in Python" href="index.html" />
     <link rel="next" title="What’s New in Python 2.4" href="2.4.html" />
     <link rel="prev" title="What’s New in Python 2.6" href="2.6.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/whatsnew/2.5.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/whatsnew/2.5.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -173,7 +174,10 @@
 <span class="n">server_log</span><span class="p">(</span><span class="s1">&#39;Unable to open socket&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>もうひとつ、PyGTK を使うプログラムからの例をみてみましょう。いま、「コンテキスト依存」のポップアップメニューを動的に構築しようとしています。そのメニューオプションから提供されるコールバックは、 <code class="xref py py-meth docutils literal"><span class="pre">open_item()</span></code> メソッドの部分適用版で、その最初の引数が適用済みです:</p>
+<p>Here&#8217;s another example, from a program that uses PyGTK.  Here a context-sensitive
+pop-up menu is being constructed dynamically.  The callback provided
+for the menu option is a partially applied version of the <code class="xref py py-meth docutils literal"><span class="pre">open_item()</span></code>
+method, where the first argument has been provided.</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="o">...</span>
 <span class="k">class</span> <span class="nc">Application</span><span class="p">:</span>
     <span class="k">def</span> <span class="nf">open_item</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
@@ -183,7 +187,11 @@
         <span class="n">popup_menu</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="s2">&quot;Open&quot;</span><span class="p">,</span> <span class="n">open_func</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
-<p><a class="reference internal" href="../library/functools.html#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> のもう一つの関数は <code class="docutils literal"><span class="pre">update_wrapper(wrapper,</span> <span class="pre">wrapped)</span></code> で、より良く振舞うデコレータを書くのに役立ちます。 <code class="xref py py-func docutils literal"><span class="pre">update_wrapper()</span></code> は包まれるほうの名前、モジュール、ドキュメンテーション文字列属性をラッパー関数にコピーすることで、トレースバックを理解しやすくします。たとえばこう書けます:</p>
+<p>Another function in the <a class="reference internal" href="../library/functools.html#module-functools" title="functools: Higher-order functions and operations on callable objects."><code class="xref py py-mod docutils literal"><span class="pre">functools</span></code></a> module is the
+<code class="docutils literal"><span class="pre">update_wrapper(wrapper,</span> <span class="pre">wrapped)</span></code> function that helps you write
+well-behaved decorators.  <code class="xref py py-func docutils literal"><span class="pre">update_wrapper()</span></code> copies the name, module, and
+docstring attribute to a wrapper function so that tracebacks inside the wrapped
+function are easier to understand.  For example, you might write:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_decorator</span><span class="p">(</span><span class="n">f</span><span class="p">):</span>
     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
         <span class="nb">print</span> <span class="s1">&#39;Calling decorated function&#39;</span>
@@ -255,7 +263,13 @@ options.</p>
 <p><code class="file docutils literal"><span class="pre">main.py</span></code> のなかの人、になってみましょう。 <code class="docutils literal"><span class="pre">import</span> <span class="pre">string</span></code> 文を実行すると、何が起こるでしょうか? Python 2.4 とそれ以前のバージョンでは、相対インポートとして実行するためにパッケージのディレクトリ内のものを最初に探し、 <code class="file docutils literal"><span class="pre">pkg/string.py</span></code> を発見してそのファイル内容を <code class="xref py py-mod docutils literal"><span class="pre">pkg.string</span></code> モジュールであるとしてインポートし、そのモジュールは <code class="xref py py-mod docutils literal"><span class="pre">pkg.main</span></code> モジュール内の名前空間で、名前 <code class="docutils literal"><span class="pre">string</span></code> に束縛されます。</p>
 <p>よろしいでしょう。欲しいものが <code class="xref py py-mod docutils literal"><span class="pre">pkg.string</span></code> であるならば。ですが欲しいのは Python 標準ライブラリモジュールの <a class="reference internal" href="../library/string.html#module-string" title="string: Common string operations."><code class="xref py py-mod docutils literal"><span class="pre">string</span></code></a> なのだとしたら? <code class="xref py py-mod docutils literal"><span class="pre">pkg.string</span></code> を無視して標準モジュールを探す綺麗な方法はありません; 一般的に、 <code class="docutils literal"><span class="pre">sys.modules</span></code> の中身から探す必要がありました。これはちょっとばかり美しくありません。Holger Krekel の <code class="xref py py-mod docutils literal"><span class="pre">py.std</span></code> パッケージは標準ライブラリからモジュールをインポートするのに <code class="docutils literal"><span class="pre">import</span> <span class="pre">py;</span> <span class="pre">py.std.string.join()</span></code> と、よりこぎれいな方法を与えてくれますが、そのパッケージは全ての Python インストレーションでの利用が可能にはなっていません。</p>
 <p>相対インポートに頼ったコードを読むことは、より不明瞭でもあります。読者は <a class="reference internal" href="../library/string.html#module-string" title="string: Common string operations."><code class="xref py py-mod docutils literal"><span class="pre">string</span></code></a> と <code class="xref py py-mod docutils literal"><span class="pre">pkg.string</span></code> のどちらを使おうとしているのかについて、混乱するだろうからです。Python ユーザはすぐに、彼らのパッケージのサブモジュール名が標準ライブラリモジュールの名前と被らないようにすることを学びますが、あなたのサブモジュール名が将来のバージョンの Python に追加される新しいモジュールで使われる名前にならないようにすることは出来ません。</p>
-<p>Python 2.5 では <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal"><span class="pre">import</span></code></a> の振る舞いを、 <code class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">absolute_import</span></code> ディレクティブを使うことによって絶対インポートに切り替えられます。この絶対インポートの振る舞いは将来バージョンの Python でデフォルトになります(おそらく Python 2.7 で)。(訳注: ご承知のとおり Python 2.7 でもこれはデフォルトとはなっていません。Python 3.x への移行のためにも 2.5 - 2.7 では <code class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">absolute_import</span></code> を使うべきです。) 絶対インポートをデフォルトにしてしまえば、 <code class="docutils literal"><span class="pre">import</span> <span class="pre">string</span></code> はいつでも標準ライブラリ版を見つけます。ユーザは可能な限り絶対インポートを使い始めるべきで、あなたのコードでは <code class="docutils literal"><span class="pre">from</span> <span class="pre">pkg</span> <span class="pre">import</span> <span class="pre">string</span></code> と書き始めることが望まれます。</p>
+<p>In Python 2.5, you can switch <a class="reference internal" href="../reference/simple_stmts.html#import"><code class="xref std std-keyword docutils literal"><span class="pre">import</span></code></a>&#8216;s behaviour to  absolute imports
+using a <code class="docutils literal"><span class="pre">from</span> <span class="pre">__future__</span> <span class="pre">import</span> <span class="pre">absolute_import</span></code> directive.  This absolute-import
+behaviour will become the default in a future version (probably Python
+2.7).  Once absolute imports  are the default, <code class="docutils literal"><span class="pre">import</span> <span class="pre">string</span></code> will always
+find the standard library&#8217;s version. It&#8217;s suggested that users should begin
+using absolute imports as much as possible, so it&#8217;s preferable to begin writing
+<code class="docutils literal"><span class="pre">from</span> <span class="pre">pkg</span> <span class="pre">import</span> <span class="pre">string</span></code> in your code.</p>
 <p>相対インポートは、 <code class="docutils literal"><span class="pre">from</span> <span class="pre">...</span> <span class="pre">import</span></code> 形式を使う際にモジュール名の前にピリオドを付ければまだ可能です:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="c1"># Import names from pkg.string</span>
 <span class="kn">from</span> <span class="nn">.string</span> <span class="k">import</span> <span class="n">name1</span><span class="p">,</span> <span class="n">name2</span>
@@ -422,7 +436,9 @@ options.</p>
         <span class="o">...</span> <span class="n">more</span> <span class="n">processing</span> <span class="n">code</span> <span class="o">...</span>
 </pre></div>
 </div>
-<p>このステートメントが実行し終わったあかつきには、 <em>f</em> のファイルオブジェクトは、たとえ <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> ループが道半ばにして例外と成り果てても、自動的にクローズされます。</p>
+<p>After this statement has executed, the file object in <em>f</em> will have been
+automatically closed, even if the <a class="reference internal" href="../reference/compound_stmts.html#for"><code class="xref std std-keyword docutils literal"><span class="pre">for</span></code></a> loop raised an exception
+part-way through the block.</p>
 <div class="admonition note">
 <p class="first admonition-title">注釈</p>
 <p class="last">このケースでは、 <em>f</em> は <a class="reference internal" href="../library/functions.html#open" title="open"><code class="xref py py-func docutils literal"><span class="pre">open()</span></code></a> が作ったオブジェクトと同じです。これはファイルオブジェクトの <code class="xref py py-meth docutils literal"><span class="pre">file.__enter__()</span></code> が <em>self</em> を返しているからです。</p>
@@ -944,7 +960,10 @@ In Python code, netlink addresses are represented as a tuple of 2 integers,
 <span class="n">year</span><span class="p">,</span> <span class="n">number</span><span class="p">,</span> <span class="n">name</span> <span class="o">=</span> <span class="n">s</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>直接的にバッファオブジェクトを介した pack と unpack も可能で、 <code class="docutils literal"><span class="pre">pack_into(buffer,</span> <span class="pre">offset,</span> <span class="pre">v1,</span> <span class="pre">v2,</span> <span class="pre">...)</span></code> と <code class="docutils literal"><span class="pre">unpack_from(buffer,</span> <span class="pre">offset)</span></code> メソッドを使います。これにより array やメモリマップドファイルにデータを直接格納出来ます。</p>
+<p>You can also pack and unpack data to and from buffer objects directly using the
+<code class="docutils literal"><span class="pre">pack_into(buffer,</span> <span class="pre">offset,</span> <span class="pre">v1,</span> <span class="pre">v2,</span> <span class="pre">...)</span></code> and <code class="docutils literal"><span class="pre">unpack_from(buffer,</span>
+<span class="pre">offset)</span></code> methods.  This lets you store data directly into an array or a
+memory-mapped file.</p>
 <p>(<code class="xref py py-class docutils literal"><span class="pre">Struct</span></code> objects were implemented by Bob Ippolito at the NeedForSpeed
 sprint.  Support for buffer objects was added by Martin Blais, also at the
 NeedForSpeed sprint.)</p>
@@ -1404,7 +1423,7 @@ the NeedForSpeed sprint.)</p>
 <li>MacOS X: an <code class="xref std std-option docutils literal"><span class="pre">--enable-universalsdk</span></code> switch was added to the
 <strong class="program">configure</strong> script that compiles the interpreter as a universal binary
 able to run on both PowerPC and Intel processors. (Contributed by Ronald
-Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573">issue 2573</a>.)</li>
+Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573">bpo-2573</a>.)</li>
 <li><p class="first">Windows: <code class="file docutils literal"><span class="pre">.dll</span></code> はもはや拡張モジュールのファイル拡張子としてはサポートされません。これからは <code class="file docutils literal"><span class="pre">.pyd</span></code> だけが拡張モジュールとして検索されるファイル拡張子です。</p>
 </li>
 </ul>
@@ -1436,7 +1455,12 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
 </div>
 <div class="section" id="acknowledgements">
 <h2>謝辞<a class="headerlink" href="#acknowledgements" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>著者は提案の申し出や修正、様々なこの記事の草稿の助けをしてくれた以下の人々に感謝します:  Georg Brandl, Nick Coghlan, Phillip J. Eby, Lars Gustäbel, Raymond Hettinger, Ralf W. Grosse- Kunstleve, Kent Johnson, Iain Lowe, Martin von Löwis, Fredrik Lundh, Andrew McNamara, Skip Montanaro, Gustavo Niemeyer, Paul Prescod, James Pryor, Mike Rovner, Scott Weikart, Barry Warsaw, Thomas Wouters.</p>
+<p>The author would like to thank the following people for offering suggestions,
+corrections and assistance with various drafts of this article: Georg Brandl,
+Nick Coghlan, Phillip J. Eby, Lars Gustäbel, Raymond Hettinger, Ralf W.
+Grosse-Kunstleve, Kent Johnson, Iain Lowe, Martin von Löwis, Fredrik Lundh, Andrew
+McNamara, Skip Montanaro, Gustavo Niemeyer, Paul Prescod, James Pryor, Mike
+Rovner, Scott Weikart, Barry Warsaw, Thomas Wouters.</p>
 </div>
 </div>
 
@@ -1497,8 +1521,11 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/whatsnew/2.5.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/whatsnew/2.5.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1524,7 +1551,7 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1552,7 +1579,7 @@ Oussoren; <a class="reference external" href="https://bugs.python.org/issue2573"
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

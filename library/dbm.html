@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>12.5. dbm — Unix “データベース” へのインタフェース &#8212; Python 3.5.2 ドキュメント</title>
+    <title>12.5. dbm — Unix “データベース” へのインタフェース &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="12. データの永続化" href="persistence.html" />
     <link rel="next" title="12.6. sqlite3 — SQLite データベースに対する DB-API 2.0 インタフェース" href="sqlite3.html" />
     <link rel="prev" title="12.4. marshal — 内部使用向けの Python オブジェクト整列化" href="marshal.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/dbm.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/dbm.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-dbm">
 <span id="dbm-interfaces-to-unix-databases"></span><h1>12.5. <a class="reference internal" href="#module-dbm" title="dbm: Interfaces to various Unix &quot;database&quot; formats."><code class="xref py py-mod docutils literal"><span class="pre">dbm</span></code></a> &#8212; Unix &#8220;データベース&#8221; へのインタフェース<a class="headerlink" href="#module-dbm" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/dbm/__init__.py">Lib/dbm/__init__.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/dbm/__init__.py">Lib/dbm/__init__.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-dbm" title="dbm: Interfaces to various Unix &quot;database&quot; formats."><code class="xref py py-mod docutils literal"><span class="pre">dbm</span></code></a> は DBM データベースのいくつかの種類 ( <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU's reinterpretation of dbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.gnu</span></code></a> または <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.ndbm</span></code></a> ) に対する汎用的なインタフェースです。これらのモジュールのどれもインストールされていなければ、モジュール <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal"><span class="pre">dbm.dumb</span></code></a> に含まれる低速だが単純な実装が使用されます。Oracle Berkeley DB に対する <a class="reference external" href="https://www.jcea.es/programacion/pybsddb.htm">サードパーティのインタフェース</a> があります。</p>
 <dl class="exception">
@@ -206,7 +207,7 @@
 <p>個々のサブモジュールは以降の節で説明されます。</p>
 <div class="section" id="module-dbm.gnu">
 <span id="dbm-gnu-gnu-s-reinterpretation-of-dbm"></span><h2>12.5.1. <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU's reinterpretation of dbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.gnu</span></code></a> &#8212; GNU による dbm 拡張<a class="headerlink" href="#module-dbm.gnu" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/dbm/gnu.py">Lib/dbm/gnu.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/dbm/gnu.py">Lib/dbm/gnu.py</a></p>
 <hr class="docutils" />
 <p>このモジュールは <a class="reference internal" href="#module-dbm" title="dbm: Interfaces to various Unix &quot;database&quot; formats."><code class="xref py py-mod docutils literal"><span class="pre">dbm</span></code></a> モジュールによく似ていますが、GNU ライブラリ <code class="docutils literal"><span class="pre">gdbm</span></code> を使っていくつかの追加機能を提供しています。 <a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU's reinterpretation of dbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.gnu</span></code></a> と <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.ndbm</span></code></a> では生成されるファイル形式に互換性がないので注意してください。</p>
 <p><a class="reference internal" href="#module-dbm.gnu" title="dbm.gnu: GNU's reinterpretation of dbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.gnu</span></code></a> モジュールでは GNU DBM ライブラリへのインタフェースを提供します。 <code class="docutils literal"><span class="pre">dbm.gnu.gdbm</span></code> オブジェクトはキーと値が必ず保存の前にバイト列に変換されることを除き、マップ型 (辞書型) と同じように動作します。 <code class="docutils literal"><span class="pre">gdbm</span></code> オブジェクトに対して <a class="reference internal" href="functions.html#print" title="print"><code class="xref py py-func docutils literal"><span class="pre">print()</span></code></a> を適用してもキーや値を印字することはなく、 <code class="xref py py-meth docutils literal"><span class="pre">items()</span></code> 及び <code class="xref py py-meth docutils literal"><span class="pre">values()</span></code> メソッドはサポートされていません。</p>
@@ -324,7 +325,7 @@
 </div>
 <div class="section" id="module-dbm.ndbm">
 <span id="dbm-ndbm-interface-based-on-ndbm"></span><h2>12.5.2. <a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.ndbm</span></code></a> &#8212; ndbm に基づくインタフェース<a class="headerlink" href="#module-dbm.ndbm" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/dbm/ndbm.py">Lib/dbm/ndbm.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/dbm/ndbm.py">Lib/dbm/ndbm.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-dbm.ndbm" title="dbm.ndbm: The standard &quot;database&quot; interface, based on ndbm. (Unix)"><code class="xref py py-mod docutils literal"><span class="pre">dbm.ndbm</span></code></a> モジュールはUnixの&#8221;(n)dbm&#8221;ライブラリのインタフェースを提供します。 dbmオブジェクトは、キーと値が必ずバイト列である以外は辞書オブジェクトのようなふるまいをします。 print関数などで <code class="docutils literal"><span class="pre">dbm</span></code> オブジェクトを出力してもキーと値は出力されません。また、 <code class="xref py py-meth docutils literal"><span class="pre">items()</span></code> と <code class="xref py py-meth docutils literal"><span class="pre">values()</span></code> メソッドはサポートされません。</p>
 <p>このモジュールは、GNU GDBM互換インタフェースを持った &#8220;クラシックな&#8221; ndbmインタフェースを使うことができます。 Unix上のビルド時に <strong class="program">configure</strong> スクリプトで適切なヘッダファイルが割り当られます。</p>
@@ -389,7 +390,7 @@
 </div>
 <div class="section" id="module-dbm.dumb">
 <span id="dbm-dumb-portable-dbm-implementation"></span><h2>12.5.3. <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal"><span class="pre">dbm.dumb</span></code></a> &#8212; 可搬性のある DBM 実装<a class="headerlink" href="#module-dbm.dumb" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/dbm/dumb.py">Lib/dbm/dumb.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/dbm/dumb.py">Lib/dbm/dumb.py</a></p>
 <div class="admonition note" id="index-0">
 <p class="first admonition-title">注釈</p>
 <p class="last"><a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal"><span class="pre">dbm.dumb</span></code></a> モジュールは、 <a class="reference internal" href="#module-dbm" title="dbm: Interfaces to various Unix &quot;database&quot; formats."><code class="xref py py-mod docutils literal"><span class="pre">dbm</span></code></a> が頑健なモジュールを他に見つけることができなかった際の最後の手段とされています。 <a class="reference internal" href="#module-dbm.dumb" title="dbm.dumb: Portable implementation of the simple DBM interface."><code class="xref py py-mod docutils literal"><span class="pre">dbm.dumb</span></code></a> モジュールは速度を重視して書かれているわけではなく、他のデータベースモジュールのように重い使い方をするためのものではありません。</p>
@@ -456,8 +457,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/dbm.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/dbm.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -483,7 +487,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -512,7 +516,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

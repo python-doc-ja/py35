@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>18.1. socket — 低水準ネットワークインターフェース &#8212; Python 3.5.2 ドキュメント</title>
+    <title>18.1. socket — 低水準ネットワークインターフェース &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="18. プロセス間通信とネットワーク" href="ipc.html" />
     <link rel="next" title="18.2. ssl — ソケットオブジェクトに対する TLS/SSL ラッパー" href="ssl.html" />
     <link rel="prev" title="18. プロセス間通信とネットワーク" href="ipc.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/socket.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/socket.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-socket">
 <span id="socket-low-level-networking-interface"></span><h1>18.1. <a class="reference internal" href="#module-socket" title="socket: Low-level networking interface."><code class="xref py py-mod docutils literal"><span class="pre">socket</span></code></a> &#8212; 低水準ネットワークインターフェース<a class="headerlink" href="#module-socket" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/socket.py">Lib/socket.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/socket.py">Lib/socket.py</a></p>
 <hr class="docutils" />
 <p>このモジュールはBSDの <em>ソケット(socket)</em> インターフェースへのアクセスを提供します。これは、近代的なUnixシステム、Windows、MacOS、その他多くのプラットフォームで動作します。</p>
 <div class="admonition note">
@@ -1109,8 +1110,8 @@ start reading the file. If specified, <em>count</em> is the total number of byte
 to transmit as opposed to sending the file until EOF is reached. File
 position is updated on return or also in case of error in which case
 <a class="reference internal" href="io.html#io.IOBase.tell" title="io.IOBase.tell"><code class="xref py py-meth docutils literal"><span class="pre">file.tell()</span></code></a> can be used to figure out the number of
-bytes which were sent. The socket must be of <a class="reference internal" href="#socket.SOCK_STREAM" title="socket.SOCK_STREAM"><code class="xref py py-const docutils literal"><span class="pre">SOCK_STREAM</span></code></a> type. Non-
-blocking sockets are not supported.</p>
+bytes which were sent. The socket must be of <a class="reference internal" href="#socket.SOCK_STREAM" title="socket.SOCK_STREAM"><code class="xref py py-const docutils literal"><span class="pre">SOCK_STREAM</span></code></a> type.
+Non-blocking sockets are not supported.</p>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
 </div>
@@ -1463,8 +1464,11 @@ al,</li>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/socket.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/socket.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1490,7 +1494,7 @@ al,</li>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1519,7 +1523,7 @@ al,</li>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

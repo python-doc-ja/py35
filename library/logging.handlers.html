@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>16.8. logging.handlers — ロギングハンドラ &#8212; Python 3.5.2 ドキュメント</title>
+    <title>16.8. logging.handlers — ロギングハンドラ &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="16. 汎用オペレーティングシステムサービス" href="allos.html" />
     <link rel="next" title="16.9. getpass — 可搬性のあるパスワード入力機構" href="getpass.html" />
     <link rel="prev" title="16.7. logging.config — ロギングの環境設定" href="logging.config.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/logging.handlers.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/logging.handlers.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-logging.handlers">
 <span id="logging-handlers-logging-handlers"></span><h1>16.8. <a class="reference internal" href="#module-logging.handlers" title="logging.handlers: Handlers for the logging module."><code class="xref py py-mod docutils literal"><span class="pre">logging.handlers</span></code></a> &#8212; ロギングハンドラ<a class="headerlink" href="#module-logging.handlers" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/logging/handlers.py">Lib/logging/handlers.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/logging/handlers.py">Lib/logging/handlers.py</a></p>
 <div class="sidebar">
 <p class="first sidebar-title">重要</p>
 <p>このページには、リファレンス情報だけが含まれています。チュートリアルは、以下のページを参照してください</p>
@@ -521,11 +522,11 @@
 <code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.SysLogHandler.emit" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>レコードは書式化された後、 syslog サーバに送信されます。例外情報が存在しても、サーバには <em>送信されません</em> 。</p>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.2.1 で変更: </span>(参照: <a class="reference external" href="https://bugs.python.org/issue12168">issue 12168</a>) 初期のバージョンでは、 syslog デーモンに送られるメッセージは常に NUL バイトで終端していました。初期のバージョンの syslog デーモンが NUL 終端されたメッセージを期待していたからです - たとえ、それが適切な仕様 (RFC 5424) にはなかったとしても。 syslog デーモンの新しいバージョンは NUL バイトを期待せず、代わりにもしそれがある場合は削除します。さらに、より最近のデーモン (RFC 5424 により忠実なバージョン) は、メッセージの一部として NUL バイトを通します。</p>
+<p><span class="versionmodified">バージョン 3.2.1 で変更: </span>(参照: <a class="reference external" href="https://bugs.python.org/issue12168">bpo-12168</a>) 初期のバージョンでは、 syslog デーモンに送られるメッセージは常に NUL バイトで終端していました。初期のバージョンの syslog デーモンが NUL 終端されたメッセージを期待していたからです - たとえ、それが適切な仕様 (RFC 5424) にはなかったとしても。 syslog デーモンの新しいバージョンは NUL バイトを期待せず、代わりにもしそれがある場合は削除します。さらに、より最近のデーモン (RFC 5424 により忠実なバージョン) は、メッセージの一部として NUL バイトを通します。</p>
 <p>このような異なるデーモンの振る舞いすべてに対して syslog メッセージの取り扱いをより容易にするため、 NUL バイトの追加はクラスレベル属性 <code class="docutils literal"><span class="pre">append_nul</span></code> を使用して設定できるようになりました。これはデフォルトで <code class="docutils literal"><span class="pre">True</span></code> (既存の振る舞いを保持) ですが、 <code class="docutils literal"><span class="pre">SysLogHandler</span></code> インスタンスが NUL 終端文字を追加 <em>しない</em> ように <code class="docutils literal"><span class="pre">False</span></code> にセットすることができます。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.3 で変更: </span>(参照: <a class="reference external" href="https://bugs.python.org/issue12419">issue 12419</a>) 以前のバージョンでは、メッセージソースを識別するための &#8220;ident&#8221; あるいは &#8220;tag&#8221; プリフィックス機能はありませんでした。これは、今ではクラスレベル属性を使用して指定することができるようになりました。デフォルトでは既存の振る舞いを保持するために <code class="docutils literal"><span class="pre">&quot;&quot;</span></code> ですが、特定の <code class="docutils literal"><span class="pre">SysLogHandler</span></code> インスタンスが扱うすべてのメッセージに識別子を前置するようにそれをオーバーライドすることができます。識別子はバイトではなくテキストでなければならず、正確にそのままメッセージに前置されることに注意してください。</p>
+<p><span class="versionmodified">バージョン 3.3 で変更: </span>(参照: <a class="reference external" href="https://bugs.python.org/issue12419">bpo-12419</a>) 以前のバージョンでは、メッセージソースを識別するための &#8220;ident&#8221; あるいは &#8220;tag&#8221; プリフィックス機能はありませんでした。これは、今ではクラスレベル属性を使用して指定することができるようになりました。デフォルトでは既存の振る舞いを保持するために <code class="docutils literal"><span class="pre">&quot;&quot;</span></code> ですが、特定の <code class="docutils literal"><span class="pre">SysLogHandler</span></code> インスタンスが扱うすべてのメッセージに識別子を前置するようにそれをオーバーライドすることができます。識別子はバイトではなくテキストでなければならず、正確にそのままメッセージに前置されることに注意してください。</p>
 </div>
 </dd></dl>
 
@@ -826,7 +827,10 @@
 <dl class="class">
 <dt id="logging.handlers.QueueHandler">
 <em class="property">class </em><code class="descclassname">logging.handlers.</code><code class="descname">QueueHandler</code><span class="sig-paren">(</span><em>queue</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.QueueHandler" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><a class="reference internal" href="#logging.handlers.QueueHandler" title="logging.handlers.QueueHandler"><code class="xref py py-class docutils literal"><span class="pre">QueueHandler</span></code></a> クラスの新しいインスタンスを返します。インスタンスは、メッセージの送信先キューとともに初期化されます。キューには、任意のキューのようなオブジェクトも使用できます。キューのようなオブジェクトは、そのまま <a class="reference internal" href="#logging.handlers.QueueHandler.enqueue" title="logging.handlers.QueueHandler.enqueue"><code class="xref py py-meth docutils literal"><span class="pre">enqueue()</span></code></a> メソッドによって使用されます。そのメソッドは、メッセージをキューに送る方法を知っている必要があります。</p>
+<dd><p>Returns a new instance of the <a class="reference internal" href="#logging.handlers.QueueHandler" title="logging.handlers.QueueHandler"><code class="xref py py-class docutils literal"><span class="pre">QueueHandler</span></code></a> class. The instance is
+initialized with the queue to send messages to. The queue can be any
+queue-like object; it&#8217;s used as-is by the <a class="reference internal" href="#logging.handlers.QueueHandler.enqueue" title="logging.handlers.QueueHandler.enqueue"><code class="xref py py-meth docutils literal"><span class="pre">enqueue()</span></code></a> method, which needs
+to know how to send messages to it.</p>
 <dl class="method">
 <dt id="logging.handlers.QueueHandler.emit">
 <code class="descname">emit</code><span class="sig-paren">(</span><em>record</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.QueueHandler.emit" title="この定義へのパーマリンク">¶</a></dt>
@@ -860,7 +864,15 @@
 <dl class="class">
 <dt id="logging.handlers.QueueListener">
 <em class="property">class </em><code class="descclassname">logging.handlers.</code><code class="descname">QueueListener</code><span class="sig-paren">(</span><em>queue</em>, <em>*handlers</em>, <em>respect_handler_level=False</em><span class="sig-paren">)</span><a class="headerlink" href="#logging.handlers.QueueListener" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><a class="reference internal" href="#logging.handlers.QueueListener" title="logging.handlers.QueueListener"><code class="xref py py-class docutils literal"><span class="pre">QueueListener</span></code></a> クラスの新しいインスタンスを返します。インスタンスは、メッセージの送信先キューと、キュー上に配置されたエントリーを扱うハンドラのリストとともに初期化されます。キューには、任意のキューのようなオブジェクトを使用できます。キューのようなオブジェクトは、そのまま <a class="reference internal" href="#logging.handlers.QueueListener.dequeue" title="logging.handlers.QueueListener.dequeue"><code class="xref py py-meth docutils literal"><span class="pre">dequeue()</span></code></a> メソッドに渡されます。そのメソッドはメッセージをキューから取得する方法を知っている必要があります。 <code class="docutils literal"><span class="pre">respect_handler_level</span></code> が <code class="docutils literal"><span class="pre">True</span></code> の場合、メッセージをそのハンドラーに渡すかどうかを判断する際、(メッセージに対するレベルと比較して)ハンドラのレベルは尊重されます。<code class="docutils literal"><span class="pre">False</span></code> の場合、以前の Python のバージョンと同様に動作し、各メッセージを各ハンドラに常に渡します。</p>
+<dd><p>Returns a new instance of the <a class="reference internal" href="#logging.handlers.QueueListener" title="logging.handlers.QueueListener"><code class="xref py py-class docutils literal"><span class="pre">QueueListener</span></code></a> class. The instance is
+initialized with the queue to send messages to and a list of handlers which
+will handle entries placed on the queue. The queue can be any queue-like
+object; it&#8217;s passed as-is to the <a class="reference internal" href="#logging.handlers.QueueListener.dequeue" title="logging.handlers.QueueListener.dequeue"><code class="xref py py-meth docutils literal"><span class="pre">dequeue()</span></code></a> method, which needs
+to know how to get messages from it. If <code class="docutils literal"><span class="pre">respect_handler_level</span></code> is <code class="docutils literal"><span class="pre">True</span></code>,
+a handler&#8217;s level is respected (compared with the level for the message) when
+deciding whether to pass messages to that handler; otherwise, the behaviour
+is as in previous Python versions - to always pass each message to each
+handler.</p>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.5 で変更: </span>The <code class="docutils literal"><span class="pre">respect_handler_levels</span></code> argument was added.</p>
 </div>
@@ -963,8 +975,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/logging.handlers.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/logging.handlers.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -990,7 +1005,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1019,7 +1034,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

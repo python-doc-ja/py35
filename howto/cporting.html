@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Python 3 への拡張モジュール移植 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>Python 3 への拡張モジュール移植 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="Python HOWTO" href="index.html" />
     <link rel="next" title="Python で Curses プログラミング" href="curses.html" />
     <link rel="prev" title="Python 2 から Python 3 への移植" href="pyporting.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/howto/cporting.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/howto/cporting.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -266,7 +267,7 @@ C-API では <code class="docutils literal"><span class="pre">PyInt_*</span></co
 </div>
 <div class="section" id="cobject-replaced-with-capsule">
 <h2>CObject の Capsule への変更<a class="headerlink" href="#cobject-replaced-with-capsule" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p>Python 3.1 と 2.7 に <code class="xref c c-type docutils literal"><span class="pre">Capsule</span></code> オブジェクトが導入されました。これは <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> のかわりになるものです。  CObject は便利でしたが、 <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> API には問題がありました: 有効な CObject であればそれ以上の識別が不可能なので、合わない CObject を混ぜて使うとインタープリタをクラッシュさせかねなかったこと、そして API の一部が C の未定義な挙動に依存していたことです。 (Capsule の背景について詳しくは <a class="reference external" href="https://bugs.python.org/issue5630">issue 5630</a> をご覧ください。)</p>
+<p>Python 3.1 と 2.7 に <code class="xref c c-type docutils literal"><span class="pre">Capsule</span></code> オブジェクトが導入されました。これは <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> のかわりになるものです。  CObject は便利でしたが、 <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> API には問題がありました: 有効な CObject であればそれ以上の識別が不可能なので、合わない CObject を混ぜて使うとインタープリタをクラッシュさせかねなかったこと、そして API の一部が C の未定義な挙動に依存していたことです。 (Capsule の背景について詳しくは <a class="reference external" href="https://bugs.python.org/issue5630">bpo-5630</a> をご覧ください。)</p>
 <p>現時点で CObject を使っているのであれば、3.1 以降へ移行するには Capsule へ切り換える必要があります。 <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> は 3.1 および 2.7 で非推奨となり、Python 3.2 では完全に削除されたからです。  2.7 と 3.1 以上だけの対応でいいなら、単に <code class="xref c c-type docutils literal"><span class="pre">Capsule</span></code> へ切り換えるだけです。  しかし Python 3.0 や、あるいは 2.7 未満のバージョンに対応しなければならない場合は、CObject と Capsule の両方に対応する必要が出てきます。(ただし Python 3.0 はサポートが終了しているため現場利用には推奨されません。)</p>
 <p>そうした問題は、下に例示する <code class="file docutils literal"><span class="pre">capsulethunk.h</span></code> ヘッダファイルで解決できるかもしれません。  必要な作業は、 <code class="xref c c-type docutils literal"><span class="pre">Capsule</span></code> API でコードを書き、このヘッダファイルを <code class="file docutils literal"><span class="pre">Python.h</span></code> の後でインクルードするだけです。  すると自動的に、Capsule のあるバージョンの Python では Capsule を使い、なければ CObject を使うようになります。</p>
 <p>その場合 <code class="file docutils literal"><span class="pre">capsulethunk.h</span></code> は CObject を使って Capsule をシミュレートします。  しかし <code class="xref c c-type docutils literal"><span class="pre">CObject</span></code> には capsule の &#8220;name&#8221; を保持する余地がありません。  よって、 <code class="file docutils literal"><span class="pre">capsulethunk.h</span></code> でシミュレートされた <code class="xref c c-type docutils literal"><span class="pre">Capsule</span></code> オブジェクトの動作は、本物の Capsule とは少し異なります。  具体的には:</p>
@@ -282,7 +283,7 @@ C-API では <code class="docutils literal"><span class="pre">PyInt_*</span></co
 </li>
 </ul>
 </div></blockquote>
-<p><code class="file docutils literal"><span class="pre">capsulethunk.h</span></code> は Python のソースの中に <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Doc/includes/capsulethunk.h">Doc/includes/capsulethunk.h</a> という名前で入っています。  読者の便宜のため、ここにも引用しておきましょう:</p>
+<p><code class="file docutils literal"><span class="pre">capsulethunk.h</span></code> は Python のソースの中に <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Doc/includes/capsulethunk.h">Doc/includes/capsulethunk.h</a> という名前で入っています。  読者の便宜のため、ここにも引用しておきましょう:</p>
 <div class="highlight-c"><div class="highlight"><pre><span></span><span class="cp">#ifndef __CAPSULETHUNK_H</span>
 <span class="cp">#define __CAPSULETHUNK_H</span>
 
@@ -458,8 +459,11 @@ C-API では <code class="docutils literal"><span class="pre">PyInt_*</span></co
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/howto/cporting.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/howto/cporting.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -485,7 +489,7 @@ C-API では <code class="docutils literal"><span class="pre">PyInt_*</span></co
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -513,7 +517,7 @@ C-API では <code class="docutils literal"><span class="pre">PyInt_*</span></co
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

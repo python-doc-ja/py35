@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>19.2. json — JSON エンコーダおよびデコーダ &#8212; Python 3.5.2 ドキュメント</title>
+    <title>19.2. json — JSON エンコーダおよびデコーダ &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="19. インターネット上のデータの操作" href="netdata.html" />
     <link rel="next" title="19.3. mailcap — mailcap ファイルの操作" href="mailcap.html" />
     <link rel="prev" title="19.1.14. email: 使用例" href="email-examples.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/json.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/json.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-json">
 <span id="json-json-encoder-and-decoder"></span><h1>19.2. <a class="reference internal" href="#module-json" title="json: Encode and decode the JSON format."><code class="xref py py-mod docutils literal"><span class="pre">json</span></code></a> &#8212; JSON エンコーダおよびデコーダ<a class="headerlink" href="#module-json" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/json/__init__.py">Lib/json/__init__.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/json/__init__.py">Lib/json/__init__.py</a></p>
 <hr class="docutils" />
 <p><a class="reference external" href="http://json.org">JSON (JavaScript Object Notation)</a> は、 <span class="target" id="index-10"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc7159.html"><strong>RFC 7159</strong></a> (<span class="target" id="index-11"></span><a class="rfc reference external" href="https://tools.ietf.org/html/rfc4627.html"><strong>RFC 4627</strong></a> を obsolete) と <a class="reference external" href="http://www.ecma-international.org/publications/standards/Ecma-404.htm">ECMA-404</a> によって定義された軽量のデータ交換用のフォーマットです。 JavaScript のオブジェクトリテラル記法に由来しています (<a class="reference external" href="https://en.wikipedia.org/wiki/JavaScript">JavaScript</a> の厳密なサブセットではありませんが <a class="footnote-reference" href="#rfc-errata" id="id1">[1]</a>)。</p>
 <p><a class="reference internal" href="#module-json" title="json: Encode and decode the JSON format."><code class="xref py py-mod docutils literal"><span class="pre">json</span></code></a> の API は標準ライブラリの <a class="reference internal" href="marshal.html#module-marshal" title="marshal: Convert Python objects to streams of bytes and back (with different constraints)."><code class="xref py py-mod docutils literal"><span class="pre">marshal</span></code></a> や <a class="reference internal" href="pickle.html#module-pickle" title="pickle: Convert Python objects to streams of bytes and back."><code class="xref py py-mod docutils literal"><span class="pre">pickle</span></code></a> のユーザに馴染み深いものです。</p>
@@ -446,8 +447,7 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
 <dl class="exception">
 <dt id="json.JSONDecodeError">
 <em class="property">exception </em><code class="descclassname">json.</code><code class="descname">JSONDecodeError</code><span class="sig-paren">(</span><em>msg</em>, <em>doc</em>, <em>pos</em>, <em>end=None</em><span class="sig-paren">)</span><a class="headerlink" href="#json.JSONDecodeError" title="この定義へのパーマリンク">¶</a></dt>
-<dd><blockquote>
-<div><p><a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code></a> のサブクラスで、以下の追加の属性を持ちます:</p>
+<dd><p><a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code></a> のサブクラスで、以下の追加の属性を持ちます:</p>
 <dl class="attribute">
 <dt id="json.JSONDecodeError.msg">
 <code class="descname">msg</code><a class="headerlink" href="#json.JSONDecodeError.msg" title="この定義へのパーマリンク">¶</a></dt>
@@ -478,7 +478,6 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
 <dd><p><em>pos</em> に対応する列です。</p>
 </dd></dl>
 
-</div></blockquote>
 <div class="versionadded">
 <p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
 </div>
@@ -555,7 +554,7 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
 </div>
 <div class="section" id="module-json.tool">
 <span id="command-line-interface"></span><span id="json-commandline"></span><h2>19.2.5. コマンドラインインターフェイス<a class="headerlink" href="#module-json.tool" title="このヘッドラインへのパーマリンク">¶</a></h2>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/json/tool.py">Lib/json/tool.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/json/tool.py">Lib/json/tool.py</a></p>
 <hr class="docutils" />
 <p><a class="reference internal" href="#module-json.tool" title="json.tool: A command line to validate and pretty-print JSON."><code class="xref py py-mod docutils literal"><span class="pre">json.tool</span></code></a> モジュールは JSON オブジェクトの検証と整形出力のための、単純なコマンドラインインターフェイスを提供します。</p>
 <p>オプショナルな <code class="docutils literal"><span class="pre">infile</span></code> 引数、 <code class="docutils literal"><span class="pre">outfile</span></code> 引数が指定されない場合、それぞれ <a class="reference internal" href="sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-attr docutils literal"><span class="pre">sys.stdin</span></code></a> と <a class="reference internal" href="sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-attr docutils literal"><span class="pre">sys.stdout</span></code></a> が使われます:</p>
@@ -663,8 +662,11 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/json.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/json.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -690,7 +692,7 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -719,7 +721,7 @@ Expecting property name enclosed in double quotes: line <span class="m">1</span>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

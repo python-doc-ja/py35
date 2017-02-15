@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>22.8. sndhdr — サウンドファイルの識別 &#8212; Python 3.5.2 ドキュメント</title>
+    <title>22.8. sndhdr — サウンドファイルの識別 &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="22. マルチメディアサービス" href="mm.html" />
     <link rel="next" title="22.9. ossaudiodev — OSS互換オーディオデバイスへのアクセス" href="ossaudiodev.html" />
     <link rel="prev" title="22.7. imghdr — 画像の形式を決定する" href="imghdr.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/library/sndhdr.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/library/sndhdr.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -104,7 +105,7 @@
             
   <div class="section" id="module-sndhdr">
 <span id="sndhdr-determine-type-of-sound-file"></span><h1>22.8. <a class="reference internal" href="#module-sndhdr" title="sndhdr: Determine type of a sound file."><code class="xref py py-mod docutils literal"><span class="pre">sndhdr</span></code></a> &#8212; サウンドファイルの識別<a class="headerlink" href="#module-sndhdr" title="このヘッドラインへのパーマリンク">¶</a></h1>
-<p><strong>ソースコード:</strong> <a class="reference external" href="https://hg.python.org/cpython/file/3.5/Lib/sndhdr.py">Lib/sndhdr.py</a></p>
+<p><strong>ソースコード:</strong> <a class="reference external" href="https://github.com/python/cpython/tree/3.5/Lib/sndhdr.py">Lib/sndhdr.py</a></p>
 <hr class="docutils" id="index-0" />
 <p><a class="reference internal" href="#module-sndhdr" title="sndhdr: Determine type of a sound file."><code class="xref py py-mod docutils literal"><span class="pre">sndhdr</span></code></a> モジュールには、ファイルに保存されたサウンドデータの形式を識別するのに便利な関数が定義されています。どんな形式のサウンドデータがファイルに保存されているのか識別可能な場合、これらの関数は5つの属性、つまり(<code class="docutils literal"><span class="pre">filetype</span></code>, <code class="docutils literal"><span class="pre">framerate</span></code>, <code class="docutils literal"><span class="pre">nchannels</span></code>, <code class="docutils literal"><span class="pre">nframes</span></code>, <code class="docutils literal"><span class="pre">sampwidth</span></code>)で構成される <a class="reference internal" href="collections.html#collections.namedtuple" title="collections.namedtuple"><code class="xref py py-func docutils literal"><span class="pre">namedtuple()</span></code></a> を返します。 <em>type</em> はデータの形式を示す文字列で、 <code class="docutils literal"><span class="pre">'aifc'</span></code>, <code class="docutils literal"><span class="pre">'aiff'</span></code>, <code class="docutils literal"><span class="pre">'au'</span></code>, <code class="docutils literal"><span class="pre">'hcom'</span></code>, <code class="docutils literal"><span class="pre">'sndr'</span></code>, <code class="docutils literal"><span class="pre">'sndt'</span></code>, <code class="docutils literal"><span class="pre">'voc'</span></code>, <code class="docutils literal"><span class="pre">'wav'</span></code>, <code class="docutils literal"><span class="pre">'8svx'</span></code>, <code class="docutils literal"><span class="pre">'sb'</span></code>, <code class="docutils literal"><span class="pre">'ub'</span></code>, <code class="docutils literal"><span class="pre">'ul'</span></code> のうちの一つです。 <em>sampling_rate</em> は実際のサンプリングレート値で、未知の場合や読み取ることが出来なかった場合は <code class="docutils literal"><span class="pre">0</span></code> です。同様に、 <em>channels</em> はチャンネル数で、識別できない場合や読み取ることが出来なかった場合は <code class="docutils literal"><span class="pre">0</span></code> です。 <em>frames</em> はフレーム数で、識別できない場合は <code class="docutils literal"><span class="pre">-1</span></code> です。タプルの最後の要素 <em>bits_per_sample</em> はサンプルサイズを示すビット数ですが、A-LAWなら <code class="docutils literal"><span class="pre">'A'</span></code>, u-LAWなら <code class="docutils literal"><span class="pre">'U'</span></code> です。</p>
 <dl class="function">
@@ -143,8 +144,11 @@
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/library/sndhdr.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/library/sndhdr.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -170,7 +174,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -199,7 +203,7 @@
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

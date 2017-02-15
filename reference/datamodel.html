@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>3. データモデル &#8212; Python 3.5.2 ドキュメント</title>
+    <title>3. データモデル &#8212; Python 3.5.3 ドキュメント</title>
     
     <link rel="stylesheet" href="../_static/pydoctheme.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -14,7 +14,7 @@
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
         URL_ROOT:    '../',
-        VERSION:     '3.5.2',
+        VERSION:     '3.5.3',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
         HAS_SOURCE:  true
@@ -26,17 +26,18 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <script type="text/javascript" src="../_static/sidebar.js"></script>
     <link rel="search" type="application/opensearchdescription+xml"
-          title="Python 3.5.2 ドキュメント 内を検索"
+          title="Python 3.5.3 ドキュメント 内を検索"
           href="../_static/opensearch.xml"/>
     <link rel="author" title="このドキュメントについて" href="../about.html" />
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
     <link rel="copyright" title="Copyright" href="../copyright.html" />
-    <link rel="top" title="Python 3.5.2 ドキュメント" href="../contents.html" />
+    <link rel="top" title="Python 3.5.3 ドキュメント" href="../contents.html" />
     <link rel="up" title="Python 言語リファレンス" href="index.html" />
     <link rel="next" title="4. 実行モデル" href="executionmodel.html" />
     <link rel="prev" title="2. 字句解析" href="lexical_analysis.html" />
-    <link rel="shortcut icon" type="image/png" href="../_static/py.png" /><script type="text/javascript">
+    <link rel="shortcut icon" type="image/png" href="../_static/py.png" />
+    <link rel="canonical" href="https://docs.python.org/3/reference/datamodel.html" /><script type="text/javascript">
     $(document).ready(function() {
       var base = 'https://docs.python.org/3.5/reference/datamodel.html';
       $('a.headerlink').each(function() {
@@ -73,7 +74,7 @@
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -383,11 +384,12 @@
 <a class="reference internal" href="#descriptors"><span class="std std-ref">デスクリプタ (descriptor) の実装</span></a> 節を参照すると、また別の理由でクラスから取り出した属性と実際に <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> に保存されているものが異なることがあるのが分かります。</p>
 <p id="index-45">クラス属性を代入すると、そのクラスの辞書だけが更新され、基底クラスの辞書は更新しません。</p>
 <p id="index-46">クラスオブジェクトを呼び出す (上記を参照) と、クラスインスタンスを生成します (下記を参照)。</p>
-<p class="last" id="index-47">特殊属性: <a class="reference internal" href="../library/stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal"><span class="pre">__name__</span></code></a> はクラス名です;
-<code class="xref py py-attr docutils literal"><span class="pre">__module__</span></code> はクラスが定義されたモジュール名です;
-<a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> はクラスが持つ名前空間が入った辞書です;
-<a class="reference internal" href="../library/stdtypes.html#class.__bases__" title="class.__bases__"><code class="xref py py-attr docutils literal"><span class="pre">__bases__</span></code></a> は基底クラスからなるタプル (空もしくは要素が 1 つしかないこともあります) で、基底クラスのリストに表れる順序で並んでいます;
-<code class="xref py py-attr docutils literal"><span class="pre">__doc__</span></code> はクラスのドキュメント文字列で、未定義の場合は None です。</p>
+<p class="last" id="index-47">Special attributes: <a class="reference internal" href="../library/stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal"><span class="pre">__name__</span></code></a> is the class name; <code class="xref py py-attr docutils literal"><span class="pre">__module__</span></code> is
+the module name in which the class was defined; <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> is the
+dictionary containing the class&#8217;s namespace; <a class="reference internal" href="../library/stdtypes.html#class.__bases__" title="class.__bases__"><code class="xref py py-attr docutils literal"><span class="pre">__bases__</span></code></a> is a
+tuple containing the base classes, in the order of their occurrence in the
+base class list; <code class="xref py py-attr docutils literal"><span class="pre">__doc__</span></code> is the class&#8217;s documentation string, or
+<code class="docutils literal"><span class="pre">None</span></code> if undefined.</p>
 </dd>
 <dt>クラスインスタンス (class instance)</dt>
 <dd><p class="first" id="index-48">クラスインスタンスは、クラスオブジェクト (上記参照) を呼び出して生成します。
@@ -1432,8 +1434,11 @@ CPython 3.7 では、 <code class="docutils literal"><span class="pre">__aiter__
     <h3>このページ</h3>
     <ul class="this-page-menu">
       <li><a href="../bugs.html">バグ報告</a></li>
-      <li><a href="../_sources/reference/datamodel.txt"
-            rel="nofollow">ソースの表示</a></li>
+      <li>
+        <a href="https://github.com/python/cpython/blob/3.5/Doc/reference/datamodel.rst"
+            rel="nofollow">ソースの表示
+        </a>
+      </li>
     </ul>
   </div>
         </div>
@@ -1459,7 +1464,7 @@ CPython 3.7 では、 <code class="docutils literal"><span class="pre">__aiter__
                  style="vertical-align: middle; margin-top: -1px"/></li>
         <li><a href="https://www.python.org/">Python</a> &#187;</li>
         <li>
-          <span class="version_switcher_placeholder">3.5.2</span>
+          <span class="version_switcher_placeholder">3.5.3</span>
           <a href="../index.html">ドキュメント</a> &#187;
         </li>
 
@@ -1487,7 +1492,7 @@ CPython 3.7 では、 <code class="docutils literal"><span class="pre">__aiter__
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 2月 14, 2017
+    最終更新日時: 2月 15, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
