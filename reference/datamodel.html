@@ -384,12 +384,11 @@
 <a class="reference internal" href="#descriptors"><span class="std std-ref">デスクリプタ (descriptor) の実装</span></a> 節を参照すると、また別の理由でクラスから取り出した属性と実際に <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> に保存されているものが異なることがあるのが分かります。</p>
 <p id="index-45">クラス属性を代入すると、そのクラスの辞書だけが更新され、基底クラスの辞書は更新しません。</p>
 <p id="index-46">クラスオブジェクトを呼び出す (上記を参照) と、クラスインスタンスを生成します (下記を参照)。</p>
-<p class="last" id="index-47">Special attributes: <a class="reference internal" href="../library/stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal"><span class="pre">__name__</span></code></a> is the class name; <code class="xref py py-attr docutils literal"><span class="pre">__module__</span></code> is
-the module name in which the class was defined; <a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> is the
-dictionary containing the class&#8217;s namespace; <a class="reference internal" href="../library/stdtypes.html#class.__bases__" title="class.__bases__"><code class="xref py py-attr docutils literal"><span class="pre">__bases__</span></code></a> is a
-tuple containing the base classes, in the order of their occurrence in the
-base class list; <code class="xref py py-attr docutils literal"><span class="pre">__doc__</span></code> is the class&#8217;s documentation string, or
-<code class="docutils literal"><span class="pre">None</span></code> if undefined.</p>
+<p class="last" id="index-47">特殊属性: <a class="reference internal" href="../library/stdtypes.html#definition.__name__" title="definition.__name__"><code class="xref py py-attr docutils literal"><span class="pre">__name__</span></code></a> はクラス名です;
+<code class="xref py py-attr docutils literal"><span class="pre">__module__</span></code> はクラスが定義されたモジュール名です;
+<a class="reference internal" href="../library/stdtypes.html#object.__dict__" title="object.__dict__"><code class="xref py py-attr docutils literal"><span class="pre">__dict__</span></code></a> はクラスが持つ名前空間が入った辞書です;
+<a class="reference internal" href="../library/stdtypes.html#class.__bases__" title="class.__bases__"><code class="xref py py-attr docutils literal"><span class="pre">__bases__</span></code></a> は基底クラスからなるタプルで、基底クラスのリストに表れる順序で並んでいます;
+<code class="xref py py-attr docutils literal"><span class="pre">__doc__</span></code> はクラスのドキュメント文字列で、未定義の場合は None です。</p>
 </dd>
 <dt>クラスインスタンス (class instance)</dt>
 <dd><p class="first" id="index-48">クラスインスタンスは、クラスオブジェクト (上記参照) を呼び出して生成します。

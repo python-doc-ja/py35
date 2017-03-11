@@ -811,9 +811,8 @@
 </div>
 <p>別の説明が FAQ エントリ <a class="reference internal" href="../faq/programming.html#faq-multidimensional-list"><span class="std std-ref">多次元のリストを作るにはどうしますか？</span></a> にあります。</p>
 </li>
-<li><p class="first">If <em>i</em> or <em>j</em> is negative, the index is relative to the end of sequence <em>s</em>:
-<code class="docutils literal"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">i</span></code> or <code class="docutils literal"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">j</span></code> is substituted.  But note that <code class="docutils literal"><span class="pre">-0</span></code> is
-still <code class="docutils literal"><span class="pre">0</span></code>.</p>
+<li><p class="first"><em>i</em> または <em>j</em> が負の数の場合、インデクスはシーケンスの末端からの相対インデクスになります: <code class="docutils literal"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">i</span></code> または <code class="docutils literal"><span class="pre">len(s)</span> <span class="pre">+</span> <span class="pre">j</span></code> が代わりに使われます。
+ただし <code class="docutils literal"><span class="pre">-0</span></code> はやはり <code class="docutils literal"><span class="pre">0</span></code> であることに注意してください。</p>
 </li>
 <li><p class="first"><em>s</em> の <em>i</em> から <em>j</em> へのスライスは <code class="docutils literal"><span class="pre">i</span> <span class="pre">&lt;=</span> <span class="pre">k</span> <span class="pre">&lt;</span> <span class="pre">j</span></code> となるようなインデクス <em>k</em> を持つ要素からなるシーケンスとして定義されます。 <em>i</em> または <em>j</em> が <code class="docutils literal"><span class="pre">len(s)</span></code> よりも大きい場合、 <code class="docutils literal"><span class="pre">len(s)</span></code> を使います。 <em>i</em> が省略されるか <code class="docutils literal"><span class="pre">None</span></code> だった場合、 <code class="docutils literal"><span class="pre">0</span></code> を使います。 <em>j</em> が省略されるか <code class="docutils literal"><span class="pre">None</span></code> だった場合、 <code class="docutils literal"><span class="pre">len(s)</span></code> を使います。 <em>i</em> が <em>j</em> 以上の場合、スライスは空のシーケンスになります。</p>
 </li>
@@ -2851,8 +2850,7 @@ One-dimensional memoryviews with formats &#8216;B&#8217;, &#8216;b&#8217; or &#8
 <dl class="method">
 <dt id="memoryview.hex">
 <code class="descname">hex</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#memoryview.hex" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Return a string object containing two hexadecimal digits for each
-byte in the buffer.</p>
+<dd><p>バッファ中の各バイトを 2 つの 16 進数で表した文字列を返します:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">m</span> <span class="o">=</span> <span class="nb">memoryview</span><span class="p">(</span><span class="sa">b</span><span class="s2">&quot;abc&quot;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">m</span><span class="o">.</span><span class="n">hex</span><span class="p">()</span>
 <span class="go">&#39;616263&#39;</span>

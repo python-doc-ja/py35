@@ -174,18 +174,14 @@
 <dl class="cmdoption">
 <dt id="cmdoption-compileall-j">
 <code class="descname">-j</code><code class="descclassname"> N</code><a class="headerlink" href="#cmdoption-compileall-j" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>Use <em>N</em> workers to compile the files within the given directory.
-If <code class="docutils literal"><span class="pre">0</span></code> is used, then the result of <a class="reference internal" href="os.html#os.cpu_count" title="os.cpu_count"><code class="xref py py-func docutils literal"><span class="pre">os.cpu_count()</span></code></a>
-will be used.</p>
+<dd><p>与えられたディレクトリ内のファイルを <em>N</em> ワーカでコンパイルします。<code class="docutils literal"><span class="pre">0</span></code> の場合 <a class="reference internal" href="os.html#os.cpu_count" title="os.cpu_count"><code class="xref py py-func docutils literal"><span class="pre">os.cpu_count()</span></code></a> の結果が使用されます。</p>
 </dd></dl>
 
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.2 で変更: </span><code class="docutils literal"><span class="pre">-i</span></code>, <code class="docutils literal"><span class="pre">-b</span></code>, <code class="docutils literal"><span class="pre">-h</span></code> オプションを追加。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span>Added the  <code class="docutils literal"><span class="pre">-j</span></code>, <code class="docutils literal"><span class="pre">-r</span></code>, and <code class="docutils literal"><span class="pre">-qq</span></code> options.  <code class="docutils literal"><span class="pre">-q</span></code> option
-was changed to a multilevel value.  <code class="docutils literal"><span class="pre">-b</span></code> will always produce a
-byte-code file ending in <code class="docutils literal"><span class="pre">.pyc</span></code>, never <code class="docutils literal"><span class="pre">.pyo</span></code>.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><code class="docutils literal"><span class="pre">-j</span></code>, <code class="docutils literal"><span class="pre">-r</span></code>, <code class="docutils literal"><span class="pre">-qq</span></code> オプションが追加されました。<code class="docutils literal"><span class="pre">-q</span></code> オプションが複数のレベルの値に変更されました。<code class="docutils literal"><span class="pre">-b</span></code> は常に拡張子 <code class="docutils literal"><span class="pre">.pyc</span></code> のバイトエンコーディングファイルを生成し、<code class="docutils literal"><span class="pre">.pyo</span></code> を作りません。</p>
 </div>
 <p><a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal"><span class="pre">compile()</span></code></a> 関数で利用される最適化レベルを制御するコマンドラインオプションはありません。 Python インタプリタ自体のオプションを使ってください: <strong class="program">python -O -m compileall</strong>.</p>
 </div>
@@ -204,11 +200,8 @@ byte-code file ending in <code class="docutils literal"><span class="pre">.pyc</
 <code class="docutils literal"><span class="pre">2</span></code> の場合出力はすべて抑制されます。</p>
 <p><em>legacy</em> が真の時、バイトコードファイルは古い場所と名前に書かれ、他のバージョンの Python によって作られたバイトコードファイルを上書きする可能性があります。デフォルトは <span class="target" id="index-7"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-3147"><strong>PEP 3147</strong></a> で決められた場所と名前を使い、複数のバージョンの Python のバイトコードファイルが共存できるようにします。</p>
 <p><em>optimize</em> はコンパイラの最適化レベルを定義します。これは組み込みの <a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal"><span class="pre">compile()</span></code></a> 関数に渡されます。</p>
-<p>The argument <em>workers</em> specifies how many workers are used to
-compile files in parallel. The default is to not use multiple workers.
-If the platform can&#8217;t use multiple workers and <em>workers</em> argument is given,
-then sequential compilation will be used as a fallback.  If <em>workers</em> is
-lower than <code class="docutils literal"><span class="pre">0</span></code>, a <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code></a> will be raised.</p>
+<p>引数 <em>workers</em> でファイルを並列でコンパイルするワーカの数を指定します。デフォルトでは複数のワーカを使いません。
+複数のワーカを使えないプラットフォームで <em>workers</em> が与えられた場合、逐次コンパイルにフォールバックします。<em>workers</em> が <code class="docutils literal"><span class="pre">0</span></code> 未満の場合 <a class="reference internal" href="exceptions.html#ValueError" title="ValueError"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code></a> を送出します。</p>
 <div class="versionchanged">
 <p><span class="versionmodified">バージョン 3.2 で変更: </span><em>legacy</em> と <em>optimize</em> 引数を追加しました。</p>
 </div>
@@ -216,11 +209,10 @@ lower than <code class="docutils literal"><span class="pre">0</span></code>, a <
 <p><span class="versionmodified">バージョン 3.5 で変更: </span><code class="docutils literal"><span class="pre">workers</span></code> パラメータが追加されました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> parameter was changed to a multilevel value.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> 引数が複数のレベルの値に変更されました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span>The <em>legacy</em> parameter only writes out <code class="docutils literal"><span class="pre">.pyc</span></code> files, not <code class="docutils literal"><span class="pre">.pyo</span></code> files
-no matter what the value of <em>optimize</em> is.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>optimize</em> の値に関わらず、<em>legacy</em> 引数は <code class="docutils literal"><span class="pre">.pyc</span></code> ファイルのみを書き出し、<code class="docutils literal"><span class="pre">.pyo</span></code> ファイルを書き出さないようになりました。</p>
 </div>
 </dd></dl>
 
@@ -239,11 +231,10 @@ no matter what the value of <em>optimize</em> is.</p>
 <p><span class="versionmodified">バージョン 3.2 で追加.</span></p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> parameter was changed to a multilevel value.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> 引数が複数のレベルの値に変更されました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span>The <em>legacy</em> parameter only writes out <code class="docutils literal"><span class="pre">.pyc</span></code> files, not <code class="docutils literal"><span class="pre">.pyo</span></code> files
-no matter what the value of <em>optimize</em> is.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>optimize</em> の値に関わらず、<em>legacy</em> 引数は <code class="docutils literal"><span class="pre">.pyc</span></code> ファイルのみを書き出し、<code class="docutils literal"><span class="pre">.pyo</span></code> ファイルを書き出さないようになりました。</p>
 </div>
 </dd></dl>
 
@@ -255,11 +246,10 @@ no matter what the value of <em>optimize</em> is.</p>
 <p><span class="versionmodified">バージョン 3.2 で変更: </span><em>legacy</em> と <em>optimize</em> 引数を追加しました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> parameter was changed to a multilevel value.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>quiet</em> 引数が複数のレベルの値に変更されました。</p>
 </div>
 <div class="versionchanged">
-<p><span class="versionmodified">バージョン 3.5 で変更: </span>The <em>legacy</em> parameter only writes out <code class="docutils literal"><span class="pre">.pyc</span></code> files, not <code class="docutils literal"><span class="pre">.pyo</span></code> files
-no matter what the value of <em>optimize</em> is.</p>
+<p><span class="versionmodified">バージョン 3.5 で変更: </span><em>optimize</em> の値に関わらず、<em>legacy</em> 引数は <code class="docutils literal"><span class="pre">.pyc</span></code> ファイルのみを書き出し、<code class="docutils literal"><span class="pre">.pyo</span></code> ファイルを書き出さないようになりました。</p>
 </div>
 </dd></dl>
 

@@ -154,7 +154,7 @@
 非同期イテレータの <a class="reference internal" href="reference/datamodel.html#object.__anext__" title="object.__anext__"><code class="xref py py-meth docutils literal"><span class="pre">__anext__()</span></code></a> メソッドが返す awaitable を解決します。
 <span class="target" id="index-50"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0492"><strong>PEP 492</strong></a> で導入されました。</p>
 </dd>
-<dt id="term-attribute">attribute</dt>
+<dt id="term-attribute">属性</dt>
 <dd><p class="first last">(属性) オブジェクトに関連付けられ、ドット表記式によって名前で参照される値です。例えば、オブジェクト <em>o</em> が属性 <em>a</em> を持っているとき、その属性は <em>o.a</em> で参照されます。</p>
 </dd>
 <dt id="term-awaitable">awaitable</dt>
@@ -185,7 +185,7 @@ bytes-like オブジェクトは、データ圧縮、バイナリファイルへ
 <dd><p class="first">(バイトコード) Python のソースコードはバイトコードへとコンパイルされます。バイトコードは Python プログラムの CPython インタプリタ内部での表現です。バイトコードはまた、 <code class="docutils literal"><span class="pre">.pyc</span></code> や <code class="docutils literal"><span class="pre">.pyo</span></code> ファイルにキャッシュされ、同じファイルの実行が二度目にはより高速になります (ソースコードからバイトコードへの再度のコンパイルは回避されます)。このバイトコードは、各々のバイトコードに対応するサブルーチンを呼び出すような &#8220;仮想機械(<a class="reference internal" href="#term-virtual-machine"><span class="xref std std-term">virtual machine</span></a>)&#8221; で動作する &#8220;中間言語 (intermediate language)&#8221; といえます。重要な注意として、バイトコードは異なる Python 仮想マシン間で動作することは期待されていませんし、Python リリース間で安定でもありません。</p>
 <p class="last">バイトコードの命令一覧は <a class="reference internal" href="library/dis.html#bytecodes"><span class="std std-ref">dis モジュール</span></a> にあります。</p>
 </dd>
-<dt id="term-class">class</dt>
+<dt id="term-class">クラス</dt>
 <dd><p class="first last">(クラス) ユーザー定義オブジェクトを作成するためのテンプレートです。クラス定義は普通、そのクラスのインスタンス上の操作をするメソッドの定義を含みます。</p>
 </dd>
 <dt id="term-coercion">coercion</dt>
@@ -302,7 +302,7 @@ bytes-like オブジェクトは、データ圧縮、バイナリファイルへ
 <dt id="term-garbage-collection">garbage collection</dt>
 <dd><p class="first last">(ガベージコレクション) それ以上使われなくなったメモリを解放する処理です。Pythonは、参照カウントと、循環参照を見つけて破壊する循環ガベージコレクタと、を使ってガベージコレクションを行います。</p>
 </dd>
-<dt id="index-14"><span id="term-generator"></span>generator</dt>
+<dt id="index-14"><span id="term-generator"></span>ジェネレータ</dt>
 <dd><p class="first">(ジェネレータ)
 <a class="reference internal" href="#term-generator-iterator"><span class="xref std std-term">generator iterator</span></a> を返す関数です。
 通常の関数に似ていますが、 <a class="reference internal" href="reference/simple_stmts.html#yield"><code class="xref std std-keyword docutils literal"><span class="pre">yield</span></code></a> 式を持つ点で異なります。
@@ -332,7 +332,7 @@ bytes-like オブジェクトは、データ圧縮、バイナリファイルへ
 </dd>
 <dt id="term-global-interpreter-lock">global interpreter lock</dt>
 <dd><p class="first">(グローバルインタプリタロック) <a class="reference internal" href="#term-cpython"><span class="xref std std-term">CPython</span></a> インタプリタが利用している、一度に Python のバイトコード (<a class="reference internal" href="#term-bytecode"><span class="xref std std-term">bytecode</span></a>) を実行するスレッドは一つだけであることを保証する仕組みです。これにより (<a class="reference internal" href="library/stdtypes.html#dict" title="dict"><code class="xref py py-class docutils literal"><span class="pre">dict</span></code></a> などの重要な組み込み型を含む) オブジェクトモデルが同時アクセスに対して暗黙的に安全になるので、 CPython の実装がシンプルになります。インタプリタ全体をロックすることで、マルチプロセッサマシンが生じる並列化のコストと引き換えに、インタプリタを簡単にマルチスレッド化できるようになります。</p>
-<p>ただし、標準あるいは外部のいくつかの拡張モジュールは、圧縮やハッシュ計算などの計算の重い処理をするときに GIL を解放するように設計されています。また、I/O 処理をするときも GIL は常に解放されます。</p>
+<p>ただし、標準あるいは外部のいくつかの拡張モジュールは、圧縮やハッシュ計算などの計算の重い処理をするときに GIL を解除するように設計されています。また、I/O 処理をする場合 GIL は常に解除されます。</p>
 <p class="last">過去に &#8220;自由なマルチスレッド化&#8221; したインタプリタ (供用されるデータを細かい粒度でロックする) が開発されましたが、一般的なシングルプロセッサの場合のパフォーマンスが悪かったので成功しませんでした。このパフォーマンスの問題を克服しようとすると、実装がより複雑になり保守コストが増加すると考えられています。</p>
 </dd>
 <dt id="term-hashable">hashable</dt>
@@ -416,7 +416,7 @@ meta path finder は <a class="reference internal" href="#term-path-entry-finder
 <dd><p class="first">(メタクラス) クラスのクラスです。クラス定義は、クラス名、クラスの辞書と、基底クラスのリストを作ります。メタクラスは、それら 3 つを引数として受け取り、クラスを作る責任を負います。ほとんどのオブジェクト指向言語は(訳注:メタクラスの)デフォルトの実装を提供しています。Python が特別なのはカスタムのメタクラスを作成できる点です。ほとんどのユーザーに取って、メタクラスは全く必要のないものです。しかし、一部の場面では、メタクラスは強力でエレガントな方法を提供します。たとえば属性アクセスのログを取ったり、スレッドセーフ性を追加したり、オブジェクトの生成を追跡したり、シングルトンを実装するなど、多くの場面で利用されます。</p>
 <p class="last">詳細は <a class="reference internal" href="reference/datamodel.html#metaclasses"><span class="std std-ref">クラス生成をカスタマイズする</span></a> を参照してください。</p>
 </dd>
-<dt id="term-method">method</dt>
+<dt id="term-method">メソッド</dt>
 <dd><p class="first last">(メソッド) クラス本体の中で定義された関数。そのクラスのインスタンスの属性として呼び出された場合、メソッドはインスタンスオブジェクトを第一引数 (<a class="reference internal" href="#term-argument"><span class="xref std std-term">argument</span></a>) として受け取ります (この第一引数は通常 <code class="docutils literal"><span class="pre">self</span></code> と呼ばれます)。 <a class="reference internal" href="#term-function"><span class="xref std std-term">関数</span></a> と <a class="reference internal" href="#term-nested-scope"><span class="xref std std-term">ネストされたスコープ</span></a> も参照してください。</p>
 </dd>
 <dt id="term-method-resolution-order">method resolution order</dt>
@@ -424,7 +424,7 @@ meta path finder は <a class="reference internal" href="#term-path-entry-finder
 探索中に基底クラスが構成要素を検索される順番です。
 2.3 以降の Python インタープリタが使用するアルゴリズムの詳細については <a class="reference external" href="https://www.python.org/download/releases/2.3/mro/">The Python 2.3 Method Resolution Order</a> を参照してください。</p>
 </dd>
-<dt id="term-module">モジュール</dt>
+<dt id="term-module">module</dt>
 <dd><p class="first">(モジュール) Python コードの組織単位としてはたらくオブジェクトです。モジュールは任意の Python オブジェクトを含む名前空間を持ちます。モジュールは <a class="reference internal" href="#term-importing"><span class="xref std std-term">importing</span></a> の処理によって Python に読み込まれます。</p>
 <p class="last"><a class="reference internal" href="#term-package"><span class="xref std std-term">パッケージ</span></a> を参照してください。</p>
 </dd>
@@ -506,7 +506,7 @@ meta path finder は <a class="reference internal" href="#term-path-entry-finder
 <dt id="term-portion">portion</dt>
 <dd><p class="first last"><span class="target" id="index-64"></span><a class="pep reference external" href="https://www.python.org/dev/peps/pep-0420"><strong>PEP 420</strong></a> で定義されている、namespace package に属する、複数のファイルが (zipファイルに格納されている場合もある) 1つのディレクトリに格納されたもの。</p>
 </dd>
-<dt id="term-positional-argument">positional argument</dt>
+<dt id="term-positional-argument">位置引数 (positional argument、固定引数)</dt>
 <dd><p class="first last"><a class="reference internal" href="#term-argument"><span class="xref std std-term">実引数</span></a> を参照してください。</p>
 </dd>
 <dt id="term-provisional-api">provisional API</dt>
