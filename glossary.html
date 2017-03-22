@@ -166,7 +166,12 @@
 <dd><p class="first last">慈悲深き終身独裁者 (Benevolent Dictator For Life) の略です。Python の作者、<a class="reference external" href="https://www.python.org/~guido/">Guido van Rossum</a> のことです。</p>
 </dd>
 <dt id="term-binary-file">binary file</dt>
-<dd><p class="first">(バイナリーファイル) <a class="reference internal" href="#term-bytes-like-object"><span class="xref std std-term">バイト様オブジェクト</span></a> を読み書き出来る <a class="reference internal" href="#term-file-object"><span class="xref std std-term">ファイルオブジェクト</span></a> です。</p>
+<dd><p class="first">A <a class="reference internal" href="#term-file-object"><span class="xref std std-term">file object</span></a> able to read and write
+<a class="reference internal" href="#term-bytes-like-object"><span class="xref std std-term">bytes-like objects</span></a>.
+Examples of binary files are files opened in binary mode (<code class="docutils literal"><span class="pre">'rb'</span></code>,
+<code class="docutils literal"><span class="pre">'wb'</span></code> or <code class="docutils literal"><span class="pre">'rb+'</span></code>), <code class="xref py py-data docutils literal"><span class="pre">sys.stdin.buffer</span></code>,
+<code class="xref py py-data docutils literal"><span class="pre">sys.stdout.buffer</span></code>, and instances of <a class="reference internal" href="library/io.html#io.BytesIO" title="io.BytesIO"><code class="xref py py-class docutils literal"><span class="pre">io.BytesIO</span></code></a> and
+<a class="reference internal" href="library/gzip.html#gzip.GzipFile" title="gzip.GzipFile"><code class="xref py py-class docutils literal"><span class="pre">gzip.GzipFile</span></code></a>.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
 <p class="last"><a class="reference internal" href="#term-text-file"><span class="xref std std-term">text file</span></a> は <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> オブジェクトを読み書きする。</p>
@@ -182,7 +187,15 @@ bytes-like オブジェクトは、データ圧縮、バイナリファイルへ
 また、他の幾つかの操作では不変なオブジェクト内のバイナリデータ (&#8220;読み込み専用の bytes-like オブジェクト&#8221;) を必要します。それには <a class="reference internal" href="library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> と <a class="reference internal" href="library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> の <a class="reference internal" href="library/stdtypes.html#memoryview" title="memoryview"><code class="xref py py-class docutils literal"><span class="pre">memoryview</span></code></a> オブジェクトが含まれます。</p>
 </dd>
 <dt id="term-bytecode">bytecode</dt>
-<dd><p class="first">(バイトコード) Python のソースコードはバイトコードへとコンパイルされます。バイトコードは Python プログラムの CPython インタプリタ内部での表現です。バイトコードはまた、 <code class="docutils literal"><span class="pre">.pyc</span></code> や <code class="docutils literal"><span class="pre">.pyo</span></code> ファイルにキャッシュされ、同じファイルの実行が二度目にはより高速になります (ソースコードからバイトコードへの再度のコンパイルは回避されます)。このバイトコードは、各々のバイトコードに対応するサブルーチンを呼び出すような &#8220;仮想機械(<a class="reference internal" href="#term-virtual-machine"><span class="xref std std-term">virtual machine</span></a>)&#8221; で動作する &#8220;中間言語 (intermediate language)&#8221; といえます。重要な注意として、バイトコードは異なる Python 仮想マシン間で動作することは期待されていませんし、Python リリース間で安定でもありません。</p>
+<dd><p class="first">Python source code is compiled into bytecode, the internal representation
+of a Python program in the CPython interpreter.  The bytecode is also
+cached in <code class="docutils literal"><span class="pre">.pyc</span></code> files so that executing the same file is
+faster the second time (recompilation from source to bytecode can be
+avoided).  This &#8220;intermediate language&#8221; is said to run on a
+<a class="reference internal" href="#term-virtual-machine"><span class="xref std std-term">virtual machine</span></a> that executes the machine code corresponding to
+each bytecode. Do note that bytecodes are not expected to work between
+different Python virtual machines, nor to be stable between Python
+releases.</p>
 <p class="last">バイトコードの命令一覧は <a class="reference internal" href="library/dis.html#bytecodes"><span class="std std-ref">dis モジュール</span></a> にあります。</p>
 </dd>
 <dt id="term-class">クラス</dt>
@@ -589,7 +602,12 @@ meta path finder は <a class="reference internal" href="#term-path-entry-finder
 <dd><p class="first last">ユニコード文字列をエンコードするコーデックです。</p>
 </dd>
 <dt id="term-text-file">text file</dt>
-<dd><p class="first">(テキストファイル) <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> オブジェクトを読み書きできる <a class="reference internal" href="#term-file-object"><span class="xref std std-term">file object</span></a> です。しばしば、テキストファイルは実際にバイト指向のデータストリームにアクセスし、 <a class="reference internal" href="#term-text-encoding"><span class="xref std std-term">text encoding</span></a> を自動的に行います。</p>
+<dd><p class="first">A <a class="reference internal" href="#term-file-object"><span class="xref std std-term">file object</span></a> able to read and write <a class="reference internal" href="library/stdtypes.html#str" title="str"><code class="xref py py-class docutils literal"><span class="pre">str</span></code></a> objects.
+Often, a text file actually accesses a byte-oriented datastream
+and handles the <a class="reference internal" href="#term-text-encoding"><span class="xref std std-term">text encoding</span></a> automatically.
+Examples of text files are files opened in text mode (<code class="docutils literal"><span class="pre">'r'</span></code> or <code class="docutils literal"><span class="pre">'w'</span></code>),
+<a class="reference internal" href="library/sys.html#sys.stdin" title="sys.stdin"><code class="xref py py-data docutils literal"><span class="pre">sys.stdin</span></code></a>, <a class="reference internal" href="library/sys.html#sys.stdout" title="sys.stdout"><code class="xref py py-data docutils literal"><span class="pre">sys.stdout</span></code></a>, and instances of
+<a class="reference internal" href="library/io.html#io.StringIO" title="io.StringIO"><code class="xref py py-class docutils literal"><span class="pre">io.StringIO</span></code></a>.</p>
 <div class="last admonition seealso">
 <p class="first admonition-title">参考</p>
 <p class="last"><a class="reference internal" href="#term-binary-file"><span class="xref std std-term">binary file</span></a> ファイルは <a class="reference internal" href="library/functions.html#bytes" title="bytes"><code class="xref py py-class docutils literal"><span class="pre">bytes</span></code></a> オブジェクトを読み書きします。</p>
@@ -690,7 +708,7 @@ meta path finder は <a class="reference internal" href="#term-path-entry-finder
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

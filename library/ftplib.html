@@ -292,7 +292,14 @@ its source address before connecting.</p>
 <dl class="method">
 <dt id="ftplib.FTP.retrbinary">
 <code class="descclassname">FTP.</code><code class="descname">retrbinary</code><span class="sig-paren">(</span><em>cmd</em>, <em>callback</em>, <em>blocksize=8192</em>, <em>rest=None</em><span class="sig-paren">)</span><a class="headerlink" href="#ftplib.FTP.retrbinary" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>バイナリ転送モードでファイルを受信します。 <em>cmd</em> は適切な <code class="docutils literal"><span class="pre">RETR</span></code> コマンド:  <code class="docutils literal"><span class="pre">'RETR</span> <span class="pre">filename'</span></code> でなければなりません。関数 <em>callback</em> は、受信したデータブロックのそれぞれに対して、データブロックを１つの文字列の引数として呼び出されます。省略可能な引数 <em>blocksize</em> は、実際の転送を行うのに作られた低レベルのソケットオブジェクトから読み込む最大のチャンクサイズを指定します（これは <em>callback</em> に与えられるデータブロックの最大サイズにもなります）。妥当なデフォルト値が設定されます。 <em>rest</em> は、 <a class="reference internal" href="#ftplib.FTP.transfercmd" title="ftplib.FTP.transfercmd"><code class="xref py py-meth docutils literal"><span class="pre">transfercmd()</span></code></a> メソッドと同じものです。</p>
+<dd><p>Retrieve a file in binary transfer mode.  <em>cmd</em> should be an appropriate
+<code class="docutils literal"><span class="pre">RETR</span></code> command: <code class="docutils literal"><span class="pre">'RETR</span> <span class="pre">filename'</span></code>. The <em>callback</em> function is called for
+each block of data received, with a single bytes argument giving the data
+block. The optional <em>blocksize</em> argument specifies the maximum chunk size to
+read on the low-level socket object created to do the actual transfer (which
+will also be the largest size of the data blocks passed to <em>callback</em>).  A
+reasonable default is chosen. <em>rest</em> means the same thing as in the
+<a class="reference internal" href="#ftplib.FTP.transfercmd" title="ftplib.FTP.transfercmd"><code class="xref py py-meth docutils literal"><span class="pre">transfercmd()</span></code></a> method.</p>
 </dd></dl>
 
 <dl class="method">
@@ -310,8 +317,9 @@ prints the line to <code class="docutils literal"><span class="pre">sys.stdout</
 
 <dl class="method">
 <dt id="ftplib.FTP.set_pasv">
-<code class="descclassname">FTP.</code><code class="descname">set_pasv</code><span class="sig-paren">(</span><em>boolean</em><span class="sig-paren">)</span><a class="headerlink" href="#ftplib.FTP.set_pasv" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p><em>boolean</em> が真の場合 &#8220;パッシブ&#8221; モードを有効化し、偽の場合は無効化します。 デフォルトではパッシブモードです。</p>
+<code class="descclassname">FTP.</code><code class="descname">set_pasv</code><span class="sig-paren">(</span><em>val</em><span class="sig-paren">)</span><a class="headerlink" href="#ftplib.FTP.set_pasv" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Enable &#8220;passive&#8221; mode if <em>val</em> is true, otherwise disable passive mode.
+Passive mode is on by default.</p>
 </dd></dl>
 
 <dl class="method">
@@ -576,7 +584,7 @@ without opening fixed ports.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

@@ -876,7 +876,69 @@ TOS にあるイテラブルを個別の値にばらしますが、ばらした�
 <dl class="opcode">
 <dt id="opcode-BUILD_MAP">
 <code class="descname">BUILD_MAP</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_MAP" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>スタックに新しい辞書オブジェクトをプッシュします。 辞書は <em>count</em> 個のエントリを持つサイズに設定されます。</p>
+<dd><p>Pushes a new dictionary object onto the stack.  Pops <code class="docutils literal"><span class="pre">2</span> <span class="pre">*</span> <span class="pre">count</span></code> items
+so that the dictionary holds <em>count</em> entries:
+<code class="docutils literal"><span class="pre">{...,</span> <span class="pre">TOS3:</span> <span class="pre">TOS2,</span> <span class="pre">TOS1:</span> <span class="pre">TOS}</span></code>.</p>
+<div class="versionchanged">
+<p><span class="versionmodified">バージョン 3.5 で変更: </span>The dictionary is created from stack items instead of creating an
+empty dictionary pre-sized to hold <em>count</em> items.</p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_TUPLE_UNPACK">
+<code class="descname">BUILD_TUPLE_UNPACK</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_TUPLE_UNPACK" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Pops <em>count</em> iterables from the stack, joins them in a single tuple,
+and pushes the result.  Implements iterable unpacking in tuple
+displays <code class="docutils literal"><span class="pre">(*x,</span> <span class="pre">*y,</span> <span class="pre">*z)</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_LIST_UNPACK">
+<code class="descname">BUILD_LIST_UNPACK</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_LIST_UNPACK" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK"><code class="xref std std-opcode docutils literal"><span class="pre">BUILD_TUPLE_UNPACK</span></code></a>, but pushes a list
+instead of tuple.  Implements iterable unpacking in list
+displays <code class="docutils literal"><span class="pre">[*x,</span> <span class="pre">*y,</span> <span class="pre">*z]</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_SET_UNPACK">
+<code class="descname">BUILD_SET_UNPACK</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_SET_UNPACK" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_TUPLE_UNPACK"><code class="xref std std-opcode docutils literal"><span class="pre">BUILD_TUPLE_UNPACK</span></code></a>, but pushes a set
+instead of tuple.  Implements iterable unpacking in set
+displays <code class="docutils literal"><span class="pre">{*x,</span> <span class="pre">*y,</span> <span class="pre">*z}</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_MAP_UNPACK">
+<code class="descname">BUILD_MAP_UNPACK</code><span class="sig-paren">(</span><em>count</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_MAP_UNPACK" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Pops <em>count</em> mappings from the stack, merges them into a single dictionary,
+and pushes the result.  Implements dictionary unpacking in dictionary
+displays <code class="docutils literal"><span class="pre">{**x,</span> <span class="pre">**y,</span> <span class="pre">**z}</span></code>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
+</div>
+</dd></dl>
+
+<dl class="opcode">
+<dt id="opcode-BUILD_MAP_UNPACK_WITH_CALL">
+<code class="descname">BUILD_MAP_UNPACK_WITH_CALL</code><span class="sig-paren">(</span><em>oparg</em><span class="sig-paren">)</span><a class="headerlink" href="#opcode-BUILD_MAP_UNPACK_WITH_CALL" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>This is similar to <a class="reference internal" href="#opcode-BUILD_MAP_UNPACK"><code class="xref std std-opcode docutils literal"><span class="pre">BUILD_MAP_UNPACK</span></code></a>,
+but is used for <code class="docutils literal"><span class="pre">f(**x,</span> <span class="pre">**y,</span> <span class="pre">**z)</span></code> call syntax.  The lowest byte of
+<em>oparg</em> is the count of mappings, the relative position of the
+corresponding callable <code class="docutils literal"><span class="pre">f</span></code> is encoded in the second byte of <em>oparg</em>.</p>
+<div class="versionadded">
+<p><span class="versionmodified">バージョン 3.5 で追加.</span></p>
+</div>
 </dd></dl>
 
 <dl class="opcode">
@@ -1253,7 +1315,7 @@ TOS は関数の <a class="reference internal" href="../glossary.html#term-quali
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

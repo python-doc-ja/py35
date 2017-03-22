@@ -405,7 +405,15 @@ False の場合、<a class="reference internal" href="#module-zipfile" title="zi
 <dd><p><code class="file docutils literal"><span class="pre">*.py</span></code> ファイルを探し、一致するファイルをアーカイブに追加します。</p>
 <p><a class="reference internal" href="#zipfile.PyZipFile" title="zipfile.PyZipFile"><code class="xref py py-class docutils literal"><span class="pre">PyZipFile</span></code></a> に <em>optimize</em> 引数が与えられない場合、あるいは <code class="docutils literal"><span class="pre">-1</span></code> が指定された場合、対応するファイルは <code class="file docutils literal"><span class="pre">*.pyc</span></code> ファイルで、必要に応じてコンパイルします。</p>
 <p><a class="reference internal" href="#zipfile.PyZipFile" title="zipfile.PyZipFile"><code class="xref py py-class docutils literal"><span class="pre">PyZipFile</span></code></a> の <em>optimize</em> パラメータが <code class="docutils literal"><span class="pre">0</span></code>、<code class="docutils literal"><span class="pre">1</span></code>、あるいは <code class="docutils literal"><span class="pre">2</span></code> の場合、それを最適化レベル (<a class="reference internal" href="functions.html#compile" title="compile"><code class="xref py py-func docutils literal"><span class="pre">compile()</span></code></a> 参照) とするファイルのみが、必要に応じてコンパイルされアーカイブに追加されます。</p>
-<p><em>pathname</em> がファイル名の場合、 <code class="file docutils literal"><span class="pre">.py</span></code> で終わっていなければなりません。この場合 (<code class="file docutils literal"><span class="pre">*.py</span></code> に対応する <code class="file docutils literal"><span class="pre">*.py[co]</span></code>) ファイルはアーカイブのトップレベルに (パス情報なしで) 追加されます。 <em>pathname</em> が <code class="file docutils literal"><span class="pre">.py</span></code> で終わらないファイル名の場合 <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></code></a> を送出します。ディレクトリ名の場合で、パッケージディレクトリでなければ、全ての <code class="file docutils literal"><span class="pre">*.py[co]</span></code> ファイルはトップレベルに追加されます。ディレクトリ名がパッケージディレクトリの場合、全ての <code class="file docutils literal"><span class="pre">*.py[co]</span></code> ファイルはパッケージ名の名前をもつファイルパスの下に追加され、サブディレクトリがパッケージディレクトリであればそれらは再帰的に追加されます。</p>
+<p>If <em>pathname</em> is a file, the filename must end with <code class="file docutils literal"><span class="pre">.py</span></code>, and
+just the (corresponding <code class="file docutils literal"><span class="pre">*.pyc</span></code>) file is added at the top level
+(no path information).  If <em>pathname</em> is a file that does not end with
+<code class="file docutils literal"><span class="pre">.py</span></code>, a <a class="reference internal" href="exceptions.html#RuntimeError" title="RuntimeError"><code class="xref py py-exc docutils literal"><span class="pre">RuntimeError</span></code></a> will be raised.  If it is a directory,
+and the directory is not a package directory, then all the files
+<code class="file docutils literal"><span class="pre">*.pyc</span></code> are added at the top level.  If the directory is a
+package directory, then all <code class="file docutils literal"><span class="pre">*.pyc</span></code> are added under the package
+name as a file path, and if any subdirectories are package directories,
+all of these are added recursively.</p>
 <p><em>basename</em> は内部が使用するためだけのものです。</p>
 <p><em>filterfunc</em> を与える場合、単一の文字列引数を取る関数を渡してください。これには(個々のフルパスを含む)それぞれのパスがアーカイブに加えられる前に渡されます。 <em>filterfunc</em> が偽を返せば、そのパスはアーカイブに追加されず、ディレクトリだった場合はその中身が無視されます。例として、私たちのテストファイルが全て <code class="docutils literal"><span class="pre">test</span></code> ディレクトリの中にあるか、 <code class="docutils literal"><span class="pre">test</span></code> 文字列で始まるとしましょう。 <em>filterfunc</em> を使ってそれらを除外出来ます:</p>
 <div class="highlight-python3"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">zf</span> <span class="o">=</span> <span class="n">PyZipFile</span><span class="p">(</span><span class="s1">&#39;myprog.zip&#39;</span><span class="p">)</span>
@@ -719,7 +727,7 @@ False の場合、<a class="reference internal" href="#module-zipfile" title="zi
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

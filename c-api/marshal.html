@@ -123,7 +123,8 @@ void <code class="descname">PyMarshal_WriteObjectToFile</code><span class="sig-p
 <dl class="function">
 <dt id="c.PyMarshal_WriteObjectToString">
 <a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyMarshal_WriteObjectToString</code><span class="sig-paren">(</span><a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a><em>&nbsp;*value</em>, int<em>&nbsp;version</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyMarshal_WriteObjectToString" title="この定義へのパーマリンク">¶</a></dt>
-<dd><em class="refcount">Return value: New reference.</em><p><em>value</em> の整列化表現が入った文字列オブジェクトを返します。<em>version</em> はファイルフォーマットを示します。</p>
+<dd><em class="refcount">Return value: New reference.</em><p>Return a bytes object containing the marshalled representation of <em>value</em>.
+<em>version</em> indicates the file format.</p>
 </dd></dl>
 
 <p>以下の関数を使うと、整列化された値を読み戻せます。</p>
@@ -158,8 +159,9 @@ int <code class="descname">PyMarshal_ReadShortFromFile</code><span class="sig-pa
 
 <dl class="function">
 <dt id="c.PyMarshal_ReadObjectFromString">
-<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyMarshal_ReadObjectFromString</code><span class="sig-paren">(</span>const char<em>&nbsp;*string</em>, Py_ssize_t<em>&nbsp;len</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyMarshal_ReadObjectFromString" title="この定義へのパーマリンク">¶</a></dt>
-<dd><em class="refcount">Return value: New reference.</em><p><em>string</em> が指す <em>len</em> バイトの文字列バッファ内のデータストリームから Python オブジェクトを返します。</p>
+<a class="reference internal" href="structures.html#c.PyObject" title="PyObject">PyObject</a>* <code class="descname">PyMarshal_ReadObjectFromString</code><span class="sig-paren">(</span>const char<em>&nbsp;*data</em>, Py_ssize_t<em>&nbsp;len</em><span class="sig-paren">)</span><a class="headerlink" href="#c.PyMarshal_ReadObjectFromString" title="この定義へのパーマリンク">¶</a></dt>
+<dd><em class="refcount">Return value: New reference.</em><p>Return a Python object from the data stream in a byte buffer
+containing <em>len</em> bytes pointed to by <em>data</em>.</p>
 <p>エラーの場合適切な例外 (<a class="reference internal" href="../library/exceptions.html#EOFError" title="EOFError"><code class="xref py py-exc docutils literal"><span class="pre">EOFError</span></code></a> か <a class="reference internal" href="../library/exceptions.html#TypeError" title="TypeError"><code class="xref py py-exc docutils literal"><span class="pre">TypeError</span></code></a>) を設定し <em>NULL</em> を返します。</p>
 </dd></dl>
 
@@ -240,7 +242,7 @@ int <code class="descname">PyMarshal_ReadShortFromFile</code><span class="sig-pa
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

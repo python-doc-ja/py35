@@ -665,7 +665,11 @@ string from the inheritance hierarchy.</p>
 <dl class="function">
 <dt id="inspect.getcomments">
 <code class="descclassname">inspect.</code><code class="descname">getcomments</code><span class="sig-paren">(</span><em>object</em><span class="sig-paren">)</span><a class="headerlink" href="#inspect.getcomments" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>オブジェクトがクラス、関数、メソッドのいずれかの場合は、オブジェクトのソースコードの直後にあるコメント行 (複数行) を、単一の文字列として返します。オブジェクトがモジュールの場合、ソースファイルの先頭にあるコメントを返します。</p>
+<dd><p>Return in a single string any lines of comments immediately preceding the
+object&#8217;s source code (for a class, function, or method), or at the top of the
+Python source file (if the object is a module).  If the object&#8217;s source code
+is unavailable, return <code class="docutils literal"><span class="pre">None</span></code>.  This could happen if the object has been
+defined in C or the interactive shell.</p>
 </dd></dl>
 
 <dl class="function">
@@ -1104,10 +1108,9 @@ better introspecting API for callables.</p>
 returned. <em>args</em> is a list of the argument names.  <em>varargs</em> and <em>keywords</em>
 are the names of the <code class="docutils literal"><span class="pre">*</span></code> and <code class="docutils literal"><span class="pre">**</span></code> arguments or <code class="docutils literal"><span class="pre">None</span></code>.  <em>locals</em> is the
 locals dictionary of the given frame.</p>
-<div class="deprecated">
-<p><span class="versionmodified">バージョン 3.5 で撤廃: </span>Use <a class="reference internal" href="#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal"><span class="pre">signature()</span></code></a> and
-<a class="reference internal" href="#inspect-signature-object"><span class="std std-ref">Signature Object</span></a>, which provide a
-better introspecting API for callables.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">This function was inadvertently marked as deprecated in Python 3.5.</p>
 </div>
 </dd></dl>
 
@@ -1141,10 +1144,9 @@ better introspecting API for callables.</p>
 <dt id="inspect.formatargvalues">
 <code class="descclassname">inspect.</code><code class="descname">formatargvalues</code><span class="sig-paren">(</span><em>args</em><span class="optional">[</span>, <em>varargs</em>, <em>varkw</em>, <em>locals</em>, <em>formatarg</em>, <em>formatvarargs</em>, <em>formatvarkw</em>, <em>formatvalue</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#inspect.formatargvalues" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p><a class="reference internal" href="#inspect.getargvalues" title="inspect.getargvalues"><code class="xref py py-func docutils literal"><span class="pre">getargvalues()</span></code></a> で取得した4つの値を読みやすく整形します。 format* 引数はオプションで、名前と値を文字列に変換する整形関数を指定することができます。</p>
-<div class="deprecated">
-<p><span class="versionmodified">バージョン 3.5 で撤廃: </span>Use <a class="reference internal" href="#inspect.signature" title="inspect.signature"><code class="xref py py-func docutils literal"><span class="pre">signature()</span></code></a> and
-<a class="reference internal" href="#inspect-signature-object"><span class="std std-ref">Signature Object</span></a>, which provide a
-better introspecting API for callables.</p>
+<div class="admonition note">
+<p class="first admonition-title">注釈</p>
+<p class="last">This function was inadvertently marked as deprecated in Python 3.5.</p>
 </div>
 </dd></dl>
 
@@ -1621,7 +1623,7 @@ appended a colon and the qualified name of the target object.</p>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

@@ -496,7 +496,9 @@ python -mtimeit -h <span class="c1"># for details</span>
 <dl class="envvar">
 <dt id="envvar-PYTHONDONTWRITEBYTECODE">
 <code class="descname">PYTHONDONTWRITEBYTECODE</code><a class="headerlink" href="#envvar-PYTHONDONTWRITEBYTECODE" title="この定義へのパーマリンク">¶</a></dt>
-<dd><p>この変数に空でない文字列を設定した場合、Python はソースモジュールのインポート時に <code class="docutils literal"><span class="pre">.pyc</span></code> や <code class="docutils literal"><span class="pre">.pyo</span></code> の作成を試みません。<a class="reference internal" href="#cmdoption-B"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a> オプションを指定するのと等価です。</p>
+<dd><p>If this is set to a non-empty string, Python won&#8217;t try to write <code class="docutils literal"><span class="pre">.pyc</span></code>
+files on the import of source modules.  This is equivalent to
+specifying the <a class="reference internal" href="#cmdoption-B"><code class="xref std std-option docutils literal"><span class="pre">-B</span></code></a> option.</p>
 </dd></dl>
 
 <dl class="envvar">
@@ -697,7 +699,7 @@ python -mtimeit -h <span class="c1"># for details</span>
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 16, 2017
+    最終更新日時: 3月 22, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
