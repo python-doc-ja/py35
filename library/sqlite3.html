@@ -812,6 +812,13 @@ exception will be raised if any operation is attempted with the cursor.</p>
 </dd></dl>
 
 <dl class="attribute">
+<dt id="sqlite3.Cursor.arraysize">
+<code class="descname">arraysize</code><a class="headerlink" href="#sqlite3.Cursor.arraysize" title="この定義へのパーマリンク">¶</a></dt>
+<dd><p>Read/write attribute that controls the number of rows returned by <a class="reference internal" href="#sqlite3.Cursor.fetchmany" title="sqlite3.Cursor.fetchmany"><code class="xref py py-meth docutils literal"><span class="pre">fetchmany()</span></code></a>.
+The default value is 1 which means a single row would be fetched per call.</p>
+</dd></dl>
+
+<dl class="attribute">
 <dt id="sqlite3.Cursor.description">
 <code class="descname">description</code><a class="headerlink" href="#sqlite3.Cursor.description" title="この定義へのパーマリンク">¶</a></dt>
 <dd><p>この読み込み専用の属性は、最後のクエリの結果のカラム名を提供します。 Python DB API との互換性を維持するために、各カラムに対して 7つのタプルを返しますが、タプルの後ろ6つの要素は全て <a class="reference internal" href="constants.html#None" title="None"><code class="xref py py-const docutils literal"><span class="pre">None</span></code></a> です。</p>
@@ -1383,7 +1390,7 @@ specified, etc.  It is a subclass of <a class="reference internal" href="#sqlite
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 22, 2017
+    最終更新日時: 5月 09, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。

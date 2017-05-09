@@ -872,6 +872,13 @@
 <dd><p id="index-81">呼び出して組み込み関数 <a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a> を実装します。
 オブジェクトの長さを 0 以上の整数で返さなければなりません。
 また、 <a class="reference internal" href="#object.__bool__" title="object.__bool__"><code class="xref py py-meth docutils literal"><span class="pre">__bool__()</span></code></a>  メソッドを定義しておらず、 <a class="reference internal" href="#object.__len__" title="object.__len__"><code class="xref py py-meth docutils literal"><span class="pre">__len__()</span></code></a> メソッドが 0 を返すようなオブジェクトは、ブール演算コンテキストでは偽とみなされます。</p>
+<div class="impl-detail compound">
+<p><strong>CPython 実装の詳細:</strong> In CPython, the length is required to be at most <a class="reference internal" href="../library/sys.html#sys.maxsize" title="sys.maxsize"><code class="xref py py-attr docutils literal"><span class="pre">sys.maxsize</span></code></a>.
+If the length is larger than <code class="xref py py-attr docutils literal"><span class="pre">sys.maxsize</span></code> some features (such as
+<a class="reference internal" href="../library/functions.html#len" title="len"><code class="xref py py-func docutils literal"><span class="pre">len()</span></code></a>) may raise <a class="reference internal" href="../library/exceptions.html#OverflowError" title="OverflowError"><code class="xref py py-exc docutils literal"><span class="pre">OverflowError</span></code></a>.  To prevent raising
+<code class="xref py py-exc docutils literal"><span class="pre">OverflowError</span></code> by truth value testing, an object must define a
+<a class="reference internal" href="#object.__bool__" title="object.__bool__"><code class="xref py py-meth docutils literal"><span class="pre">__bool__()</span></code></a> method.</p>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -1491,7 +1498,7 @@ CPython 3.7 では、 <code class="docutils literal"><span class="pre">__aiter__
     Python Software Foundation は非営利団体です。
     <a href="https://www.python.org/psf/donations/">寄付</a>
     <br />
-    最終更新日時: 3月 22, 2017
+    最終更新日時: 5月 09, 2017
     <a href="../bugs.html">バグを見つけたら</a>?
     <br />
     このドキュメントは <a href="http://sphinx.pocoo.org/">Sphinx</a> 1.4.9 を使って作成されました。
